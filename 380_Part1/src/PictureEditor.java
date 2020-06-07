@@ -304,7 +304,7 @@ public class PictureEditor extends javax.swing.JFrame {
         });
 
     }//GEN-LAST:event_cropImgActionPerformed
-
+//** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
 
         System.out.println("OpW" + pic.getWidth());
