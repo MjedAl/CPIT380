@@ -1,9 +1,3 @@
-//  this is great
-//majeed
-// i know right, this is great.
-
-// Testing
-
 import BookClasses.Picture;
 import BookClasses.Pixel;
 import BookClasses.SimplePicture;
@@ -261,18 +255,18 @@ public class PictureEditor extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    private static int R_Value=-1;
-    private static int G_Value=-1;
-    private static int B_Value=-1;
+    private static int R_Value = -1;
+    private static int G_Value = -1;
+    private static int B_Value = -1;
     private static String imgName;
     private static SimplePicture pic;
 
     // **************************************************************************************************************
+    // needs to be updated as the following:
+    // convert 255 to 100%.
+    // if less than 50 decrese value.
+    // more than 50 increase value.  
     private void updateColors() {
-        // convert 255 to 100%.
-        // if less than 50 decrese value.
-        // more than 50 increase value.
-
         Pixel[] pixelArray = pic.getPixels();
         for (Pixel pixelObj : pixelArray) {
 
