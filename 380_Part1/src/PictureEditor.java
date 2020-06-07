@@ -1,8 +1,11 @@
+
 import BookClasses.Picture;
 import BookClasses.Pixel;
 import BookClasses.SimplePicture;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +14,8 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
@@ -44,6 +49,7 @@ public class PictureEditor extends javax.swing.JFrame {
         chooseImg = new javax.swing.JButton();
         ImagePanel = new javax.swing.JPanel();
         imgLabel = new javax.swing.JLabel();
+        cropImg = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Editor"); // NOI18N
@@ -166,6 +172,14 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        cropImg.setText("Crop image");
+        cropImg.setToolTipText("");
+        cropImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cropImgActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,7 +193,9 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addComponent(chooseImg)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(107, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(cropImg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
         );
@@ -191,7 +207,9 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cropImg))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -252,6 +270,43 @@ public class PictureEditor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_chooseImgActionPerformed
 
+    int numOfClicks = 0;
+    int x1;
+    int x2;
+    int y1;
+    int y2;
+
+    private void cropImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cropImgActionPerformed
+        // TODO add your handling code here:
+        // image cropped button
+
+        JFrame parent = new JFrame();
+        JOptionPane.showMessageDialog(parent, "Please click on two points in the image");
+
+        imgLabel.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("Clicked!");
+                System.out.println(e.getX());
+                System.out.println(e.getY());
+                numOfClicks++;
+                if (numOfClicks == 1) {
+                    x1 = e.getX();
+                    y1 = e.getX();
+                } else if (numOfClicks == 2) {
+                    x2 = e.getX();
+                    y2 = e.getX();
+                    // call the crop method with both cordinates.
+                    CropImage(x1, y1, x2, y2);
+                }
+
+            }
+        });
+
+    }//GEN-LAST:event_cropImgActionPerformed
+
+    private void CropImage(int x1, int y1, int x2, int y2) {
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -330,6 +385,7 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JPanel ImagePanel;
     private javax.swing.JSlider blueSlider;
     private javax.swing.JButton chooseImg;
+    private javax.swing.JButton cropImg;
     private javax.swing.JSlider greenSlider;
     private javax.swing.JLabel imgLabel;
     private javax.swing.JLabel jLabel1;
