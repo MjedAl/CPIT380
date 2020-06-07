@@ -291,20 +291,59 @@ public class PictureEditor extends javax.swing.JFrame {
                 numOfClicks++;
                 if (numOfClicks == 1) {
                     x1 = e.getX();
-                    y1 = e.getX();
+                    y1 = e.getY();
                 } else if (numOfClicks == 2) {
                     x2 = e.getX();
-                    y2 = e.getX();
+                    y2 = e.getY();
                     // call the crop method with both cordinates.
                     CropImage(x1, y1, x2, y2);
+                    numOfClicks = 0;
+                    imgLabel.removeMouseListener(this);
                 }
-
             }
         });
 
     }//GEN-LAST:event_cropImgActionPerformed
 
     private void CropImage(int x1, int y1, int x2, int y2) {
+
+        System.out.println("OpW" + pic.getWidth());
+        System.out.println("OpH" + pic.getHeight());
+        System.out.println("LabelW " + imgLabel.getWidth());
+        System.out.println("LabelH " + imgLabel.getHeight());
+        System.out.println("OX1 " + x1);
+        System.out.println("OY1 " + y1);
+        System.out.println("OX2 " + x2);
+        System.out.println("OY2 " + y2);
+        // convert from max of label view to actual pic width and height
+        double W = Math.round(pic.getWidth()*1.00 / imgLabel.getWidth());
+        double H = Math.round(pic.getWidth()*1.00 / imgLabel.getWidth());
+
+        x1 = (int) (W * x1);
+        x2 = (int) (W * x2);
+        y1 = (int) (H * y1);
+        y2 = (int) (H * y2);
+
+//        System.out.println("X1 " + x1);
+//        System.out.println("Y1 " + y1);
+//        System.out.println("X2 " + x2);
+//        System.out.println("Y2 " + y2);
+
+        SimplePicture newPic = new SimplePicture(pic.getWidth(), pic.getHeight());
+
+        Pixel sourcePixel;
+        Pixel targetPixel;
+
+        for (int i = x1; i < x2; i++) {
+            for (int j = y1; j < y2; j++) {
+                sourcePixel = pic.getPixel(i, j);
+                targetPixel = newPic.getPixel(i, j);
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+
+        }
+        pic = newPic;
+        updateIMG();
 
     }
     /**
