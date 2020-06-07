@@ -304,20 +304,20 @@ public class PictureEditor extends javax.swing.JFrame {
         });
 
     }//GEN-LAST:event_cropImgActionPerformed
-//** NEEDS SOME EDIT**
+    //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
 
-        System.out.println("OpW" + pic.getWidth());
-        System.out.println("OpH" + pic.getHeight());
-        System.out.println("LabelW " + imgLabel.getWidth());
-        System.out.println("LabelH " + imgLabel.getHeight());
-        System.out.println("OX1 " + x1);
-        System.out.println("OY1 " + y1);
-        System.out.println("OX2 " + x2);
-        System.out.println("OY2 " + y2);
+//        System.out.println("OpW" + pic.getWidth());
+//        System.out.println("OpH" + pic.getHeight());
+//        System.out.println("LabelW " + imgLabel.getWidth());
+//        System.out.println("LabelH " + imgLabel.getHeight());
+//        System.out.println("OX1 " + x1);
+//        System.out.println("OY1 " + y1);
+//        System.out.println("OX2 " + x2);
+//        System.out.println("OY2 " + y2);
         // convert from max of label view to actual pic width and height
-        double W = Math.round(pic.getWidth()*1.00 / imgLabel.getWidth());
-        double H = Math.round(pic.getWidth()*1.00 / imgLabel.getWidth());
+        double W = (pic.getWidth()*1.00 / imgLabel.getWidth());
+        double H = (pic.getHeight()*1.00 / imgLabel.getHeight());
 
         x1 = (int) (W * x1);
         x2 = (int) (W * x2);
