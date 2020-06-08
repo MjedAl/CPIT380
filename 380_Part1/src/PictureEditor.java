@@ -1,7 +1,8 @@
 
-import BookClasses.Picture;
-import BookClasses.Pixel;
-import BookClasses.SimplePicture;
+import cpit380practice.Picture;
+import cpit380practice.Pixel;
+import cpit380practice.SimplePicture;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
