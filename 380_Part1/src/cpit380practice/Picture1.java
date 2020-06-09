@@ -15,6 +15,7 @@ public class Picture1 extends javax.swing.JFrame {
     BufferedImage myPic, copyMyPic;
     static ImageIcon icon;
 
+
     public Picture1() {
         initComponents();
     }
@@ -638,11 +639,11 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMirrorVActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        HomePage h = new HomePage();
-        h.setVisible(true);
-
-        this.setVisible(false);
-        this.dispose();
+HomePage h = new HomePage();
+            h.setVisible(true);  
+            
+             this.setVisible(false);
+   this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Red(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Red
@@ -689,19 +690,17 @@ public class Picture1 extends javax.swing.JFrame {
             RV = Integer.parseInt(text);
             //System.out.println(RV);
 
-        }
-        if (Green.isSelected()) {
+        } if (Green.isSelected()) {
             jTextField2.setEnabled(rootPaneCheckingEnabled);
             String text = jTextField2.getText();
             GV = Integer.parseInt(text);
             //System.out.println(GV);
 
-        }
-        if (Blue.isSelected()) {
+        } if (Blue.isSelected()) {
             jTextField3.setEnabled(rootPaneCheckingEnabled);
             String text = jTextField3.getText();
             BV = Integer.parseInt(text);
-            System.out.println(BV);
+             System.out.println(BV);
 
         }
 
@@ -740,7 +739,7 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+       
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -764,7 +763,7 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+       
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -776,7 +775,7 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
+       
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -788,7 +787,7 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-
+        
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -812,7 +811,7 @@ public class Picture1 extends javax.swing.JFrame {
         pictObj = new cpit380practice.Picture(fileName);
         pictObj = pictObj.scaleUp(size);
         icon = new ImageIcon(pictObj.getBufferedImage());
-        jLabel5.setIcon(icon);
+        jLabel5.setIcon(icon);      
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -826,7 +825,7 @@ public class Picture1 extends javax.swing.JFrame {
         pictObj = pictObj.scaleDown(size);
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
-
+      
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -838,7 +837,7 @@ public class Picture1 extends javax.swing.JFrame {
         pictObj = new cpit380practice.Picture(fileName);
         pictObj.Collage();
         icon = new ImageIcon(pictObj.getBufferedImage());
-        jLabel5.setIcon(icon);
+        jLabel5.setIcon(icon);     
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -850,11 +849,11 @@ public class Picture1 extends javax.swing.JFrame {
         pictObj = new cpit380practice.Picture(fileName);
         pictObj.mirrorDiagTopLeftBotRight();
         icon = new ImageIcon(pictObj.getBufferedImage());
-        jLabel5.setIcon(icon);
+        jLabel5.setIcon(icon);        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-
+      
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -866,10 +865,10 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (pictObj == null) {
-
-            JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
-            return;
+     if (pictObj == null) {
+         
+      JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
+       return;
         }
 
         String strSX = JOptionPane.showInputDialog(null, "Enter SX");
@@ -885,11 +884,11 @@ public class Picture1 extends javax.swing.JFrame {
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
         pictObj.explore();
-
+      
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-
+   
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -902,7 +901,7 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-
+      
         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
@@ -913,7 +912,7 @@ public class Picture1 extends javax.swing.JFrame {
         pictObj.chromakey(newBg);
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
-
+        
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -933,11 +932,13 @@ public class Picture1 extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
 
+            
+       
 
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        if (pictObj == null) {
+         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
         }
@@ -947,14 +948,14 @@ public class Picture1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (pictObj == null) {
-            JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
+       if (pictObj == null) {
+            JOptionPane.showMessageDialog(Picture1.this,"Please select an image.");
             return;
         }
         pictObj = new cpit380practice.Picture(fileName);
         int brightness = pictObj.brightness(pictObj);
         JOptionPane.showMessageDialog(null, " Brightness is: " + brightness);
-
+                              
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -962,18 +963,18 @@ public class Picture1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
         }
-        pictObj = new cpit380practice.Picture(fileName);
+   pictObj = new cpit380practice.Picture(fileName);
         pictObj.BoxFilter3x3();
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        if (pictObj == null) {
+         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
         }
-        // pictObj = new cpit380practice.Picture(fileName);
+       // pictObj = new cpit380practice.Picture(fileName);
         pictObj.LaplacianFilter();
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
@@ -994,14 +995,14 @@ public class Picture1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
         }
-        pictObj = new cpit380practice.Picture(fileName);
+pictObj = new cpit380practice.Picture(fileName);
         pictObj.GaussianFilter3x3();
         icon = new ImageIcon(pictObj.getBufferedImage());
         jLabel5.setIcon(icon);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        if (pictObj == null) {
+         if (pictObj == null) {
             JOptionPane.showMessageDialog(Picture1.this, "Please select an image.");
             return;
         }

@@ -169,7 +169,7 @@ public class Video1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MovieMaker movieMaker = new MovieMaker();
         String dir = "C:\\Users\\User\\Documents\\intro-prog-java\\movies\\rectangle";
-        movieMaker.moveMarksHead(dir);
+//        movieMaker.moveMarksHead(dir);
         
         
     
@@ -178,13 +178,13 @@ public class Video1 extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        MovieMaker movieMaker = new MovieMaker();
         String dir = "C:\\Users\\User\\Documents\\intro-prog-java\\movies\\rectangle";
-        movieMaker.makeRectMovieTopRightToBotLeft(dir);
+//        movieMaker.makeRectMovieTopRightToBotLeft(dir);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MovieMaker movieMaker = new MovieMaker();
         String dir = "C:\\Users\\User\\Documents\\intro-prog-java\\movies\\rectangle";
-        movieMaker.makeTickerTapeMovie(dir, "Hussam");
+//        movieMaker.makeTickerTapeMovie(dir, "Hussam");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -196,7 +196,8 @@ MovieMaker movieMaker = new MovieMaker();
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
   MovieMaker movieMaker = new MovieMaker();
         String dir = "C:\\intro-prog-java\\movies\\backgroun";
-        movieMaker.makeFadeOutMovie(dir);    }//GEN-LAST:event_jButton5ActionPerformed
+//        movieMaker.makeFadeOutMovie(dir);  
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
  MovieMaker movieMaker = new MovieMaker();

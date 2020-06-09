@@ -5,11 +5,12 @@
  */
 package cpit380practice;
 
-//import javax.swing.Icon;
-import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.*;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import java.awt.Graphics;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
     ImageIcon icon = null;
     String fileName = null;
     Graphics g = null;
+    
 
     /**
      * Creates new form CPIT380ProjectFrame
@@ -42,7 +44,6 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
         jTabbedPane1_Pictures = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel1_HoldingImages = new javax.swing.JPanel();
-        jScrollPane1_ImageDisplay = new javax.swing.JScrollPane();
         jLabel1_ImageDisplay = new javax.swing.JLabel();
         jPanel2_HoldingButtons = new javax.swing.JPanel();
         jButton1_RotateLeft = new javax.swing.JButton();
@@ -62,29 +63,33 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
         setTitle("CPIT380Project");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTabbedPane1_Pictures.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jTabbedPane1_Pictures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(388, 355));
 
-        jScrollPane1_ImageDisplay.setViewportView(jLabel1_ImageDisplay);
+        jPanel1_HoldingImages.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel1_ImageDisplay.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel1_HoldingImagesLayout = new javax.swing.GroupLayout(jPanel1_HoldingImages);
         jPanel1_HoldingImages.setLayout(jPanel1_HoldingImagesLayout);
         jPanel1_HoldingImagesLayout.setHorizontalGroup(
             jPanel1_HoldingImagesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1_HoldingImagesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1_ImageDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1_HoldingImagesLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jLabel1_ImageDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(280, 280, 280))
         );
         jPanel1_HoldingImagesLayout.setVerticalGroup(
             jPanel1_HoldingImagesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1_HoldingImagesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1_ImageDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1_ImageDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(408, Short.MAX_VALUE))
         );
+
+        jPanel2_HoldingButtons.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton1_RotateLeft.setText("Rotate Left");
         jButton1_RotateLeft.addActionListener(new java.awt.event.ActionListener() {
@@ -122,25 +127,10 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
         });
 
         jTextField1_RedInput.setEnabled(false);
-        jTextField1_RedInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1_RedInputActionPerformed(evt);
-            }
-        });
 
         jTextField2_GreenInput.setEnabled(false);
-        jTextField2_GreenInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2_GreenInputActionPerformed(evt);
-            }
-        });
 
         jTextField3_BlueInput.setEnabled(false);
-        jTextField3_BlueInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3_BlueInputActionPerformed(evt);
-            }
-        });
 
         jButton1_ApplyColors.setText("Apply");
         jButton1_ApplyColors.addActionListener(new java.awt.event.ActionListener() {
@@ -175,17 +165,8 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
         jPanel2_HoldingButtonsLayout.setHorizontalGroup(
             jPanel2_HoldingButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jButton1_RotateLeft)
-                .addGap(18, 18, 18)
-                .addComponent(rotateRight)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2_HoldingButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
-                        .addComponent(jButton1_Histogram, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
                         .addGroup(jPanel2_HoldingButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
@@ -212,6 +193,14 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton1_ApplyColors)
                                 .addGap(33, 33, 33))))))
+            .addGroup(jPanel2_HoldingButtonsLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2_HoldingButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1_Histogram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1_RotateLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(rotateRight)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel2_HoldingButtonsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jCheckBox1_Red, jCheckBox2_Green, jCheckBox3_Blue});
@@ -243,7 +232,7 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2_HoldingButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_RotateLeft)
                     .addComponent(rotateRight))
-                .addGap(88, 88, 88)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1_Histogram)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -258,18 +247,16 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jPanel2_HoldingButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1_HoldingImages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1_HoldingImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2_HoldingButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel1_HoldingImages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 32, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1_HoldingImages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2_HoldingButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -288,214 +275,11 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1_Pictures, javax.swing.GroupLayout.DEFAULT_SIZE, 945, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1_Pictures, javax.swing.GroupLayout.DEFAULT_SIZE, 942, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1_HistogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_HistogramActionPerformed
-        // TODO add your handling code here:
-        //inputImage.myHistogram(inputImage);
-        inputImage.grayscale();
-        int [] histArray = new int[256];
-        
-        Pixel sourcepixel;
-        int val;
-        
-        for (int Sx = 0 ; Sx < inputImage.getWidth() ; Sx++){
-            for (int Sy = 0 ; Sy < inputImage.getHeight() ; Sy++){
-                sourcepixel = inputImage.getPixel(Sx, Sy);
-                val = sourcepixel.getRed();
-                histArray[val] = histArray[val] + 1;
-            }
-        }
-        // Display array values of Histogram
-         //g = jLabel1_plotHistogram.getGraphics();
-        g.setColor(Color.yellow);
-        
-        for (int j = 0 ; j < histArray.length ; j++){
-            System.out.println(histArray[j]);
-             
-            //g.fillRect(j , histArray[j], 50, 190);
-        
-        }
-        // Plot array values of Histogram
-        
-       
-       
-
-    }//GEN-LAST:event_jButton1_HistogramActionPerformed
-
-    private void jButton1_ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ResetActionPerformed
-        // TODO add your handling code here:
-        try {
-            //inputImage.copy(resetImage, 0, 0, resetImage.getWidth()-1, resetImage.getHeight()-1, 0, 0);
-            inputImage = new Picture(fileName);
-            icon = new ImageIcon(inputImage.getImage());
-            jLabel1_ImageDisplay.setIcon(icon);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(this, "Please select the image first", "Picture Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_jButton1_ResetActionPerformed
-
-    private void rotateRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotateRightActionPerformed
-        // TODO add your handling code here:
-        try {
-            inputImage = inputImage.rotateRight();
-            icon = new ImageIcon (inputImage.getImage());
-            jLabel1_ImageDisplay.setIcon(icon);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(this, "Please select the image first", "Picture Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_rotateRightActionPerformed
-
-    private void jButton1_ApplyColorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ApplyColorsActionPerformed
-        // TODO add your handling code here:
-        //inputImage = new Picture(fileName);
-        double redFactor = -1;
-        double greenFactor = -1;
-        double blueFactor = -1;
-
-        if (inputImage != null){
-
-            if((jCheckBox1_Red.isSelected()==false)&&(jCheckBox2_Green.isSelected()==false)&&(jCheckBox3_Blue.isSelected()==false)){
-                JOptionPane.showMessageDialog(this, "Please Please select some color component.");
-                return;
-            }
-            ///// red component checking
-            if (jCheckBox1_Red.isSelected() == true) {
-                if (jTextField1_RedInput.getText().isEmpty() == false) {
-                    try{
-                        redFactor = Double.parseDouble(this.jTextField1_RedInput.getText());
-                    }catch(NumberFormatException nfe){
-
-                        JOptionPane.showMessageDialog(this, nfe , "Picture Error Red number", JOptionPane.ERROR_MESSAGE);
-                    }
-
-                } else {
-                    JOptionPane.showMessageDialog(this, "Please Enter some Red Factor value.");
-                    return;
-
-                }
-            }
-
-            ///// Green component checking
-            if ( jCheckBox2_Green.isSelected() == true  ) {
-                if (jTextField2_GreenInput.getText().isEmpty() == false) {
-                    try{
-                        greenFactor = Double.parseDouble(this.jTextField2_GreenInput.getText());
-                    }catch(NumberFormatException nfe){
-                        JOptionPane.showMessageDialog(this, nfe , "Picture Error Green Number", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Please Enter some Green Factor value.");
-                    return;
-                }
-            }
-
-            ///// Blue component checking
-            if (jCheckBox3_Blue.isSelected() == true) {
-                if (jTextField3_BlueInput.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(this, "Please Enter some Blue Factor value.");
-                    return;
-                } else {
-                    try{
-                        blueFactor = Double.parseDouble(this.jTextField3_BlueInput.getText());
-                    }catch(NumberFormatException nfe){
-                        JOptionPane.showMessageDialog(this, nfe , "Picture Error Green Number", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-
-            if ((redFactor != -1) || (greenFactor != -1) || (blueFactor != -1)) {
-
-                inputImage = inputImage.my_changeAllColors(redFactor, greenFactor, blueFactor);
-                icon = new ImageIcon(inputImage.getImage());
-                jLabel1_ImageDisplay.setIcon(icon);
-
-            }
-
-        }else{
-            JOptionPane.showMessageDialog(this, "Please select the image... OK", "Picture Error", JOptionPane.ERROR_MESSAGE);
-            return;
-
-        }
-
-        ////////////
-        /*
-        if (inputImage == null){
-            JOptionPane.showMessageDialog(this, "Please select the image", "Picture Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        ///// red component
-        if ( (jCheckBox1_Red.isSelected()) && (jTextField1_RedInput.getText().isEmpty()) ) {
-            JOptionPane.showMessageDialog(this, "Please Enter some red Factor value.");
-            return;
-        }
-        redFactor = Double.parseDouble(this.jTextField1_RedInput.getText());
-        if (redFactor < 0) {
-            JOptionPane.showMessageDialog(this, "Please Enter a Red Factor greater or equal to zero e.g. 1.45 or 0.30 etc..");
-            return;
-        }
-
-        ///// green component
-        if ( (jCheckBox2_Green.isSelected()) && (jTextField2_GreenInput.getText().isEmpty()) ) {
-            JOptionPane.showMessageDialog(this, "Please Enter some Green Factor value.");
-            return;
-        }
-        greenFactor = Double.parseDouble(this.jTextField2_GreenInput.getText());
-        if (greenFactor < 0) {
-            JOptionPane.showMessageDialog(this, "Please Enter a Green Factor greater or equal to zero e.g. 1.45 or 0.30 etc.");
-            return;
-        }
-
-        //// blue component
-        if ( (jCheckBox3_Blue.isSelected()) && (jTextField3_BlueInput.getText().isEmpty()) ) {
-            JOptionPane.showMessageDialog(this, "Please Enter some Blue Factor value.");
-            return;
-        }
-        blueFactor = Double.parseDouble(this.jTextField3_BlueInput.getText());
-        if (greenFactor < 0) {
-            JOptionPane.showMessageDialog(this, "Please Enter a Blue Factor greater or equal to zero e.g. 1.45 or 0.30 etc.");
-            return;
-        }
-        */
-        /////////////
-
-    }//GEN-LAST:event_jButton1_ApplyColorsActionPerformed
-
-    private void jCheckBox3_BlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3_BlueActionPerformed
-        // TODO add your handling code here:
-        if (jCheckBox3_Blue.isSelected()){
-            jTextField3_BlueInput.setEnabled(true);
-        }
-        else{
-            jTextField3_BlueInput.setEnabled(false);
-        }
-    }//GEN-LAST:event_jCheckBox3_BlueActionPerformed
-
-    private void jCheckBox2_GreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2_GreenActionPerformed
-        // TODO add your handling code here:
-        if (jCheckBox2_Green.isSelected()){
-            jTextField2_GreenInput.setEnabled(true);
-        }
-        else{
-            jTextField2_GreenInput.setEnabled(false);
-        }
-    }//GEN-LAST:event_jCheckBox2_GreenActionPerformed
-
-    private void jCheckBox1_RedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1_RedActionPerformed
-        // TODO add your handling code here:
-        if (jCheckBox1_Red.isSelected()){
-            jTextField1_RedInput.setEnabled(true);//setEnable(rootPaneCheckingEnabled)
-        }
-        else{
-            jTextField1_RedInput.setEnabled(false);
-        }
-    }//GEN-LAST:event_jCheckBox1_RedActionPerformed
 
     private void jButton1_BrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_BrowseActionPerformed
         // TODO add your handling code here:
@@ -503,7 +287,9 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
             fileName = FileChooser.pickAFile();
             inputImage = new Picture(fileName);
             resetImage = new Picture(fileName);
-            icon = new ImageIcon(fileName);
+
+            icon = new ImageIcon(inputImage.getImage());
+            //jLabel1_ImageDisplay.setPreferredSize(null);
             jLabel1_ImageDisplay.setIcon(icon);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Please select the image", "Error", JOptionPane.ERROR_MESSAGE);
@@ -521,17 +307,153 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1_RotateLeftActionPerformed
 
-    private void jTextField1_RedInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_RedInputActionPerformed
+    private void jButton1_ApplyColorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ApplyColorsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1_RedInputActionPerformed
+        //inputImage = new Picture(fileName);
+        double redFactor = -1;
+        double greenFactor = -1;
+        double blueFactor = -1;
 
-    private void jTextField2_GreenInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2_GreenInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2_GreenInputActionPerformed
+        if (inputImage != null) {
 
-    private void jTextField3_BlueInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3_BlueInputActionPerformed
+            if ((jCheckBox1_Red.isSelected() == false) && (jCheckBox2_Green.isSelected() == false) && (jCheckBox3_Blue.isSelected() == false)) {
+                JOptionPane.showMessageDialog(this, "Please Please select some color component.");
+                return;
+            }
+            ///// red component checking
+            if (jCheckBox1_Red.isSelected() == true) {
+                if (jTextField1_RedInput.getText().isEmpty() == false) {
+                    try {
+                        redFactor = Double.parseDouble(this.jTextField1_RedInput.getText());
+                    } catch (NumberFormatException nfe) {
+
+                        JOptionPane.showMessageDialog(this, nfe, "Picture Error Red number", JOptionPane.ERROR_MESSAGE);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please Enter some Red Factor value.");
+                    return;
+
+                }
+            }
+
+            ///// Green component checking
+            if (jCheckBox2_Green.isSelected() == true) {
+                if (jTextField2_GreenInput.getText().isEmpty() == false) {
+                    try {
+                        greenFactor = Double.parseDouble(this.jTextField2_GreenInput.getText());
+                    } catch (NumberFormatException nfe) {
+                        JOptionPane.showMessageDialog(this, nfe, "Picture Error Green Number", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please Enter some Green Factor value.");
+                    return;
+                }
+            }
+
+            ///// Blue component checking
+            if (jCheckBox3_Blue.isSelected() == true) {
+                if (jTextField3_BlueInput.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Please Enter some Blue Factor value.");
+                    return;
+                } else {
+                    try {
+                        blueFactor = Double.parseDouble(this.jTextField3_BlueInput.getText());
+                    } catch (NumberFormatException nfe) {
+                        JOptionPane.showMessageDialog(this, nfe, "Picture Error Green Number", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+
+            if ((redFactor != -1) || (greenFactor != -1) || (blueFactor != -1)) {
+
+                inputImage = inputImage.my_changeAllColors(redFactor, greenFactor, blueFactor);
+                icon = new ImageIcon(inputImage.getImage());
+                jLabel1_ImageDisplay.setIcon(icon);
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select the image... OK", "Picture Error", JOptionPane.ERROR_MESSAGE);
+            return;
+
+        }
+
+
+    }//GEN-LAST:event_jButton1_ApplyColorsActionPerformed
+
+    private void jCheckBox1_RedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1_RedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3_BlueInputActionPerformed
+        if (jCheckBox1_Red.isSelected()) {
+            jTextField1_RedInput.setEnabled(true);//setEnable(rootPaneCheckingEnabled)
+        } else {
+            jTextField1_RedInput.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox1_RedActionPerformed
+
+    private void jCheckBox2_GreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2_GreenActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBox2_Green.isSelected()) {
+            jTextField2_GreenInput.setEnabled(true);
+        } else {
+            jTextField2_GreenInput.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox2_GreenActionPerformed
+
+    private void jCheckBox3_BlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3_BlueActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBox3_Blue.isSelected()) {
+            jTextField3_BlueInput.setEnabled(true);
+        } else {
+            jTextField3_BlueInput.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox3_BlueActionPerformed
+
+    private void rotateRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotateRightActionPerformed
+        // TODO add your handling code here:
+        try {
+            inputImage = inputImage.rotateRight();
+            icon = new ImageIcon(inputImage.getImage());
+            jLabel1_ImageDisplay.setIcon(icon);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select the image first", "Picture Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_rotateRightActionPerformed
+
+    private void jButton1_ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ResetActionPerformed
+        // TODO add your handling code here:
+        try {
+            //inputImage.copy(resetImage, 0, 0, resetImage.getWidth()-1, resetImage.getHeight()-1, 0, 0);
+            inputImage = new Picture(fileName);
+            icon = new ImageIcon(inputImage.getImage());
+            jLabel1_ImageDisplay.setIcon(icon);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select the image first", "Picture Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jButton1_ResetActionPerformed
+
+    private void jButton1_HistogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_HistogramActionPerformed
+        // TODO add your handling code here:
+        try {
+
+            int[] hArray = new int[256];
+            hArray = inputImage.myHistogram(); // histogram compute method
+
+            icon = new ImageIcon(inputImage.getImage());
+            jLabel1_ImageDisplay.setIcon(icon);
+
+            for (int i = 0; i < hArray.length; i++) {
+                System.out.println(hArray[i]);
+            }
+
+            // below is histogram plot code.
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please select the image first", "Picture Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButton1_HistogramActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,6 +488,7 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
                 new CPIT380ProjectFrame().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -581,7 +504,6 @@ public class CPIT380ProjectFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel1_HoldingImages;
     private javax.swing.JPanel jPanel2_HoldingButtons;
-    private javax.swing.JScrollPane jScrollPane1_ImageDisplay;
     private javax.swing.JTabbedPane jTabbedPane1_Pictures;
     private javax.swing.JTextField jTextField1_RedInput;
     private javax.swing.JTextField jTextField2_GreenInput;
