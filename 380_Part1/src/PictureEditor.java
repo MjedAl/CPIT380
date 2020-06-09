@@ -373,7 +373,7 @@ public class PictureEditor extends javax.swing.JFrame {
             JFrame parent = new JFrame();
             JOptionPane.showMessageDialog(parent, "Please click on two points in the image");
 
-            targetLab.addMouseListener(new MouseAdapter() {
+            imgLabel.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
                     System.out.println("Clicked!");
                     System.out.println(e.getX());
@@ -388,7 +388,7 @@ public class PictureEditor extends javax.swing.JFrame {
                         // call the crop method with both cordinates.
                         CropImage(x1, y1, x2, y2);
                         numOfClicks = 0;
-                        targetLab.removeMouseListener(this);
+                        imgLabel.removeMouseListener(this);
                     }
                 }
             });
