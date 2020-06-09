@@ -53,7 +53,7 @@ public class PictureEditor extends javax.swing.JFrame {
         imgLabel = new javax.swing.JLabel();
         cropImg = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        clearImage = new javax.swing.JButton();
         Rotateleft = new javax.swing.JButton();
         RotateRight = new javax.swing.JButton();
         Rotate180 = new javax.swing.JButton();
@@ -207,10 +207,10 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Clear");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        clearImage.setText("Clear");
+        clearImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                clearImageActionPerformed(evt);
             }
         });
 
@@ -248,7 +248,7 @@ public class PictureEditor extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cropImg)
-                            .addComponent(jButton2))
+                            .addComponent(clearImage))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -285,7 +285,7 @@ public class PictureEditor extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cropImg)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2))
+                                .addComponent(clearImage))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Rotateleft)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -368,8 +368,7 @@ public class PictureEditor extends javax.swing.JFrame {
         // TODO add your handling code here:
         // image cropped button
         if (pic == null) {
-            JFrame parent = new JFrame();
-            JOptionPane.showMessageDialog(parent, "Please choose an image first!");
+            JOptionPane.showMessageDialog(null, "Select an image please!", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             JFrame parent = new JFrame();
             JOptionPane.showMessageDialog(parent, "Please click on two points in the image");
@@ -419,10 +418,10 @@ public class PictureEditor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ConvertToGrayScale
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void clearImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearImageActionPerformed
         pic = new Picture(imgName);
         updateIMG();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_clearImageActionPerformed
 
     private void RotateleftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotateleftActionPerformed
         if (pic != null) {
@@ -572,11 +571,11 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton Rotateleft;
     private javax.swing.JSlider blueSlider;
     private javax.swing.JButton chooseImg;
+    private javax.swing.JButton clearImage;
     private javax.swing.JButton cropImg;
     private javax.swing.JSlider greenSlider;
     private javax.swing.JLabel imgLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
