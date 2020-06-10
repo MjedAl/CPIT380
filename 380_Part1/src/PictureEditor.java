@@ -469,20 +469,22 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void BlendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlendActionPerformed
         if (pic != null) {
-            JFileChooser jFileChooser = new JFileChooser("C:\\Users\\alish\\Pictures\\Camera Roll");
+            JFileChooser jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             jFileChooser.showOpenDialog(jFileChooser);
-            Picture picture = new Picture(jFileChooser.getSelectedFile().getAbsolutePath());
-            if ((picture.getWidth() * picture.getHeight()) == (picture.getWidth() * picture.getHeight())) {
-                Pixel[] p1 = pic.getPixels();
-                Pixel[] p2 = picture.getPixels();
+            Picture picture_obj = new Picture(jFileChooser.getSelectedFile().getAbsolutePath());
+            if ((picture_obj.getWidth() * picture_obj.getHeight()) == (pic.getWidth() * pic.getHeight())) {
+                Pixel[] pic_1 = pic.getPixels();
+                Pixel[] pic_2 = picture_obj.getPixels();
                 int num_Colors = 3;
-                for (int i = 0; i < p1.length; i++) {
-                    int valueP1 = ((p1[i].getRed() + p1[i].getGreen() + p1[i].getBlue()) / num_Colors);
-                    int valueP2 = ((p2[i].getRed() + p2[i].getGreen() + p2[i].getBlue()) / num_Colors);
-
+                int i = 0;
+                while (i < pic_1.length) {
+                    //----Here we calc the Colors----
+                    int valueP1 = ((pic_1[i].getRed() + pic_1[i].getGreen() + pic_1[i].getBlue()) / num_Colors);
+                    int valueP2 = ((pic_2[i].getRed() + pic_2[i].getGreen() + pic_2[i].getBlue()) / num_Colors);
+                    //----Here we calc avg for 2 pic----
                     int avg_Colors = (int) (valueP1 + valueP2) / 2;
-
-                    p1[i].setColor(new Color(avg_Colors));
+                    pic_1[i].setColor(new Color(avg_Colors));
+                     i++;
                 }
                 updateIMG();
             } else {
