@@ -64,6 +64,7 @@ public class PictureEditor extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         redSlider1 = new javax.swing.JSlider();
+        HorizontalReflection = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Editor"); // NOI18N
@@ -300,6 +301,13 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        HorizontalReflection.setText("Horizontal Reflection");
+        HorizontalReflection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HorizontalReflectionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -310,16 +318,18 @@ public class PictureEditor extends javax.swing.JFrame {
                     .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cropImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cropImg, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(VerticalReflection, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(VerticalReflection, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                    .addComponent(HorizontalReflection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Rotateleft, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +365,10 @@ public class PictureEditor extends javax.swing.JFrame {
                             .addComponent(cropImg))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(VerticalReflection)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(VerticalReflection)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(HorizontalReflection))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Rotateleft)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -552,16 +565,16 @@ public class PictureEditor extends javax.swing.JFrame {
             if (pic == null) {
                 JOptionPane.showMessageDialog(null, "Select an image", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int sy = 0;
-                int ty = pic.getHeight() - 1;
-                while ( ty > sy) {
+                int source_y = 0;
+                int target_y = pic.getHeight() - 1;
+                while ( target_y > source_y) {
                     for (int x = 0; x < pic.getWidth(); x++) {
-                        Pixel sPixel = pic.getPixel(x, sy);
-                        Pixel tPixel = pic.getPixel(x, ty);
-                        tPixel.setColor(sPixel.getColor());
+                        Pixel source_Pixel = pic.getPixel(x, source_y);
+                        Pixel target_Pixel = pic.getPixel(x, target_y);
+                        target_Pixel.setColor(source_Pixel.getColor());
                     }
-                    ty--;
-                    sy++;
+                    target_y--;
+                    source_y++;
                 }
                 updateIMG();
             }
@@ -578,6 +591,25 @@ public class PictureEditor extends javax.swing.JFrame {
     private void redSlider1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redSlider1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_redSlider1KeyReleased
+
+    private void HorizontalReflectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorizontalReflectionActionPerformed
+         if (pic == null) {
+             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+         } else {
+             for (int x = 0; x < pic.getHeight(); x++) {
+                 int target_x = pic.getWidth() - 1;
+                 int source_x = 0;
+                 while (target_x > source_x) {
+                     Pixel source_Pixel = pic.getPixel(source_x, x);
+                     Pixel target_Pixel = pic.getPixel(target_x, x);
+                     target_Pixel.setColor(source_Pixel.getColor());
+                     target_x--;
+                     source_x++;
+                 }
+             }
+             updateIMG();
+         }
+    }//GEN-LAST:event_HorizontalReflectionActionPerformed
 
     //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -695,6 +727,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Blend;
+    private javax.swing.JButton HorizontalReflection;
     private javax.swing.JPanel ImagePanel;
     private javax.swing.JButton Rotate180;
     private javax.swing.JButton RotateRight;
