@@ -60,6 +60,10 @@ public class PictureEditor extends javax.swing.JFrame {
         RotateRight = new javax.swing.JButton();
         Rotate180 = new javax.swing.JButton();
         Blend = new javax.swing.JButton();
+        VerticalReflection = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Editor"); // NOI18N
@@ -245,6 +249,21 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        VerticalReflection.setText("Vertical Reflection");
+        VerticalReflection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerticalReflectionActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -261,30 +280,34 @@ public class PictureEditor extends javax.swing.JFrame {
                             .addComponent(clearImage))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Rotateleft, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(Rotateleft, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(16, 16, 16)
+                                                .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(751, 751, 751)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(RotateRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Rotate180, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(88, 88, 88))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(751, 751, 751)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(RotateRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Rotate180, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(88, 88, 88))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(chooseImg))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(98, 98, 98)
+                                        .addComponent(chooseImg))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(83, 83, 83)
+                                        .addComponent(jButton1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(VerticalReflection)
+                                .addGap(422, 422, 422))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,8 +334,11 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addComponent(Blend)
                         .addGap(47, 47, 47)
                         .addComponent(jButton1))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(VerticalReflection)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -472,7 +498,7 @@ public class PictureEditor extends javax.swing.JFrame {
             JFileChooser jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             jFileChooser.showOpenDialog(jFileChooser);
             Picture picture_obj = new Picture(jFileChooser.getSelectedFile().getAbsolutePath());
-            if ((picture_obj.getWidth() * picture_obj.getHeight()) == (pic.getWidth() * pic.getHeight())) {
+            if ((pic.getWidth() * pic.getHeight()) == (picture_obj.getWidth() * picture_obj.getHeight())) {
                 Pixel[] pic_1 = pic.getPixels();
                 Pixel[] pic_2 = picture_obj.getPixels();
                 int num_Colors = 3;
@@ -495,6 +521,25 @@ public class PictureEditor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Select an image !", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BlendActionPerformed
+
+    private void VerticalReflectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerticalReflectionActionPerformed
+            if (pic == null) {
+                JOptionPane.showMessageDialog(null, "Select an image", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int sy = 0;
+                int ty = pic.getHeight() - 1;
+                while ( ty > sy) {
+                    for (int x = 0; x < pic.getWidth(); x++) {
+                        Pixel sPixel = pic.getPixel(x, sy);
+                        Pixel tPixel = pic.getPixel(x, ty);
+                        tPixel.setColor(sPixel.getColor());
+                    }
+                    ty--;
+                    sy++;
+                }
+                updateIMG();
+            }
+    }//GEN-LAST:event_VerticalReflectionActionPerformed
 
     //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -616,6 +661,7 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton Rotate180;
     private javax.swing.JButton RotateRight;
     private javax.swing.JButton Rotateleft;
+    private javax.swing.JButton VerticalReflection;
     private javax.swing.JSlider blueSlider;
     private javax.swing.JButton chooseImg;
     private javax.swing.JButton clearImage;
@@ -626,6 +672,9 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider redSlider;
     private javax.swing.JLabel targetLab;
