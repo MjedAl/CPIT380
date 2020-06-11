@@ -979,7 +979,30 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_DiaginalRef_d2ActionPerformed
 
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
-        // TODO add your handling code here:
+              if (pic == null) {
+                  JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+              } else {
+                  Pixel[] pixelArray = pic.getPixels();
+                  
+                  int Contrast;
+                  double max = 0;
+                  double min = 100000000;
+                  
+                  for(int i = 0;i<pixelArray.length;i++) {
+                      
+                      Contrast = (int) ((pixelArray[i].getRed() + pixelArray[i].getGreen() + pixelArray[i].getBlue()) / 3);
+                   //---if Contrast Greater than max we will save the value in max-----
+                      if (Contrast > max) {
+                          max = Contrast;
+                      }
+                   //---if Contrast less than min we will save the value in min-----
+                      if (Contrast < min) {
+                          min = Contrast;
+                      }
+                  }  
+                  double contrast = ((max - min) / (max + min));
+                  JOptionPane.showMessageDialog(null, "Number of Contrast = " + contrast); 
+              }
     }//GEN-LAST:event_computeContrastActionPerformed
 
     private void GaussianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaussianFilterActionPerformed
