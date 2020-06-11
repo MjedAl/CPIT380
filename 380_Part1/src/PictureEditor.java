@@ -56,8 +56,10 @@ public class PictureEditor extends javax.swing.JFrame {
         ReflectionPanel = new javax.swing.JPanel();
         VerticalReflection = new javax.swing.JButton();
         HorizontalReflection = new javax.swing.JButton();
-        DiaginalRef_d1 = new javax.swing.JButton();
-        DiaginalRef_d2 = new javax.swing.JButton();
+        DiaginalRef_d1_T2B = new javax.swing.JButton();
+        DiaginalRef_d2_T2B = new javax.swing.JButton();
+        DiaginalRef_d1_B2T = new javax.swing.JButton();
+        DiaginalRef_d2_B2T = new javax.swing.JButton();
         ComputingMenu = new javax.swing.JButton();
         FiltersMenu = new javax.swing.JButton();
         CopmutingPanel = new javax.swing.JPanel();
@@ -202,19 +204,36 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        DiaginalRef_d1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DiaginalRef_d1.setText("Diagonal Reflection D1");
-        DiaginalRef_d1.addActionListener(new java.awt.event.ActionListener() {
+        DiaginalRef_d1_T2B.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DiaginalRef_d1_T2B.setText("Diagonal Reflection D1 (Top to bottom)");
+        DiaginalRef_d1_T2B.setActionCommand("Diagonal Reflection D1 (Top to bottom)");
+        DiaginalRef_d1_T2B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DiaginalRef_d1ActionPerformed(evt);
+                DiaginalRef_d1_T2BActionPerformed(evt);
             }
         });
 
-        DiaginalRef_d2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DiaginalRef_d2.setText("Diagonal Reflection D2");
-        DiaginalRef_d2.addActionListener(new java.awt.event.ActionListener() {
+        DiaginalRef_d2_T2B.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DiaginalRef_d2_T2B.setText("Diagonal Reflection D2 (Top to bottom)");
+        DiaginalRef_d2_T2B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DiaginalRef_d2ActionPerformed(evt);
+                DiaginalRef_d2_T2BActionPerformed(evt);
+            }
+        });
+
+        DiaginalRef_d1_B2T.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DiaginalRef_d1_B2T.setText("Diagonal Reflection D1 (Bottom to top)");
+        DiaginalRef_d1_B2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiaginalRef_d1_B2TActionPerformed(evt);
+            }
+        });
+
+        DiaginalRef_d2_B2T.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DiaginalRef_d2_B2T.setText("Diagonal Reflection D2 (Bottom to top)");
+        DiaginalRef_d2_B2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiaginalRef_d2_B2TActionPerformed(evt);
             }
         });
 
@@ -227,8 +246,10 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addGroup(ReflectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(HorizontalReflection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(VerticalReflection, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DiaginalRef_d1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DiaginalRef_d2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DiaginalRef_d1_T2B, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DiaginalRef_d2_T2B, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DiaginalRef_d1_B2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DiaginalRef_d2_B2T, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ReflectionPanelLayout.setVerticalGroup(
@@ -239,9 +260,13 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HorizontalReflection)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DiaginalRef_d1)
+                .addComponent(DiaginalRef_d1_T2B)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DiaginalRef_d2)
+                .addComponent(DiaginalRef_d1_B2T)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DiaginalRef_d2_T2B)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DiaginalRef_d2_B2T)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -634,8 +659,8 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -996,13 +1021,13 @@ public class PictureEditor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_boxFilterActionPerformed
 
-    private void DiaginalRef_d1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1ActionPerformed
+    private void DiaginalRef_d1_T2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_T2BActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DiaginalRef_d1ActionPerformed
+    }//GEN-LAST:event_DiaginalRef_d1_T2BActionPerformed
 
-    private void DiaginalRef_d2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d2ActionPerformed
+    private void DiaginalRef_d2_T2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d2_T2BActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DiaginalRef_d2ActionPerformed
+    }//GEN-LAST:event_DiaginalRef_d2_T2BActionPerformed
 
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
               if (pic == null) {
@@ -1054,6 +1079,14 @@ public class PictureEditor extends javax.swing.JFrame {
     private void weightedFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightedFilterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_weightedFilterActionPerformed
+
+    private void DiaginalRef_d1_B2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_B2TActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiaginalRef_d1_B2TActionPerformed
+
+    private void DiaginalRef_d2_B2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d2_B2TActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiaginalRef_d2_B2TActionPerformed
 
     //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -1160,8 +1193,10 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton Blend;
     private javax.swing.JButton ComputingMenu;
     private javax.swing.JPanel CopmutingPanel;
-    private javax.swing.JButton DiaginalRef_d1;
-    private javax.swing.JButton DiaginalRef_d2;
+    private javax.swing.JButton DiaginalRef_d1_B2T;
+    private javax.swing.JButton DiaginalRef_d1_T2B;
+    private javax.swing.JButton DiaginalRef_d2_B2T;
+    private javax.swing.JButton DiaginalRef_d2_T2B;
     private javax.swing.JButton FiltersMenu;
     private javax.swing.JPanel FiltersPanel;
     private javax.swing.JButton GaussianFilter;

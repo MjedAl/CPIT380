@@ -304,8 +304,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="HorizontalReflection" max="32767" attributes="0"/>
                           <Component id="VerticalReflection" alignment="1" min="-2" pref="656" max="-2" attributes="0"/>
-                          <Component id="DiaginalRef_d1" max="32767" attributes="0"/>
-                          <Component id="DiaginalRef_d2" max="32767" attributes="0"/>
+                          <Component id="DiaginalRef_d1_T2B" max="32767" attributes="0"/>
+                          <Component id="DiaginalRef_d2_T2B" max="32767" attributes="0"/>
+                          <Component id="DiaginalRef_d1_B2T" max="32767" attributes="0"/>
+                          <Component id="DiaginalRef_d2_B2T" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -319,9 +321,13 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="HorizontalReflection" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="DiaginalRef_d1" min="-2" max="-2" attributes="0"/>
+                      <Component id="DiaginalRef_d1_T2B" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="DiaginalRef_d2" min="-2" max="-2" attributes="0"/>
+                      <Component id="DiaginalRef_d1_B2T" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="DiaginalRef_d2_T2B" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="DiaginalRef_d2_B2T" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -350,26 +356,49 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HorizontalReflectionActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="DiaginalRef_d1">
+            <Component class="javax.swing.JButton" name="DiaginalRef_d1_T2B">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Diagonal Reflection D1"/>
+                <Property name="text" type="java.lang.String" value="Diagonal Reflection D1 (Top to bottom)"/>
+                <Property name="actionCommand" type="java.lang.String" value="Diagonal Reflection D1 (Top to bottom)"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d1_T2BActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="DiaginalRef_d2">
+            <Component class="javax.swing.JButton" name="DiaginalRef_d2_T2B">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Diagonal Reflection D2"/>
+                <Property name="text" type="java.lang.String" value="Diagonal Reflection D2 (Top to bottom)"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d2_T2BActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="DiaginalRef_d1_B2T">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Diagonal Reflection D1 (Bottom to top)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d1_B2TActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="DiaginalRef_d2_B2T">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Diagonal Reflection D2 (Bottom to top)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d2_B2TActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -699,7 +728,7 @@
                       <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
