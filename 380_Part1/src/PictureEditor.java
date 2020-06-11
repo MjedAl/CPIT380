@@ -83,7 +83,7 @@ public class PictureEditor extends javax.swing.JFrame {
         blueSlider = new javax.swing.JSlider();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        redSlider1 = new javax.swing.JSlider();
+        scaleSlider = new javax.swing.JSlider();
         jButton1 = new javax.swing.JButton();
         Blend = new javax.swing.JButton();
         cropImg = new javax.swing.JButton();
@@ -563,21 +563,23 @@ public class PictureEditor extends javax.swing.JFrame {
 
         jLabel4.setText("Scale:");
 
-        redSlider1.setToolTipText("");
-        redSlider1.setEnabled(false);
-        redSlider1.addFocusListener(new java.awt.event.FocusAdapter() {
+        scaleSlider.setMaximum(4);
+        scaleSlider.setToolTipText("");
+        scaleSlider.setValue(2);
+        scaleSlider.setEnabled(false);
+        scaleSlider.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                redSlider1FocusLost(evt);
+                scaleSliderFocusLost(evt);
             }
         });
-        redSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
+        scaleSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                redSlider1MouseReleased(evt);
+                scaleSliderMouseReleased(evt);
             }
         });
-        redSlider1.addKeyListener(new java.awt.event.KeyAdapter() {
+        scaleSlider.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                redSlider1KeyReleased(evt);
+                scaleSliderKeyReleased(evt);
             }
         });
 
@@ -589,7 +591,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(redSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scaleSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -598,7 +600,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(redSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scaleSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -721,7 +723,7 @@ public class PictureEditor extends javax.swing.JFrame {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.setDialogTitle("Select an image");
         jfc.setAcceptAllFileFilterUsed(false);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or JPG", "png","jpg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or JPG", "png", "jpg");
         jfc.addChoosableFileFilter(filter);
 
         int returnValue = jfc.showOpenDialog(null);
@@ -731,6 +733,7 @@ public class PictureEditor extends javax.swing.JFrame {
             redSlider.setEnabled(true);
             greenSlider.setEnabled(true);
             blueSlider.setEnabled(true);
+            scaleSlider.setEnabled(true);
             redSlider.setValue(0);
             greenSlider.setValue(0);
             blueSlider.setValue(0);
@@ -894,17 +897,36 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_VerticalReflectionActionPerformed
 
-    private void redSlider1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_redSlider1FocusLost
+    private void scaleSliderFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_scaleSliderFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_redSlider1FocusLost
+    }//GEN-LAST:event_scaleSliderFocusLost
 
-    private void redSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redSlider1MouseReleased
+    private void scaleSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scaleSliderMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_redSlider1MouseReleased
 
-    private void redSlider1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_redSlider1KeyReleased
+        // Scale code here.
+        //WHEW
+//        if (pic != null) {
+//            int scaleValue = scaleSlider.getValue();
+//            if (scaleValue == 0) {
+//                pic = pic.scaleDown(3);
+//            } else if (scaleValue == 1) {
+//                pic = pic.scaleDown(2);
+//            } else if (scaleValue == 3) {
+//                pic = pic.scaleUp(2);
+//            } else if (scaleValue == 4) {
+//                pic = pic.scaleUp(3);
+//            }
+//            scaleSlider.setValue(2);
+//            pic.show();
+//            updateIMG();
+//        }
+
+    }//GEN-LAST:event_scaleSliderMouseReleased
+
+    private void scaleSliderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_scaleSliderKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_redSlider1KeyReleased
+    }//GEN-LAST:event_scaleSliderKeyReleased
 
     private void HorizontalReflectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HorizontalReflectionActionPerformed
         if (pic == null) {
@@ -1151,8 +1173,8 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton minFilter;
     private javax.swing.JSlider redSlider;
-    private javax.swing.JSlider redSlider1;
     private javax.swing.JPanel rotatePanel;
+    private javax.swing.JSlider scaleSlider;
     private javax.swing.JLabel targetLabel;
     private javax.swing.JButton weightedFilter;
     // End of variables declaration//GEN-END:variables
