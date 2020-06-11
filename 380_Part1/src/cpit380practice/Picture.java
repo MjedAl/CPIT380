@@ -9,8 +9,7 @@ import java.util.Arrays;
 //------------------------------------------------------------------------------
 
 /**
- * A class that represents a picture. This class inherits from SimplePicture and
- * allows the student to add functionality to the Picture class.
+ * A class that represents a picture. This class inherits from SimplePicture and allows the student to add functionality to the Picture class.
  *
  * Copyright Georgia Institute of Technology 2004
  *
@@ -51,8 +50,7 @@ public class Picture extends SimplePicture {
     }
 
     /**
-     * Constructor that takes a width and height for a new picture and sets the
-     * color for the new picture
+     * Constructor that takes a width and height for a new picture and sets the color for the new picture
      *
      * @param width the width of the desired picture
      * @param height the height of the desired picture
@@ -75,8 +73,7 @@ public class Picture extends SimplePicture {
     /**
      * Method to return a string with information about this picture.
      *
-     * @return a string with information about the picture such as fileName,
-     * height, and width.
+     * @return a string with information about the picture such as fileName, height, and width.
      */
     public String toString() {
         String output = "Picture, filename " + this.getFileName()
@@ -598,8 +595,7 @@ public class Picture extends SimplePicture {
     }
 
     /**
-     * Method to allow the user to pick a file name and show a picture. This
-     * method will also return the created picture object.
+     * Method to allow the user to pick a file name and show a picture. This method will also return the created picture object.
      *
      * @return the picture object created from the picked file name
      */
@@ -611,9 +607,7 @@ public class Picture extends SimplePicture {
     }
 
     /**
-     * Method to show a specific picture where the file name to show is
-     * specified in the method. To change which picture you want to show you can
-     * edit the method and recompile it.
+     * Method to show a specific picture where the file name to show is specified in the method. To change which picture you want to show you can edit the method and recompile it.
      *
      * @return the created picture object
      */
@@ -825,11 +819,11 @@ public class Picture extends SimplePicture {
 
     public int[] ourComputingHistogram() {
 
-        int[] histo = new int[256]; 
-        for(Pixel pixel: this.getPixels()) {
+        int[] histo = new int[256];
+        for (Pixel pixel : this.getPixels()) {
             int i = (int) pixel.getAverage();
             histo[i]++;
-            }
+        }
         return histo;
     }
 
@@ -1455,23 +1449,17 @@ public class Picture extends SimplePicture {
      * @return the new picture
      */
     public Picture rotateLeft() {
-        Picture target = new Picture(this.getHeight(),
-                this.getWidth());
+        Picture target = new Picture(this.getHeight(), this.getWidth());
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
 
         // loop through the columns
-        for (int sourceX = 0;
-                sourceX < this.getWidth();
-                sourceX++) {
+        for (int sourceX = 0; sourceX < this.getWidth(); sourceX++) {
             // loop through the rows
-            for (int sourceY = 0;
-                    sourceY < this.getHeight();
-                    sourceY++) {
+            for (int sourceY = 0; sourceY < this.getHeight(); sourceY++) {
                 // set the target pixel color to the source pixel color
                 sourcePixel = this.getPixel(sourceX, sourceY);
-                targetPixel = target.getPixel(sourceY,
-                        this.getWidth() - 1 - sourceX);
+                targetPixel = target.getPixel(sourceY, this.getWidth() - 1 - sourceX);
                 targetPixel.setColor(sourcePixel.getColor());
             }
         }
@@ -1523,13 +1511,10 @@ public class Picture extends SimplePicture {
     // This method will compute and plot the histogram of the Input Image.
     // author : saim_rasheed@hotmail.com    
     public int[] myHistogram() {
-
         this.grayscale();
         int[] histArray = new int[256];
-
         Pixel sourcepixel = null;
         int val = 0;
-
         for (int Sx = 0; Sx < this.getWidth(); Sx++) {
             for (int Sy = 0; Sy < this.getHeight(); Sy++) {
                 sourcepixel = this.getPixel(Sx, Sy);
@@ -1537,7 +1522,6 @@ public class Picture extends SimplePicture {
                 histArray[val] = histArray[val] + 1;
             }
         }
-
         return histArray;
     }
 

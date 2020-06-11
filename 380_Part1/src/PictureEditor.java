@@ -721,7 +721,7 @@ public class PictureEditor extends javax.swing.JFrame {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.setDialogTitle("Select an image");
         jfc.setAcceptAllFileFilterUsed(false);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG", "png");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or JPG", "png","jpg");
         jfc.addChoosableFileFilter(filter);
 
         int returnValue = jfc.showOpenDialog(null);
@@ -738,6 +738,7 @@ public class PictureEditor extends javax.swing.JFrame {
             G_Value = -1;
             B_Value = -1;
             pic = new Picture(imgName);
+            sourcePicture = new Picture(imgName);
             Image img = (pic.getImage()).getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(), Image.SCALE_SMOOTH);;
             imgLabel.setText("");
             imgLabel.setIcon(new ImageIcon(img));
@@ -746,7 +747,7 @@ public class PictureEditor extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_chooseImgActionPerformed
-
+    private Picture sourcePicture;
     int numOfClicks = 0;
     int x1;
     int x2;
@@ -812,6 +813,9 @@ public class PictureEditor extends javax.swing.JFrame {
         redSlider.setValue(0);
         greenSlider.setValue(0);
         blueSlider.setValue(0);
+        R_Value = -1;
+        G_Value = -1;
+        B_Value = -1;
         updateIMG();
     }//GEN-LAST:event_clearImageActionPerformed
 
@@ -1009,15 +1013,6 @@ public class PictureEditor extends javax.swing.JFrame {
     //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
 
-//        System.out.println("OpW" + pic.getWidth());
-//        System.out.println("OpH" + pic.getHeight());
-//        System.out.println("LabelW " + imgLabel.getWidth());
-//        System.out.println("LabelH " + imgLabel.getHeight());
-//        System.out.println("OX1 " + x1);
-//        System.out.println("OY1 " + y1);
-//        System.out.println("OX2 " + x2);
-//        System.out.println("OY2 " + y2);
-        // convert from max of label view to actual pic width and height
         double W = (pic.getWidth() * 1.00 / targetLabel.getWidth());
         double H = (pic.getHeight() * 1.00 / targetLabel.getHeight());
 
@@ -1026,18 +1021,14 @@ public class PictureEditor extends javax.swing.JFrame {
         y1 = (int) (H * y1);
         y2 = (int) (H * y2);
 
-//        System.out.println("X1 " + x1);
-//        System.out.println("Y1 " + y1);
-//        System.out.println("X2 " + x2);
-//        System.out.println("Y2 " + y2);
-        Picture newPic = new Picture(pic.getWidth(), pic.getHeight());
+        Picture newPic = new Picture(sourcePicture.getWidth(), sourcePicture.getHeight());
 
         Pixel sourcePixel;
         Pixel targetPixel;
 
         for (int i = x1; i < x2; i++) {
             for (int j = y1; j < y2; j++) {
-                sourcePixel = pic.getPixel(i, j);
+                sourcePixel = sourcePicture.getPixel(i, j);
                 targetPixel = newPic.getPixel(i, j);
                 targetPixel.setColor(sourcePixel.getColor());
             }
