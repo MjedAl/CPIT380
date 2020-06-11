@@ -774,7 +774,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="redSlider1" max="32767" attributes="0"/>
+                  <Component id="scaleSlider" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -785,7 +785,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="redSlider1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="scaleSlider" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -798,15 +798,17 @@
             <Property name="text" type="java.lang.String" value="Scale:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="redSlider1">
+        <Component class="javax.swing.JSlider" name="scaleSlider">
           <Properties>
+            <Property name="maximum" type="int" value="4"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="value" type="int" value="2"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="redSlider1FocusLost"/>
-            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="redSlider1MouseReleased"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="redSlider1KeyReleased"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="scaleSliderFocusLost"/>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="scaleSliderMouseReleased"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="scaleSliderKeyReleased"/>
           </Events>
         </Component>
       </SubComponents>
