@@ -669,9 +669,8 @@ public class PictureEditor extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(grayTobianry, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -849,8 +848,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
             updateIMG();
         }
-
-
     }//GEN-LAST:event_ConvertToGrayScale
 
     private void clearImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearImageActionPerformed
@@ -1147,7 +1144,7 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_grayTobianryActionPerformed
 
-    //** NEEDS SOME EDIT**
+    // Crop image method
     private void CropImage(int x1, int y1, int x2, int y2) {
 
         double W = (pic.getWidth() * 1.00 / targetLabel.getWidth());

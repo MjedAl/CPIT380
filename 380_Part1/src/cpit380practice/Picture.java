@@ -606,7 +606,7 @@ public class Picture extends SimplePicture {
     }
 
     public void ReflectD2_B2T() {
-          Pixel leftPixel = null;
+        Pixel leftPixel = null;
         Pixel rightPixel = null;
         int height = this.getHeight();
         for (int y = height - 2; y >= 0; y--) {
@@ -696,6 +696,7 @@ public class Picture extends SimplePicture {
         return target;
     }
 
+    // this method is in picture class
     public Picture gray2Binary(int threshold) {
 
         Picture target = new Picture(this.getWidth(), this.getHeight());
@@ -703,7 +704,6 @@ public class Picture extends SimplePicture {
         for (int x = 0; x < this.getWidth(); x++) {
             for (int y = 0; y < this.getHeight(); y++) {
                 avar = (int) Math.abs(this.getPixel(x, y).getAverage());
-                // System.out.println(avar);
                 if (avar < threshold) {
                     target.getPixel(x, y).setColor(Color.BLACK);
                 }
