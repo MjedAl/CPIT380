@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.function.IntPredicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -90,6 +91,7 @@ public class PictureEditor extends javax.swing.JFrame {
         Blend = new javax.swing.JButton();
         cropImg = new javax.swing.JButton();
         grayTobianry = new javax.swing.JButton();
+        ComputeHistograms = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -207,7 +209,6 @@ public class PictureEditor extends javax.swing.JFrame {
 
         DiaginalRef_d1_T2B.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DiaginalRef_d1_T2B.setText("Diagonal Reflection D1 (Top to bottom)");
-        DiaginalRef_d1_T2B.setActionCommand("Diagonal Reflection D1 (Top to bottom)");
         DiaginalRef_d1_T2B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DiaginalRef_d1_T2BActionPerformed(evt);
@@ -659,6 +660,13 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        ComputeHistograms.setText("Compute Histograms");
+        ComputeHistograms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComputeHistogramsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -678,7 +686,10 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ComputeHistograms, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(368, 368, 368)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(targetLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -719,7 +730,9 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(grayTobianry))))
+                            .addComponent(grayTobianry))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComputeHistograms)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -787,7 +800,6 @@ public class PictureEditor extends javax.swing.JFrame {
             imgLabel.setText("");
             imgLabel.setIcon(new ImageIcon(img));
             updateIMG();
-
         }
 
     }//GEN-LAST:event_chooseImgActionPerformed
@@ -1065,6 +1077,73 @@ public class PictureEditor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DiaginalRef_d2_T2BActionPerformed
 
+    private void ComputeHistograms() {
+
+        Pixel_LL[] HistogramsRed = new Pixel_LL[256];
+        Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
+        Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
+        int maxR = 0;
+        int maxR_index = 0;
+        int maxG = 0;
+        int maxG_index = 0;
+        int maxB = 0;
+        int maxB_index = 0;
+
+        for (int i = 0; i < 256; i++) { // Inisilazing all the arrays
+            HistogramsRed[i] = new Pixel_LL();
+            HistogramsGreen[i] = new Pixel_LL();
+            HistogramsBlue[i] = new Pixel_LL();
+        }
+        for (int i = 0; i < pic.getHeight(); i++) {
+            for (int j = 0; j < pic.getWidth(); j++) {
+                int intensityR = pic.getPixel(j, i).getRed();
+                int intensityG = pic.getPixel(j, i).getGreen();
+                int intensityB = pic.getPixel(j, i).getBlue();
+                PixelLinkedList_node pixel = new PixelLinkedList_node(j, i);
+                HistogramsRed[intensityR].addPixel(pixel);
+                HistogramsGreen[intensityG].addPixel(pixel);
+                HistogramsBlue[intensityB].addPixel(pixel);
+                if (HistogramsRed[intensityR].getTotal() > maxR) {
+                    maxR = HistogramsRed[intensityR].getTotal();
+                    maxR_index = intensityR;
+                }
+                if (HistogramsGreen[intensityG].getTotal() > maxG) {
+                    maxG = HistogramsGreen[intensityG].getTotal();
+                    maxG_index = intensityG;
+                }
+                if (HistogramsBlue[intensityB].getTotal() > maxB) {
+                    maxB = HistogramsBlue[intensityB].getTotal();
+                    maxB_index = intensityB;
+                }
+            }
+        }
+        // print
+        String info = "Red max " + maxR + " pixels at point :" + maxR_index;
+        info += "\nGreen max " + maxG + " pixels at point :" + maxG_index;
+        info += "\nBlue max " + maxB + " pixels at point :" + maxB_index;
+        JOptionPane.showMessageDialog(null, info, "Finished", JOptionPane.NO_OPTION);
+
+        System.out.println("first 10 levels at red: ");
+        // only 10 for demonstraion purpse
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Level "+i);
+            HistogramsRed[i].PrintFirst10AvailableLocations();
+        }
+//        System.out.println("Red data: ------------------------------------");
+//        for (int i = 0; i < HistogramsRed.length; i++) {
+//            System.out.println(i + "," + HistogramsRed[i].getTotal());
+//        }
+//        System.out.println("Green data: ------------------------------------");
+//        for (int i = 0; i < HistogramsRed.length; i++) {
+//            System.out.println(i + "," + HistogramsGreen[i].getTotal());
+//        }
+//        System.out.println("blue data: ------------------------------------");
+//        for (int i = 0; i < HistogramsRed.length; i++) {
+//            System.out.println(i + "," + HistogramsBlue[i].getTotal());
+//        }
+        // ***plotting the histogrmas***
+    }
+
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
         if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
@@ -1143,6 +1222,15 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_grayTobianryActionPerformed
+
+    private void ComputeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputeHistogramsActionPerformed
+        // TODO add your handling code here:
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            ComputeHistograms();
+        }
+    }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     // Crop image method
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -1247,6 +1335,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Blend;
+    private javax.swing.JButton ComputeHistograms;
     private javax.swing.JButton ComputingMenu;
     private javax.swing.JPanel CopmutingPanel;
     private javax.swing.JButton DiaginalRef_d1_B2T;

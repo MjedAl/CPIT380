@@ -46,6 +46,10 @@
                       <Component id="menuPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="ComputeHistograms" min="-2" pref="316" max="-2" attributes="0"/>
+                      <EmptySpace min="368" pref="368" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -99,6 +103,8 @@
                           <Component id="Blend" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="grayTobianry" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ComputeHistograms" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -374,7 +380,6 @@
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Diagonal Reflection D1 (Top to bottom)"/>
-                <Property name="actionCommand" type="java.lang.String" value="Diagonal Reflection D1 (Top to bottom)"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DiaginalRef_d1_T2BActionPerformed"/>
@@ -885,6 +890,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grayTobianryActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ComputeHistograms">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Compute Histograms"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComputeHistogramsActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
