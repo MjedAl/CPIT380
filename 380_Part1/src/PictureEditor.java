@@ -89,6 +89,7 @@ public class PictureEditor extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         Blend = new javax.swing.JButton();
         cropImg = new javax.swing.JButton();
+        grayTobianry = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -651,33 +652,47 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        grayTobianry.setText("Convert gray to binary");
+        grayTobianry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grayTobianryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(grayTobianry, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(targetLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(chooseImg, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clearImage, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(imgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(targetLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(imgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chooseImg, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(clearImage, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -693,8 +708,8 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(targetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -703,7 +718,9 @@ public class PictureEditor extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(cropImg))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Blend)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(grayTobianry))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -975,38 +992,54 @@ public class PictureEditor extends javax.swing.JFrame {
     private void ReflectionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReflectionMenuActionPerformed
         // TODO add your handling code here:
         //H
-        menuPanel.setBackground(ReflectionMenu.getBackground());
-        rotatePanel.setVisible(false);
-        ReflectionPanel.setVisible(true);
-        CopmutingPanel.setVisible(false);
-        FiltersPanel.setVisible(false);
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            menuPanel.setBackground(ReflectionMenu.getBackground());
+            rotatePanel.setVisible(false);
+            ReflectionPanel.setVisible(true);
+            CopmutingPanel.setVisible(false);
+            FiltersPanel.setVisible(false);
+        }
     }//GEN-LAST:event_ReflectionMenuActionPerformed
 
     private void RotaionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotaionMenuActionPerformed
-        // TODO add your handling code here:
-        menuPanel.setBackground(RotaionMenu.getBackground());
-        rotatePanel.setVisible(true);
-        ReflectionPanel.setVisible(false);
-        CopmutingPanel.setVisible(false);
-        FiltersPanel.setVisible(false);
+        // TODO add your handling code here: 
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            menuPanel.setBackground(RotaionMenu.getBackground());
+            rotatePanel.setVisible(true);
+            ReflectionPanel.setVisible(false);
+            CopmutingPanel.setVisible(false);
+            FiltersPanel.setVisible(false);
+        }
     }//GEN-LAST:event_RotaionMenuActionPerformed
 
     private void ComputingMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputingMenuActionPerformed
         // TODO add your handling code here:
-        menuPanel.setBackground(ComputingMenu.getBackground());
-        rotatePanel.setVisible(false);
-        ReflectionPanel.setVisible(false);
-        CopmutingPanel.setVisible(true);
-        FiltersPanel.setVisible(false);
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            menuPanel.setBackground(ComputingMenu.getBackground());
+            rotatePanel.setVisible(false);
+            ReflectionPanel.setVisible(false);
+            CopmutingPanel.setVisible(true);
+            FiltersPanel.setVisible(false);
+        }
     }//GEN-LAST:event_ComputingMenuActionPerformed
 
     private void FiltersMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltersMenuActionPerformed
         // TODO add your handling code here:
-        menuPanel.setBackground(FiltersMenu.getBackground());
-        rotatePanel.setVisible(false);
-        ReflectionPanel.setVisible(false);
-        CopmutingPanel.setVisible(false);
-        FiltersPanel.setVisible(true);
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            menuPanel.setBackground(FiltersMenu.getBackground());
+            rotatePanel.setVisible(false);
+            ReflectionPanel.setVisible(false);
+            CopmutingPanel.setVisible(false);
+            FiltersPanel.setVisible(true);
+        }
     }//GEN-LAST:event_FiltersMenuActionPerformed
 
     private void computeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeHistogramsActionPerformed
@@ -1023,37 +1056,43 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void DiaginalRef_d1_T2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_T2BActionPerformed
         // TODO add your handling code here:
+        // D1 Top to bottom
+        pic.ReflectD1_T2B();
+        updateIMG();
     }//GEN-LAST:event_DiaginalRef_d1_T2BActionPerformed
 
     private void DiaginalRef_d2_T2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d2_T2BActionPerformed
         // TODO add your handling code here:
+        pic.ReflectD2_T2B();
+        updateIMG();
+
     }//GEN-LAST:event_DiaginalRef_d2_T2BActionPerformed
 
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
-              if (pic == null) {
-                  JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
-              } else {
-                  Pixel[] pixelArray = pic.getPixels();
-                  
-                  int Contrast;
-                  double max = 0;
-                  double min = 100000000;
-                  
-                  for(int i = 0;i<pixelArray.length;i++) {
-                      
-                      Contrast = (int) ((pixelArray[i].getRed() + pixelArray[i].getGreen() + pixelArray[i].getBlue()) / 3);
-                   //---if Contrast Greater than max we will save the value in max-----
-                      if (Contrast > max) {
-                          max = Contrast;
-                      }
-                   //---if Contrast less than min we will save the value in min-----
-                      if (Contrast < min) {
-                          min = Contrast;
-                      }
-                  }  
-                  double contrast = ((max - min) / (max + min));
-                  JOptionPane.showMessageDialog(null, "Number of Contrast = " + contrast); 
-              }
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Pixel[] pixelArray = pic.getPixels();
+
+            int Contrast;
+            double max = 0;
+            double min = 100000000;
+
+            for (int i = 0; i < pixelArray.length; i++) {
+
+                Contrast = (int) ((pixelArray[i].getRed() + pixelArray[i].getGreen() + pixelArray[i].getBlue()) / 3);
+                //---if Contrast Greater than max we will save the value in max-----
+                if (Contrast > max) {
+                    max = Contrast;
+                }
+                //---if Contrast less than min we will save the value in min-----
+                if (Contrast < min) {
+                    min = Contrast;
+                }
+            }
+            double contrast = ((max - min) / (max + min));
+            JOptionPane.showMessageDialog(null, "Number of Contrast = " + contrast);
+        }
     }//GEN-LAST:event_computeContrastActionPerformed
 
     private void GaussianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaussianFilterActionPerformed
@@ -1082,11 +1121,31 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void DiaginalRef_d1_B2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_B2TActionPerformed
         // TODO add your handling code here:
+        pic.ReflectD1_B2T();
+        updateIMG();
     }//GEN-LAST:event_DiaginalRef_d1_B2TActionPerformed
 
     private void DiaginalRef_d2_B2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d2_B2TActionPerformed
         // TODO add your handling code here:
+        pic.ReflectD2_B2T();
+        updateIMG();
     }//GEN-LAST:event_DiaginalRef_d2_B2TActionPerformed
+
+    private void grayTobianryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grayTobianryActionPerformed
+        // TODO add your handling code here:
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String ThresholdValue = JOptionPane.showInputDialog(null, "Please Enter the size: ");
+            try {
+                int threadshold = Integer.parseInt(ThresholdValue);
+                pic = pic.gray2Binary(threadshold);
+                updateIMG();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_grayTobianryActionPerformed
 
     //** NEEDS SOME EDIT**
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -1217,6 +1276,7 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton computeContrast;
     private javax.swing.JButton computeHistograms;
     private javax.swing.JButton cropImg;
+    private javax.swing.JButton grayTobianry;
     private javax.swing.JSlider greenSlider;
     private javax.swing.JLabel imgLabel;
     private javax.swing.JButton jButton1;

@@ -565,7 +565,19 @@ public class Picture extends SimplePicture {
     /**
      * Mirror diagonal from 0,0 to width-1,height-1
      */
-    public void mirrorDiagTopLeftBotRight() {
+    public void ReflectD1_T2B() {
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        for (int y = 1; y < this.getHeight(); y++) {
+            for (int x = 0; x < y; x++) {
+                rightPixel = this.getPixel(x, y);
+                leftPixel = this.getPixel(y, x);
+                rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+    }
+
+    public void ReflectD1_B2T() {
         Pixel leftPixel = null;
         Pixel rightPixel = null;
         for (int y = 1; y < this.getHeight(); y++) {
@@ -580,15 +592,27 @@ public class Picture extends SimplePicture {
     /**
      * Method to mirror around a diagonal line from width-1,0 to 0,height-1
      */
-    public void mirrorDiagTopRightBotLeft() {
+    public void ReflectD2_T2B() {
         Pixel leftPixel = null;
         Pixel rightPixel = null;
         int height = this.getHeight();
         for (int y = height - 2; y >= 0; y--) {
             for (int x = 0; x < height - 1 - y; x++) {
                 leftPixel = this.getPixel(x, y);
-                rightPixel = this.getPixel(height - 1 - y,
-                        height - 1 - x);
+                rightPixel = this.getPixel(height - 1 - y, height - 1 - x);
+                rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+    }
+
+    public void ReflectD2_B2T() {
+          Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        int height = this.getHeight();
+        for (int y = height - 2; y >= 0; y--) {
+            for (int x = 0; x < height - 1 - y; x++) {
+                rightPixel = this.getPixel(x, y);
+                leftPixel = this.getPixel(height - 1 - y, height - 1 - x);
                 rightPixel.setColor(leftPixel.getColor());
             }
         }
@@ -667,6 +691,22 @@ public class Picture extends SimplePicture {
                 sourcePixel = this.getPixel(x, y);
                 targetPixel = target.getPixel(this.getHeight() - 1 - y, x);
                 targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        return target;
+    }
+
+    public Picture gray2Binary(int threshold) {
+
+        Picture target = new Picture(this.getWidth(), this.getHeight());
+        int avar;
+        for (int x = 0; x < this.getWidth(); x++) {
+            for (int y = 0; y < this.getHeight(); y++) {
+                avar = (int) Math.abs(this.getPixel(x, y).getAverage());
+                // System.out.println(avar);
+                if (avar < threshold) {
+                    target.getPixel(x, y).setColor(Color.BLACK);
+                }
             }
         }
         return target;
