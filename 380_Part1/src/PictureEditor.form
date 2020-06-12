@@ -46,10 +46,6 @@
                       <Component id="menuPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="ComputeHistograms" min="-2" pref="316" max="-2" attributes="0"/>
-                      <EmptySpace min="368" pref="368" max="-2" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -103,8 +99,6 @@
                           <Component id="Blend" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="grayTobianry" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ComputeHistograms" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -480,7 +474,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="computeBrightness" alignment="0" min="-2" pref="656" max="-2" attributes="0"/>
-                          <Component id="computeHistograms" alignment="1" max="32767" attributes="0"/>
+                          <Component id="ComputeHistograms" alignment="1" max="32767" attributes="0"/>
                           <Component id="computeContrast" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -491,7 +485,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="computeHistograms" min="-2" max="-2" attributes="0"/>
+                      <Component id="ComputeHistograms" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="computeBrightness" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -502,7 +496,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="computeHistograms">
+            <Component class="javax.swing.JButton" name="ComputeHistograms">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
@@ -510,7 +504,7 @@
                 <Property name="text" type="java.lang.String" value="Compute Histograms"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="computeHistogramsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComputeHistogramsActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="computeBrightness">
@@ -890,14 +884,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grayTobianryActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="ComputeHistograms">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Compute Histograms"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComputeHistogramsActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

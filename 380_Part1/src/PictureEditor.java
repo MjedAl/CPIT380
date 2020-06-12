@@ -64,7 +64,7 @@ public class PictureEditor extends javax.swing.JFrame {
         ComputingMenu = new javax.swing.JButton();
         FiltersMenu = new javax.swing.JButton();
         CopmutingPanel = new javax.swing.JPanel();
-        computeHistograms = new javax.swing.JButton();
+        ComputeHistograms = new javax.swing.JButton();
         computeBrightness = new javax.swing.JButton();
         computeContrast = new javax.swing.JButton();
         FiltersPanel = new javax.swing.JPanel();
@@ -91,7 +91,6 @@ public class PictureEditor extends javax.swing.JFrame {
         Blend = new javax.swing.JButton();
         cropImg = new javax.swing.JButton();
         grayTobianry = new javax.swing.JButton();
-        ComputeHistograms = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -300,11 +299,11 @@ public class PictureEditor extends javax.swing.JFrame {
 
         CopmutingPanel.setOpaque(false);
 
-        computeHistograms.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        computeHistograms.setText("Compute Histograms");
-        computeHistograms.addActionListener(new java.awt.event.ActionListener() {
+        ComputeHistograms.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ComputeHistograms.setText("Compute Histograms");
+        ComputeHistograms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                computeHistogramsActionPerformed(evt);
+                ComputeHistogramsActionPerformed(evt);
             }
         });
 
@@ -332,7 +331,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(CopmutingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(computeBrightness, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(computeHistograms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComputeHistograms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(computeContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -340,7 +339,7 @@ public class PictureEditor extends javax.swing.JFrame {
             CopmutingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CopmutingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(computeHistograms)
+                .addComponent(ComputeHistograms)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(computeBrightness)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -660,13 +659,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        ComputeHistograms.setText("Compute Histograms");
-        ComputeHistograms.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComputeHistogramsActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -686,10 +678,7 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ComputeHistograms, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(368, 368, 368)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(targetLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -730,9 +719,7 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(grayTobianry))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComputeHistograms)))
+                            .addComponent(grayTobianry))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1051,9 +1038,10 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_FiltersMenuActionPerformed
 
-    private void computeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeHistogramsActionPerformed
+    private void ComputeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputeHistogramsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_computeHistogramsActionPerformed
+        ComputeHistograms();
+    }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
         // TODO add your handling code here:
@@ -1223,15 +1211,6 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_grayTobianryActionPerformed
 
-    private void ComputeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputeHistogramsActionPerformed
-        // TODO add your handling code here:
-        if (pic == null) {
-            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            ComputeHistograms();
-        }
-    }//GEN-LAST:event_ComputeHistogramsActionPerformed
-
     // Crop image method
     private void CropImage(int x1, int y1, int x2, int y2) {
 
@@ -1360,7 +1339,6 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton clearImage;
     private javax.swing.JButton computeBrightness;
     private javax.swing.JButton computeContrast;
-    private javax.swing.JButton computeHistograms;
     private javax.swing.JButton cropImg;
     private javax.swing.JButton grayTobianry;
     private javax.swing.JSlider greenSlider;
