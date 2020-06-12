@@ -14,10 +14,10 @@
 <body style="background-color: rgb(174,174,174);margin-top: 2%;">
     <p class="text-center" style="font-size: 38px;"><strong>CPIT380 Group Project</strong></p>
     <p class="text-center">Supervised with care by Doctor Saim Ahmed Rasheed</p>
-    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
-        <div class="collapse"
+    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
+        <div class="collapse show"
             id="collapse-9">
-            <div class="col">
+            <div class="col" style="padding-left: 0px;padding-right: 0px;">
                 <div class="container" data-aos="fade" style="margin-top: 1%;margin-bottom: 1%;">
                     <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button" style="width: 100%;">Part 1 (Change colors)</a>
                         <div class="collapse" id="collapse-1" style="height: 100vh;">
@@ -499,6 +499,167 @@
             <span style="color: #666666">}</span>
         <span style="color: #666666">}</span>
     <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" data-aos="fade" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;">Part 14 (Compute Histograms)<br></a>
+                        <div class="collapse show" id="collapse-9"
+                            style="padding-left: 0px;padding-right: 0px;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Computer Histogrtams</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_14.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">// The method when the button is clicked   </span>
+<span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">ComputeHistograms</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+
+        Pixel_LL<span style="color: #666666">[]</span> HistogramsRed <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">[</span><span style="color: #40a070">256</span><span style="color: #666666">];</span>
+        Pixel_LL<span style="color: #666666">[]</span> HistogramsGreen <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">[</span><span style="color: #40a070">256</span><span style="color: #666666">];</span>
+        Pixel_LL<span style="color: #666666">[]</span> HistogramsBlue <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">[</span><span style="color: #40a070">256</span><span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> maxR <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> maxR_index <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> maxG <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> maxG_index <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> maxB <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> maxB_index <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> <span style="color: #40a070">256</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// Inisilazing all the arrays</span>
+            HistogramsRed<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">();</span>
+            HistogramsGreen<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">();</span>
+            HistogramsBlue<span style="color: #666666">[</span>i<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> intensityR <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>j<span style="color: #666666">,</span> i<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                <span style="color: #902000">int</span> intensityG <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>j<span style="color: #666666">,</span> i<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                <span style="color: #902000">int</span> intensityB <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>j<span style="color: #666666">,</span> i<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                PixelLinkedList_node pixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> PixelLinkedList_node<span style="color: #666666">(</span>j<span style="color: #666666">,</span> i<span style="color: #666666">);</span>
+                HistogramsRed<span style="color: #666666">[</span>intensityR<span style="color: #666666">].</span><span style="color: #4070a0">addPixel</span><span style="color: #666666">(</span>pixel<span style="color: #666666">);</span>
+                HistogramsGreen<span style="color: #666666">[</span>intensityG<span style="color: #666666">].</span><span style="color: #4070a0">addPixel</span><span style="color: #666666">(</span>pixel<span style="color: #666666">);</span>
+                HistogramsBlue<span style="color: #666666">[</span>intensityB<span style="color: #666666">].</span><span style="color: #4070a0">addPixel</span><span style="color: #666666">(</span>pixel<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>HistogramsRed<span style="color: #666666">[</span>intensityR<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> maxR<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    maxR <span style="color: #666666">=</span> HistogramsRed<span style="color: #666666">[</span>intensityR<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">();</span>
+                    maxR_index <span style="color: #666666">=</span> intensityR<span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>HistogramsGreen<span style="color: #666666">[</span>intensityG<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> maxG<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    maxG <span style="color: #666666">=</span> HistogramsGreen<span style="color: #666666">[</span>intensityG<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">();</span>
+                    maxG_index <span style="color: #666666">=</span> intensityG<span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>HistogramsBlue<span style="color: #666666">[</span>intensityB<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> maxB<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    maxB <span style="color: #666666">=</span> HistogramsBlue<span style="color: #666666">[</span>intensityB<span style="color: #666666">].</span><span style="color: #4070a0">getTotal</span><span style="color: #666666">();</span>
+                    maxB_index <span style="color: #666666">=</span> intensityB<span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #60a0b0; font-style: italic">// print</span>
+        String info <span style="color: #666666">=</span> <span style="color: #4070a0">&quot;Red max &quot;</span> <span style="color: #666666">+</span> maxR <span style="color: #666666">+</span> <span style="color: #4070a0">&quot; pixels at point :&quot;</span> <span style="color: #666666">+</span> maxR_index<span style="color: #666666">;</span>
+        info <span style="color: #666666">+=</span> <span style="color: #4070a0">&quot;\nGreen max &quot;</span> <span style="color: #666666">+</span> maxG <span style="color: #666666">+</span> <span style="color: #4070a0">&quot; pixels at point :&quot;</span> <span style="color: #666666">+</span> maxG_index<span style="color: #666666">;</span>
+        info <span style="color: #666666">+=</span> <span style="color: #4070a0">&quot;\nBlue max &quot;</span> <span style="color: #666666">+</span> maxB <span style="color: #666666">+</span> <span style="color: #4070a0">&quot; pixels at point :&quot;</span> <span style="color: #666666">+</span> maxB_index<span style="color: #666666">;</span>
+        JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> info<span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Finished&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">NO_OPTION</span><span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #60a0b0; font-style: italic">// The following two classes are needed to store all the location and number of pixels in a linked list</span>
+<span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">Pixel_LL</span> <span style="color: #666666">{</span>
+
+    <span style="color: #007020; font-weight: bold">private</span> PixelLinkedList_node head<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> PixelLinkedList_node tail<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> total<span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">Pixel_LL</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        head <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        total <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">addPixel</span><span style="color: #666666">(</span>PixelLinkedList_node pixel<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>head <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//list is empty</span>
+            head <span style="color: #666666">=</span> pixel<span style="color: #666666">;</span>
+            tail <span style="color: #666666">=</span> head<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            tail<span style="color: #666666">.</span><span style="color: #4070a0">setNext</span><span style="color: #666666">(</span>pixel<span style="color: #666666">);</span>
+            tail <span style="color: #666666">=</span> pixel<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        total<span style="color: #666666">++;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">int</span> <span style="color: #06287e">getTotal</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> total<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">PrintAllNodesLocation</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Total Number of pixles: &quot;</span> <span style="color: #666666">+</span> total<span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>head <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #902000">int</span> count <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            PixelLinkedList_node helpPtr <span style="color: #666666">=</span> head<span style="color: #666666">;</span>
+            <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span>helpPtr<span style="color: #666666">.</span><span style="color: #4070a0">getNext</span><span style="color: #666666">()</span> <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Location of pixel #&quot;</span> <span style="color: #666666">+</span> count <span style="color: #666666">+</span> <span style="color: #4070a0">&quot; is\t&quot;</span> <span style="color: #666666">+</span> helpPtr<span style="color: #666666">);</span>
+                helpPtr <span style="color: #666666">=</span> helpPtr<span style="color: #666666">.</span><span style="color: #4070a0">getNext</span><span style="color: #666666">();</span>
+                count<span style="color: #666666">++;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">PrintFirst10AvailableLocations</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Total Number of pixles available: &quot;</span> <span style="color: #666666">+</span> total<span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>total <span style="color: #666666">&gt;</span> <span style="color: #40a070">10</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #902000">int</span> count <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>head <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                PixelLinkedList_node helpPtr <span style="color: #666666">=</span> head<span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span>helpPtr<span style="color: #666666">.</span><span style="color: #4070a0">getNext</span><span style="color: #666666">()</span> <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Location of pixel #&quot;</span> <span style="color: #666666">+</span> count <span style="color: #666666">+</span> <span style="color: #4070a0">&quot; is\t&quot;</span> <span style="color: #666666">+</span> helpPtr<span style="color: #666666">);</span>
+                    helpPtr <span style="color: #666666">=</span> helpPtr<span style="color: #666666">.</span><span style="color: #4070a0">getNext</span><span style="color: #666666">();</span>
+                    count<span style="color: #666666">++;</span>
+                    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>count <span style="color: #666666">==</span> <span style="color: #40a070">10</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                        <span style="color: #007020; font-weight: bold">break</span><span style="color: #666666">;</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">PixelLinkedList_node</span> <span style="color: #666666">{</span>
+
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> x<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> y<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> PixelLinkedList_node next<span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">PixelLinkedList_node</span><span style="color: #666666">(</span><span style="color: #902000">int</span> x<span style="color: #666666">,</span> <span style="color: #902000">int</span> y<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">x</span> <span style="color: #666666">=</span> x<span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">y</span> <span style="color: #666666">=</span> y<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">PixelLinkedList_node</span><span style="color: #666666">(</span>PixelLinkedList_node node<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">(</span>node<span style="color: #666666">,</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">PixelLinkedList_node</span><span style="color: #666666">(</span>PixelLinkedList_node node<span style="color: #666666">,</span> PixelLinkedList_node next<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">next</span> <span style="color: #666666">=</span> next<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> PixelLinkedList_node <span style="color: #06287e">getNext</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> next<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">setNext</span><span style="color: #666666">(</span>PixelLinkedList_node next<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">next</span> <span style="color: #666666">=</span> next<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> String <span style="color: #06287e">toString</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #4070a0">&quot;X:&quot;</span> <span style="color: #666666">+</span> x <span style="color: #666666">+</span> <span style="color: #4070a0">&quot;\tY: &quot;</span> <span style="color: #666666">+</span> y<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+<span style="color: #666666">}</span>
 </pre></div>
 </div>
                         </div>
