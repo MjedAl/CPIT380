@@ -1149,25 +1149,25 @@ public class PictureEditor extends javax.swing.JFrame {
         if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            Pixel[] pixelArray = pic.getPixels();
+            Pixel[] pixels = pic.getPixels();
 
             int Contrast;
-            double max = 0;
-            double min = 100000000;
+            double max_val = 0;
+            double min_val = Integer.MAX_VALUE;
 
-            for (int i = 0; i < pixelArray.length; i++) {
+            for (int i = 0; i < pixels.length; i++) {
 
-                Contrast = (int) ((pixelArray[i].getRed() + pixelArray[i].getGreen() + pixelArray[i].getBlue()) / 3);
+                Contrast = (int) ((pixels[i].getRed() + pixels[i].getGreen() + pixels[i].getBlue()) / 3);
                 //---if Contrast Greater than max we will save the value in max-----
-                if (Contrast > max) {
-                    max = Contrast;
+                if (Contrast > max_val) {
+                    max_val = Contrast;
                 }
                 //---if Contrast less than min we will save the value in min-----
-                if (Contrast < min) {
-                    min = Contrast;
+                if (Contrast < min_val) {
+                    min_val = Contrast;
                 }
             }
-            double contrast = ((max - min) / (max + min));
+            double contrast = ((max_val - min_val) / (max_val + min_val));
             JOptionPane.showMessageDialog(null, "Number of Contrast = " + contrast);
         }
     }//GEN-LAST:event_computeContrastActionPerformed
