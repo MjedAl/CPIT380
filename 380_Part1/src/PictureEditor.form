@@ -768,9 +768,7 @@
         </Component>
         <Component class="javax.swing.JSlider" name="redSlider">
           <Properties>
-            <Property name="maximum" type="int" value="255"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="value" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -781,8 +779,6 @@
         </Component>
         <Component class="javax.swing.JSlider" name="greenSlider">
           <Properties>
-            <Property name="maximum" type="int" value="255"/>
-            <Property name="value" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -791,8 +787,6 @@
         </Component>
         <Component class="javax.swing.JSlider" name="blueSlider">
           <Properties>
-            <Property name="maximum" type="int" value="255"/>
-            <Property name="value" type="int" value="0"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>

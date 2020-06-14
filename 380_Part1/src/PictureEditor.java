@@ -506,9 +506,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
         jLabel3.setText("Blue:");
 
-        redSlider.setMaximum(255);
         redSlider.setToolTipText("");
-        redSlider.setValue(0);
         redSlider.setEnabled(false);
         redSlider.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -526,8 +524,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        greenSlider.setMaximum(255);
-        greenSlider.setValue(0);
         greenSlider.setEnabled(false);
         greenSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -535,8 +531,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        blueSlider.setMaximum(255);
-        blueSlider.setValue(0);
         blueSlider.setEnabled(false);
         blueSlider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -847,9 +841,9 @@ public class PictureEditor extends javax.swing.JFrame {
             greenSlider.setEnabled(true);
             blueSlider.setEnabled(true);
             scaleSlider.setEnabled(true);
-            redSlider.setValue(0);
-            greenSlider.setValue(0);
-            blueSlider.setValue(0);
+            redSlider.setValue(50);
+            greenSlider.setValue(50);
+            blueSlider.setValue(50);
             R_Value = -1;
             G_Value = -1;
             B_Value = -1;
@@ -923,9 +917,9 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void clearImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearImageActionPerformed
         pic = new Picture(imgName);
-        redSlider.setValue(0);
-        greenSlider.setValue(0);
-        blueSlider.setValue(0);
+        redSlider.setValue(50);
+        greenSlider.setValue(50);
+        blueSlider.setValue(50);
         R_Value = -1;
         G_Value = -1;
         B_Value = -1;
@@ -1016,21 +1010,21 @@ public class PictureEditor extends javax.swing.JFrame {
 
         // Scale code here.
         //WHEW
-//        if (pic != null) {
-//            int scaleValue = scaleSlider.getValue();
-//            if (scaleValue == 0) {
-//                pic = pic.scaleDown(3);
-//            } else if (scaleValue == 1) {
-//                pic = pic.scaleDown(2);
-//            } else if (scaleValue == 3) {
-//                pic = pic.scaleUp(2);
-//            } else if (scaleValue == 4) {
-//                pic = pic.scaleUp(3);
-//            }
-//            scaleSlider.setValue(2);
-//            pic.show();
-//            updateIMG();
-//        }
+        if (pic != null) {
+            int scaleValue = scaleSlider.getValue();
+            if (scaleValue == 0) {
+                pic = pic.scaleDown(3);
+            } else if (scaleValue == 1) {
+                pic = pic.scaleDown(2);
+            } else if (scaleValue == 3) {
+                pic = pic.scaleUp(2);
+            } else if (scaleValue == 4) {
+                pic = pic.scaleUp(3);
+            }
+            scaleSlider.setValue(2);
+            pic.show();
+            updateIMG();
+        }
 
     }//GEN-LAST:event_scaleSliderMouseReleased
 
@@ -1383,30 +1377,25 @@ public class PictureEditor extends javax.swing.JFrame {
     private static int B_Value = -1;
     private static String imgName;
     private static Picture pic;
-
-    // **************************************************************************************************************
-    // needs to be updated as the following:
-    // convert 255 to 100%.
-    // if less than 50 decrese value.
-    // more than 50 increase value.  
+ 
     private void updateColors() {
         Pixel[] pixelArray = pic.getPixels();
         for (Pixel pixelObj : pixelArray) {
-
             if (R_Value != -1) {
-                pixelObj.setRed(R_Value);
+                pixelObj.setRed((int) (pixelObj.getRed() * (R_Value / 50.0)));
             }
             if (G_Value != -1) {
-                pixelObj.setGreen(G_Value);
+                pixelObj.setGreen((int) (pixelObj.getGreen() * (G_Value / 50.0)));
             }
             if (B_Value != -1) {
-                pixelObj.setBlue(B_Value);
+                pixelObj.setBlue((int) (pixelObj.getBlue() * (B_Value / 50.0)));
             }
-
         }
+        redSlider.setValue(50);
+        greenSlider.setValue(50);
+        blueSlider.setValue(50);
         updateIMG();
     }
-    // **************************************************************************************************************
 
     private void updateIMG() {
         Image img = (pic.getImage()).getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(), Image.SCALE_SMOOTH);;

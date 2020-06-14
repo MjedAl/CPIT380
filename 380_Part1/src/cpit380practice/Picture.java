@@ -712,26 +712,17 @@ public class Picture extends SimplePicture {
         return target;
     }
 
-    /**
-     * Method to rotate180ate a picture 180 degrees
-     */
     public Picture scaleUp(int numTimes) {
-        Picture targetPicture
-                = new Picture(this.getWidth() * numTimes,
-                        this.getHeight() * numTimes);
+        Picture targetPicture= new Picture(this.getWidth() * numTimes,this.getHeight() * numTimes);
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
         int targetX = 0;
         int targetY = 0;
 
         // loop through the source picture columns
-        for (int sourceX = 0;
-                sourceX < this.getWidth();
-                sourceX++) {
+        for (int sourceX = 0;sourceX < this.getWidth();sourceX++) {
             // loop through the source picture rows
-            for (int sourceY = 0;
-                    sourceY < this.getHeight();
-                    sourceY++) {
+            for (int sourceY = 0;sourceY < this.getHeight();sourceY++) {
                 // get the source pixel
                 sourcePixel = this.getPixel(sourceX, sourceY);
 
@@ -794,9 +785,7 @@ public class Picture extends SimplePicture {
 
     public Picture scaleDown(int numTimes) {
         System.out.println("ok1");
-        Picture targetPicture
-                = new Picture(this.getWidth(),
-                        this.getHeight());
+        Picture targetPicture= new Picture(this.getWidth(),this.getHeight());
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
 
