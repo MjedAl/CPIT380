@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.function.IntPredicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,6 +92,7 @@ public class PictureEditor extends javax.swing.JFrame {
         Blend = new javax.swing.JButton();
         cropImg = new javax.swing.JButton();
         grayTobianry = new javax.swing.JButton();
+        collage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -659,6 +661,13 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        collage.setText("Collage");
+        collage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                collageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -666,8 +675,8 @@ public class PictureEditor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -678,7 +687,10 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(collage, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(392, 392, 392)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(targetLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -719,7 +731,9 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(grayTobianry))))
+                            .addComponent(grayTobianry))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(collage)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -740,6 +754,64 @@ public class PictureEditor extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_redSliderMouseReleased
+
+    private void createCollage() {
+        // ask for 4 picture
+        Picture second = new Picture("C:\\Users\\Mjed\\Desktop\\512Imgs\\1.jpg");
+        Picture third = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\2.jpg");
+        Picture forth = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\3.jpg");
+        Picture fifth = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\4.jpg");
+
+        int width = pic.getWidth() + second.getWidth() + third.getWidth();
+        int height = pic.getHeight() + second.getHeight() + forth.getHeight();
+        pic = new Picture(width, height);
+        // System.out.println(pic.getWidth() + "\t" + pic.getHeight());
+
+        Pixel sourcePixel;
+        Pixel targetPixel;
+
+        // top left
+        for (int i = 0; i < second.getWidth(); i++) {
+            for (int j = 0; j < second.getHeight(); j++) {
+                sourcePixel = second.getPixel(i, j);
+                targetPixel = pic.getPixel(i, j);
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        // top right
+        for (int j = 0; j < third.getWidth(); j++) {
+            for (int k = 0; k < third.getHeight(); k++) {
+                sourcePixel = third.getPixel(j, k);
+                targetPixel = pic.getPixel((sourcePicture.getWidth() + j + second.getWidth()), (k));
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        // original picture in the middle
+        for (int j = 0; j < sourcePicture.getWidth(); j++) {
+            for (int k = 0; k < sourcePicture.getHeight(); k++) {
+                sourcePixel = sourcePicture.getPixel(j, k);
+                targetPixel = pic.getPixel((j + second.getWidth()), (k + second.getHeight()));
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        // bottom left
+        for (int j = 0; j < forth.getWidth(); j++) {
+            for (int k = 0; k < forth.getHeight(); k++) {
+                sourcePixel = forth.getPixel(j, k);
+                targetPixel = pic.getPixel((j), (k + second.getHeight() + sourcePicture.getHeight()));
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        // bottom right
+        for (int j = 0; j < fifth.getWidth(); j++) {
+            for (int k = 0; k < fifth.getHeight(); k++) {
+                sourcePixel = fifth.getPixel(j, k);
+                targetPixel = pic.getPixel((j + second.getWidth() + sourcePicture.getWidth()), (k + third.getHeight() + sourcePicture.getHeight()));
+                targetPixel.setColor(sourcePixel.getColor());
+            }
+        }
+        updateIMG();
+    }
 
     private void greenSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_greenSliderMouseReleased
         // TODO add your handling code here:
@@ -1044,20 +1116,21 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
-             int red   =0; 
-             int green =0;
-             int blue  =0;
-             
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+
         for (int x = 0; x < pic.getWidth(); x++) {
             for (int y = 0; y < pic.getHeight(); y++) {
-       // extract each color component
-      red   = (pic.getPixel(x, y).getRed() >>> 16) & 0xFF;
-      green = (pic.getPixel(x, y).getGreen() >>>  8) & 0xFF;
-      blue  = (pic.getPixel(x, y).getBlue() >>>  0) & 0xFF;
-            }} 
+                // extract each color component
+                red = (pic.getPixel(x, y).getRed() >>> 16) & 0xFF;
+                green = (pic.getPixel(x, y).getGreen() >>> 8) & 0xFF;
+                blue = (pic.getPixel(x, y).getBlue() >>> 0) & 0xFF;
+            }
+        }
 // calc luminance in range 0.0 to 1.0; using SRGB luminance constants
-      float luminance = (red * 0.2126f + green * 0.7152f + blue * 0.0722f);
-      JOptionPane.showMessageDialog(null, "Number of brit = " + luminance);
+        float luminance = (red * 0.2126f + green * 0.7152f + blue * 0.0722f);
+        JOptionPane.showMessageDialog(null, "Number of brit = " + luminance);
     }//GEN-LAST:event_computeBrightnessActionPerformed
 
     private void boxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFilterActionPerformed
@@ -1127,7 +1200,7 @@ public class PictureEditor extends javax.swing.JFrame {
         System.out.println("first 10 levels at red: ");
         // only 10 for demonstraion purpse
         for (int i = 0; i < 10; i++) {
-            System.out.println("Level "+i);
+            System.out.println("Level " + i);
             HistogramsRed[i].PrintFirst10AvailableLocations();
         }
 //        System.out.println("Red data: ------------------------------------");
@@ -1177,32 +1250,33 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_GaussianFilterActionPerformed
 
     private void LaplacianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaplacianFilterActionPerformed
-       for(int x=1, xSample = 0 ; x<pic.getWidth()-1 ; x++,xSample++){
-          for(int y=1, ySample = 0 ; y<pic.getHeight()-1 ; y++,ySample++){
+        for (int x = 1, xSample = 0; x < pic.getWidth() - 1; x++, xSample++) {
+            for (int y = 1, ySample = 0; y < pic.getHeight() - 1; y++, ySample++) {
 
-              Pixel pixell = pic.getPixel(x-1,y-1);
-              Pixel pixel2 = pic.getPixel(x-1,y);
-              Pixel pixel3 =pic.getPixel(x-1,y+1);
-              Pixel pixel4 =pic.getPixel(x,y-1);
-              Pixel pixel5 =pic.getPixel(x,y);
-              Pixel pixel6 =pic.getPixel(x,y+1);
-              Pixel pixel7 =pic.getPixel(x+1,y-1);
-              Pixel pixel8 =pic.getPixel(x+1,y);
-              Pixel pixel9 =pic.getPixel(x+1,y+1);
-      int redValue =
-          (-1*pixell.getRed()) + (-1*pixel2.getRed()) + (-1*pixel3.getRed())+
-          (-1*pixel4.getRed()) + (8*pixel5.getRed())+(-1*pixel6.getRed())+
-          (-1*pixel7.getRed()) + (-1*pixel8.getRed())+(-1*pixel9.getRed());
+                Pixel pixell = pic.getPixel(x - 1, y - 1);
+                Pixel pixel2 = pic.getPixel(x - 1, y);
+                Pixel pixel3 = pic.getPixel(x - 1, y + 1);
+                Pixel pixel4 = pic.getPixel(x, y - 1);
+                Pixel pixel5 = pic.getPixel(x, y);
+                Pixel pixel6 = pic.getPixel(x, y + 1);
+                Pixel pixel7 = pic.getPixel(x + 1, y - 1);
+                Pixel pixel8 = pic.getPixel(x + 1, y);
+                Pixel pixel9 = pic.getPixel(x + 1, y + 1);
+                int redValue
+                        = (-1 * pixell.getRed()) + (-1 * pixel2.getRed()) + (-1 * pixel3.getRed())
+                        + (-1 * pixel4.getRed()) + (8 * pixel5.getRed()) + (-1 * pixel6.getRed())
+                        + (-1 * pixel7.getRed()) + (-1 * pixel8.getRed()) + (-1 * pixel9.getRed());
 
-         if(redValue<0)	
-           redValue=0;				
-         else if(redValue>255)
-           redValue=255;
-         Color newColor = new Color(redValue,redValue,redValue);
-         this.pic.getPixel(x,y).setColor(newColor);
-      }
-    }                                               
-     updateIMG();
+                if (redValue < 0) {
+                    redValue = 0;
+                } else if (redValue > 255) {
+                    redValue = 255;
+                }
+                Color newColor = new Color(redValue, redValue, redValue);
+                this.pic.getPixel(x, y).setColor(newColor);
+            }
+        }
+        updateIMG();
 
     }//GEN-LAST:event_LaplacianFilterActionPerformed
 
@@ -1215,21 +1289,21 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_maxFilterActionPerformed
 
     private void medianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medianFilterActionPerformed
-      int[] pixel = new int[9];
-        for(int i=1;i<pic.getWidth()-1;i++){
-           for(int j=1;j<pic.getHeight()-1;j++){
+        int[] pixel = new int[9];
+        for (int i = 1; i < pic.getWidth() - 1; i++) {
+            for (int j = 1; j < pic.getHeight() - 1; j++) {
 
-             pixel[0]=pic.getPixel(i-1,j-1).getRed();
-             pixel[1]=pic.getPixel(i-1,j).getRed();
-             pixel[2]=pic.getPixel(i-1,j+1).getRed();
-             pixel[3]=pic.getPixel(i,j+1).getRed();
-             pixel[4]=pic.getPixel(i+1,j+1).getRed();
-             pixel[5]=pic.getPixel(i+1,j).getRed();
-             pixel[6]=pic.getPixel(i+1,j-1).getRed();
-             pixel[7]=pic.getPixel(i,j-1).getRed();
-             pixel[8]=pic.getPixel(i,j).getRed();
-             Arrays.sort(pixel);
-                 this.pic.getPixel(i,j).setColor(new Color (pixel[4],pixel[4],pixel[4]));
+                pixel[0] = pic.getPixel(i - 1, j - 1).getRed();
+                pixel[1] = pic.getPixel(i - 1, j).getRed();
+                pixel[2] = pic.getPixel(i - 1, j + 1).getRed();
+                pixel[3] = pic.getPixel(i, j + 1).getRed();
+                pixel[4] = pic.getPixel(i + 1, j + 1).getRed();
+                pixel[5] = pic.getPixel(i + 1, j).getRed();
+                pixel[6] = pic.getPixel(i + 1, j - 1).getRed();
+                pixel[7] = pic.getPixel(i, j - 1).getRed();
+                pixel[8] = pic.getPixel(i, j).getRed();
+                Arrays.sort(pixel);
+                this.pic.getPixel(i, j).setColor(new Color(pixel[4], pixel[4], pixel[4]));
             }
         }
         updateIMG();
@@ -1266,6 +1340,12 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_grayTobianryActionPerformed
+
+    private void collageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collageActionPerformed
+        // TODO add your handling code here:
+        createCollage();
+
+    }//GEN-LAST:event_collageActionPerformed
 
     // Crop image method
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -1393,6 +1473,7 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton boxFilter;
     private javax.swing.JButton chooseImg;
     private javax.swing.JButton clearImage;
+    private javax.swing.JButton collage;
     private javax.swing.JButton computeBrightness;
     private javax.swing.JButton computeContrast;
     private javax.swing.JButton cropImg;

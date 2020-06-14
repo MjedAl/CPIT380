@@ -279,7 +279,7 @@ public class SimplePicture implements DigitalPicture
  {
     return bufferedImage.getRGB(x,y);
  }
-    
+  
  /** 
   * Method to set the value of a pixel in the picture from an int
   * @param x the x coordinate of the pixel
