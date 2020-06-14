@@ -815,8 +815,7 @@ public class Picture extends SimplePicture {
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
                 startPixel = copy.getPixel(x, y);
-                endPixel = this.getPixel(this.getWidth() - 1 - x,
-                        this.getHeight() - 1 - y);
+                endPixel = this.getPixel(this.getWidth() - 1 - x, this.getHeight() - 1 - y);
                 endPixel.setColor(startPixel.getColor());
             }
         }
