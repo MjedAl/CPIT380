@@ -987,7 +987,7 @@ public class PictureEditor extends javax.swing.JFrame {
             JFileChooser jFileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             jFileChooser.showOpenDialog(jFileChooser);
             Picture picture_obj = new Picture(jFileChooser.getSelectedFile().getAbsolutePath());
-            
+
             // fixed this.
             if ((pic.getWidth() * pic.getHeight()) == (picture_obj.getWidth() * picture_obj.getHeight())) {
                 Pixel[] pic_1 = pic.getPixels();
@@ -1176,10 +1176,11 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_DiaginalRef_d2_T2BActionPerformed
 
     private void ComputeHistograms() {
-
         Pixel_LL[] HistogramsRed = new Pixel_LL[256];
         Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
         Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
+        Pixel_LL[] HistogramAlpha = new Pixel_LL[256];
+
         int maxR = 0;
         int maxR_index = 0;
         int maxG = 0;
@@ -1191,17 +1192,20 @@ public class PictureEditor extends javax.swing.JFrame {
             HistogramsRed[i] = new Pixel_LL();
             HistogramsGreen[i] = new Pixel_LL();
             HistogramsBlue[i] = new Pixel_LL();
+            HistogramAlpha[i] = new Pixel_LL();
         }
-        for (int i = 0; i < pic.getHeight(); i++) {
-            for (int j = 0; j < pic.getWidth(); j++) {
-                int intensityR = pic.getPixel(j, i).getRed();
-                int intensityG = pic.getPixel(j, i).getGreen();
-                int intensityB = pic.getPixel(j, i).getBlue();
-                
-                PixelLinkedList_node pixel = new PixelLinkedList_node(j, i);
-                HistogramsRed[intensityR].addPixel(pixel);
-                HistogramsGreen[intensityG].addPixel(pixel);
-                HistogramsBlue[intensityB].addPixel(pixel);
+        for (int i = 0; i < pic.getWidth(); i++) {
+            for (int j = 0; j < pic.getHeight(); j++) {
+                int intensityR = pic.getPixel(i, j).getRed();
+                int intensityG = pic.getPixel(i, j).getGreen();
+                int intensityB = pic.getPixel(i, j).getBlue();
+                int intensityA = pic.getPixel(i, j).getAlpha();
+
+                HistogramsRed[intensityR].addPixel(new PixelLinkedList_node(i, j));
+                HistogramsGreen[intensityG].addPixel(new PixelLinkedList_node(i, j));
+                HistogramsBlue[intensityB].addPixel(new PixelLinkedList_node(i, j));
+                HistogramAlpha[intensityA].addPixel(new PixelLinkedList_node(i, j));
+
                 if (HistogramsRed[intensityR].getTotal() > maxR) {
                     maxR = HistogramsRed[intensityR].getTotal();
                     maxR_index = intensityR;
@@ -1227,16 +1231,8 @@ public class PictureEditor extends javax.swing.JFrame {
             info += "\nGreen max " + maxG + " pixels at point :" + maxG_index;
             info += "\nBlue max " + maxB + " pixels at point :" + maxB_index;
         }
-        // print
-
         JOptionPane.showMessageDialog(null, info, "Finished", JOptionPane.NO_OPTION);
 
-        System.out.println("first 10 levels at red: ");
-        // only 10 for demonstraion purpse
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Level " + i);
-            HistogramsRed[i].PrintFirst10AvailableLocations();
-        }
 //        System.out.println("Red data: ------------------------------------");
 //        for (int i = 0; i < HistogramsRed.length; i++) {
 //            System.out.println(i + "," + HistogramsRed[i].getTotal());
@@ -1250,6 +1246,51 @@ public class PictureEditor extends javax.swing.JFrame {
 //            System.out.println(i + "," + HistogramsBlue[i].getTotal());
 //        }
         // ***plotting the histogrmas***
+        reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue, HistogramAlpha);
+    }
+
+    private void reConstructeTheImage(int Width, int Height, Pixel_LL HistogramsRed[], Pixel_LL HistogramsGreen[], Pixel_LL HistogramsBlue[], Pixel_LL HistogramsAlpha[]) {
+
+        Picture replot = new Picture(Width, Height);
+
+        PixelLinkedList_node helpPtr = null;
+
+        for (int i = 0; i < 256; i++) { // 0 - 256
+            if (HistogramsAlpha[i].getHead() != null) {
+                helpPtr = HistogramsAlpha[i].getHead();
+                while (helpPtr != null) {
+                    replot.getPixel(helpPtr.getX(), helpPtr.getY()).setAlpha(i);
+                    helpPtr = helpPtr.getNext();
+                }
+            }
+
+            if (HistogramsRed[i].getHead() != null) {
+                helpPtr = HistogramsRed[i].getHead();
+                while (helpPtr != null) {
+                    replot.getPixel(helpPtr.getX(), helpPtr.getY()).setRed(i);
+                    helpPtr = helpPtr.getNext();
+                }
+            }
+
+            if (HistogramsGreen[i].getHead() != null) {
+                helpPtr = HistogramsGreen[i].getHead();
+                while (helpPtr != null) {
+                    replot.getPixel(helpPtr.getX(), helpPtr.getY()).setGreen(i);
+                    helpPtr = helpPtr.getNext();
+                }
+            }
+
+            if (HistogramsBlue[i].getHead() != null) {
+                helpPtr = HistogramsBlue[i].getHead();
+                while (helpPtr != null) {
+                    replot.getPixel(helpPtr.getX(), helpPtr.getY()).setBlue(i);
+                    helpPtr = helpPtr.getNext();
+                }
+            }
+        }
+        System.out.println("done");
+        replot.show();
+
     }
 
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
@@ -1366,7 +1407,7 @@ public class PictureEditor extends javax.swing.JFrame {
         } else {
             String ThresholdValue = JOptionPane.showInputDialog(null, "Please Enter the size: ");
             try {
-                    // **get the value from the histogram**
+                // **get the value from the histogram**
                 int threadshold = Integer.parseInt(ThresholdValue);
                 pic = pic.gray2Binary(threadshold);
                 updateIMG();

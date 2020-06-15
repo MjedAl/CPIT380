@@ -22,6 +22,10 @@ public class Pixel_LL {
         total++;
     }
 
+    public PixelLinkedList_node getHead(){
+        return head;
+    }
+    
     public int getTotal() {
         return total;
     }
@@ -62,6 +66,7 @@ class PixelLinkedList_node {
 
     private int x;
     private int y;
+    
     private PixelLinkedList_node next;
 
     public PixelLinkedList_node(int x, int y) {
@@ -79,6 +84,14 @@ class PixelLinkedList_node {
 
     public PixelLinkedList_node getNext() {
         return next;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public void setNext(PixelLinkedList_node next) {

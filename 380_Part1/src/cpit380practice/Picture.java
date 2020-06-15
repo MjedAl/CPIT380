@@ -56,7 +56,7 @@ public class Picture extends SimplePicture {
      * @param height the height of the desired picture
      * @param theColor the color for the background
      */
-    public Picture(int width, int height, Color theColor) {
+     public Picture(int width, int height, Color theColor) {
         // let the parent class handle these parameters
         super(width, height, theColor);
     }
