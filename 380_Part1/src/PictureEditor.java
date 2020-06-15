@@ -1179,7 +1179,6 @@ public class PictureEditor extends javax.swing.JFrame {
         Pixel_LL[] HistogramsRed = new Pixel_LL[256];
         Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
         Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
-        Pixel_LL[] HistogramAlpha = new Pixel_LL[256];
 
         int maxR = 0;
         int maxR_index = 0;
@@ -1192,19 +1191,16 @@ public class PictureEditor extends javax.swing.JFrame {
             HistogramsRed[i] = new Pixel_LL();
             HistogramsGreen[i] = new Pixel_LL();
             HistogramsBlue[i] = new Pixel_LL();
-            HistogramAlpha[i] = new Pixel_LL();
         }
         for (int i = 0; i < pic.getWidth(); i++) {
             for (int j = 0; j < pic.getHeight(); j++) {
                 int intensityR = pic.getPixel(i, j).getRed();
                 int intensityG = pic.getPixel(i, j).getGreen();
                 int intensityB = pic.getPixel(i, j).getBlue();
-                int intensityA = pic.getPixel(i, j).getAlpha();
 
                 HistogramsRed[intensityR].addPixel(new PixelLinkedList_node(i, j));
                 HistogramsGreen[intensityG].addPixel(new PixelLinkedList_node(i, j));
                 HistogramsBlue[intensityB].addPixel(new PixelLinkedList_node(i, j));
-                HistogramAlpha[intensityA].addPixel(new PixelLinkedList_node(i, j));
 
                 if (HistogramsRed[intensityR].getTotal() > maxR) {
                     maxR = HistogramsRed[intensityR].getTotal();
@@ -1246,24 +1242,16 @@ public class PictureEditor extends javax.swing.JFrame {
 //            System.out.println(i + "," + HistogramsBlue[i].getTotal());
 //        }
         // ***plotting the histogrmas***
-        reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue, HistogramAlpha);
+        reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue);
     }
 
-    private void reConstructeTheImage(int Width, int Height, Pixel_LL HistogramsRed[], Pixel_LL HistogramsGreen[], Pixel_LL HistogramsBlue[], Pixel_LL HistogramsAlpha[]) {
+    private void reConstructeTheImage(int Width, int Height, Pixel_LL HistogramsRed[], Pixel_LL HistogramsGreen[], Pixel_LL HistogramsBlue[]) {
 
         Picture replot = new Picture(Width, Height);
 
         PixelLinkedList_node helpPtr = null;
 
         for (int i = 0; i < 256; i++) { // 0 - 256
-            if (HistogramsAlpha[i].getHead() != null) {
-                helpPtr = HistogramsAlpha[i].getHead();
-                while (helpPtr != null) {
-                    replot.getPixel(helpPtr.getX(), helpPtr.getY()).setAlpha(i);
-                    helpPtr = helpPtr.getNext();
-                }
-            }
-
             if (HistogramsRed[i].getHead() != null) {
                 helpPtr = HistogramsRed[i].getHead();
                 while (helpPtr != null) {
