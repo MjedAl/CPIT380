@@ -57,7 +57,6 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="Blend" pref="316" max="32767" attributes="0"/>
                               <Component id="cropImg" pref="316" max="32767" attributes="0"/>
-                              <Component id="ConvertToHSV" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -65,7 +64,7 @@
                           <Component id="jPanel1" min="-2" pref="710" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="imgLabel" pref="645" max="32767" attributes="0"/>
                       <Component id="targetLabel" max="32767" attributes="0"/>
@@ -75,19 +74,14 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="collage" min="-2" pref="316" max="-2" attributes="0"/>
+                          <Component id="collage" min="-2" pref="316" max="-2" attributes="0"/>
+                          <Component id="grayTobianry" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jPanel2" alignment="0" pref="708" max="32767" attributes="0"/>
+                              <Component id="menuPanel" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="grayTobianry" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jPanel2" alignment="0" pref="708" max="32767" attributes="0"/>
-                                      <Component id="menuPanel" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <Component id="ConvertToHSV" min="-2" pref="316" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                       <Component id="chooseImg" min="-2" pref="325" max="-2" attributes="0"/>
@@ -101,17 +95,15 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="74" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jPanel1" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                           <Component id="cropImg" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="Blend" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="ConvertToHSV" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="imgLabel" min="-2" pref="302" max="-2" attributes="0"/>
@@ -139,6 +131,8 @@
                               <Component id="grayTobianry" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="collage" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ConvertToHSV" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="88" max="32767" attributes="0"/>
@@ -818,14 +812,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chooseImgActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="ConvertToHSV">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Convert To HSV"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConvertToHSVActionPerformed"/>
-          </Events>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -848,7 +834,7 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="greenSlider" alignment="0" pref="589" max="32767" attributes="0"/>
                           <Component id="blueSlider" alignment="0" max="32767" attributes="0"/>
@@ -879,7 +865,7 @@
                           <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -929,6 +915,14 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="ConvertToHSV">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ConvertToHSV"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConvertToHSVActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
