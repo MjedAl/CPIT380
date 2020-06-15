@@ -688,6 +688,11 @@ public class Picture extends SimplePicture {
             // loop through the rows
             for (int y = 0; y < this.getHeight(); y++) {
                 // set the target pixel color to the source pixel color
+                
+                // make 2 loop to move on width and hight 
+                // 1- take the pixel in the srcPic on (x,y)
+                // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (H-1-y,x)
+                // 3- in the pixel of the target we change the color with color of the pixel src
                 sourcePixel = this.getPixel(x, y);
                 targetPixel = target.getPixel(this.getHeight() - 1 - y, x);
                 targetPixel.setColor(sourcePixel.getColor());
@@ -814,6 +819,10 @@ public class Picture extends SimplePicture {
         Pixel endPixel = null;
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
+                 // make 2 loop to move on width and hight 
+                // 1- take the pixel in the srcPic on (x,y)
+                // 2- take the pixel in the targetPic but swap between x and y after that use the formula of R 180 (w-1-x,H-1-y)
+                // 3- in the pixel of the target we change the color with color of the pixel src
                 startPixel = copy.getPixel(x, y);
                 endPixel = this.getPixel(this.getWidth() - 1 - x, this.getHeight() - 1 - y);
                 endPixel.setColor(startPixel.getColor());
@@ -1486,6 +1495,11 @@ public class Picture extends SimplePicture {
             // loop through the rows
             for (int sourceY = 0; sourceY < this.getHeight(); sourceY++) {
                 // set the target pixel color to the source pixel color
+                
+                  // make 2 loop to move on width and hight 
+                // 1- take the pixel in the srcPic on (x,y)
+                // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (y,w-1-x)
+                // 3- in the pixel of the target we change the color with color of the pixel src
                 sourcePixel = this.getPixel(sourceX, sourceY);
                 targetPixel = target.getPixel(sourceY, this.getWidth() - 1 - sourceX);
                 targetPixel.setColor(sourcePixel.getColor());
