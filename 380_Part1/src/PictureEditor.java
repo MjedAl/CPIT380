@@ -1,5 +1,6 @@
 
 import cpit380practice.Picture;
+import cpit380practice.PictureFrame;
 import cpit380practice.Pixel;
 import cpit380practice.SimplePicture;
 import java.awt.Color;
@@ -19,7 +20,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
@@ -1217,32 +1220,65 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         }
 
-        String info = "";
+//        String info = "";
+//        if ((maxR == maxG && maxR == maxB)) {// image is gray
+//            if ((maxR_index == maxG_index && maxG_index == maxB_index)) {
+//                info = "Image is gray\n Max " + maxR + " pixels at point :" + maxR_index;
+//            }
+//        } else {
+//            info = "Red max " + maxR + " pixels at point :" + maxR_index;
+//            info += "\nGreen max " + maxG + " pixels at point :" + maxG_index;
+//            info += "\nBlue max " + maxB + " pixels at point :" + maxB_index;
+//        }
+//        JOptionPane.showMessageDialog(null, info, "Finished", JOptionPane.NO_OPTION);
+        // ***plotting the histogrmas***
         if ((maxR == maxG && maxR == maxB)) {// image is gray
             if ((maxR_index == maxG_index && maxG_index == maxB_index)) {
-                info = "Image is gray\n Max " + maxR + " pixels at point :" + maxR_index;
+                PlotHistogram("Gray", HistogramsRed);
+                return;
             }
-        } else {
-            info = "Red max " + maxR + " pixels at point :" + maxR_index;
-            info += "\nGreen max " + maxG + " pixels at point :" + maxG_index;
-            info += "\nBlue max " + maxB + " pixels at point :" + maxB_index;
         }
-        JOptionPane.showMessageDialog(null, info, "Finished", JOptionPane.NO_OPTION);
+        PlotHistogram("RED", HistogramsRed);
+        PlotHistogram("GREEN", HistogramsGreen);
+        PlotHistogram("BLUE", HistogramsBlue);
 
-//        System.out.println("Red data: ------------------------------------");
-//        for (int i = 0; i < HistogramsRed.length; i++) {
-//            System.out.println(i + "," + HistogramsRed[i].getTotal());
-//        }
-//        System.out.println("Green data: ------------------------------------");
-//        for (int i = 0; i < HistogramsRed.length; i++) {
-//            System.out.println(i + "," + HistogramsGreen[i].getTotal());
-//        }
-//        System.out.println("blue data: ------------------------------------");
-//        for (int i = 0; i < HistogramsRed.length; i++) {
-//            System.out.println(i + "," + HistogramsBlue[i].getTotal());
-//        }
-        // ***plotting the histogrmas***
-        reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue);
+        //   reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue);
+    }
+
+    private void PlotHistogram(String color, Pixel_LL Histogram[]) {
+        // first must find the max height of the histogram.
+        int maxHeight = 0;
+        for (int i = 0; i < Histogram.length; i++) {
+            if (Histogram[i].getTotal() > maxHeight) {
+                maxHeight = Histogram[i].getTotal();
+            }
+        }
+        Picture histogram = new Picture(256, 256, Color.white);
+
+        Color c;
+        if (color.equalsIgnoreCase("RED")) {
+            c = Color.RED;
+        } else if (color.equalsIgnoreCase("green")) {
+            c = Color.GREEN;
+        } else if (color.equalsIgnoreCase("BLue")) {
+            c = Color.BLUE;
+        } else {
+            c = Color.GRAY;
+
+        }
+
+        // Actual max = maxHeight
+        // the max we want to make is 512 so it become visible
+        // now make an image
+        for (int i = 0; i < 256; i++) { // now plot the histogram
+            int max = (int) (Histogram[i].getTotal() * 256 / maxHeight);
+
+            for (int j = 255; j >= (256 - max); j--) {// color remanind
+                histogram.getPixel(i, j).setColor(c);
+            }
+
+        }
+        histogram.scaleUp(2).show();
     }
 
     private void reConstructeTheImage(int Width, int Height, Pixel_LL HistogramsRed[], Pixel_LL HistogramsGreen[], Pixel_LL HistogramsBlue[]) {
