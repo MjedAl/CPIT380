@@ -157,9 +157,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="404" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Blend" min="-2" pref="316" max="-2" attributes="0"/>
-                      <Component id="cropImg" min="-2" pref="316" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="Blend" pref="316" max="32767" attributes="0"/>
+                      <Component id="cropImg" pref="316" max="32767" attributes="0"/>
+                      <Component id="ConvertToHSV" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="75" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -203,7 +204,9 @@
                           <Component id="cropImg" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="Blend" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="ConvertToHSV" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="imgLabel" min="-2" pref="302" max="-2" attributes="0"/>
@@ -908,6 +911,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chooseImgActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ConvertToHSV">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Convert To HSV"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConvertToHSVActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
