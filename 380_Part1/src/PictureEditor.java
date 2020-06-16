@@ -10,8 +10,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.function.IntPredicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,6 +84,8 @@ public class PictureEditor extends javax.swing.JFrame {
         ComputeHistograms = new javax.swing.JButton();
         computeBrightness = new javax.swing.JButton();
         computeContrast = new javax.swing.JButton();
+        exportHistogram = new javax.swing.JButton();
+        importHistogram = new javax.swing.JButton();
         FiltersPanel = new javax.swing.JPanel();
         boxFilter = new javax.swing.JButton();
         GaussianFilter = new javax.swing.JButton();
@@ -407,6 +412,22 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        exportHistogram.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        exportHistogram.setText("Export Histogram");
+        exportHistogram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportHistogramActionPerformed(evt);
+            }
+        });
+
+        importHistogram.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        importHistogram.setText("Import Histogram");
+        importHistogram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importHistogramActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CopmutingPanelLayout = new javax.swing.GroupLayout(CopmutingPanel);
         CopmutingPanel.setLayout(CopmutingPanelLayout);
         CopmutingPanelLayout.setHorizontalGroup(
@@ -416,7 +437,9 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addGroup(CopmutingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(computeBrightness, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComputeHistograms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(computeContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(computeContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exportHistogram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(importHistogram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         CopmutingPanelLayout.setVerticalGroup(
@@ -424,6 +447,10 @@ public class PictureEditor extends javax.swing.JFrame {
             .addGroup(CopmutingPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ComputeHistograms)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(exportHistogram)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(importHistogram)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(computeBrightness)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1113,33 +1140,32 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void ComputingMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputingMenuActionPerformed
         // TODO add your handling code here:
-        if (pic == null) {
-            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            menuPanel.setBackground(ComputingMenu.getBackground());
-            rotatePanel.setVisible(false);
-            ReflectionPanel.setVisible(false);
-            CopmutingPanel.setVisible(true);
-            FiltersPanel.setVisible(false);
-        }
+
+        menuPanel.setBackground(ComputingMenu.getBackground());
+        rotatePanel.setVisible(false);
+        ReflectionPanel.setVisible(false);
+        CopmutingPanel.setVisible(true);
+        FiltersPanel.setVisible(false);
+
     }//GEN-LAST:event_ComputingMenuActionPerformed
 
     private void FiltersMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltersMenuActionPerformed
         // TODO add your handling code here:
-        if (pic == null) {
-            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            menuPanel.setBackground(FiltersMenu.getBackground());
-            rotatePanel.setVisible(false);
-            ReflectionPanel.setVisible(false);
-            CopmutingPanel.setVisible(false);
-            FiltersPanel.setVisible(true);
-        }
+        menuPanel.setBackground(FiltersMenu.getBackground());
+        rotatePanel.setVisible(false);
+        ReflectionPanel.setVisible(false);
+        CopmutingPanel.setVisible(false);
+        FiltersPanel.setVisible(true);
+
     }//GEN-LAST:event_FiltersMenuActionPerformed
 
     private void ComputeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputeHistogramsActionPerformed
-        // TODO add your handling code here:
-        ComputeHistograms();
+        try {
+            // TODO add your handling code here:
+            ComputeHistograms();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PictureEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
@@ -1178,10 +1204,9 @@ public class PictureEditor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DiaginalRef_d2_T2BActionPerformed
 
-    private void ComputeHistograms() {
-        Pixel_LL[] HistogramsRed = new Pixel_LL[256];
-        Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
-        Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
+    private Pixel_LL[][] ComputeHistograms() {
+
+        Pixel_LL[][] Histograms = new Pixel_LL[3][256]; // [0] red, [1] green [2] blue
 
         int maxR = 0;
         int maxR_index = 0;
@@ -1191,58 +1216,44 @@ public class PictureEditor extends javax.swing.JFrame {
         int maxB_index = 0;
 
         for (int i = 0; i < 256; i++) { // Inisilazing all the arrays
-            HistogramsRed[i] = new Pixel_LL();
-            HistogramsGreen[i] = new Pixel_LL();
-            HistogramsBlue[i] = new Pixel_LL();
+            Histograms[0][i] = new Pixel_LL();
+            Histograms[1][i] = new Pixel_LL();
+            Histograms[2][i] = new Pixel_LL();
         }
         for (int i = 0; i < pic.getWidth(); i++) {
             for (int j = 0; j < pic.getHeight(); j++) {
                 int intensityR = pic.getPixel(i, j).getRed();
                 int intensityG = pic.getPixel(i, j).getGreen();
                 int intensityB = pic.getPixel(i, j).getBlue();
+                Histograms[0][intensityR].addPixel(new PixelLinkedList_node(i, j));
+                Histograms[1][intensityG].addPixel(new PixelLinkedList_node(i, j));
+                Histograms[2][intensityB].addPixel(new PixelLinkedList_node(i, j));
 
-                HistogramsRed[intensityR].addPixel(new PixelLinkedList_node(i, j));
-                HistogramsGreen[intensityG].addPixel(new PixelLinkedList_node(i, j));
-                HistogramsBlue[intensityB].addPixel(new PixelLinkedList_node(i, j));
-
-                if (HistogramsRed[intensityR].getTotal() > maxR) {
-                    maxR = HistogramsRed[intensityR].getTotal();
+                if (Histograms[0][intensityR].getTotal() > maxR) {
+                    maxR = Histograms[0][intensityR].getTotal();
                     maxR_index = intensityR;
                 }
-                if (HistogramsGreen[intensityG].getTotal() > maxG) {
-                    maxG = HistogramsGreen[intensityG].getTotal();
+                if (Histograms[1][intensityG].getTotal() > maxG) {
+                    maxG = Histograms[1][intensityG].getTotal();
                     maxG_index = intensityG;
                 }
-                if (HistogramsBlue[intensityB].getTotal() > maxB) {
-                    maxB = HistogramsBlue[intensityB].getTotal();
+                if (Histograms[2][intensityB].getTotal() > maxB) {
+                    maxB = Histograms[2][intensityB].getTotal();
                     maxB_index = intensityB;
                 }
             }
         }
-
-//        String info = "";
-//        if ((maxR == maxG && maxR == maxB)) {// image is gray
-//            if ((maxR_index == maxG_index && maxG_index == maxB_index)) {
-//                info = "Image is gray\n Max " + maxR + " pixels at point :" + maxR_index;
-//            }
-//        } else {
-//            info = "Red max " + maxR + " pixels at point :" + maxR_index;
-//            info += "\nGreen max " + maxG + " pixels at point :" + maxG_index;
-//            info += "\nBlue max " + maxB + " pixels at point :" + maxB_index;
-//        }
-//        JOptionPane.showMessageDialog(null, info, "Finished", JOptionPane.NO_OPTION);
         // ***plotting the histogrmas***
         if ((maxR == maxG && maxR == maxB)) {// image is gray
             if ((maxR_index == maxG_index && maxG_index == maxB_index)) {
-                PlotHistogram("Gray", HistogramsRed);
-                return;
+                PlotHistogram("Gray", Histograms[0]);
+                return Histograms;
             }
         }
-        PlotHistogram("RED", HistogramsRed);
-        PlotHistogram("GREEN", HistogramsGreen);
-        PlotHistogram("BLUE", HistogramsBlue);
-
-        //   reConstructeTheImage(pic.getWidth(), pic.getHeight(), HistogramsRed, HistogramsGreen, HistogramsBlue);
+        PlotHistogram("RED", Histograms[0]);
+        PlotHistogram("GREEN", Histograms[1]);
+        PlotHistogram("BLUE", Histograms[2]);
+        return Histograms;
     }
 
     private void PlotHistogram(String color, Pixel_LL Histogram[]) {
@@ -1253,6 +1264,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 maxHeight = Histogram[i].getTotal();
             }
         }
+
         Picture histogram = new Picture(256, 256, Color.white);
 
         Color c;
@@ -1264,27 +1276,48 @@ public class PictureEditor extends javax.swing.JFrame {
             c = Color.BLUE;
         } else {
             c = Color.GRAY;
-
         }
 
         // Actual max = maxHeight
         // the max we want to make is 512 so it become visible
-        // now make an image
         for (int i = 0; i < 256; i++) { // now plot the histogram
             int max = (int) (Histogram[i].getTotal() * 256 / maxHeight);
-
-            for (int j = 255; j >= (256 - max); j--) {// color remanind
+            for (int j = 255; j >= (256 - max); j--) {
                 histogram.getPixel(i, j).setColor(c);
             }
-
         }
         histogram.scaleUp(2).show();
     }
 
-    private void reConstructeTheImage(int Width, int Height, Pixel_LL HistogramsRed[], Pixel_LL HistogramsGreen[], Pixel_LL HistogramsBlue[]) {
+    private void reConstructeTheImage(File histogramFile) throws FileNotFoundException {
+        Scanner input = new Scanner(histogramFile);
+        Picture replot = new Picture(input.nextInt(), input.nextInt());
 
-        Picture replot = new Picture(Width, Height);
-
+        Pixel_LL[] HistogramsRed = new Pixel_LL[256];
+        Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
+        Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
+        int total;
+        String color = input.next();
+        System.out.println("Importing the color " + color);
+        for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from red
+            total = input.nextInt();
+            System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+            HistogramsRed[i] = new Pixel_LL(input, total);
+        }
+        color = input.next();
+        System.out.println("Importing the color " + color);
+        for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from green
+            total = input.nextInt();
+            System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+            HistogramsGreen[i] = new Pixel_LL(input, total);
+        }
+        color = input.next();
+        System.out.println("Importing the color " + color);
+        for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from blue
+            total = input.nextInt();
+            System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+            HistogramsBlue[i] = new Pixel_LL(input, total);
+        }
         PixelLinkedList_node helpPtr = null;
 
         for (int i = 0; i < 256; i++) { // 0 - 256
@@ -1312,9 +1345,8 @@ public class PictureEditor extends javax.swing.JFrame {
                 }
             }
         }
-        System.out.println("done");
+        System.out.println("DONE");
         replot.show();
-
     }
 
     private void computeContrastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeContrastActionPerformed
@@ -1391,7 +1423,6 @@ public class PictureEditor extends javax.swing.JFrame {
         int[] pixel = new int[9];
         for (int i = 1; i < pic.getWidth() - 1; i++) {
             for (int j = 1; j < pic.getHeight() - 1; j++) {
-
                 pixel[0] = pic.getPixel(i - 1, j - 1).getRed();
                 pixel[1] = pic.getPixel(i - 1, j).getRed();
                 pixel[2] = pic.getPixel(i - 1, j + 1).getRed();
@@ -1464,6 +1495,115 @@ public class PictureEditor extends javax.swing.JFrame {
             updateIMG();
         }
     }//GEN-LAST:event_ConvertToHSVActionPerformed
+
+    private void exportHistogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportHistogramActionPerformed
+
+        // exporting the histogram to files
+        Pixel_LL[][] Histograms = ComputeHistograms();
+        // ask the user where to save it
+        JFileChooser f = new JFileChooser();
+        f.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        f.showSaveDialog(null);
+        File export = new File(f.getSelectedFile() + "\\histograms.txt");
+
+        PrintWriter pen = null;
+        try {
+            pen = new PrintWriter(export);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PictureEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pen.println(pic.getWidth() + " " + pic.getHeight());
+        pen.println("RED");
+        for (int i = 0; i < 256; i++) {
+            Histograms[0][i].exportHistogram(pen);
+        }
+        pen.println("GREEN");
+        for (int i = 0; i < 256; i++) {
+            Histograms[1][i].exportHistogram(pen);
+        }
+        pen.println("BLUE");
+        for (int i = 0; i < 256; i++) {
+            Histograms[2][i].exportHistogram(pen);
+        }
+        pen.close();
+        JOptionPane.showMessageDialog(null, "Finished\n Exported to " + export.getAbsolutePath(), "Done", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_exportHistogramActionPerformed
+
+    private void importHistogramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importHistogramActionPerformed
+        try {
+            // TODO add your handling code here:
+
+            JOptionPane.showMessageDialog(null, "Please choose the histogram txt", "File", JOptionPane.OK_OPTION);
+
+            JFileChooser f = new JFileChooser();
+            f.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            f.showSaveDialog(null);
+            File export = f.getSelectedFile();
+
+            Scanner input = new Scanner(export);
+            Picture replot = new Picture(input.nextInt(), input.nextInt());
+
+            Pixel_LL[] HistogramsRed = new Pixel_LL[256];
+            Pixel_LL[] HistogramsGreen = new Pixel_LL[256];
+            Pixel_LL[] HistogramsBlue = new Pixel_LL[256];
+            int total;
+            String color = input.next();
+            System.out.println("Importing the color " + color);
+            for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from red
+                total = input.nextInt();
+                System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+                HistogramsRed[i] = new Pixel_LL(input, total);
+            }
+            color = input.next();
+            System.out.println("Importing the color " + color);
+            for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from green
+                total = input.nextInt();
+                System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+                HistogramsGreen[i] = new Pixel_LL(input, total);
+            }
+            color = input.next();
+            System.out.println("Importing the color " + color);
+            for (int i = 0; i < 256; i++) { // Reading all level 0 pixels from blue
+                total = input.nextInt();
+                System.out.println("Importing level " + i + " of " + color + " it has: " + total + " pixels");
+                HistogramsBlue[i] = new Pixel_LL(input, total);
+            }
+            PixelLinkedList_node helpPtr = null;
+
+            for (int i = 0; i < 256; i++) { // 0 - 256
+                if (HistogramsRed[i].getHead() != null) {
+                    helpPtr = HistogramsRed[i].getHead();
+                    while (helpPtr != null) {
+                        replot.getPixel(helpPtr.getX(), helpPtr.getY()).setRed(i);
+                        helpPtr = helpPtr.getNext();
+                    }
+                }
+
+                if (HistogramsGreen[i].getHead() != null) {
+                    helpPtr = HistogramsGreen[i].getHead();
+                    while (helpPtr != null) {
+                        replot.getPixel(helpPtr.getX(), helpPtr.getY()).setGreen(i);
+                        helpPtr = helpPtr.getNext();
+                    }
+                }
+
+                if (HistogramsBlue[i].getHead() != null) {
+                    helpPtr = HistogramsBlue[i].getHead();
+                    while (helpPtr != null) {
+                        replot.getPixel(helpPtr.getX(), helpPtr.getY()).setBlue(i);
+                        helpPtr = helpPtr.getNext();
+                    }
+                }
+            }
+            System.out.println("DONE");
+            replot.show();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR FILE IS NOT FOUND", "File", JOptionPane.OK_OPTION);
+        } catch (Exception x) {
+            JOptionPane.showMessageDialog(null, "ERROR", "EROR", JOptionPane.OK_OPTION);
+        }
+
+    }//GEN-LAST:event_importHistogramActionPerformed
 
     // Crop image method
     private void CropImage(int x1, int y1, int x2, int y2) {
@@ -1591,9 +1731,11 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton computeBrightness;
     private javax.swing.JButton computeContrast;
     private javax.swing.JButton cropImg;
+    private javax.swing.JButton exportHistogram;
     private javax.swing.JButton grayTobianry;
     private javax.swing.JSlider greenSlider;
     private javax.swing.JLabel imgLabel;
+    private javax.swing.JButton importHistogram;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
