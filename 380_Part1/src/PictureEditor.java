@@ -1160,12 +1160,8 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_FiltersMenuActionPerformed
 
     private void ComputeHistogramsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComputeHistogramsActionPerformed
-        try {
-            // TODO add your handling code here:
-            ComputeHistograms();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(PictureEditor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        // TODO add your handling code here:
+        ComputeHistograms();
     }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
@@ -1181,9 +1177,9 @@ public class PictureEditor extends javax.swing.JFrame {
                 blue = (pic.getPixel(x, y).getBlue() >>> 0) & 0xFF;
             }
         }
-// calc luminance in range 0.0 to 1.0; using SRGB luminance constants
+        // calc luminance in range 0.0 to 1.0; using SRGB luminance constants
         float luminance = (red * 0.2126f + green * 0.7152f + blue * 0.0722f);
-        JOptionPane.showMessageDialog(null, "Number of brit = " + luminance);
+        JOptionPane.showMessageDialog(null, "The brightness is: " + luminance);
     }//GEN-LAST:event_computeBrightnessActionPerformed
 
     private void boxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFilterActionPerformed
@@ -1372,7 +1368,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 }
             }
             double contrast = ((max_val - min_val) / (max_val + min_val));
-            JOptionPane.showMessageDialog(null, "Number of Contrast = " + contrast);
+            JOptionPane.showMessageDialog(null, "The level of Contrast is = " + contrast);
         }
     }//GEN-LAST:event_computeContrastActionPerformed
 
@@ -1393,6 +1389,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 Pixel pixel7 = pic.getPixel(x + 1, y - 1);
                 Pixel pixel8 = pic.getPixel(x + 1, y);
                 Pixel pixel9 = pic.getPixel(x + 1, y + 1);
+                
                 int redValue
                         = (-1 * pixell.getRed()) + (-1 * pixel2.getRed()) + (-1 * pixel3.getRed())
                         + (-1 * pixel4.getRed()) + (8 * pixel5.getRed()) + (-1 * pixel6.getRed())
