@@ -1165,21 +1165,22 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
-        int red = 0;
-        int green = 0;
-        int blue = 0;
+          
+         Pixel[] pixelArray = pic.getPixels();
+         
+        double PixelsInstenses = 0;
+        double brightness = 0.0;
 
-        for (int x = 0; x < pic.getWidth(); x++) {
-            for (int y = 0; y < pic.getHeight(); y++) {
-                // extract each color component
-                red = (pic.getPixel(x, y).getRed() >>> 16) & 0xFF;
-                green = (pic.getPixel(x, y).getGreen() >>> 8) & 0xFF;
-                blue = (pic.getPixel(x, y).getBlue() >>> 0) & 0xFF;
-            }
+        // loop through all the pixels
+        for (Pixel currntPixel : pixelArray) {
+            PixelsInstenses += currntPixel.getAverage();
+
         }
-        // calc luminance in range 0.0 to 1.0; using SRGB luminance constants
-        float luminance = (red * 0.2126f + green * 0.7152f + blue * 0.0722f);
-        JOptionPane.showMessageDialog(null, "The brightness is: " + luminance);
+        brightness = (PixelsInstenses / pixelArray.length)/255;
+        
+        JOptionPane.showMessageDialog(null, "Number of brightness = " + brightness);
+        
+            
     }//GEN-LAST:event_computeBrightnessActionPerformed
 
     private void boxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFilterActionPerformed
