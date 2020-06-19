@@ -1184,6 +1184,23 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void boxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFilterActionPerformed
         // TODO add your handling code here:
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pic.BoxFilter(FilterSize);
+                updateIMG();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
     }//GEN-LAST:event_boxFilterActionPerformed
 
     private void DiaginalRef_d1_T2BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_T2BActionPerformed
@@ -1374,6 +1391,21 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void GaussianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaussianFilterActionPerformed
         // TODO add your handling code here:
+
+        // G filter
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            // give user 3 option high middle low.
+            Object[] options = {"LOW",
+                "MIDDLE",
+                "HIGH"};
+            int choice = JOptionPane.showOptionDialog(this, "Please choose the important of the middle pixel", "Gaussuan filter option", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+            pic.gaussianFilter3x3(choice);
+            System.out.println(choice);
+            updateIMG();
+        }
     }//GEN-LAST:event_GaussianFilterActionPerformed
 
     private void LaplacianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaplacianFilterActionPerformed
@@ -1389,7 +1421,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 Pixel pixel7 = pic.getPixel(x + 1, y - 1);
                 Pixel pixel8 = pic.getPixel(x + 1, y);
                 Pixel pixel9 = pic.getPixel(x + 1, y + 1);
-                
+
                 int redValue
                         = (-1 * pixell.getRed()) + (-1 * pixel2.getRed()) + (-1 * pixel3.getRed())
                         + (-1 * pixel4.getRed()) + (8 * pixel5.getRed()) + (-1 * pixel6.getRed())

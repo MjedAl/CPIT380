@@ -6,6 +6,7 @@ import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 //------------------------------------------------------------------------------
 
 /**
@@ -56,7 +57,7 @@ public class Picture extends SimplePicture {
      * @param height the height of the desired picture
      * @param theColor the color for the background
      */
-     public Picture(int width, int height, Color theColor) {
+    public Picture(int width, int height, Color theColor) {
         // let the parent class handle these parameters
         super(width, height, theColor);
     }
@@ -688,7 +689,7 @@ public class Picture extends SimplePicture {
             // loop through the rows
             for (int y = 0; y < this.getHeight(); y++) {
                 // set the target pixel color to the source pixel color
-                
+
                 // make 2 loop to move on width and hight 
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (H-1-y,x)
@@ -718,16 +719,16 @@ public class Picture extends SimplePicture {
     }
 
     public Picture scaleUp(int numTimes) {
-        Picture targetPicture= new Picture(this.getWidth() * numTimes,this.getHeight() * numTimes);
+        Picture targetPicture = new Picture(this.getWidth() * numTimes, this.getHeight() * numTimes);
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
         int targetX = 0;
         int targetY = 0;
 
         // loop through the source picture columns
-        for (int sourceX = 0;sourceX < this.getWidth();sourceX++) {
+        for (int sourceX = 0; sourceX < this.getWidth(); sourceX++) {
             // loop through the source picture rows
-            for (int sourceY = 0;sourceY < this.getHeight();sourceY++) {
+            for (int sourceY = 0; sourceY < this.getHeight(); sourceY++) {
                 // get the source pixel
                 sourcePixel = this.getPixel(sourceX, sourceY);
 
@@ -790,7 +791,7 @@ public class Picture extends SimplePicture {
 
     public Picture scaleDown(int numTimes) {
         System.out.println("ok1");
-        Picture targetPicture= new Picture(this.getWidth(),this.getHeight());
+        Picture targetPicture = new Picture(this.getWidth(), this.getHeight());
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
 
@@ -819,7 +820,7 @@ public class Picture extends SimplePicture {
         Pixel endPixel = null;
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
-                 // make 2 loop to move on width and hight 
+                // make 2 loop to move on width and hight 
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of R 180 (w-1-x,H-1-y)
                 // 3- in the pixel of the target we change the color with color of the pixel src
@@ -1495,8 +1496,8 @@ public class Picture extends SimplePicture {
             // loop through the rows
             for (int sourceY = 0; sourceY < this.getHeight(); sourceY++) {
                 // set the target pixel color to the source pixel color
-                
-                  // make 2 loop to move on width and hight 
+
+                // make 2 loop to move on width and hight 
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (y,w-1-x)
                 // 3- in the pixel of the target we change the color with color of the pixel src
@@ -1681,6 +1682,118 @@ public class Picture extends SimplePicture {
 //        
 //        p.repaint();
 //        // p.show();
+    }
+
+    public void BoxFilter(int FilterSize) {
+        if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+
+        int sumR, sumG, sumB;
+
+        // 3*3 =1
+        // 5*5 =2
+        // 7*7 =3
+        // etc...
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+                sumR = 0;
+                sumG = 0;
+                sumB = 0;
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        sumR += this.getPixel(i + k, j + l).getRed();
+                        sumG += this.getPixel(i + k, j + l).getGreen();
+                        sumB += this.getPixel(i + k, j + l).getBlue();
+                    }
+                }
+                sumR /= Math.round(FilterSize * FilterSize);
+                sumG /= Math.round(FilterSize * FilterSize);
+                sumB /= Math.round(FilterSize * FilterSize);
+                this.getPixel(i, j).setRed(sumR);
+                this.getPixel(i, j).setGreen(sumG);
+                this.getPixel(i, j).setBlue(sumB);
+            }
+        }
+    }
+
+    public void gaussianFilter(int FilterSize, int P) {
+
+        // first make the filter array
+        int[][] filter = new int[FilterSize][FilterSize];
+
+        filter[FilterSize / 2][FilterSize / 2] = P; // middle pixel.
+
+        // num of outer layers
+        // 3*3 will be 1 layer
+        // 5*5 2 layers ...
+        int remaining = 1 - P;
+        int numOfLayers = (int) Math.floor(FilterSize / 2);
+        int weight[] = new int[numOfLayers];
+        for (int i = 0; i < numOfLayers; i++) {
+            remaining /= 2;
+            weight[i] = remaining;
+            System.out.println("Layer " + i + " got " + remaining);
+        }
+
+        // first layer should get remaming/2
+        // second layer should get half of the reamining from the first layer
+        // etc
+        for (int i = 0; i < FilterSize; i++) { // Distirbute the remaining on the rest of the filter
+            for (int j = 0; j < FilterSize; j++) {
+                if (i == FilterSize / 2 && j == FilterSize / 2) { // middle pixel do nothing
+                    continue;
+                }
+
+            }
+        }
+
+    }
+
+    public void gaussianFilter3x3(int choice) {
+        double[][] filter = null;
+        if (choice == 0) {
+            filter = new double[][]{
+                {0.075, 0.125, 0.075},
+                {0.125, 0.200, 0.125},
+                {0.075, 0.125, 0.075}
+            };
+        } else if (choice == 1) {
+            filter = new double[][]{
+                {0.05, 0.075, 0.05},
+                {0.075, 0.500, 0.075},
+                {0.05, 0.075, 0.05}
+            };
+        } else if (choice == 2) {
+            filter = new double[][]{
+                {0.02, 0.03, 0.02},
+                {0.03, 0.800, 0.03},
+                {0.02, 0.03, 0.02}
+            };
+        }
+
+        int sumR, sumG, sumB;
+
+        for (int i = 1; i <= this.getWidth() - 2; i++) {
+            for (int j = 1; j <= this.getHeight() - 2; j++) {
+                sumR = 0;
+                sumG = 0;
+                sumB = 0;
+                for (int k = -1; k <= 1; k++) {
+                    for (int l = -1; l <= 1; l++) {
+                        sumR += filter[k+1][l+1]*this.getPixel(i + k, j + l).getRed();
+                        sumG += filter[k+1][l+1]*this.getPixel(i + k, j + l).getGreen();
+                        sumB += filter[k+1][l+1]*this.getPixel(i + k, j + l).getBlue();
+                    }
+                }
+                this.getPixel(i, j).setRed(sumR);
+                this.getPixel(i, j).setGreen(sumG);
+                this.getPixel(i, j).setBlue(sumB);
+            }
+        }
+
     }
 
 } // end of class Picture, put all new methods before this
