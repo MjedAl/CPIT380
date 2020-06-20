@@ -1410,34 +1410,24 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_GaussianFilterActionPerformed
 
     private void LaplacianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaplacianFilterActionPerformed
-        for (int x = 1, xSample = 0; x < pic.getWidth() - 1; x++, xSample++) {
-            for (int y = 1, ySample = 0; y < pic.getHeight() - 1; y++, ySample++) {
-
-                Pixel pixell = pic.getPixel(x - 1, y - 1);
-                Pixel pixel2 = pic.getPixel(x - 1, y);
-                Pixel pixel3 = pic.getPixel(x - 1, y + 1);
-                Pixel pixel4 = pic.getPixel(x, y - 1);
-                Pixel pixel5 = pic.getPixel(x, y);
-                Pixel pixel6 = pic.getPixel(x, y + 1);
-                Pixel pixel7 = pic.getPixel(x + 1, y - 1);
-                Pixel pixel8 = pic.getPixel(x + 1, y);
-                Pixel pixel9 = pic.getPixel(x + 1, y + 1);
-
-                int redValue
-                        = (-1 * pixell.getRed()) + (-1 * pixel2.getRed()) + (-1 * pixel3.getRed())
-                        + (-1 * pixel4.getRed()) + (8 * pixel5.getRed()) + (-1 * pixel6.getRed())
-                        + (-1 * pixel7.getRed()) + (-1 * pixel8.getRed()) + (-1 * pixel9.getRed());
-
-                if (redValue < 0) {
-                    redValue = 0;
-                } else if (redValue > 255) {
-                    redValue = 255;
+       
+         if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
-                Color newColor = new Color(redValue, redValue, redValue);
-                this.pic.getPixel(x, y).setColor(newColor);
+                pic.LaplacianFilter(FilterSize);
+                updateIMG();
+            } catch (Exception e) {
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        updateIMG();
 
     }//GEN-LAST:event_LaplacianFilterActionPerformed
 
