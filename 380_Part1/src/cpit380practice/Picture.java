@@ -1639,7 +1639,7 @@ public class Picture extends SimplePicture {
         Pixel[] pixelArray = this.getPixels();
         double PixelsInstenses = 0;
         double brightness = 0.0;
-
+        System.out.println("kkkk");
         // loop through all the pixels
         for (Pixel currntPixel : pixelArray) {
             PixelsInstenses += currntPixel.getAverage();
