@@ -960,36 +960,47 @@ public class Picture extends SimplePicture {
     }//
     // 
 
-    public void LaplacianFilter() {
-        int x = this.getWidth();
-        int y = this.getHeight();
-        Picture Image = new Picture(x, y);
-        Image.copy(this, 0, 0, x, y, 0, 0);
+    public void LaplacianFilter(int FilterSize) {
+          if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+
+        int sumR, sumG, sumB;
+
+        // 3*3 =1
+        // 5*5 =2
+        // 7*7 =3
+        // etc...
+        int start = (int) Math.floor(FilterSize / 2);
         double filter[][] = {{-0.075, -0.125, -0.075},
         {-0.125, 2.0, -0.125},
         {-0.075, -0.125, -0.075}};
-        for (int v = 1; v <= y - 2; v++) {
-            for (int u = 1; u <= x - 2; u++) {
-                double sumRed = 0, sumGreen = 0, sumBlue = 0;
-                for (int j = -1; j <= 1; j++) {
-                    for (int i = -1; i <= 1; i++) {
-                        double c = filter[j + 1][i + 1];
-                        int red = Image.getPixel(u + i, v + j).getRed();
-                        sumRed += red * c;
-                        int green = Image.getPixel(u + i, v + j).getGreen();
-                        sumGreen += green * c;
-                        int blue = Image.getPixel(u + i, v + j).getBlue();
-                        sumBlue += blue * c;
 
+        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+                sumR = 0;
+                sumG = 0;
+                sumB = 0;
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        double c = filter[k + 1][l + 1];
+                        int red = this.getPixel(i + k, j+ 1).getRed();
+                        sumR += red *c;
+                        int green = this.getPixel(i + k, j + 1).getGreen();
+                        sumG += green*c;
+                        int blue = this.getPixel(i + k, j + 1).getBlue();
+                        sumB += blue*c;
                     }
                 }
-                int Red = (int) Math.min(255, Math.max(0, sumRed));
-                int Green = (int) Math.min(255, Math.max(0, sumGreen));
-                int Blue = (int) Math.min(255, Math.max(0, sumBlue));
-                this.getPixel(u, v).setColor(new Color(Red, Green, Blue));
+                int Red = (int) Math.min(FilterSize , Math.max(0, sumR));
+                int Green = (int) Math.min(FilterSize , Math.max(0, sumG));
+                int Blue = (int) Math.min(FilterSize , Math.max(0, sumB));
+                
+                this.getPixel(i, j).setBlue(sumB);
+                this.getPixel(i, j).setGreen(sumG);
+                this.getPixel(i, j).setRed(sumR);
             }
         }
-
     }
 
     public void BoxFilter3x3() {
