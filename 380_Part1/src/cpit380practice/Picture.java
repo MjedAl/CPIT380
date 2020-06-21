@@ -1116,7 +1116,10 @@ public class Picture extends SimplePicture {
                 Arrays.sort(Red);
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
-                this.getPixel(i, j).setColor(new Color(Red[FilterSize*FilterSize / 2], Green[FilterSize*FilterSize / 2], Blue[FilterSize*FilterSize / 2]));
+                
+                int middle = FilterSize * FilterSize / 2;
+                
+                this.getPixel(i, j).setColor(new Color(Red[middle], Green[middle], Blue[middle]));
             }
         }
     }
