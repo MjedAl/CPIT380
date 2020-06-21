@@ -26,8 +26,8 @@ public class Picture extends SimplePicture {
      * Constructor that takes no arguments
      */
     public Picture() {
-        /* not needed but use it to show students the implicit call to 
-         * super() child constructors always call a parent constructor 
+        /* not needed but use it to show students the implicit call to
+         * super() child constructors always call a parent constructor
          */
         super();
     }
@@ -223,7 +223,7 @@ public class Picture extends SimplePicture {
         // get the graphics object
         Graphics g = this.getGraphics();
 
-        // set the color 
+        // set the color
         g.setColor(color);
 
         // set the font
@@ -249,7 +249,7 @@ public class Picture extends SimplePicture {
         // create the font object
         Font font = new Font("Arial", Font.BOLD, 24);
 
-        // set the color 
+        // set the color
         g.setColor(Color.black);
 
         // set the font
@@ -283,8 +283,8 @@ public class Picture extends SimplePicture {
                 // get the current pixel
                 currPixel = this.getPixel(x, y);
 
-                /* if the color at the current pixel is mostly blue 
-                 * (blue value is greater than red and green combined), 
+                /* if the color at the current pixel is mostly blue
+                 * (blue value is greater than red and green combined),
                  * then use the new background color
                  */
                 double currDist = currPixel.colorDistance(color);
@@ -313,8 +313,8 @@ public class Picture extends SimplePicture {
                 currPixel = this.getPixel(x, y);
                 oldPixel = oldBackground.getPixel(x, y);
 
-                /* if the distance between the current pixel color and 
-                 * the old background pixel color is less than the 
+                /* if the distance between the current pixel color and
+                 * the old background pixel color is less than the
                  * threshold then swap in the new background pixel
                  */
                 double distance
@@ -468,7 +468,7 @@ public class Picture extends SimplePicture {
         Graphics graphics = result.getGraphics();
         Graphics2D g2 = (Graphics2D) graphics;
 
-        // save the current transformation and set-up to center the 
+        // save the current transformation and set-up to center the
         // rotated image
         AffineTransform savedTrans = g2.getTransform();
         AffineTransform centerTrans = new AffineTransform();
@@ -693,7 +693,7 @@ public class Picture extends SimplePicture {
             for (int y = 0; y < this.getHeight(); y++) {
                 // set the target pixel color to the source pixel color
 
-                // make 2 loop to move on width and hight 
+                // make 2 loop to move on width and hight
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (H-1-y,x)
                 // 3- in the pixel of the target we change the color with color of the pixel src
@@ -823,7 +823,7 @@ public class Picture extends SimplePicture {
         Pixel endPixel = null;
         for (int y = 0; y < this.getHeight(); y++) {
             for (int x = 0; x < this.getWidth(); x++) {
-                // make 2 loop to move on width and hight 
+                // make 2 loop to move on width and hight
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of R 180 (w-1-x,H-1-y)
                 // 3- in the pixel of the target we change the color with color of the pixel src
@@ -961,7 +961,7 @@ public class Picture extends SimplePicture {
             }
         }
     }//
-    // 
+    //
 
     public void LaplacianFilter(int FilterSize) {
         if (FilterSize % 2 == 0) { // if number is even
@@ -1091,30 +1091,32 @@ public class Picture extends SimplePicture {
 
     }
 
-    public void MedianFilter() {
+   public void MedianFilter(int FilterSize) {
 
-        int x = this.getWidth();
-        int y = this.getHeight();
-        Picture copy = new Picture(x, y);
-        copy.copy(this, 0, 0, x, y, 0, 0);
-        int Red[] = new int[9];
-        int Green[] = new int[9];
-        int Blue[] = new int[9];
-        for (int v = 1; v <= y - 2; v++) {
-            for (int u = 1; u <= x - 2; u++) {
-                int k = 0;
-                for (int j = -1; j <= 1; j++) {
-                    for (int i = -1; i <= 1; i++) {
-                        Red[k] = copy.getPixel(u + i, v + j).getRed();
-                        Green[k] = copy.getPixel(u + i, v + j).getGreen();
-                        Blue[k] = copy.getPixel(u + i, v + j).getBlue();
-                        k++;
+          if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+        int Red[] = new int[FilterSize * FilterSize];
+        int Green[] = new int[FilterSize * FilterSize];
+        int Blue[] = new int[FilterSize * FilterSize];
+
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+            for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+                int x = 0;
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        Red[x] = this.getPixel(k + i, l + j).getRed();
+                        Green[x] = this.getPixel(k + i, l + j).getGreen();
+                        Blue[x] = this.getPixel(k + i, l + j).getBlue();
+                        x++;
                     }
                 }
                 Arrays.sort(Red);
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
-                this.getPixel(u, v).setColor(new Color(Red[4], Green[4], Blue[4]));
+                this.getPixel(i, j).setColor(new Color(Red[FilterSize*FilterSize / 2], Green[FilterSize*FilterSize / 2], Blue[FilterSize*FilterSize / 2]));
             }
         }
     }
@@ -1645,7 +1647,7 @@ public class Picture extends SimplePicture {
             for (int sourceY = 0; sourceY < this.getHeight(); sourceY++) {
                 // set the target pixel color to the source pixel color
 
-                // make 2 loop to move on width and hight 
+                // make 2 loop to move on width and hight
                 // 1- take the pixel in the srcPic on (x,y)
                 // 2- take the pixel in the targetPic but swap between x and y after that use the formula of Rright (y,w-1-x)
                 // 3- in the pixel of the target we change the color with color of the pixel src
@@ -1658,7 +1660,7 @@ public class Picture extends SimplePicture {
     }
 
     // this method changes all colors by the values entered through user interface, i.e. GUI
-    // author : saim_rasheed@hotmail.com    
+    // author : saim_rasheed@hotmail.com
     public Picture my_changeAllColors(double redFact, double greenFact, double blueFact) {
         Pixel[] arrayPixel = this.getPixels();
         Pixel sourcePixel = null;
@@ -1700,7 +1702,7 @@ public class Picture extends SimplePicture {
     }
 
     // This method will compute and plot the histogram of the Input Image.
-    // author : saim_rasheed@hotmail.com    
+    // author : saim_rasheed@hotmail.com
     public int[] myHistogram() {
         this.grayscale();
         int[] histArray = new int[256];
@@ -1736,7 +1738,7 @@ public class Picture extends SimplePicture {
         this.copy(flower1Picture, 0, 0, end1X, end1Y,
                 0, 0);
 
-        /* copy the flower2 picture starting with 
+        /* copy the flower2 picture starting with
     * x = 100 in the canvas
          */
         this.copy(flower2Picture, 0, 0, end2X, end2Y,
@@ -1747,7 +1749,7 @@ public class Picture extends SimplePicture {
         this.copy(flower1Picture, 0, 0, end1X, end1Y,
                 200, 0);
 
-        /* clear the blue in flower 2 picture and 
+        /* clear the blue in flower 2 picture and
     * add at x=300 in the canvas
          */
         this.copy(flower2Picture, 0, 0, end2X, end2Y,
@@ -1826,7 +1828,7 @@ public class Picture extends SimplePicture {
 //        String file = FileChooser.pickAFile();
 //        Picture p = new Picture(file);
 //        //p.Collage();
-//        
+//
 //        p.repaint();
 //        // p.show();
     }
@@ -1944,4 +1946,3 @@ public class Picture extends SimplePicture {
     }
 
 } // end of class Picture, put all new methods before this
-

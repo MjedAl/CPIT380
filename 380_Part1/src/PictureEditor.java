@@ -966,7 +966,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 //---- take all the vlaue of the color pxl Red , Green and blue for pxl .
                 //---- and get the avg of them .
                 int avg = (pxl[i].getRed() + pxl[i].getBlue() + pxl[i].getGreen()) / 3;
-                //---- after that change the color to new color with value of avg in all pxl color 
+                //---- after that change the color to new color with value of avg in all pxl color
                 pxl[i].setColor(new Color(avg, avg, avg));
             }
             updateIMG();
@@ -1126,7 +1126,7 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_ReflectionMenuActionPerformed
 
     private void RotaionMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RotaionMenuActionPerformed
-        // TODO add your handling code here: 
+        // TODO add your handling code here:
         if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -1494,7 +1494,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void weightedMedianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightedMedianFilterActionPerformed
         // TODO add your handling code here:
-        // 
+        //
         if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -1743,7 +1743,7 @@ public class PictureEditor extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
