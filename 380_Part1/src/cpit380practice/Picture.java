@@ -1083,34 +1083,36 @@ public class Picture extends SimplePicture {
         }
     }
 
-    public void MedianFilter() {
+   public void MedianFilter(int FilterSize) {
 
-        int x = this.getWidth();
-        int y = this.getHeight();
-        Picture copy = new Picture(x, y);
-        copy.copy(this, 0, 0, x, y, 0, 0);
-        int Red[] = new int[9];
-        int Green[] = new int[9];
-        int Blue[] = new int[9];
-        for (int v = 1; v <= y - 2; v++) {
-            for (int u = 1; u <= x - 2; u++) {
-                int k = 0;
-                for (int j = -1; j <= 1; j++) {
-                    for (int i = -1; i <= 1; i++) {
-                        Red[k] = copy.getPixel(u + i, v + j).getRed();
-                        Green[k] = copy.getPixel(u + i, v + j).getGreen();
-                        Blue[k] = copy.getPixel(u + i, v + j).getBlue();
-                        k++;
+          if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+        int Red[] = new int[FilterSize * FilterSize];
+        int Green[] = new int[FilterSize * FilterSize];
+        int Blue[] = new int[FilterSize * FilterSize];
+
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+            for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+                int x = 0;
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        Red[x] = this.getPixel(k + i, l + j).getRed();
+                        Green[x] = this.getPixel(k + i, l + j).getGreen();
+                        Blue[x] = this.getPixel(k + i, l + j).getBlue();
+                        x++;
                     }
                 }
                 Arrays.sort(Red);
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
-                this.getPixel(u, v).setColor(new Color(Red[4], Green[4], Blue[4]));
+                this.getPixel(i, j).setColor(new Color(Red[FilterSize*FilterSize / 2], Green[FilterSize*FilterSize / 2], Blue[FilterSize*FilterSize / 2]));
             }
         }
     }
-
+    
     public void MaxFilter() {
 
         int x = this.getWidth();
