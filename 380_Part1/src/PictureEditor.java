@@ -1163,9 +1163,9 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_ComputeHistogramsActionPerformed
 
     private void computeBrightnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBrightnessActionPerformed
-          
-         Pixel[] pixelArray = pic.getPixels();
-         
+
+        Pixel[] pixelArray = pic.getPixels();
+
         double PixelsInstenses = 0;
         double brightness = 0.0;
 
@@ -1174,11 +1174,11 @@ public class PictureEditor extends javax.swing.JFrame {
             PixelsInstenses += currntPixel.getAverage();
 
         }
-        brightness = (PixelsInstenses / pixelArray.length)/255;
-        
+        brightness = (PixelsInstenses / pixelArray.length) / 255;
+
         JOptionPane.showMessageDialog(null, "Number of brightness = " + brightness);
-        
-            
+
+
     }//GEN-LAST:event_computeBrightnessActionPerformed
 
     private void boxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxFilterActionPerformed
@@ -1408,8 +1408,8 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_GaussianFilterActionPerformed
 
     private void LaplacianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaplacianFilterActionPerformed
-       
-         if (pic == null) {
+
+        if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
@@ -1451,7 +1451,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void maxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxFilterActionPerformed
         // TODO add your handling code here:
-         if (pic == null) {
+        if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
@@ -1470,23 +1470,24 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_maxFilterActionPerformed
 
     private void medianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medianFilterActionPerformed
-        int[] pixel = new int[9];
-        for (int i = 1; i < pic.getWidth() - 1; i++) {
-            for (int j = 1; j < pic.getHeight() - 1; j++) {
-                pixel[0] = pic.getPixel(i - 1, j - 1).getRed();
-                pixel[1] = pic.getPixel(i - 1, j).getRed();
-                pixel[2] = pic.getPixel(i - 1, j + 1).getRed();
-                pixel[3] = pic.getPixel(i, j + 1).getRed();
-                pixel[4] = pic.getPixel(i + 1, j + 1).getRed();
-                pixel[5] = pic.getPixel(i + 1, j).getRed();
-                pixel[6] = pic.getPixel(i + 1, j - 1).getRed();
-                pixel[7] = pic.getPixel(i, j - 1).getRed();
-                pixel[8] = pic.getPixel(i, j).getRed();
-                Arrays.sort(pixel);
-                this.pic.getPixel(i, j).setColor(new Color(pixel[4], pixel[4], pixel[4]));
+
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pic.MedianFilter(FilterSize);
+                updateIMG();
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        updateIMG();
     }//GEN-LAST:event_medianFilterActionPerformed
 
     private void weightedFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightedFilterActionPerformed
