@@ -270,22 +270,21 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="RotaionMenu" min="-2" pref="162" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                               <Component id="ReflectionMenu" min="-2" pref="162" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ComputingMenu" min="-2" pref="168" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FiltersMenu" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="FiltersMenu" min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="rotatePanel" max="32767" attributes="0"/>
-                          <Component id="CopmutingPanel" max="32767" attributes="0"/>
-                          <Component id="FiltersPanel" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="ReflectionPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="rotatePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FiltersPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="CopmutingPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ReflectionPanel" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -599,11 +598,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="computeBrightness" alignment="0" min="-2" pref="656" max="-2" attributes="0"/>
-                              <Component id="ComputeHistograms" alignment="1" max="32767" attributes="0"/>
                               <Component id="computeContrast" alignment="0" max="32767" attributes="0"/>
                               <Component id="exportHistogram" alignment="1" max="32767" attributes="0"/>
                               <Component id="importHistogram" alignment="1" max="32767" attributes="0"/>
+                              <Component id="computeBrightness" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ComputeHistograms" min="-2" pref="653" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -700,14 +702,14 @@
                               <Component id="GaussianFilter" max="32767" attributes="0"/>
                               <Component id="LaplacianFilter" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="minFilter" min="-2" pref="312" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="maxFilter" min="-2" pref="312" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Component id="medianFilter" min="-2" pref="312" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="weightedFilter" min="-2" pref="312" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="weightedMedianFilter" min="-2" pref="312" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="minFilter" min="-2" pref="312" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="maxFilter" min="-2" pref="312" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -731,7 +733,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="medianFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="weightedFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="weightedMedianFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -805,15 +807,16 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medianFilterActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="weightedFilter">
+                <Component class="javax.swing.JButton" name="weightedMedianFilter">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Weighted filter"/>
+                    <Property name="text" type="java.lang.String" value="Weighted Median filter"/>
+                    <Property name="actionCommand" type="java.lang.String" value="Weighted Median filter"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weightedFilterActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weightedMedianFilterActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -858,7 +861,7 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="greenSlider" alignment="0" pref="589" max="32767" attributes="0"/>
                           <Component id="blueSlider" alignment="0" max="32767" attributes="0"/>
@@ -889,7 +892,7 @@
                           <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

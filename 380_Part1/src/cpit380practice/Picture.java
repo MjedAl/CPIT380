@@ -5,7 +5,10 @@ import java.awt.font.*;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 import java.text.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 //------------------------------------------------------------------------------
 
@@ -1141,6 +1144,47 @@ public class Picture extends SimplePicture {
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
                 this.getPixel(i, j).setColor(new Color(Red[FilterSize * FilterSize / 2], Green[FilterSize * FilterSize / 2], Blue[FilterSize * FilterSize / 2]));
+            }
+        }
+    }
+
+    public void MedianWeightedFilter(int FilterSize) {
+        if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+
+        // generating random weighted matrix
+        int[][] WeightedMatrix = new int[FilterSize][FilterSize];
+        for (int i = 0; i < FilterSize; i++) {
+            for (int j = 0; j < FilterSize; j++) {
+                WeightedMatrix[i][j] = (int) (Math.random() * 5); // 0 to 5
+            }
+        }
+
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+                ArrayList<Integer> red = new ArrayList<>();
+                ArrayList<Integer> green = new ArrayList<>();
+                ArrayList<Integer> blue = new ArrayList<>();
+                int x = 0;
+                int x2 = 0;
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        for (int m = 0; m < WeightedMatrix[x][x2]; m++) {
+                            red.add(this.getPixel(k + i, l + j).getRed());
+                            green.add(this.getPixel(k + i, l + j).getGreen());
+                            blue.add(this.getPixel(k + i, l + j).getBlue());
+                        }
+                    }
+                    x2++;
+                }
+                Collections.sort(red);
+                Collections.sort(green);
+                Collections.sort(blue);
+                int middle = FilterSize * FilterSize / 2;
+                this.getPixel(i, j).setColor(new Color(red.get(middle), green.get(middle), blue.get(middle)));
             }
         }
     }

@@ -93,7 +93,7 @@ public class PictureEditor extends javax.swing.JFrame {
         minFilter = new javax.swing.JButton();
         maxFilter = new javax.swing.JButton();
         medianFilter = new javax.swing.JButton();
-        weightedFilter = new javax.swing.JButton();
+        weightedMedianFilter = new javax.swing.JButton();
         clearImage = new javax.swing.JButton();
         chooseImg = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -435,11 +435,13 @@ public class PictureEditor extends javax.swing.JFrame {
             .addGroup(CopmutingPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CopmutingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(computeBrightness, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComputeHistograms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(computeContrast, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(exportHistogram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(importHistogram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(importHistogram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(computeBrightness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(CopmutingPanelLayout.createSequentialGroup()
+                        .addComponent(ComputeHistograms, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         CopmutingPanelLayout.setVerticalGroup(
@@ -508,11 +510,12 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        weightedFilter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        weightedFilter.setText("Weighted filter");
-        weightedFilter.addActionListener(new java.awt.event.ActionListener() {
+        weightedMedianFilter.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        weightedMedianFilter.setText("Weighted Median filter");
+        weightedMedianFilter.setActionCommand("Weighted Median filter");
+        weightedMedianFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weightedFilterActionPerformed(evt);
+                weightedMedianFilterActionPerformed(evt);
             }
         });
 
@@ -527,13 +530,13 @@ public class PictureEditor extends javax.swing.JFrame {
                     .addComponent(GaussianFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LaplacianFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(FiltersPanelLayout.createSequentialGroup()
-                        .addComponent(minFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(maxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FiltersPanelLayout.createSequentialGroup()
                         .addComponent(medianFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(weightedFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(weightedMedianFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FiltersPanelLayout.createSequentialGroup()
+                        .addComponent(minFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(maxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         FiltersPanelLayout.setVerticalGroup(
@@ -552,7 +555,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FiltersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medianFilter)
-                    .addComponent(weightedFilter))
+                    .addComponent(weightedMedianFilter))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -570,14 +573,13 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComputingMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FiltersMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(rotatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CopmutingPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(FiltersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addComponent(ReflectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(FiltersMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(rotatePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FiltersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CopmutingPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ReflectionPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -663,7 +665,7 @@ public class PictureEditor extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(greenSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(blueSlider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -687,7 +689,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         ConvertToHSV.setText("ConvertToHSV");
@@ -1490,9 +1492,27 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_medianFilterActionPerformed
 
-    private void weightedFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightedFilterActionPerformed
+    private void weightedMedianFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weightedMedianFilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_weightedFilterActionPerformed
+        // 
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pic.MedianWeightedFilter(FilterSize);
+                updateIMG();
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_weightedMedianFilterActionPerformed
 
     private void DiaginalRef_d1_B2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiaginalRef_d1_B2TActionPerformed
         // TODO add your handling code here:
@@ -1803,6 +1823,6 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JPanel rotatePanel;
     private javax.swing.JSlider scaleSlider;
     private javax.swing.JLabel targetLabel;
-    private javax.swing.JButton weightedFilter;
+    private javax.swing.JButton weightedMedianFilter;
     // End of variables declaration//GEN-END:variables
 }
