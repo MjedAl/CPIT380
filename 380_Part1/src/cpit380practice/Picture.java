@@ -961,16 +961,15 @@ public class Picture extends SimplePicture {
     // 
 
     public void LaplacianFilter(int FilterSize) {
-          if (FilterSize % 2 == 0) { // if number is even
+        if (FilterSize % 2 == 0) { // if number is even
             return;
         }
 
         int sumR, sumG, sumB;
 
-      
         double filter[][] = {{-0.075, -0.125, -0.075},
-                            {-0.125, 2.0, -0.125},
-                            {-0.075, -0.125, -0.075}};
+        {-0.125, 2.0, -0.125},
+        {-0.075, -0.125, -0.075}};
 
         for (int i = FilterSize; i <= this.getWidth() - (FilterSize + 1); i++) {
             for (int j = FilterSize; j <= this.getHeight() - (FilterSize + 1); j++) {
@@ -980,18 +979,18 @@ public class Picture extends SimplePicture {
                 for (int k = -FilterSize; k <= FilterSize; k++) {
                     for (int l = -FilterSize; l <= FilterSize; l++) {
                         double c = filter[k + 1][l + 1];
-                        int red = this.getPixel(i + k, j+ 1).getRed();
-                        sumR += red *c;
+                        int red = this.getPixel(i + k, j + 1).getRed();
+                        sumR += red * c;
                         int green = this.getPixel(i + k, j + 1).getGreen();
-                        sumG += green*c;
+                        sumG += green * c;
                         int blue = this.getPixel(i + k, j + 1).getBlue();
-                        sumB += blue*c;
+                        sumB += blue * c;
                     }
                 }
-                int Red = (int) Math.min(FilterSize , Math.max(0, sumR));
-                int Green = (int) Math.min(FilterSize , Math.max(0, sumG));
-                int Blue = (int) Math.min(FilterSize , Math.max(0, sumB));
-                
+                int Red = (int) Math.min(FilterSize, Math.max(0, sumR));
+                int Green = (int) Math.min(FilterSize, Math.max(0, sumG));
+                int Blue = (int) Math.min(FilterSize, Math.max(0, sumB));
+
                 this.getPixel(i, j).setBlue(sumB);
                 this.getPixel(i, j).setGreen(sumG);
                 this.getPixel(i, j).setRed(sumR);
@@ -1053,6 +1052,36 @@ public class Picture extends SimplePicture {
         }
     }
 
+    public void MinFilter(int FilterSize) {
+        if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+        int Red[] = new int[FilterSize];
+        int Green[] = new int[FilterSize];
+        int Blue[] = new int[FilterSize];
+
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+                int X = 0;
+
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        Red[X] = this.getPixel(k + i, l + j).getRed();
+                        Green[X] = this.getPixel(k + i, l + j).getGreen();
+                        Blue[X] = this.getPixel(k + i, l + j).getBlue();
+                        X++;
+                    }
+                }
+                Arrays.sort(Red);
+                Arrays.sort(Green);
+                Arrays.sort(Blue);
+                this.getPixel(i, j).setColor(new Color(Red[0], Green[0], Blue[0]));
+            }
+        }
+    }
+
     public void MedianFilter() {
 
         int x = this.getWidth();
@@ -1105,6 +1134,36 @@ public class Picture extends SimplePicture {
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
                 this.getPixel(u, v).setColor(new Color(Red[8], Green[8], Blue[8]));
+            }
+        }
+    }
+    
+      public void MaxFilter(int FilterSize) {
+        if (FilterSize % 2 == 0) { // if number is even
+            return;
+        }
+        int Red[] = new int[FilterSize];
+        int Green[] = new int[FilterSize];
+        int Blue[] = new int[FilterSize];
+
+        int start = (int) Math.floor(FilterSize / 2);
+
+        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
+            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+                int X = 0;
+
+                for (int k = -start; k <= start; k++) {
+                    for (int l = -start; l <= start; l++) {
+                        Red[X] = this.getPixel(k + i, l + j).getRed();
+                        Green[X] = this.getPixel(k + i, l + j).getGreen();
+                        Blue[X] = this.getPixel(k + i, l + j).getBlue();
+                        X++;
+                    }
+                }
+                Arrays.sort(Red);
+                Arrays.sort(Green);
+                Arrays.sort(Blue);
+                this.getPixel(i, j).setColor(new Color(Red[FilterSize-1], Green[FilterSize-1], Blue[FilterSize-1]));
             }
         }
     }
@@ -1789,9 +1848,9 @@ public class Picture extends SimplePicture {
                 sumB = 0;
                 for (int k = -1; k <= 1; k++) {
                     for (int l = -1; l <= 1; l++) {
-                        sumR += filter[k+1][l+1]*this.getPixel(i + k, j + l).getRed();
-                        sumG += filter[k+1][l+1]*this.getPixel(i + k, j + l).getGreen();
-                        sumB += filter[k+1][l+1]*this.getPixel(i + k, j + l).getBlue();
+                        sumR += filter[k + 1][l + 1] * this.getPixel(i + k, j + l).getRed();
+                        sumG += filter[k + 1][l + 1] * this.getPixel(i + k, j + l).getGreen();
+                        sumB += filter[k + 1][l + 1] * this.getPixel(i + k, j + l).getBlue();
                     }
                 }
                 this.getPixel(i, j).setRed(sumR);

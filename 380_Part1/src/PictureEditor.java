@@ -1434,8 +1434,18 @@ public class PictureEditor extends javax.swing.JFrame {
         if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-        pic.MinFilter();
-        updateIMG();
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pic.MinFilter(FilterSize);
+                updateIMG();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_minFilterActionPerformed
 
@@ -1444,8 +1454,18 @@ public class PictureEditor extends javax.swing.JFrame {
          if (pic == null) {
             JOptionPane.showMessageDialog(null, "Select an image ", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-        pic.MaxFilter();
-        updateIMG();
+            String size = JOptionPane.showInputDialog(null, "Please Enter the size of the filter please (one odd number only): ");
+            try {
+                int FilterSize = Integer.parseInt(size);
+                if (FilterSize % 2 == 0) {
+                    JOptionPane.showMessageDialog(null, "Fitler size should be odd", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                pic.MaxFilter(FilterSize);
+                updateIMG();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_maxFilterActionPerformed
 
