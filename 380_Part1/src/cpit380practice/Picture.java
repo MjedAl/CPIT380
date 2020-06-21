@@ -1076,6 +1076,7 @@ public class Picture extends SimplePicture {
                 int k = 0;
                 for (int j = -start; j <= start; j++) {
                     for (int i = -start; i <= start; i++) {
+                        
                         Red[k] = copy.getPixel(u + i, v + j).getRed();
                         Green[k] = copy.getPixel(u + i, v + j).getGreen();
                         Blue[k] = copy.getPixel(u + i, v + j).getBlue();
@@ -1196,18 +1197,21 @@ public class Picture extends SimplePicture {
         int Red[] = new int[FilterSize * FilterSize];
         int Green[] = new int[FilterSize * FilterSize];
         int Blue[] = new int[FilterSize * FilterSize];
+        
         int x = this.getWidth();
         int y = this.getHeight();
+        
         Picture copy = new Picture(x, y);
         copy.copy(this, 0, 0, x, y, 0, 0);
 
         int start = (int) Math.floor(FilterSize / 2);
-
+          // the beggining of 
         for (int v = start; v <= y - (start + 1); v++) {
             for (int u = start; u <= x - (start + 1); u++) {
                 int k = 0;
                 for (int j = -start; j <= start; j++) {
                     for (int i = -start; i <= start; i++) {
+                        
                         Red[k] = copy.getPixel(u + i, v + j).getRed();
                         Green[k] = copy.getPixel(u + i, v + j).getGreen();
                         Blue[k] = copy.getPixel(u + i, v + j).getBlue();
@@ -1756,7 +1760,7 @@ public class Picture extends SimplePicture {
         brightness = PixelsInstenses / pixelArray.length;
         return brightness;
     }
-
+        
     public double Contrast() {
         int[] Array = new int[256];
 
@@ -1787,7 +1791,59 @@ public class Picture extends SimplePicture {
 
         return contrast;
     }
-
+     public Picture Contrast(Picture pic, double silderValue){
+        Picture newpic = new Picture(pic.getWidth(), pic.getHeight());
+        // we have an array of histogram with the range 0 to 255
+        int[] histogram = new int[256];
+        Pixel startp = null;
+        Pixel targetp = null;
+        int low = 0, high = 0,lowValue =4000, highValue=0, min, max;
+        
+        //
+        for (int v = 0; v < pic.getHeight(); v++) {
+            for (int u = 0; u < pic.getWidth(); u++) {
+                startp = pic.getPixel(u, v);
+                histogram [(int) startp.getAverage()] = histogram [(int) startp.getAverage()] + 1;
+                // for example : histogram[4] = histogram[4]+ 1;
+            }
+        }
+         int i =0;
+      while (i < histogram.length) {
+            if (histogram [i] < lowValue && histogram [i] > 0) {
+                lowValue = histogram [i];
+                low = i;}
+            if (highValue < histogram [i]) {
+                highValue = histogram [i];
+                high = i;}
+            i++;
+        }
+      // this while loop is for cal the highValue and lowValue
+      
+        double v1= (259* (silderValue + 255));
+        double v2 = (255*(259-silderValue));
+        double factor = v1 /v2 ;
+        
+        for (int v = 0; v < newpic.getHeight(); v++) {
+            for (int u = 0; u < newpic.getWidth(); u++) {
+                
+                int red = (int) (factor * ((pic.getPixel(u, v).getRed() - 128))+ 128);
+                int green = (int) (factor * ((pic.getPixel(u, v).getGreen()- 128))+ 128);
+                int blue = (int) (factor * ((pic.getPixel(u, v).getBlue() - 128))+ 128);
+                
+                if(red> 255) red= 255;
+                else if(red<0) red= 0;
+                
+                if(green> 255) green= 255;
+                else if(green<0) green= 0;
+                
+                if(blue> 255) blue= 255;
+                else if(blue<0) blue= 0;
+                
+                newpic.getPixel(u, v).setColor(new Color( red,green,blue));
+            }
+        }
+        return newpic;
+ }
     public static void main(String[] args) {
         String fileName = FileChooser.pickAFile();
         Picture picture = new Picture(fileName);
