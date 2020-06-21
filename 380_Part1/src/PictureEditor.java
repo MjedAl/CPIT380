@@ -1421,7 +1421,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 }
                 pic.LaplacianFilter(FilterSize);
                 updateIMG();
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println(e);
                 JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1443,7 +1443,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 }
                 pic.MinFilter(FilterSize);
                 updateIMG();
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -1463,7 +1463,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 }
                 pic.MaxFilter(FilterSize);
                 updateIMG();
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }

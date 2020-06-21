@@ -1056,12 +1056,13 @@ public class Picture extends SimplePicture {
         if (FilterSize % 2 == 0) { // if number is even
             return;
         }
-        int Red[] = new int[FilterSize];
-        int Green[] = new int[FilterSize];
-        int Blue[] = new int[FilterSize];
+        System.out.println(FilterSize);
+        int Red[] = new int[FilterSize*FilterSize];
+        int Green[] = new int[FilterSize*FilterSize];
+        int Blue[] = new int[FilterSize*FilterSize];
 
         int start = (int) Math.floor(FilterSize / 2);
-
+        
         for (int i = start; i <= this.getWidth() - (start + 1); i++) {
             for (int j = start; j <= this.getHeight() - (start + 1); j++) {
                 int X = 0;
@@ -1142,9 +1143,9 @@ public class Picture extends SimplePicture {
         if (FilterSize % 2 == 0) { // if number is even
             return;
         }
-        int Red[] = new int[FilterSize];
-        int Green[] = new int[FilterSize];
-        int Blue[] = new int[FilterSize];
+        int Red[] = new int[FilterSize*FilterSize];
+        int Green[] = new int[FilterSize*FilterSize];
+        int Blue[] = new int[FilterSize*FilterSize];
 
         int start = (int) Math.floor(FilterSize / 2);
 
