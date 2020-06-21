@@ -1387,7 +1387,7 @@ public class PictureEditor extends javax.swing.JFrame {
             double min_val = Integer.MAX_VALUE;
 
             for (int i = 0; i < pixels.length; i++) {
-
+                // Here we Devide by 3 because get the avg .
                 Contrast = (int) ((pixels[i].getRed() + pixels[i].getGreen() + pixels[i].getBlue()) / 3);
                 //---if Contrast Greater than max we will save the value in max-----
                 if (Contrast > max_val) {
@@ -1702,7 +1702,7 @@ public class PictureEditor extends javax.swing.JFrame {
             for (int i = y1; i < y2; i++) {
                 for (int j = x1; j < x2; j++) {
                     Pixel p = pic.getPixel(j, i);
-                    
+                    //here we compare because get the different between Red color amd pxl .
                     if (p.colorDistance(Color.RED) < trashhold) {
                         p.setColor(newColor);
                     }
