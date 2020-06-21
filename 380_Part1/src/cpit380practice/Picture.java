@@ -1120,36 +1120,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
-    public void MedianFilter(int FilterSize) {
-        if (FilterSize % 2 == 0) { // if number is even
-            return;
-        }
-        int Red[] = new int[FilterSize * FilterSize];
-        int Green[] = new int[FilterSize * FilterSize];
-        int Blue[] = new int[FilterSize * FilterSize];
-
-        int start = (int) Math.floor(FilterSize / 2);
-
-        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
-            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
-                int x = 0;
-                for (int k = -start; k <= start; k++) {
-                    for (int l = -start; l <= start; l++) {
-                        Red[x] = this.getPixel(k + i, l + j).getRed();
-                        Green[x] = this.getPixel(k + i, l + j).getGreen();
-                        Blue[x] = this.getPixel(k + i, l + j).getBlue();
-                        x++;
-                    }
-                }
-                Arrays.sort(Red);
-                Arrays.sort(Green);
-                Arrays.sort(Blue);
-                this.getPixel(i, j).setColor(new Color(Red[FilterSize * FilterSize / 2], Green[FilterSize * FilterSize / 2], Blue[FilterSize * FilterSize / 2]));
-            }
-        }
-    }
-
     public void MedianWeightedFilter(int FilterSize) {
         if (FilterSize % 2 == 0) { // if number is even
             return;
