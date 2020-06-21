@@ -967,22 +967,18 @@ public class Picture extends SimplePicture {
 
         int sumR, sumG, sumB;
 
-        // 3*3 =1
-        // 5*5 =2
-        // 7*7 =3
-        // etc...
-        int start = (int) Math.floor(FilterSize / 2);
+      
         double filter[][] = {{-0.075, -0.125, -0.075},
-        {-0.125, 2.0, -0.125},
-        {-0.075, -0.125, -0.075}};
+                            {-0.125, 2.0, -0.125},
+                            {-0.075, -0.125, -0.075}};
 
-        for (int i = start; i <= this.getWidth() - (start + 1); i++) {
-            for (int j = start; j <= this.getHeight() - (start + 1); j++) {
+        for (int i = FilterSize; i <= this.getWidth() - (FilterSize + 1); i++) {
+            for (int j = FilterSize; j <= this.getHeight() - (FilterSize + 1); j++) {
                 sumR = 0;
                 sumG = 0;
                 sumB = 0;
-                for (int k = -start; k <= start; k++) {
-                    for (int l = -start; l <= start; l++) {
+                for (int k = -FilterSize; k <= FilterSize; k++) {
+                    for (int l = -FilterSize; l <= FilterSize; l++) {
                         double c = filter[k + 1][l + 1];
                         int red = this.getPixel(i + k, j+ 1).getRed();
                         sumR += red *c;
