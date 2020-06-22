@@ -1076,7 +1076,7 @@ public class Picture extends SimplePicture {
                 int k = 0;
                 for (int j = -start; j <= start; j++) {
                     for (int i = -start; i <= start; i++) {
-                        
+
                         Red[k] = copy.getPixel(u + i, v + j).getRed();
                         Green[k] = copy.getPixel(u + i, v + j).getGreen();
                         Blue[k] = copy.getPixel(u + i, v + j).getBlue();
@@ -1092,9 +1092,9 @@ public class Picture extends SimplePicture {
 
     }
 
-   public void MedianFilter(int FilterSize) {
+    public void MedianFilter(int FilterSize) {
 
-          if (FilterSize % 2 == 0) { // if number is even
+        if (FilterSize % 2 == 0) { // if number is even
             return;
         }
         int Red[] = new int[FilterSize * FilterSize];
@@ -1117,10 +1117,11 @@ public class Picture extends SimplePicture {
                 Arrays.sort(Red);
                 Arrays.sort(Green);
                 Arrays.sort(Blue);
-                this.getPixel(i, j).setColor(new Color(Red[FilterSize*FilterSize / 2], Green[FilterSize*FilterSize / 2], Blue[FilterSize*FilterSize / 2]));
+                this.getPixel(i, j).setColor(new Color(Red[FilterSize * FilterSize / 2], Green[FilterSize * FilterSize / 2], Blue[FilterSize * FilterSize / 2]));
             }
         }
     }
+
     public void MedianWeightedFilter(int FilterSize) {
         if (FilterSize % 2 == 0) { // if number is even
             return;
@@ -1130,7 +1131,8 @@ public class Picture extends SimplePicture {
         int[][] WeightedMatrix = new int[FilterSize][FilterSize];
         for (int i = 0; i < FilterSize; i++) {
             for (int j = 0; j < FilterSize; j++) {
-                WeightedMatrix[i][j] = (int) (Math.random() * 5); // 0 to 5
+                WeightedMatrix[i][j] = 1+ (int) (Math.random() * 5); // 1 to 5
+                System.out.print(WeightedMatrix[i][j]+", ");
             }
         }
 
@@ -1143,21 +1145,32 @@ public class Picture extends SimplePicture {
                 ArrayList<Integer> blue = new ArrayList<>();
                 int x = 0;
                 int x2 = 0;
+
                 for (int k = -start; k <= start; k++) {
                     for (int l = -start; l <= start; l++) {
+
                         for (int m = 0; m < WeightedMatrix[x][x2]; m++) {
                             red.add(this.getPixel(k + i, l + j).getRed());
                             green.add(this.getPixel(k + i, l + j).getGreen());
                             blue.add(this.getPixel(k + i, l + j).getBlue());
                         }
                     }
+                    x++;
                     x2++;
                 }
                 Collections.sort(red);
                 Collections.sort(green);
                 Collections.sort(blue);
                 int middle = FilterSize * FilterSize / 2;
-                this.getPixel(i, j).setColor(new Color(red.get(middle), green.get(middle), blue.get(middle)));
+
+                if (red.size() % 2 == 0) { // array size is even - get avg of two middle pixels
+                    int avgR = (red.get(middle) + red.get(middle - 1)) / 2;
+                    int avgG = (green.get(middle) + green.get(middle - 1)) / 2;
+                    int avgB = (blue.get(middle) + blue.get(middle - 1)) / 2;
+                    this.getPixel(i, j).setColor(new Color(avgR, avgG, avgB));
+                } else {
+                    this.getPixel(i, j).setColor(new Color(red.get(middle), green.get(middle), blue.get(middle)));
+                }
             }
         }
     }
@@ -1197,21 +1210,21 @@ public class Picture extends SimplePicture {
         int Red[] = new int[FilterSize * FilterSize];
         int Green[] = new int[FilterSize * FilterSize];
         int Blue[] = new int[FilterSize * FilterSize];
-        
+
         int x = this.getWidth();
         int y = this.getHeight();
-        
+
         Picture copy = new Picture(x, y);
         copy.copy(this, 0, 0, x, y, 0, 0);
 
         int start = (int) Math.floor(FilterSize / 2);
-          // the beggining of 
+        // the beggining of 
         for (int v = start; v <= y - (start + 1); v++) {
             for (int u = start; u <= x - (start + 1); u++) {
                 int k = 0;
                 for (int j = -start; j <= start; j++) {
                     for (int i = -start; i <= start; i++) {
-                        
+
                         Red[k] = copy.getPixel(u + i, v + j).getRed();
                         Green[k] = copy.getPixel(u + i, v + j).getGreen();
                         Blue[k] = copy.getPixel(u + i, v + j).getBlue();
@@ -1760,7 +1773,7 @@ public class Picture extends SimplePicture {
         brightness = PixelsInstenses / pixelArray.length;
         return brightness;
     }
-        
+
     public double Contrast() {
         int[] Array = new int[256];
 
@@ -1791,59 +1804,72 @@ public class Picture extends SimplePicture {
 
         return contrast;
     }
-     public Picture Contrast(Picture pic, double silderValue){
+
+    public Picture Contrast(Picture pic, double silderValue) {
         Picture newpic = new Picture(pic.getWidth(), pic.getHeight());
         // we have an array of histogram with the range 0 to 255
         int[] histogram = new int[256];
         Pixel startp = null;
         Pixel targetp = null;
-        int low = 0, high = 0,lowValue =4000, highValue=0, min, max;
-        
+        int low = 0, high = 0, lowValue = 4000, highValue = 0, min, max;
+
         //
         for (int v = 0; v < pic.getHeight(); v++) {
             for (int u = 0; u < pic.getWidth(); u++) {
                 startp = pic.getPixel(u, v);
-                histogram [(int) startp.getAverage()] = histogram [(int) startp.getAverage()] + 1;
+                histogram[(int) startp.getAverage()] = histogram[(int) startp.getAverage()] + 1;
                 // for example : histogram[4] = histogram[4]+ 1;
             }
         }
-         int i =0;
-      while (i < histogram.length) {
-            if (histogram [i] < lowValue && histogram [i] > 0) {
-                lowValue = histogram [i];
-                low = i;}
-            if (highValue < histogram [i]) {
-                highValue = histogram [i];
-                high = i;}
+        int i = 0;
+        while (i < histogram.length) {
+            if (histogram[i] < lowValue && histogram[i] > 0) {
+                lowValue = histogram[i];
+                low = i;
+            }
+            if (highValue < histogram[i]) {
+                highValue = histogram[i];
+                high = i;
+            }
             i++;
         }
-      // this while loop is for cal the highValue and lowValue
-      
-        double v1= (259* (silderValue + 255));
-        double v2 = (255*(259-silderValue));
-        double factor = v1 /v2 ;
-        
+        // this while loop is for cal the highValue and lowValue
+
+        double v1 = (259 * (silderValue + 255));
+        double v2 = (255 * (259 - silderValue));
+        double factor = v1 / v2;
+
         for (int v = 0; v < newpic.getHeight(); v++) {
             for (int u = 0; u < newpic.getWidth(); u++) {
-                
-                int red = (int) (factor * ((pic.getPixel(u, v).getRed() - 128))+ 128);
-                int green = (int) (factor * ((pic.getPixel(u, v).getGreen()- 128))+ 128);
-                int blue = (int) (factor * ((pic.getPixel(u, v).getBlue() - 128))+ 128);
-                
-                if(red> 255) red= 255;
-                else if(red<0) red= 0;
-                
-                if(green> 255) green= 255;
-                else if(green<0) green= 0;
-                
-                if(blue> 255) blue= 255;
-                else if(blue<0) blue= 0;
-                
-                newpic.getPixel(u, v).setColor(new Color( red,green,blue));
+
+                int red = (int) (factor * ((pic.getPixel(u, v).getRed() - 128)) + 128);
+                int green = (int) (factor * ((pic.getPixel(u, v).getGreen() - 128)) + 128);
+                int blue = (int) (factor * ((pic.getPixel(u, v).getBlue() - 128)) + 128);
+
+                if (red > 255) {
+                    red = 255;
+                } else if (red < 0) {
+                    red = 0;
+                }
+
+                if (green > 255) {
+                    green = 255;
+                } else if (green < 0) {
+                    green = 0;
+                }
+
+                if (blue > 255) {
+                    blue = 255;
+                } else if (blue < 0) {
+                    blue = 0;
+                }
+
+                newpic.getPixel(u, v).setColor(new Color(red, green, blue));
             }
         }
         return newpic;
- }
+    }
+
     public static void main(String[] args) {
         String fileName = FileChooser.pickAFile();
         Picture picture = new Picture(fileName);
