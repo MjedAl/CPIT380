@@ -1804,18 +1804,19 @@ public class PictureEditor extends javax.swing.JFrame {
         multimedia.Grid grid = new multimedia.Grid();
         grid.setTargts(pic); // as the original pic as first target.
         for (int i = 0; i < values.length; i++) {
-            Picture copyPic = new Picture(pic);
+            Picture copyPic = new Picture(pic);//take a copy of the original pic
             for (int x = 0; x < copyPic.getWidth(); x++) {
                 for (int y = 0; y < copyPic.getHeight(); y++) {
                     picPixel = copyPic.getPixel(x, y);
                     oldPixel = oldBackground.getPixel(x, y);
                     newPixel = newBackground.getPixel(x, y);
+                    //compare the orignal image with the old background
                     if (picPixel.colorDistance(oldPixel.getColor()) < values[i]) {
                         picPixel.setColor(newPixel.getColor());
                     }
                 }
             }
-            grid.setTargts(copyPic);
+            grid.setTargts(copyPic);//add the image to the grid
         }
         grid.setVisible(true);
         grid.DisplayEdges();
@@ -1823,33 +1824,25 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void BackgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackgroundActionPerformed
         if (pic != null) {
-            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
-
+            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
             int conf = JOptionPane.showConfirmDialog(null, "Choose old background image", "Choose Old Background", JOptionPane.OK_CANCEL_OPTION);
             if (conf == 0) {
-                int val = fc.showOpenDialog(null);
+                int val = FileChooser.showOpenDialog(null);
                 if (val == JFileChooser.APPROVE_OPTION) {
-                    Picture oldBackground = new Picture(fc.getSelectedFile().getAbsolutePath());
+                    Picture oldBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
                     conf = JOptionPane.showConfirmDialog(null, "Choose new background image", "Choose New Background", JOptionPane.OK_CANCEL_OPTION);
                     if (conf == 0) {
-                        val = fc.showOpenDialog(null);
+                        val = FileChooser.showOpenDialog(null);
                         if (val == JFileChooser.APPROVE_OPTION) {
-                            Picture newBackground = new Picture(fc.getSelectedFile().getAbsolutePath());
-                            if (newBackground.getHeight() >= pic.getHeight() && newBackground.getWidth() >= pic.getWidth()) {
+                            Picture newBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                            if (pic.getHeight() <= newBackground.getHeight() && pic.getWidth() <= newBackground.getWidth()) {
                                 int[] values = new int[2];
                                 for (int i = 0; i < values.length; i++) {
-                                    int NO = i + 1;
-                                    String valu = JOptionPane.showInputDialog(null, "Enter threshold value NO " + NO, "Enter value NO " + NO, JOptionPane.QUESTION_MESSAGE);
-                                    if (i != 0) {
-                                        if (Integer.parseInt(valu) < values[i - 1]) {
-                                            JOptionPane.showMessageDialog(null, valu, "Please, select value greater than\n the previous one '" + values[i] + "'", JOptionPane.QUESTION_MESSAGE);
-                                        }
-                                    }
+                                    String valu = JOptionPane.showInputDialog(null, "Enter threshold value" + "Enter value" + JOptionPane.QUESTION_MESSAGE);
                                     values[i] = Integer.parseInt(valu);
                                 }
                                 Background_Subtraction(values, oldBackground, newBackground);
-                            } else {
-                                JOptionPane.showMessageDialog(null, "New Background Size must be >= Picture Size", "Error", JOptionPane.ERROR_MESSAGE);
+
                             }
                         }
                     }
