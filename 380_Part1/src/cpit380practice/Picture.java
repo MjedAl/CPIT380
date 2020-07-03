@@ -1131,8 +1131,8 @@ public class Picture extends SimplePicture {
         int[][] WeightedMatrix = new int[FilterSize][FilterSize];
         for (int i = 0; i < FilterSize; i++) {
             for (int j = 0; j < FilterSize; j++) {
-                WeightedMatrix[i][j] = 1+ (int) (Math.random() * 5); // 1 to 5
-                System.out.print(WeightedMatrix[i][j]+", ");
+                WeightedMatrix[i][j] = 1 + (int) (Math.random() * 5); // 1 to 5
+                System.out.print(WeightedMatrix[i][j] + ", ");
             }
         }
 
@@ -1547,7 +1547,7 @@ public class Picture extends SimplePicture {
 
                 // get the top and bottom pixels
                 topPixel = this.getPixel(x, y);
-                bottomPixel = this.getPixel(x, y + 1);
+                bottomPixel = this.getPixel(x, y + 1); // bottom pixel
 
                 // get the color averages for the two pixels
                 topAverage = topPixel.getAverage();
@@ -1558,13 +1558,63 @@ public class Picture extends SimplePicture {
                 if (Math.abs(topAverage - bottomAverage) < amount) {
                     topPixel.setColor(Color.WHITE);
                     // else set the color to black
-                } else {
+                } else { // edge is detected.
                     topPixel.setColor(Color.BLACK);
                 }
             }
         }
     }
+    
+    // new edgeDetection method that takes left and right pixels with top and bottom.
+    // for not gray sacle
+        public void edgeDetection_LR(int amount) {
+        Pixel topPixel = null;
+        Pixel bottomPixel = null;
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        double topAverage = 0.0;
+        double bottomAverage = 0.0;
+        double rightAverage = 0.0;
+        double leftAverage = 0.0;
+        
+        int endY = this.getHeight() - 1;
 
+        /* loop through y values from 0 to height - 1
+         * (since compare to below pixel) */
+        for (int y = 0; y < endY; y++) {
+
+            // loop through the x values from 0 to width
+            for (int x = 1; x < this.getWidth()-1; x++) {
+
+                // get the top and bottom pixels
+                topPixel = this.getPixel(x, y);
+                bottomPixel = this.getPixel(x, y + 1); 
+                leftPixel = this.getPixel(x-1, y); 
+                rightPixel = this.getPixel(x+1, y); 
+
+                // get the color averages for the two pixels
+                topAverage = topPixel.getAverage();
+                bottomAverage = bottomPixel.getAverage();
+                leftAverage = leftPixel.getAverage();
+                rightAverage = rightPixel.getAverage();
+
+                /* check if the absolute value of the difference
+                 * is less than the amount */
+                if ((Math.abs(topAverage - bottomAverage) < amount) || (Math.abs(rightAverage - leftAverage) < amount)) {
+                    topPixel.setColor(Color.WHITE);
+                    // else set the color to black
+                } else { // edge is detected.
+                    topPixel.setColor(Color.BLACK);
+                }
+            }
+        }
+    }
+        
+        // add two filters
+    
+    
+    
+    
     public void chromakey(Picture newBg) {
         Pixel currPixel = null;
         Pixel newPixel = null;
@@ -1871,18 +1921,9 @@ public class Picture extends SimplePicture {
     }
 
     public static void main(String[] args) {
-        String fileName = FileChooser.pickAFile();
-        Picture picture = new Picture(fileName);
-        //picture.blendPictures();
-        //  picture.show();
-
-        System.out.print(Picture.imageHistogram(picture));
-//        String file = FileChooser.pickAFile();
-//        Picture p = new Picture(file);
-//        //p.Collage();
-//
-//        p.repaint();
-//        // p.show();
+        
+        
+        
     }
 
     public void BoxFilter(int FilterSize) {
@@ -1920,6 +1961,7 @@ public class Picture extends SimplePicture {
         }
     }
 
+    // not working.
     public void gaussianFilter(int FilterSize, int P) {
 
         // first make the filter array
