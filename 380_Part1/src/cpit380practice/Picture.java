@@ -1564,10 +1564,10 @@ public class Picture extends SimplePicture {
             }
         }
     }
-    
+
     // new edgeDetection method that takes left and right pixels with top and bottom.
     // for not gray sacle
-        public void edgeDetection_LR(int amount) {
+    public void edgeDetection_LR(int amount) {
         Pixel topPixel = null;
         Pixel bottomPixel = null;
         Pixel leftPixel = null;
@@ -1576,7 +1576,7 @@ public class Picture extends SimplePicture {
         double bottomAverage = 0.0;
         double rightAverage = 0.0;
         double leftAverage = 0.0;
-        
+
         int endY = this.getHeight() - 1;
 
         /* loop through y values from 0 to height - 1
@@ -1584,13 +1584,13 @@ public class Picture extends SimplePicture {
         for (int y = 0; y < endY; y++) {
 
             // loop through the x values from 0 to width
-            for (int x = 1; x < this.getWidth()-1; x++) {
+            for (int x = 1; x < this.getWidth() - 1; x++) {
 
                 // get the top and bottom pixels
                 topPixel = this.getPixel(x, y);
-                bottomPixel = this.getPixel(x, y + 1); 
-                leftPixel = this.getPixel(x-1, y); 
-                rightPixel = this.getPixel(x+1, y); 
+                bottomPixel = this.getPixel(x, y + 1);
+                leftPixel = this.getPixel(x - 1, y);
+                rightPixel = this.getPixel(x + 1, y);
 
                 // get the color averages for the two pixels
                 topAverage = topPixel.getAverage();
@@ -1609,12 +1609,8 @@ public class Picture extends SimplePicture {
             }
         }
     }
-        
-        // add two filters
-    
-    
-    
-    
+
+    // add two filters
     public void chromakey(Picture newBg) {
         Pixel currPixel = null;
         Pixel newPixel = null;
@@ -1921,9 +1917,7 @@ public class Picture extends SimplePicture {
     }
 
     public static void main(String[] args) {
-        
-        
-        
+
     }
 
     public void BoxFilter(int FilterSize) {
