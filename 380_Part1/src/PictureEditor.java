@@ -54,7 +54,7 @@ public class PictureEditor extends javax.swing.JFrame {
         CopmutingPanel.setVisible(false);
         FiltersPanel.setVisible(false);
         ConvertionPanel.setVisible(false);
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        //System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
     /**
