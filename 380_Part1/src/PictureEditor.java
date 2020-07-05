@@ -125,6 +125,7 @@ public class PictureEditor extends javax.swing.JFrame {
         edgeDetecLap = new javax.swing.JButton();
         edgeDetecButton1 = new javax.swing.JButton();
         edgeDetecLap1 = new javax.swing.JButton();
+        Chromacky = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -615,7 +616,6 @@ public class PictureEditor extends javax.swing.JFrame {
         convertionMenu.setForeground(new java.awt.Color(255, 255, 255));
         convertionMenu.setText("Converion");
         convertionMenu.setToolTipText("");
-        convertionMenu.setActionCommand("Converion");
         convertionMenu.setBorder(null);
         convertionMenu.setMargin(new java.awt.Insets(0, 0, 0, 0));
         convertionMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -760,7 +760,7 @@ public class PictureEditor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(blueSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         redeye.setText("Red Eye ");
@@ -844,6 +844,13 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
+        Chromacky.setText("Chromacky");
+        Chromacky.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChromackyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -862,25 +869,29 @@ public class PictureEditor extends javax.swing.JFrame {
                                 .addComponent(redeye, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(edgeDetecButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(ContsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 672, Short.MAX_VALUE))
                             .addComponent(collage, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(edgeDetecLap, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(edgeDetecLap1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(Chromacky, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(edgeDetecLap, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(edgeDetecLap1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(imgLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(targetLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
@@ -915,7 +926,9 @@ public class PictureEditor extends javax.swing.JFrame {
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edgeDetecLap1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Chromacky))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(collage)
                         .addGap(73, 73, 73))
@@ -1582,7 +1595,37 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_scaleSliderFocusLost
 
     private void BackgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackgroundActionPerformed
-        // TODO add your handling code here:
+         
+        if (pic != null) {
+            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            int conf = JOptionPane.showConfirmDialog(null, "Choose old background image", "Choose Old Background", JOptionPane.OK_CANCEL_OPTION);
+            if (conf == 0) {  
+                int val = FileChooser.showOpenDialog(null);
+                if (val == JFileChooser.APPROVE_OPTION) {      
+                    Picture oldBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                    conf = JOptionPane.showConfirmDialog(null, "Choose new background image", "Choose New Background", JOptionPane.OK_CANCEL_OPTION);
+                    if (conf == 0) {     
+                        val = FileChooser.showOpenDialog(null);
+                        if (val == JFileChooser.APPROVE_OPTION) {
+                             
+                            Picture newBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                            if (pic.getHeight() <= newBackground.getHeight() && pic.getWidth() <= newBackground.getWidth()) {
+                                int[] values = new int[2];
+                                for (int i = 0; i < values.length; i++) {
+                                    String valu = JOptionPane.showInputDialog(null, "Enter threshold value" + "Enter value" + JOptionPane.QUESTION_MESSAGE);
+                                    values[i] = Integer.parseInt(valu);
+                                }
+                                Background_Subtraction(values, oldBackground, newBackground);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "New Background Size must be >= Picture Size", "Error", JOptionPane.ERROR_MESSAGE);
+
+                            }
+                        
+                    }
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_BackgroundActionPerformed
 
     private void BlendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlendActionPerformed
@@ -1714,6 +1757,40 @@ public class PictureEditor extends javax.swing.JFrame {
     private void edgeDetecLap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edgeDetecLap1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edgeDetecLap1ActionPerformed
+
+        private void Chromacky(Picture newBackground) {
+        Pixel picPixel = null;
+        Pixel newPixel = null;
+        for (int i = 0; i < pic.getWidth(); i++) {
+            for (int j = 0; j < pic.getHeight(); j++) {
+                picPixel = pic.getPixel(i, j);
+                newPixel = newBackground.getPixel(i, j);
+                if (picPixel.colorDistance(Color.blue) < 160) {
+                    picPixel.setColor(newPixel.getColor());
+                }
+            }
+        }
+        updateIMG();
+    }
+    private void ChromackyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChromackyActionPerformed
+          if (pic != null) {
+            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            int conf = JOptionPane.showConfirmDialog(null, "Choose new background image", "Choose New Background", JOptionPane.OK_CANCEL_OPTION);
+            if (conf == 0) {
+                int val = FileChooser.showOpenDialog(null);
+                if (val == JFileChooser.APPROVE_OPTION) {
+                    Picture newBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                    if (newBackground.getHeight() >= pic.getHeight() && newBackground.getWidth() >= pic.getWidth()) {
+                        Chromacky(newBackground);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "New Background Size must be >= Picture Size", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Select an image please!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ChromackyActionPerformed
 
     private void createCollage() {
         // ask for 4 picture
@@ -2056,6 +2133,7 @@ public class PictureEditor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Background;
     private javax.swing.JButton Blend;
+    private javax.swing.JToggleButton Chromacky;
     private javax.swing.JButton ComputeHistograms;
     private javax.swing.JButton ComputingMenu;
     private javax.swing.JPanel ContsPanel;
