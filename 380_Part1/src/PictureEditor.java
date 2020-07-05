@@ -1582,7 +1582,40 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_scaleSliderFocusLost
 
     private void BackgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackgroundActionPerformed
-        // TODO add your handling code here:
+         
+        if (pic != null) {
+
+            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            int conf = JOptionPane.showConfirmDialog(null, "Choose old background image", "Choose Old Background", JOptionPane.OK_CANCEL_OPTION);
+            if (conf == 0) {  
+                int val = FileChooser.showOpenDialog(null);
+                if (val == JFileChooser.APPROVE_OPTION) {
+                    
+                    Picture oldBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                    conf = JOptionPane.showConfirmDialog(null, "Choose new background image", "Choose New Background", JOptionPane.OK_CANCEL_OPTION);
+                    if (conf == 0) {
+                      
+                        val = FileChooser.showOpenDialog(null);
+                        if (val == JFileChooser.APPROVE_OPTION) {
+                             {
+                            Picture newBackground = new Picture(FileChooser.getSelectedFile().getAbsolutePath());
+                            if (pic.getHeight() <= newBackground.getHeight() && pic.getWidth() <= newBackground.getWidth()) {
+                                int[] values = new int[2];
+                                for (int i = 0; i < values.length; i++) {
+                                    String valu = JOptionPane.showInputDialog(null, "Enter threshold value" + "Enter value" + JOptionPane.QUESTION_MESSAGE);
+                                    values[i] = Integer.parseInt(valu);
+                                }
+                                Background_Subtraction(values, oldBackground, newBackground);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "New Background Size must be >= Picture Size", "Error", JOptionPane.ERROR_MESSAGE);
+
+                            }
+                        }
+                    }
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_BackgroundActionPerformed
 
     private void BlendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlendActionPerformed
