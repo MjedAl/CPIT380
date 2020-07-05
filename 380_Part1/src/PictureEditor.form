@@ -56,51 +56,66 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="689" max="-2" attributes="0"/>
-                          <Component id="chooseImg" min="-2" pref="325" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="clearImage" min="-2" pref="333" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="689" max="-2" attributes="0"/>
+                              <Component id="chooseImg" min="-2" pref="325" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clearImage" min="-2" pref="333" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="redeye" min="-2" pref="316" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="edgeDetecButton1" min="-2" pref="316" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ContsPanel" alignment="0" pref="672" max="32767" attributes="0"/>
+                                      <Component id="jPanel2" pref="672" max="32767" attributes="0"/>
+                                      <Component id="jPanel1" pref="672" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="collage" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="Trashhold1" min="-2" pref="316" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="Trashhold2" min="-2" pref="316" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="Background" min="-2" pref="316" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="Chromacky" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="Blend" min="-2" pref="316" max="-2" attributes="0"/>
+                                                  <Component id="cropImg" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="edgeDetecLap" min="-2" pref="316" max="-2" attributes="0"/>
+                                                  <Component id="edgeDetecLap1" min="-2" pref="316" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="imgLabel" alignment="1" min="-2" pref="645" max="-2" attributes="0"/>
+                                  <Component id="targetLabel" alignment="1" min="-2" pref="645" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="redeye" min="-2" pref="316" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="edgeDetecButton1" min="-2" pref="316" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="ContsPanel" alignment="0" pref="672" max="32767" attributes="0"/>
-                                  <Component id="jPanel2" pref="672" max="32767" attributes="0"/>
-                                  <Component id="jPanel1" pref="672" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="collage" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="Background" min="-2" pref="316" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Chromacky" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Blend" min="-2" pref="316" max="-2" attributes="0"/>
-                                          <Component id="cropImg" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="edgeDetecLap" min="-2" pref="316" max="-2" attributes="0"/>
-                                          <Component id="edgeDetecLap1" min="-2" pref="316" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="imgLabel" alignment="1" min="-2" pref="645" max="-2" attributes="0"/>
-                              <Component id="targetLabel" alignment="1" min="-2" pref="645" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                          <Component id="trashValue1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
+                          <Component id="trashValue2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="54" max="32767" attributes="0"/>
@@ -152,7 +167,17 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="collage" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Trashhold1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Trashhold2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="trashValue1" min="-2" max="-2" attributes="0"/>
+                              <Component id="trashValue2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="imgLabel" min="-2" pref="302" max="-2" attributes="0"/>
@@ -1147,6 +1172,32 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChromackyActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="Trashhold1">
+          <Properties>
+            <Property name="value" type="int" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="Trashhold1StateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="Trashhold2">
+          <Properties>
+            <Property name="value" type="int" value="0"/>
+          </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="Trashhold2StateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="trashValue1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="trashValue2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
