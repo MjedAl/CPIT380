@@ -2,6 +2,7 @@ package cpit380practice;
 
 import java.io.*;
 import java.awt.*;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +21,7 @@ public class Sound extends SimpleSound {
      *
      * @param fileName the name of the file to read the sound from
      */
-    public Sound(String fileName) {
+    public Sound(String fileName) throws UnsupportedAudioFileException {
         // let the parent class handle setting the file name
         super(fileName);
     }
