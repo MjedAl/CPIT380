@@ -6,8 +6,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
 /**
- * Class that represents a sound. This class is used by the students to extend
- * the capabilities of SimpleSound.
+ * Class that represents a sound. This class is used by the students to extend the capabilities of SimpleSound.
  *
  * Copyright Georgia Institute of Technology 2004
  *
@@ -21,7 +20,7 @@ public class Sound extends SimpleSound {
      *
      * @param fileName the name of the file to read the sound from
      */
-    public Sound(String fileName) throws UnsupportedAudioFileException {
+    public Sound(String fileName) {
         // let the parent class handle setting the file name
         super(fileName);
     }
@@ -66,8 +65,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to pick a sound file, create the sound object, play the sound
-     * object, and return the sound object
+     * Method to pick a sound file, create the sound object, play the sound object, and return the sound object
      *
      * @return the created sound object
      */
@@ -79,9 +77,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to play a specific sound. The sound to play is specified in the
-     * method. To change the sound that this method plays change the file name
-     * in the method and recompile
+     * Method to play a specific sound. The sound to play is specified in the method. To change the sound that this method plays change the file name in the method and recompile
      *
      * @return the created sound object
      */
@@ -94,8 +90,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a sound object from the given file name and play the
-     * sound. It also returns the created sound object
+     * Method to create a sound object from the given file name and play the sound. It also returns the created sound object
      *
      * @return the created sound object
      */
@@ -124,9 +119,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to go through each sound sample and set the sample value to the
-     * original value. This is simply a template for processing sounds using an
-     * array of SoundSample objects
+     * Method to go through each sound sample and set the sample value to the original value. This is simply a template for processing sounds using an array of SoundSample objects
      */
 //  public void doNothing15()
 //  {
@@ -138,8 +131,7 @@ public class Sound extends SimpleSound {
 //      
 //  }
     /**
-     * Method to double the volume (amplitude) of the sound, using a for each
-     * loop
+     * Method to double the volume (amplitude) of the sound, using a for each loop
      */
     public void increaseVolumeForEach() {
         SoundSample[] sampleArray = this.getSamples();
@@ -153,8 +145,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to halve the volumne for positive and double the volume for
-     * negative sound values
+     * Method to halve the volumne for positive and double the volume for negative sound values
      */
     public void halvePosDoubleNeg() {
         SoundSample[] sampleArray = this.getSamples();
@@ -172,8 +163,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to find the smallest value in a sound and print it, it will also
-     * return it
+     * Method to find the smallest value in a sound and print it, it will also return it
      */
     public int findSmallest() {
         SoundSample[] sampleArray = this.getSamples();
@@ -318,8 +308,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to change the volume (amplitude) of the sound by multiplying the
-     * current values in the sound by the passed factor.
+     * Method to change the volume (amplitude) of the sound by multiplying the current values in the sound by the passed factor.
      *
      * @param factor the factor to multiply by
      */
@@ -363,8 +352,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to normalize the first second of the sound and then decrease the
-     * volume by 1/5 for each additional second
+     * Method to normalize the first second of the sound and then decrease the volume by 1/5 for each additional second
      */
     public void normSecThenDecrease() {
         int numInSec = (int) this.getSamplingRate();
@@ -388,8 +376,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to have a linear increase in volume to halfway and then a linear
-     * decrease in volume
+     * Method to have a linear increase in volume to halfway and then a linear decrease in volume
      *
      * @param maxChange the change at halfway will be maxChange
      */
@@ -445,8 +432,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to modify a sound to start at lower vol and increase the volume
-     * linearly in num steps to the volume at the passed index
+     * Method to modify a sound to start at lower vol and increase the volume linearly in num steps to the volume at the passed index
      *
      * @param index the index to stop the change at
      * @param numSteps the number of steps to increase
@@ -469,8 +455,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to modify a sound to end at lower vol and increase the volume
-     * linearly in num steps back to the volume at the passed index
+     * Method to modify a sound to end at lower vol and increase the volume linearly in num steps back to the volume at the passed index
      *
      * @param index the index to stop the change at
      * @param numSteps the number of steps to increase
@@ -541,9 +526,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to set all the sample values to the maximum positive value if they
-     * were positive (including 0) and the minimum negative value if they were
-     * negative.
+     * Method to set all the sample values to the maximum positive value if they were positive (including 0) and the minimum negative value if they were negative.
      */
     public void forceToExtremes() {
 
@@ -569,8 +552,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to increase the first half of the sound (double it) and then
-     * decrease the second half (half it).
+     * Method to increase the first half of the sound (double it) and then decrease the second half (half it).
      */
     public void increaseHalfDecreaseHalf() {
         int half = this.getLength() / 2;
@@ -598,8 +580,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to increase the first half of the sound (double it) and then
-     * decrease the second half (half it).
+     * Method to increase the first half of the sound (double it) and then decrease the second half (half it).
      *
      * @param percentage as a double (10% = 0.1)
      */
@@ -630,8 +611,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a new sound by copying just part of the current sound to
-     * a new sound
+     * Method to create a new sound by copying just part of the current sound to a new sound
      *
      * @param start the index to start the copy at (inclusive)
      * @param end the index to stop the copy at (inclusive)
@@ -654,8 +634,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice two sounds together with some silence between them into
-     * the current sound
+     * Method to splice two sounds together with some silence between them into the current sound
      *
      * @return the resulting sound
      */
@@ -694,8 +673,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice two sounds together with some silence between them into
-     * the current sound
+     * Method to splice two sounds together with some silence between them into the current sound
      */
     public void splice() {
         Sound sound1
@@ -730,8 +708,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice "We the " then "United" then "people of the United
-     * States" into the current sound
+     * Method to splice "We the " then "United" then "people of the United States" into the current sound
      */
     public void splicePreamble() {
         String file = FileChooser.getMediaPath("preamble10.wav");
@@ -774,8 +751,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice "We the " then "United" normalized (as loud as possible)
-     * then "people of the United States" into the current sound
+     * Method to splice "We the " then "United" normalized (as loud as possible) then "people of the United States" into the current sound
      */
     public void splicePreambleLoudUnited() {
         String file = FileChooser.getMediaPath("preamble10.wav");
@@ -820,8 +796,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice "United" into "We the people of the United States" by
-     * adding it after the "the"
+     * Method to splice "United" into "We the people of the United States" by adding it after the "the"
      *
      * @return the changed sound
      */
@@ -855,8 +830,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to copy part of the passed sound into this sound at the given
-     * start index
+     * Method to copy part of the passed sound into this sound at the given start index
      *
      * @param source the source sound to copy from
      * @param sourceStart the starting index to copy from in the source
@@ -875,8 +849,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to splice the preamble into the current sound so that it says We
-     * the United people of the United States
+     * Method to splice the preamble into the current sound so that it says We the United people of the United States
      */
     public void splicePreamble2() {
         Sound preamble
@@ -1067,8 +1040,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a sound from this is a test and erase the 2nd second of
-     * it, play it, and then return the resulting sound
+     * Method to create a sound from this is a test and erase the 2nd second of it, play it, and then return the resulting sound
      */
     public static Sound erase2ndSecThisIsATest() {
         Sound s = new Sound(FileChooser.getMediaPath("thisisatest.wav"));
@@ -1109,10 +1081,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to overlap or blend two sounds. Start by copying the first 20,000
-     * samples from sound1 into the target sound then copy the sum of half of
-     * sound1 and half of sound2 for the next 20,000 samples and end with the
-     * next 20,000 samples from sound2.
+     * Method to overlap or blend two sounds. Start by copying the first 20,000 samples from sound1 into the target sound then copy the sum of half of sound1 and half of sound2 for the next 20,000 samples and end with the next 20,000 samples from sound2.
      */
     public static Sound blendSoundsS() {
         Sound sound1
@@ -1148,10 +1117,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to overlap or blend two sounds. Start by copying the first 20,000
-     * samples from sound1 into the current sound then copy the sum of half of
-     * sound1 and half of sound2 for the next 20,000 samples and end with the
-     * next 20,000 samples from sound2.
+     * Method to overlap or blend two sounds. Start by copying the first 20,000 samples from sound1 into the current sound then copy the sum of half of sound1 and half of sound2 for the next 20,000 samples and end with the next 20,000 samples from sound2.
      */
     public void blendSounds() {
         Sound sound1
@@ -1183,11 +1149,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to overlap or blend 3 sounds. Start by copying the first 20,000
-     * samples from sound1 into the end sound then copy the sum of half of the
-     * sound1 value and half of the sound2 value for 20,000 samples. Then copy
-     * the sum of half of the sound2 value and half of the sound3 value for the
-     * next 20,000 samples end with the next 20,000 samples from sound3.
+     * Method to overlap or blend 3 sounds. Start by copying the first 20,000 samples from sound1 into the end sound then copy the sum of half of the sound1 value and half of the sound2 value for 20,000 samples. Then copy the sum of half of the sound2 value and half of the sound3 value for the next 20,000 samples end with the next 20,000 samples from sound3.
      */
     public static Sound blend3Sounds() {
         Sound endSound = new Sound(80000);
@@ -1232,10 +1194,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to overlap or blend two sounds at the halfway point in sound1.
-     * Start by copying the first half of the samples from sound1 into the
-     * current sound then copy the sum of half of sound1 and sound2 for the rest
-     * of sound1 and end with the rest of sound2
+     * Method to overlap or blend two sounds at the halfway point in sound1. Start by copying the first half of the samples from sound1 into the current sound then copy the sum of half of sound1 and sound2 for the rest of sound1 and end with the rest of sound2
      */
     public void blendSoundsAtHalf() {
         Sound sound1
@@ -1369,8 +1328,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to double the frequency of a sound by taking every second sample.
-     * The result will be a higher sound.
+     * Method to double the frequency of a sound by taking every second sample. The result will be a higher sound.
      */
     public void doubleFreq() {
         // make a copy of the original sound
@@ -1397,8 +1355,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to double the frequency of a sound by taking every second sample.
-     * The result will be a higher sound.
+     * Method to double the frequency of a sound by taking every second sample. The result will be a higher sound.
      */
     public Sound doubleFreqReturnSound() {
         Sound result = new Sound(this.getLength() / 2 + 1);
@@ -1418,8 +1375,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Try to make this sound like a hip-jop dj playing a sound forward and
-     * backwards quickly
+     * Try to make this sound like a hip-jop dj playing a sound forward and backwards quickly
      */
     public void playHipHop() {
         Sound temp = this;
@@ -1444,8 +1400,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to triple the frequency of a sound by taking every third sample.
-     * The result will be a higher sound.
+     * Method to triple the frequency of a sound by taking every third sample. The result will be a higher sound.
      */
     public void tripleFreq() {
         // make a copy of the original sound
@@ -1473,8 +1428,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to quadruple the frequency of a sound by taking every fourth
-     * sample. The result will be a higher sound.
+     * Method to quadruple the frequency of a sound by taking every fourth sample. The result will be a higher sound.
      */
     public void quadFreq() {
         // make a copy of the original sound
@@ -1502,8 +1456,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to halve the frequency of a sound by taking each sample twice. The
-     * result will be a lower sound.
+     * Method to halve the frequency of a sound by taking each sample twice. The result will be a lower sound.
      */
     public void halveFreq() {
         // make a copy of the original sound
@@ -1525,10 +1478,7 @@ public class Sound extends SimpleSound {
     /**
      * Method to change the frequency of a sound by the passed factor
      *
-     * @param factor the amount to increment the source index by. A number
-     * greater than 1 will increase the frequency and make the sound higher
-     * while a number less than one will decrease the frequency and make the
-     * sound lower.
+     * @param factor the amount to increment the source index by. A number greater than 1 will increase the frequency and make the sound higher while a number less than one will decrease the frequency and make the sound lower.
      */
     public void changeFreq(double factor) {
         // make a copy of the original sound
@@ -1549,10 +1499,7 @@ public class Sound extends SimpleSound {
     /**
      * Method to change the frequency of a sound by the passed factor
      *
-     * @param factor the amount to increment the source index by. A number
-     * greater than 1 will increase the frequency and make the sound higher
-     * while a number less than one will decrease the frequency and make the
-     * sound lower.
+     * @param factor the amount to increment the source index by. A number greater than 1 will increase the frequency and make the sound higher while a number less than one will decrease the frequency and make the sound lower.
      */
     public void changeFreq2(double factor) {
         // make a copy of the original sound
@@ -1574,13 +1521,9 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to change the frequency of a sound by the passed factor and return
-     * the resulting sound
+     * Method to change the frequency of a sound by the passed factor and return the resulting sound
      *
-     * @param factor the amount to increment the source index by. A number
-     * greater than 1 will increase the frequency and make the sound higher
-     * while a number less than one will decrease the frequency and make the
-     * sound lower.
+     * @param factor the amount to increment the source index by. A number greater than 1 will increase the frequency and make the sound higher while a number less than one will decrease the frequency and make the sound lower.
      * @return the resulting sound
      */
     public Sound changeFreq2ReturnSound(double factor) {
@@ -1602,15 +1545,10 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to change the frequency of a sound by the passed factor and return
-     * the resulting sound
+     * Method to change the frequency of a sound by the passed factor and return the resulting sound
      *
-     * @param factor the amount to increment the source index by. A number
-     * greater than 1 will increase the frequency and make the sound higher
-     * while a number less than one will decrease the frequency and make the
-     * sound lower.
-     * @param numSamples the length of the new sound as a number of samples
-     * (should be <= length * (1/factor)) @return the resul ting sound
+     * @param factor the amount to increment the source index by. A number greater than 1 will increase the frequency and make the sound higher while a number less than one will decrease the frequency and make the sound lower.
+     * @param numSamples the length of the new sound as a number of samples (should be <= length * (1/factor)) @return the resul ting sound
      */
     public Sound changeFreq2ReturnSound(double factor, int numSamples) {
         // make a new sound of the right length
@@ -1641,8 +1579,7 @@ public class Sound extends SimpleSound {
 //    //double factor = 
 //  }
     /**
-     * Method to play a sound 5 times and each time increase the frequency. It
-     * doesn't change the original sound.
+     * Method to play a sound 5 times and each time increase the frequency. It doesn't change the original sound.
      */
     public void play5Freq() {
         Sound s = null;
@@ -1661,8 +1598,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to play a sound 10 times and each time increase the frequency. It
-     * doesn't change the original sound.
+     * Method to play a sound 10 times and each time increase the frequency. It doesn't change the original sound.
      */
     public void play10Freq() {
         Sound s = null;
@@ -1681,8 +1617,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a one second sine wave sound with the given frequency
-     * and maximum amplitude
+     * Method to create a one second sine wave sound with the given frequency and maximum amplitude
      *
      * @param freq the desired frequency
      * @param maxAmplitude the maximum amplitude
@@ -1713,8 +1648,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to copy a sine wave with the given frequency and maximum amplitude
-     * to the current sound
+     * Method to copy a sine wave with the given frequency and maximum amplitude to the current sound
      *
      * @param freq the desired frequency
      * @param maxAmplitude the maximum amplitude
@@ -1761,8 +1695,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to generate a 1 second sound with square waves with the passed
-     * frequency and maximum amplitude.
+     * Method to generate a 1 second sound with square waves with the passed frequency and maximum amplitude.
      *
      * @param freq the desired frequency
      * @param maxAmplitude the maximum amplitude
@@ -1804,8 +1737,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a one second triangle wave sound with the given
-     * frequency and maximum amplitude
+     * Method to create a one second triangle wave sound with the given frequency and maximum amplitude
      *
      * @param freq the desired frequency
      * @param maxAmplitude the maximum amplitude
@@ -1843,8 +1775,7 @@ public class Sound extends SimpleSound {
     }
 
     /**
-     * Method to create a one second pyramid (cut off triangle) wave sound with
-     * the given frequency and maximum amplitude
+     * Method to create a one second pyramid (cut off triangle) wave sound with the given frequency and maximum amplitude
      *
      * @param freq the desired frequency
      * @param maxAmplitude the maximum amplitude
@@ -2081,7 +2012,7 @@ public class Sound extends SimpleSound {
         }
         return s;
     }
-    
+
     public Sound blendingSounds() {
         Sound sound1 = new Sound(this);
         Sound sound2 = new Sound(FileChooser.pickAFile());
@@ -2120,8 +2051,6 @@ public class Sound extends SimpleSound {
         }
         return target;
     }
-    
-    
 
     public Sound blendAnother(Sound target, int soundIndx) {
         Sound sound1 = new Sound(target);
@@ -2153,20 +2082,83 @@ public class Sound extends SimpleSound {
         return target;
     }
 
- // end of class Sound, put all new methods before this
+    // end of class Sound, put all new methods before this
+    public Sound spread() {
+        SoundSample[] sample = this.getSamples();
+        Sound s = new Sound((int) sample.length * 2);
 
-
-    public Sound spread(){
-        SoundSample [] sample = this.getSamples();
-        Sound s = new Sound((int)sample.length * 2);
-
-      
-        for (double sourceIndex=0, targetIndex = 0; targetIndex < s.getLength() ; sourceIndex += 0.5, targetIndex++)
-        {
-          s.setSampleValueAt((int) targetIndex,
-                  sample[((int) sourceIndex)].getValue());
+        for (double sourceIndex = 0, targetIndex = 0; targetIndex < s.getLength(); sourceIndex += 0.5, targetIndex++) {
+            s.setSampleValueAt((int) targetIndex,
+                    sample[((int) sourceIndex)].getValue());
         }
         return s;
+    }
+
+    public void simpleAverage(int windowsSize) {
+
+        SoundSample[] sampleArray = this.getSamples();
+        
+        int start = (int) Math.floor(windowsSize / 2);
+        int avg=0;
+        
+        for (int i = start; i < sampleArray.length - (start+1); i++) {
+            avg=0;
+            
+            for (int j = -start; j < start; j++) {
+                avg+=sampleArray[j].getValue();
+            }
+            avg/=windowsSize;
+            sampleArray[i].setValue(avg);
+            
         }
+
+    }
+    
+        /*
+    * @param windowsSize 
+    *   type: 0= weighted window alligned left, 1=middle, 2= right
+    *   first: the size of the one in the left, middle or right
+    */
+    
+       public void weightedAverage(int windowsSize,short type,short first) {
+           int remaining = (1-first)/windowsSize-1;
+           
+           int[] weighted = new int[windowsSize];
+           if (type == 0) {
+               weighted[1]=first;
+           }else if(type==1){
+               weighted[windowsSize/2]=first;
+           }else if(type==2){
+               weighted[windowsSize-2]=first;
+           }
+           int skipMe=0;
+           for (int i = 0; i < weighted.length; i++) {
+               if (i==skipMe) {
+                   continue;
+               }else{
+                   weighted[i]=(remaining);
+               }
+           }
+           
+
+        SoundSample[] sampleArray = this.getSamples();
+        
+        int start = (int) Math.floor(windowsSize / 2);
+        int avg=0;
+        int ii=0;
+        
+        for (int i = start; i < sampleArray.length - (start+1); i++) {
+            avg=0;
+            ii=0;
+            for (int j = -start; j < start; j++) {
+                avg+=(sampleArray[j].getValue()*weighted[ii]);
+                ii++;
+            }
+            avg/=windowsSize;
+            sampleArray[i].setValue(avg);
+            
+        }
+
+    }
 
 }

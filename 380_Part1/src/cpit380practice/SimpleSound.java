@@ -170,12 +170,10 @@ public class SimpleSound {
      * @param fileName The File from which to create this sound.
      * @see SimpleSound#loadFromFile(String filename)
      */
-    public SimpleSound(String fileName) throws UnsupportedAudioFileException {
+    public SimpleSound(String fileName) {
         try {
             // load the sound from the file
             loadFromFile(fileName);
-        } catch (UnsupportedAudioFileException e) {
-            throw e;
         } catch (Exception ex) {
             printError("Exception during load of file " + fileName);
         }
@@ -476,9 +474,7 @@ public class SimpleSound {
         AudioInputStream audioInputStream;
         try {
             audioInputStream = AudioSystem.getAudioInputStream(file);
-        } catch (UnsupportedAudioFileException e) {
-            throw e;
-        } catch (Exception e) {
+        }  catch (Exception e) {
             printError("Unable to read from file "
                     + inFileName + ".  The file type is unsupported.  "
                     + "Are you sure you're using a WAV, AU, or "

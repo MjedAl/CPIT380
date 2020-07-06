@@ -178,8 +178,6 @@ public class SoundEditor extends javax.swing.JFrame {
             String filePath = FileChooser.pickAFile();
             currentSound = new Sound(filePath);
             changeContentStatus(true);
-        } catch (UnsupportedAudioFileException e) {
-            JOptionPane.showMessageDialog(null, "Unsupported Audio File "+e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Some error happend:" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
