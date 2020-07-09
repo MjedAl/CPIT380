@@ -2003,15 +2003,23 @@ public class Sound extends SimpleSound {
     }
 
     // end of class Sound, put all new methods before this
-    public Sound spread() {
+    public Sound spreadThenSqueeze() {
         SoundSample[] sample = this.getSamples();
-        Sound s = new Sound((int) sample.length * 2);
 
-        for (double sourceIndex = 0, targetIndex = 0; targetIndex < s.getLength(); sourceIndex += 0.5, targetIndex++) {
-            s.setSampleValueAt((int) targetIndex,
-                    sample[((int) sourceIndex)].getValue());
+        // Spred * 2
+        Sound spreaded = new Sound((int) sample.length * 2);
+        for (double sourceIndex = 0, targetIndex = 0; targetIndex < spreaded.getLength(); sourceIndex += 0.5, targetIndex++) {
+            spreaded.setSampleValueAt((int) targetIndex, sample[((int) sourceIndex)].getValue());
         }
-        return s;
+        
+        // Squeeze / 4
+        SoundSample[] sampleSpreaded = spreaded.getSamples();
+        Sound squeezed = new Sound((int) sampleSpreaded.length /4);
+        for (double sourceIndex = 0, targetIndex = 0; targetIndex < squeezed.getLength(); sourceIndex += 2, targetIndex++) {
+            squeezed.setSampleValueAt((int) targetIndex, sampleSpreaded[((int) sourceIndex)].getValue());
+        }
+        
+        return squeezed;
     }
 
     public void simpleAverage(int windowsSize) {
