@@ -48,10 +48,21 @@ public class SoundEditor extends javax.swing.JFrame {
         playSound.setText("Play once");
         playSound.setToolTipText("");
         playSound.setEnabled(false);
+        playSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playSoundActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Volume:");
 
+        volumeSlider.setToolTipText("");
         volumeSlider.setEnabled(false);
+        volumeSlider.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                volumeSliderMouseReleased(evt);
+            }
+        });
 
         clipSound.setText("Clip");
         clipSound.setToolTipText("");
@@ -62,6 +73,11 @@ public class SoundEditor extends javax.swing.JFrame {
         splicingSound.setToolTipText("");
         splicingSound.setEnabled(false);
         splicingSound.setPreferredSize(new java.awt.Dimension(85, 32));
+        splicingSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                splicingSoundActionPerformed(evt);
+            }
+        });
 
         spreadSound.setText("Spread");
         spreadSound.setToolTipText("");
@@ -184,6 +200,33 @@ public class SoundEditor extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_chooseSoundActionPerformed
+
+    private void volumeSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeSliderMouseReleased
+        // TODO add your handling code here:
+
+        currentSound.changeVolume(volumeSlider.getValue() / 50);
+        currentSound.play();
+
+    }//GEN-LAST:event_volumeSliderMouseReleased
+
+    private void playSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playSoundActionPerformed
+        // TODO add your handling code here:
+        currentSound.play();
+    }//GEN-LAST:event_playSoundActionPerformed
+
+    private void splicingSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_splicingSoundActionPerformed
+        // TODO add your handling code here:
+        currentSound = currentSound.splice(1);
+        while (true) {
+            int reply = JOptionPane.showConfirmDialog(null, "Do you want to splice another sound ?", "Splice?", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                currentSound = currentSound.splice(1);
+            } else {
+                currentSound.play();
+                break;
+            }
+        }
+    }//GEN-LAST:event_splicingSoundActionPerformed
 
     private void changeContentStatus(boolean status) {
         clipSound.setEnabled(status);

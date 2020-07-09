@@ -1933,86 +1933,6 @@ public class Sound extends SimpleSound {
         return p;
     }
 
-    public static void main(String[] args) {
-        Sound s = new Sound(FileChooser.pickAFile());
-        s.play();
-    }
-
-//  public static void main(String[] args)
-//  {
-//    Sound s = new Sound(FileChooser.getMediaPath("her.wav"));
-//    s.explore();
-//    String fileName = FileChooser.getMediaPath("her.txt");
-//    s.writeSamplesAsText(fileName);
-//    Sound s2 = Sound.createSoundFromTextFile(fileName);
-//    s2.explore();
-//    Picture p = s2.createPicture();
-//    p.show();
-//  }
-    public Sound splice(double zone) {
-        Sound sound1
-                = new Sound(this);
-        Sound sound2
-                = new Sound(FileChooser.pickAFile());
-        int targetIndex = 0; // the starting place on the target
-        int value = 0;
-        Sound s = new Sound((sound1.getLength() + sound2.getLength()) * (int) (10 * (Math.ceil(zone))));
-        // copy all of sound 1 into the current sound (target)
-        for (int i = 0;
-                i < sound1.getLength();
-                i++, targetIndex++) {
-            value = sound1.getSampleValueAt(i);
-            s.setSampleValueAt(targetIndex, value);
-        }
-
-        // create silence between words by setting values to 0
-        for (int i = 0;
-                i < (int) (sound1.getSamplingRate() * zone);
-                i++, targetIndex++) {
-            s.setSampleValueAt(targetIndex, 0);
-        }
-
-        // copy all of sound 2 into the current sound (target)
-        for (int i = 0;
-                i < sound2.getLength();
-                i++, targetIndex++) {
-            value = sound2.getSampleValueAt(i);
-            s.setSampleValueAt(targetIndex, value);
-        }
-        while (true) {
-            int reply = JOptionPane.showConfirmDialog(null, "Do you want to splice an another sound ?", "Attention!", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION) {
-                s = spliceAnother(zone, targetIndex, s);
-            } else {
-                break;
-            }
-
-        }
-        return s;
-    }
-
-    private Sound spliceAnother(double zone, int indx, Sound s) {
-        Sound sound1
-                = new Sound(FileChooser.pickAFile());
-        int targetIndex = indx; // the starting place on the target
-        int value = 0;
-
-        // create silence between words by setting values to 0
-        for (int i = 0;
-                i < (int) (sound1.getSamplingRate() * zone);
-                i++, targetIndex++) {
-            s.setSampleValueAt(targetIndex, 0);
-        }
-
-        for (int i = 0;
-                i < sound1.getLength();
-                i++, targetIndex++) {
-            value = sound1.getSampleValueAt(i);
-            s.setSampleValueAt(targetIndex, value);
-        }
-        return s;
-    }
-
     public Sound blendingSounds() {
         Sound sound1 = new Sound(this);
         Sound sound2 = new Sound(FileChooser.pickAFile());
@@ -2097,68 +2017,123 @@ public class Sound extends SimpleSound {
     public void simpleAverage(int windowsSize) {
 
         SoundSample[] sampleArray = this.getSamples();
-        
+
         int start = (int) Math.floor(windowsSize / 2);
-        int avg=0;
-        
-        for (int i = start; i < sampleArray.length - (start+1); i++) {
-            avg=0;
-            
+        int avg = 0;
+
+        for (int i = start; i < sampleArray.length - (start + 1); i++) {
+            avg = 0;
+
             for (int j = -start; j < start; j++) {
-                avg+=sampleArray[j].getValue();
+                avg += sampleArray[j].getValue();
             }
-            avg/=windowsSize;
+            avg /= windowsSize;
             sampleArray[i].setValue(avg);
-            
+
         }
 
     }
-    
-        /*
+
+    /*
     * @param windowsSize 
     *   type: 0= weighted window alligned left, 1=middle, 2= right
     *   first: the size of the one in the left, middle or right
-    */
-    
-       public void weightedAverage(int windowsSize,short type,short first) {
-           int remaining = (1-first)/windowsSize-1;
-           
-           int[] weighted = new int[windowsSize];
-           if (type == 0) {
-               weighted[1]=first;
-           }else if(type==1){
-               weighted[windowsSize/2]=first;
-           }else if(type==2){
-               weighted[windowsSize-2]=first;
-           }
-           int skipMe=0;
-           for (int i = 0; i < weighted.length; i++) {
-               if (i==skipMe) {
-                   continue;
-               }else{
-                   weighted[i]=(remaining);
-               }
-           }
-           
+     */
+    public void weightedAverage(int windowsSize, short type, short first) {
+        int remaining = (1 - first) / windowsSize - 1;
 
-        SoundSample[] sampleArray = this.getSamples();
-        
-        int start = (int) Math.floor(windowsSize / 2);
-        int avg=0;
-        int ii=0;
-        
-        for (int i = start; i < sampleArray.length - (start+1); i++) {
-            avg=0;
-            ii=0;
-            for (int j = -start; j < start; j++) {
-                avg+=(sampleArray[j].getValue()*weighted[ii]);
-                ii++;
+        int[] weighted = new int[windowsSize];
+        if (type == 0) {
+            weighted[1] = first;
+        } else if (type == 1) {
+            weighted[windowsSize / 2] = first;
+        } else if (type == 2) {
+            weighted[windowsSize - 2] = first;
+        }
+        int skipMe = 0;
+        for (int i = 0; i < weighted.length; i++) {
+            if (i == skipMe) {
+                continue;
+            } else {
+                weighted[i] = (remaining);
             }
-            avg/=windowsSize;
-            sampleArray[i].setValue(avg);
-            
         }
 
+        SoundSample[] sampleArray = this.getSamples();
+
+        int start = (int) Math.floor(windowsSize / 2);
+        int avg = 0;
+        int ii = 0;
+
+        for (int i = start; i < sampleArray.length - (start + 1); i++) {
+            avg = 0;
+            ii = 0;
+            for (int j = -start; j < start; j++) {
+                avg += (sampleArray[j].getValue() * weighted[ii]);
+                ii++;
+            }
+            avg /= windowsSize;
+            sampleArray[i].setValue(avg);
+
+        }
+
+    }
+
+    public static Sound spliceSoundsRecursive(Sound[] sounds, int current, double zone) {
+        if (current + 1 < sounds.length) {
+
+            // take current and current+1 splice them and make current+1 is the new sound
+            Sound s1 = sounds[current];
+            Sound s2 = sounds[current + 1];
+
+            int targetIndex = 0; // the starting place on the target
+            Sound newSound = new Sound((s1.getLength() + s2.getLength()) + (int) ((Math.ceil(zone))));
+
+            // copy all of sound 1 into the new sound
+            for (int i = 0; i < s1.getLength(); i++) {
+                newSound.setSampleValueAt(targetIndex, s1.getSampleValueAt(i));
+                targetIndex++;
+            }
+            // silence zone
+            for (int i = 0; i < (int) (zone); i++) {
+                newSound.setSampleValueAt(targetIndex, 0);
+                targetIndex++;
+            }
+            // copy all of sound 2 into the new sound
+            for (int i = 0; i < s2.getLength(); i++) {
+                newSound.setSampleValueAt(targetIndex, s2.getSampleValueAt(i));
+                targetIndex++;
+            }
+            sounds[current + 1] = newSound;
+            return spliceSoundsRecursive(sounds, current++, zone);
+        } else {
+            return sounds[current];
+        }
+    }
+
+    public Sound splice(double zone) {
+        Sound sound1 = new Sound(this);
+        Sound sound2 = new Sound(FileChooser.pickAFile());
+
+        int targetIndex = 0; // the starting place on the target
+
+        Sound s = new Sound((this.getLength() + sound2.getLength()) + (int) (this.getSamplingRate() * (Math.ceil(zone))));
+
+        // copy all of sound 1 into the current sound (target)
+        for (int i = 0; i < sound1.getLength(); i++, targetIndex++) {
+            s.setSampleValueAt(targetIndex, this.getSampleValueAt(i));
+        }
+
+        // create silence between words by setting values to 0
+        for (int i = 0; i < (int) (this.getSamplingRate() * zone); i++, targetIndex++) {
+            s.setSampleValueAt(targetIndex, 0);
+        }
+
+        // copy all of sound 2 into the current sound (target)
+        for (int i = 0; i < sound2.getLength(); i++, targetIndex++) {
+            s.setSampleValueAt(targetIndex, sound2.getSampleValueAt(i));
+        }
+        return s;
     }
 
 }

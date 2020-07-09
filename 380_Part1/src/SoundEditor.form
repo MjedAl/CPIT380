@@ -117,6 +117,9 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playSoundActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -125,8 +128,12 @@
         </Component>
         <Component class="javax.swing.JSlider" name="volumeSlider">
           <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="volumeSliderMouseReleased"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="clipSound">
           <Properties>
@@ -147,6 +154,9 @@
               <Dimension value="[85, 32]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="splicingSoundActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="spreadSound">
           <Properties>
