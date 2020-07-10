@@ -261,6 +261,24 @@ public class SoundEditor extends javax.swing.JFrame {
         s.play();
 
     }//GEN-LAST:event_clipSoundActionPerformed
+    
+    private void reversingSoundActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        
+        SoundSample [] sound= currentSound.getSamples();
+        int index=0;
+        
+        for (int i = currentSound.getLength() - 1; i >= 0; i--) {
+            
+            SoundSample temp=sound[i];
+             sound[index]=temp;
+            
+        currentSound.setSampleValueAt(index, currentSound.getSampleValueAt(i));
+             index++;
+        }
+        
+        currentSound.play();
+
+    }          
 
     private void changeContentStatus(boolean status) {
         clipSound.setEnabled(status);
