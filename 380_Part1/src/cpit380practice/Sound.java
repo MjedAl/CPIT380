@@ -2025,20 +2025,38 @@ public class Sound extends SimpleSound {
     public void simpleAverage(int windowsSize) {
 
         SoundSample[] sampleArray = this.getSamples();
-
+        System.out.println(sampleArray.length);
+        
+        Sound newSound = new Sound(this.getSamples().length);
+        
         int start = (int) Math.floor(windowsSize / 2);
         int avg = 0;
-
+        
+        // the start index where we can't apply the avg in them, put them as they are.
+        for (int i = 0; i < start; i++) {
+            //System.out.println("A");
+            newSound.setSampleValueAt(i, sampleArray[i].getValue());
+        }
+        
+        // the middle indexes
         for (int i = start; i < sampleArray.length - (start + 1); i++) {
+            //System.out.println("B");
             avg = 0;
-
+            
             for (int j = -start; j < start; j++) {
-                avg += sampleArray[j].getValue();
+                avg += sampleArray[i+j].getValue();
             }
             avg /= windowsSize;
             sampleArray[i].setValue(avg);
 
         }
+        
+         // the end index where we can't apply the avg in them, put them as they are.
+        for (int i = sampleArray.length - (start + 1); i < sampleArray.length; i++) {
+            //System.out.println("C");
+            newSound.setSampleValueAt(i, sampleArray[i].getValue());
+        }
+        
 
     }
 

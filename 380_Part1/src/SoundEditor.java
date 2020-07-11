@@ -103,6 +103,11 @@ public class SoundEditor extends javax.swing.JFrame {
         simpleAVG.setToolTipText("");
         simpleAVG.setEnabled(false);
         simpleAVG.setPreferredSize(new java.awt.Dimension(85, 32));
+        simpleAVG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpleAVGActionPerformed(evt);
+            }
+        });
 
         weightedAVG.setText("Weighted AVG");
         weightedAVG.setToolTipText("");
@@ -241,6 +246,19 @@ public class SoundEditor extends javax.swing.JFrame {
         currentSound=currentSound.spreadThenSqueeze();
         currentSound.play();
     }//GEN-LAST:event_spreadSoundActionPerformed
+
+    private void simpleAVGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpleAVGActionPerformed
+        // TODO add your handling code here:
+        // take num
+         String size = JOptionPane.showInputDialog(null, "Please Enter the size of window please: ");
+            try {
+                int Size = Integer.parseInt(size);
+                currentSound.simpleAverage(Size);
+                currentSound.play();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_simpleAVGActionPerformed
 
     private void changeContentStatus(boolean status) {
         clipSound.setEnabled(status);
