@@ -255,6 +255,19 @@ public class SoundEditor extends javax.swing.JFrame {
         currentSound.play();
     }//GEN-LAST:event_spreadSoundActionPerformed
 
+    private void simpleAVGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpleAVGActionPerformed
+        // TODO add your handling code here:
+        // take num
+         String size = JOptionPane.showInputDialog(null, "Please Enter the size of window please: ");
+            try {
+                int Size = Integer.parseInt(size);
+                currentSound.simpleAverage(Size);
+                currentSound.play();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_simpleAVGActionPerformed
+
     private void clipSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clipSoundActionPerformed
 
         String first = JOptionPane.showInputDialog(null, "Enter the start Index: ");
@@ -271,7 +284,7 @@ public class SoundEditor extends javax.swing.JFrame {
 
         SoundSample [] sound= currentSound.getSamples();
         int index=0;
-        
+
         for (int i = currentSound.getLength() - 1; i >= 0; i--) {
 
             SoundSample temp=sound[i];
