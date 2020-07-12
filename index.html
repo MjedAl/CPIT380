@@ -7,6 +7,7 @@
     <title>380</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Team-Boxed.css">
 </head>
@@ -14,8 +15,8 @@
 <body style="background-color: rgb(174,174,174);margin-top: 2%;">
     <p class="text-center" style="font-size: 50px;font-family: 'Cookie', cursive;"><strong>CPIT-380 Group Project</strong></p>
     <p class="text-center">Supervised with care by Doctor Saim Ahmed Rasheed</p>
-    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
-        <div class="collapse"
+    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
+        <div class="collapse show"
             id="collapse-9">
             <div style="width: 100%;"><a class="btn btn-outline-success" data-toggle="collapse" aria-expanded="false" aria-controls="pic" href="#pic" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;">Pictures&nbsp;<br>↓<br></a>
                 <div class="collapse" id="pic">
@@ -177,9 +178,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button" style="width: 100%;">Part 4 (Gray scale to bianry)</a>
-                                <div class="collapse" id="collapse-4"
-                                    style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button" style="width: 100%;">Part 4 (Gray scale to bianry) &lt;Not completed yet&gt;</a>
+                                <div class="collapse"
+                                    id="collapse-4" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -264,7 +265,9 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                                <p>First you should upload picture then we will check if the pic object not null if that true we will initialize filechooser to upload another picture then will the program will store all the pixels of two
+                                                    picture and will go trough each pixels to get average for all picture then we will get the average of RBG of each picture add them together then divide by number of pictures then set all the pixels average
+                                                    result in picture 1 object.<br><br>The methods that we used:</p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">BlendActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                      
         <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -300,8 +303,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="width: 100%;">Part 7&amp;8 (Rotaions)</a>
-                                <div class="collapse" id="collapse-7" style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="width: 100%;">Part 7&amp;8 (Rotaions)&nbsp;&lt;Not completed yet&gt;<br></a>
+                                <div class="collapse"
+                                    id="collapse-7" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -386,9 +390,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="width: 100%;">Part 9 (Vertical and horizontal Reflection)</a>
-                                <div class="collapse" id="collapse-8"
-                                    style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="width: 100%;">Part 9 (Vertical and horizontal Reflection)&nbsp;&lt;Not completed yet&gt;<br></a>
+                                <div
+                                    class="collapse" id="collapse-8" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -439,27 +443,27 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-10" href="#collapse-10" role="button" style="width: 100%;">Part 10&amp;11 (D1 and D2 Reflections)</a>
-                                <div class="collapse" id="collapse-10"
-                                    style="height: 100vh;">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="text-center" style="font-size: 34px;">D1 and D2 top to bottom and bottom to top reflections</p>
-                                            </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-10" href="#collapse-10" role="button" style="width: 100%;">Part 10&amp;11 (D1 and D2 Reflections)</a>
+                            <div class="collapse" id="collapse-10"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">D1 and D2 top to bottom and bottom to top reflections</p>
                                         </div>
-                                        <div class="row text-center">
-                                            <div class="col"><img src="assets/img/380_10_11.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_10_11.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>This part was also straightforward and i didn't face any issues doing it it's about reflecting images with any diagonal from either bottom to top or top to bottom<br><br>The methods that we used:</p>
                                         </div>
-                                        <div class="row" style="margin-top: 15px;">
-                                            <div class="col d-table-row">
-                                                <p>This part was also straightforward and i didn't face any issues doing it it's about reflecting images with any diagonal from either bottom to top or top to bottom<br><br>The methods that we used:</p>
-                                            </div>
-                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">   <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">ReflectD1_T2B</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">   <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">ReflectD1_T2B</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         Pixel leftPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         Pixel rightPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> y <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> y<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -510,31 +514,31 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-11" href="#collapse-11" role="button" style="width: 100%;">Part 12&amp;13 (Scaling down and Up)<br></a>
-                                <div class="collapse" id="collapse-11"
-                                    style="padding-left: 0px;padding-right: 0px;">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="text-center" style="font-size: 34px;">Scaling down and up</p>
-                                            </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-11" href="#collapse-11" role="button" style="width: 100%;">Part 12&amp;13 (Scaling down and Up)<br></a>
+                            <div class="collapse" id="collapse-11"
+                                style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Scaling down and up</p>
                                         </div>
-                                        <div class="row text-center">
-                                            <div class="col"><img src="assets/img/12&13.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/12&13.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>Scaling down and up logic was easy but somehow we keep hitting blocks and issues on the way. i think the biggest issue the that the difference is not really shown inside the GUI because as i said earlier the
+                                                GUI automatically adjusts the image by scaling it up or down to fit perfectly that's why we the showing the image on a new window. okay with that out of the way let me clarify more on the slider i know it's
+                                                a bit confusing.<br>the slider mainly has 4 checks the users can select from (0,1) in the right side of the slider and (3,4) in the left side the right side will represent scaling down and the left for up.
+                                                if the user chooses 1 it means he wants to scale it down by the biggest amount possible so we do scale it down and reset the slider to the middle in case he want to rescale it down again and the same concept
+                                                goes for scaling up<br><br>The methods that we used:<br></p>
                                         </div>
-                                        <div class="row" style="margin-top: 15px;">
-                                            <div class="col d-table-row">
-                                                <p>Scaling down and up logic was easy but somehow we keep hitting blocks and issues on the way. i think the biggest issue the that the difference is not really shown inside the GUI because as i said earlier
-                                                    the GUI automatically adjusts the image by scaling it up or down to fit perfectly that's why we the showing the image on a new window. okay with that out of the way let me clarify more on the slider
-                                                    i know it's a bit confusing.<br>the slider mainly has 4 checks the users can select from (0,1) in the right side of the slider and (3,4) in the left side the right side will represent scaling down and
-                                                    the left for up. if the user chooses 1 it means he wants to scale it down by the biggest amount possible so we do scale it down and reset the slider to the middle in case he want to rescale it down again
-                                                    and the same concept goes for scaling up<br><br>The methods that we used:<br></p>
-                                            </div>
-                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">	<span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">scaleSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">	<span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">scaleSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
         <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
         <span style="color: #60a0b0; font-style: italic">// Scale code here.</span>
@@ -613,7 +617,7 @@
 	
 </pre></div>
 
-                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -647,7 +651,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -681,9 +685,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
-                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
+                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -760,27 +764,27 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-13" href="#collapse-13" role="button" style="width: 100%;">Part 14 (Collage)<br></a>
-                                <div class="collapse" id="collapse-13" style="padding-left: 0px;padding-right: 0px;">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="text-center" style="font-size: 34px;">Creating collage</p>
-                                            </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-13" href="#collapse-13" role="button" style="width: 100%;">Part 14 (Collage)<br></a>
+                            <div class="collapse" id="collapse-13" style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Creating collage</p>
                                         </div>
-                                        <div class="row text-center">
-                                            <div class="col"><img src="assets/img/380_collage.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_collage.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>This method is about taking 4 extra images and making a collage with the original image and then align them to the corners of the original image. the only issue i faced was when dealing with images of with different
+                                                dimensions ie: height and width. it will not be shown perfectly aligned.<br><br>The methods that we used:<br></p>
                                         </div>
-                                        <div class="row" style="margin-top: 15px;">
-                                            <div class="col d-table-row">
-                                                <p>This method is about taking 4 extra images and making a collage with the original image and then align them to the corners of the original image. the only issue i faced was when dealing with images of with
-                                                    different dimensions ie: height and width. it will not be shown perfectly aligned.<br><br>The methods that we used:<br></p>
-                                            </div>
-                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">createCollage</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">createCollage</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// ask for 4 picture</span>
         Picture second <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         Picture third <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
@@ -867,7 +871,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -901,7 +905,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -935,9 +939,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
-                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
+                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -1014,28 +1018,28 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
-                                </div>
                             </div>
                         </div>
-                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-12" href="#collapse-12" role="button" style="width: 100%;">Part 15&amp;16 (Compute and plotting histograms)<br></a>
-                                <div class="collapse"
-                                    id="collapse-12" style="padding-left: 0px;padding-right: 0px;">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="text-center" style="font-size: 34px;">Computing and plotting histogrtams</p>
-                                            </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-12" href="#collapse-12" role="button" style="width: 100%;">Part 15&amp;16 (Compute and plotting histograms)<br></a>
+                            <div class="collapse"
+                                id="collapse-12" style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Computing and plotting histogrtams</p>
                                         </div>
-                                        <div class="row text-center">
-                                            <div class="col"><img src="assets/img/ppp1.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/ppp1.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>Okay so the first method i used was to get the values of the intensity from the picture and store in the array of linked list it's a 2d array [3] for Red, Green and blue and 256 for all levels of the color after
+                                                it fills the array it will call another method that will actually plot the histograms it.</p>
                                         </div>
-                                        <div class="row" style="margin-top: 15px;">
-                                            <div class="col d-table-row">
-                                                <p>Okay so the first method i used was to get the values of the intensity from the picture and store in the array of linked list it's a 2d array [3] for Red, Green and blue and 256 for all levels of the color
-                                                    after it fills the array it will call another method that will actually plot the histograms it.</p>
-                                            </div>
-                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> Pixel_LL<span style="color: #666666">[][]</span> <span style="color: #06287e">ComputeHistograms</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> Pixel_LL<span style="color: #666666">[][]</span> <span style="color: #06287e">ComputeHistograms</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
 
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">[</span><span style="color: #40a070">3</span><span style="color: #666666">][</span><span style="color: #40a070">256</span><span style="color: #666666">];</span> <span style="color: #60a0b0; font-style: italic">// [0] red, [1] green [2] blue</span>
 
@@ -1088,7 +1092,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -1122,7 +1126,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -1156,9 +1160,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
-                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
+                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -1235,19 +1239,19 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="width: 100%;"><a class="btn btn-outline-secondary disabled" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio (SOON)<br></a>
-                <div class="collapse"
-                    id="audio">
-                    <div class="col" style="padding-left: 0px;padding-right: 0px;"></div>
-                </div>
+        </div>
+        <div style="width: 100%;"><a class="btn btn-outline-secondary disabled" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio (SOON)<br></a>
+            <div class="collapse"
+                id="audio">
+                <div class="col" style="padding-left: 0px;padding-right: 0px;"></div>
             </div>
         </div>
+    </div>
     </div>
     <div class="container" style="padding-top: 5%;">
         <h1 class="text-center"><strong>Team memebers</strong></h1>
@@ -1255,16 +1259,16 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" data-bs-hover-animate="bounce">
                     <h1 class="text-center" style="font-size: 22px;">Abdulmajeed Fauzi Alahmadi</h1>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-bs-hover-animate="bounce">
                     <h1 class="text-center" style="font-size: 22px;">Ali Abo Mansour</h1>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-bs-hover-animate="bounce">
                     <h1 class="text-center" style="font-size: 22px;">Abdullah Bin Saeed&nbsp;</h1>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" data-bs-hover-animate="bounce">
                     <h1 class="text-center" style="font-size: 22px;">Mohanned Alotaibi</h1>
                 </div>
             </div>
@@ -1284,6 +1288,7 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
 </body>
 
 </html>
