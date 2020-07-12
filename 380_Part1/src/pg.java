@@ -17,18 +17,12 @@ public class pg {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        System.out.println(nextSkewedBoundedDouble(0,1,1,8));
-        
-        
-        
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(nextSkewedBoundedDouble(0, 10, 10, 0));
+
+        }
+
     }
     final static public Random RANDOM = new Random(System.currentTimeMillis());
 

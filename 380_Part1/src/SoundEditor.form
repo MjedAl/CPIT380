@@ -220,6 +220,9 @@
               <Dimension value="[85, 32]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weightedAVGActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

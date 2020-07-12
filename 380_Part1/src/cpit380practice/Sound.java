@@ -2011,14 +2011,14 @@ public class Sound extends SimpleSound {
         for (double sourceIndex = 0, targetIndex = 0; targetIndex < spreaded.getLength(); sourceIndex += 0.5, targetIndex++) {
             spreaded.setSampleValueAt((int) targetIndex, sample[((int) sourceIndex)].getValue());
         }
-        
+
         // Squeeze / 4
         SoundSample[] sampleSpreaded = spreaded.getSamples();
-        Sound squeezed = new Sound((int) sampleSpreaded.length /4);
+        Sound squeezed = new Sound((int) sampleSpreaded.length / 4);
         for (double sourceIndex = 0, targetIndex = 0; targetIndex < squeezed.getLength(); sourceIndex += 2, targetIndex++) {
             squeezed.setSampleValueAt((int) targetIndex, sampleSpreaded[((int) sourceIndex)].getValue());
         }
-        
+
         return squeezed;
     }
 
@@ -2026,37 +2026,36 @@ public class Sound extends SimpleSound {
 
         SoundSample[] sampleArray = this.getSamples();
         System.out.println(sampleArray.length);
-        
+
         Sound newSound = new Sound(this.getSamples().length);
-        
+
         int start = (int) Math.floor(windowsSize / 2);
         int avg = 0;
-        
+
         // the start index where we can't apply the avg in them, put them as they are.
         for (int i = 0; i < start; i++) {
             //System.out.println("A");
             newSound.setSampleValueAt(i, sampleArray[i].getValue());
         }
-        
+
         // the middle indexes
         for (int i = start; i < sampleArray.length - (start + 1); i++) {
             //System.out.println("B");
             avg = 0;
-            
+
             for (int j = -start; j < start; j++) {
-                avg += sampleArray[i+j].getValue();
+                avg += sampleArray[i + j].getValue();
             }
             avg /= windowsSize;
             sampleArray[i].setValue(avg);
 
         }
-        
-         // the end index where we can't apply the avg in them, put them as they are.
+
+        // the end index where we can't apply the avg in them, put them as they are.
         for (int i = sampleArray.length - (start + 1); i < sampleArray.length; i++) {
             //System.out.println("C");
             newSound.setSampleValueAt(i, sampleArray[i].getValue());
         }
-        
 
     }
 
@@ -2065,29 +2064,20 @@ public class Sound extends SimpleSound {
     *   type: 0= weighted window alligned left, 1=middle, 2= right
     *   first: the size of the one in the left, middle or right
      */
-    public void weightedAverage(int windowsSize, short type, short first) {
-        int remaining = (1 - first) / windowsSize - 1;
+    public void weightedAverage(short type) {
 
-        int[] weighted = new int[windowsSize];
-        if (type == 0) {
-            weighted[1] = first;
-        } else if (type == 1) {
-            weighted[windowsSize / 2] = first;
-        } else if (type == 2) {
-            weighted[windowsSize - 2] = first;
-        }
-        int skipMe = 0;
-        for (int i = 0; i < weighted.length; i++) {
-            if (i == skipMe) {
-                continue;
-            } else {
-                weighted[i] = (remaining);
-            }
+        double[] weighted = null;
+        if (type == 0) { // left distrbution
+            weighted = new double[]{0.15, 0.3, 0.25, 0.2, 0.1};
+        } else if (type == 1) { // middle normal skewed
+            weighted = new double[]{0.1, 0.2, 0.4, 0.2, 0.1};
+        } else if (type == 2) { // right skewed
+            weighted = new double[]{0.1, 0.2, 0.25, 0.3, 0.15};
         }
 
         SoundSample[] sampleArray = this.getSamples();
 
-        int start = (int) Math.floor(windowsSize / 2);
+        int start = (int) Math.floor(5 / 2);
         int avg = 0;
         int ii = 0;
 
@@ -2098,7 +2088,7 @@ public class Sound extends SimpleSound {
                 avg += (sampleArray[j].getValue() * weighted[ii]);
                 ii++;
             }
-            avg /= windowsSize;
+            avg /= 5;
             sampleArray[i].setValue(avg);
 
         }
