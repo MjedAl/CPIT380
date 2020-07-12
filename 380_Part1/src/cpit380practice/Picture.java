@@ -793,12 +793,11 @@ public class Picture extends SimplePicture {
     }
 
     public Picture scaleDown(int numTimes) {
-        System.out.println("ok1");
+
         Picture targetPicture = new Picture(this.getWidth(), this.getHeight());
         Pixel sourcePixel = null;
         Pixel targetPixel = null;
 
-        System.out.println("ok2");
         // loop through the source picture columns
         for (int sourceX = 0, targetX = 0; sourceX < targetPicture.getWidth(); sourceX += numTimes, targetX++) {
 
