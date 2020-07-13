@@ -77,11 +77,6 @@
                                   <Component id="jPanel1" pref="672" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Background" min="-2" pref="316" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="collage" min="-2" pref="316" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="Blend" min="-2" pref="316" max="-2" attributes="0"/>
                                       <Component id="cropImg" alignment="0" min="-2" pref="316" max="-2" attributes="0"/>
@@ -90,6 +85,17 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="edgeDetecLap" min="-2" pref="316" max="-2" attributes="0"/>
                                       <Component id="Chromacky" min="-2" pref="316" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="Background" pref="316" max="32767" attributes="0"/>
+                                      <Component id="Trashhold1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="collage" pref="316" max="32767" attributes="0"/>
+                                      <Component id="Trashhold2" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -148,7 +154,12 @@
                               <Component id="Background" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="collage" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="Trashhold1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Trashhold2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="imgLabel" min="-2" pref="302" max="-2" attributes="0"/>
@@ -988,7 +999,7 @@
                           <Component id="blueSlider" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1135,6 +1146,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChromackyActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JSlider" name="Trashhold1">
+          <Properties>
+            <Property name="value" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSlider" name="Trashhold2">
+          <Properties>
+            <Property name="value" type="int" value="0"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
