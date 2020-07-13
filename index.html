@@ -178,9 +178,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button" style="width: 100%;">Part 4 (Gray scale to bianry) &lt;Not completed yet&gt;</a>
-                                <div class="collapse"
-                                    id="collapse-4" style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button" style="width: 100%;">Part 4 (Gray scale to bianry)</a>
+                                <div class="collapse" id="collapse-4"
+                                    style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -192,7 +192,9 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                                <p>this method is about converting the gray scale image into binary image. First the user will enter the thresholding value, then a copy of the current picture will be created and then will go through each
+                                                    pixel to get the average of each pixel and save it in a variable , in case the threshold value is higher than the average the pixel will turn into black, otherwise it will turn white.<br><br>The methods
+                                                    that we used:</p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">// this method is in picture class</span>
     <span style="color: #007020; font-weight: bold">public</span> Picture <span style="color: #06287e">gray2Binary</span><span style="color: #666666">(</span><span style="color: #902000">int</span> threshold<span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -215,9 +217,8 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-danger disabled" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button" style="width: 100%;">Part 5 (RGB to HSV)&lt;NOT IMPLEMENTED&gt;</a>
-                                <div class="collapse"
-                                    id="collapse-5" style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button" style="width: 100%;">Part 5 (RGB to HSV)</a>
+                                <div class="collapse" id="collapse-5" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -225,29 +226,14 @@
                                             </div>
                                         </div>
                                         <div class="row text-center">
-                                            <div class="col"><img src="gray.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;max-width: 500px;"></div>
+                                            <div class="col"><img src="assets/img/RGBtoHSV.png" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;max-width: 500px;"></div>
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                                <p>Unfortunately, this method did not work with us, we have tried to implement multiple codes and formulas but with no luck. the above formulas[3]<br><br><br></p>
                                             </div>
-                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">// this method is in picture class</span>
-    <span style="color: #007020; font-weight: bold">public</span> Picture <span style="color: #06287e">gray2Binary</span><span style="color: #666666">(</span><span style="color: #902000">int</span> threshold<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-
-        Picture target <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">(),</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">());</span>
-        <span style="color: #902000">int</span> avar<span style="color: #666666">;</span>
-        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> x <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span> x<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
-            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> y <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> y<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
-                avar <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">abs</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">).</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">());</span>
-                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>avar <span style="color: #666666">&lt;</span> threshold<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-                    target<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">BLACK</span><span style="color: #666666">);</span>
-                <span style="color: #666666">}</span>
-            <span style="color: #666666">}</span>
-        <span style="color: #666666">}</span>
-        <span style="color: #007020; font-weight: bold">return</span> target<span style="color: #666666">;</span>
-    <span style="color: #666666">}</span>
-</pre></div>
-</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1281,7 +1267,8 @@
                 <ul>
                     <li>[1] - Picture class author Barbara Ericson ericson@cc.gatech.edu&nbsp;<a href="https://introcs.cs.princeton.edu/java/stdlib/javadoc/Picture.html" style="color: rgb(29,164,255);">https://introcs.cs.princeton.edu/java/stdlib/javadoc/Picture.html</a>&nbsp;</li>
                     <li>[2] - SimplePicture class author&nbsp;Barb Ericson ericson@cc.gatech.edu&nbsp;<a href="https://www2.cs.uic.edu/~i101/doc/SimplePicture.html" style="color: rgb(29,164,255);">https://www2.cs.uic.edu/~i101/doc/SimplePicture.html</a>&nbsp;</li>
-                    <li>[3] - Laplasian filter with openCV library&nbsp;<a href="https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html" style="color: rgb(29,164,255);">https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html</a>&nbsp;</li>
+                    <li>[3] - Real time implementation of RGB to HSV by G.Saravanan, G.Yamuna and S. Nandhini</li>
+                    <li>[4] - Laplasian filter with openCV library&nbsp;<a href="https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html" style="color: rgb(29,164,255);">https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html</a>&nbsp;</li>
                 </ul>
             </div>
         </footer>

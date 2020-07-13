@@ -56,7 +56,7 @@ public class PictureEditor extends javax.swing.JFrame {
         CopmutingPanel.setVisible(false);
         FiltersPanel.setVisible(false);
         ConvertionPanel.setVisible(false);
-        //System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // uncomment if u have OpenCV installed
     }
 
     /**
@@ -126,7 +126,6 @@ public class PictureEditor extends javax.swing.JFrame {
         Background = new javax.swing.JButton();
         edgeDetecLap = new javax.swing.JButton();
         edgeDetecButton1 = new javax.swing.JButton();
-        edgeDetecLap1 = new javax.swing.JButton();
         Chromacky = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -839,13 +838,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         });
 
-        edgeDetecLap1.setText("Edge detection (Prewett)");
-        edgeDetecLap1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edgeDetecLap1ActionPerformed(evt);
-            }
-        });
-
         Chromacky.setText("Chromacky");
         Chromacky.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -875,20 +867,18 @@ public class PictureEditor extends javax.swing.JFrame {
                                 .addComponent(ContsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(Chromacky, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(edgeDetecLap, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(edgeDetecLap1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(collage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(collage, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cropImg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(edgeDetecLap, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Chromacky, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(imgLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -927,15 +917,12 @@ public class PictureEditor extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Blend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edgeDetecLap1))
+                            .addComponent(Chromacky))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(Chromacky)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(collage)))
-                        .addGap(36, 36, 36))
+                            .addComponent(collage))
+                        .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -988,12 +975,20 @@ public class PictureEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ChromackyActionPerformed
 
-    private void edgeDetecLap1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edgeDetecLap1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edgeDetecLap1ActionPerformed
-
     private void edgeDetecButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edgeDetecButton1ActionPerformed
         // TODO add your handling code here:
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image please!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String size = JOptionPane.showInputDialog(null, "Please Enter the threshold value: ");
+            try {
+                int th = Integer.parseInt(size);
+                pic.edgeDetection_LR(th);
+                updateIMG();
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Please put integer only", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_edgeDetecButton1ActionPerformed
 
     private void edgeDetecLapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edgeDetecLapActionPerformed
@@ -1705,7 +1700,6 @@ public class PictureEditor extends javax.swing.JFrame {
             } else if (scaleValue == 4) {
                 pic = pic.scaleUp(3);
             }
-            //targetLabel.setSize(pic.getWidth(),pic.getHeight());
             scaleSlider.setValue(2);
             pic.show();
             // updateIMG();
@@ -1796,12 +1790,13 @@ public class PictureEditor extends javax.swing.JFrame {
         }
         updateIMG();
     }
+
     private void createCollage() {
         // ask for 4 picture
-        Picture second=null;
-        Picture third=null;
-        Picture forth=null;
-        Picture fifth=null;
+        Picture second = null;
+        Picture third = null;
+        Picture forth = null;
+        Picture fifth = null;
         JFileChooser FileChooser = new JFileChooser("");
         int conf = JOptionPane.showConfirmDialog(null, "Choose the first image", "Choose image", JOptionPane.OK_CANCEL_OPTION);
         if (conf == 0) {
@@ -1832,10 +1827,6 @@ public class PictureEditor extends javax.swing.JFrame {
             }
         }
 
-//        Picture second = new Picture("C:\\Users\\Mjed\\Desktop\\512Imgs\\1.jpg");
-//        Picture third = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\2.jpg");
-//        Picture forth = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\3.jpg");
-//        Picture fifth = new Picture("C:\\Users\\Mjed\\Desktop\\512IMGs\\4.jpg");
         int width = pic.getWidth() + second.getWidth() + third.getWidth();
         int height = pic.getHeight() + second.getHeight() + forth.getHeight();
         pic = new Picture(width, height);
@@ -2205,7 +2196,6 @@ public class PictureEditor extends javax.swing.JFrame {
     private javax.swing.JButton cropImg;
     private javax.swing.JButton edgeDetecButton1;
     private javax.swing.JButton edgeDetecLap;
-    private javax.swing.JButton edgeDetecLap1;
     private javax.swing.JButton exportHistogram;
     private javax.swing.JButton grayTobianry;
     private javax.swing.JSlider greenSlider;
