@@ -18,8 +18,8 @@
     <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
         <div class="collapse show"
             id="collapse-9">
-            <div style="width: 100%;"><a class="btn btn-outline-success" data-toggle="collapse" aria-expanded="false" aria-controls="pic" href="#pic" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;">Pictures&nbsp;<br>↓<br></a>
-                <div class="collapse" id="pic">
+            <div style="width: 100%;"><a class="btn btn-outline-success" data-toggle="collapse" aria-expanded="true" aria-controls="pic" href="#pic" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;">Pictures&nbsp;<br>↓<br></a>
+                <div class="collapse show" id="pic">
                     <div class="col" style="padding-left: 0px;padding-right: 0px;">
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
                             <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button" style="width: 100%;">Part 1 (Change colors)</a>
@@ -289,9 +289,8 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="width: 100%;">Part 7&amp;8 (Rotaions)&nbsp;&lt;Not completed yet&gt;<br></a>
-                                <div class="collapse"
-                                    id="collapse-7" style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="width: 100%;">Part 7&amp;8 (Rotaions)<br></a>
+                                <div class="collapse" id="collapse-7" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -303,7 +302,9 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                                <p>First you should upload a picture then&nbsp;we call rotate left method, the method will get height and width after that create 2 variables for source and target then will make 2 loops to move on width and
+                                                    height then take the pixel in the srcPic on (x,y) and take the pixel in the targetPic but swap between x and y after that use the formula of left (y,w-1-x), in the pixel of the target we change the color
+                                                    with the color of the pixel src.<br><br>The methods that we used:</p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> Picture <span style="color: #06287e">rotateLeft</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         Picture target <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">(),</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">());</span>
@@ -376,9 +377,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="width: 100%;">Part 9 (Vertical and horizontal Reflection)&nbsp;&lt;Not completed yet&gt;<br></a>
-                                <div
-                                    class="collapse" id="collapse-8" style="height: 100vh;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button" style="width: 100%;">Part 9 (Vertical and horizontal Reflection)<br></a>
+                                <div class="collapse"
+                                    id="collapse-8" style="height: 100vh;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -390,7 +391,7 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>(Talk about the part)<br><br>The methods that we used:</p>
+                                                <p>This part is about reflection an image in horizontal and vertical and i did not face any problems about it because it was a obvious<br><br>The methods that we used:</p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">VerticalReflectionActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                   
         <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -429,27 +430,27 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-10" href="#collapse-10" role="button" style="width: 100%;">Part 10&amp;11 (D1 and D2 Reflections)</a>
-                            <div class="collapse" id="collapse-10"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">D1 and D2 top to bottom and bottom to top reflections</p>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-10" href="#collapse-10" role="button" style="width: 100%;">Part 10&amp;11 (D1 and D2 Reflections)</a>
+                                <div class="collapse" id="collapse-10"
+                                    style="height: 100vh;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">D1 and D2 top to bottom and bottom to top reflections</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/380_10_11.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
-                                    </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>This part was also straightforward and i didn't face any issues doing it it's about reflecting images with any diagonal from either bottom to top or top to bottom<br><br>The methods that we used:</p>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/380_10_11.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
                                         </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">   <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">ReflectD1_T2B</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>This part was also straightforward and i didn't face any issues doing it it's about reflecting images with any diagonal from either bottom to top or top to bottom<br><br>The methods that we used:</p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">   <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">ReflectD1_T2B</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         Pixel leftPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         Pixel rightPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> y <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> y<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -500,31 +501,31 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-11" href="#collapse-11" role="button" style="width: 100%;">Part 12&amp;13 (Scaling down and Up)<br></a>
-                            <div class="collapse" id="collapse-11"
-                                style="padding-left: 0px;padding-right: 0px;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Scaling down and up</p>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-11" href="#collapse-11" role="button" style="width: 100%;">Part 12&amp;13 (Scaling down and Up)<br></a>
+                                <div class="collapse" id="collapse-11"
+                                    style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">Scaling down and up</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/12&13.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
-                                    </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>Scaling down and up logic was easy but somehow we keep hitting blocks and issues on the way. i think the biggest issue the that the difference is not really shown inside the GUI because as i said earlier the
-                                                GUI automatically adjusts the image by scaling it up or down to fit perfectly that's why we the showing the image on a new window. okay with that out of the way let me clarify more on the slider i know it's
-                                                a bit confusing.<br>the slider mainly has 4 checks the users can select from (0,1) in the right side of the slider and (3,4) in the left side the right side will represent scaling down and the left for up.
-                                                if the user chooses 1 it means he wants to scale it down by the biggest amount possible so we do scale it down and reset the slider to the middle in case he want to rescale it down again and the same concept
-                                                goes for scaling up<br><br>The methods that we used:<br></p>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/12&13.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
                                         </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">	<span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">scaleSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>Scaling down and up logic was easy but somehow we keep hitting blocks and issues on the way. i think the biggest issue the that the difference is not really shown inside the GUI because as i said earlier
+                                                    the GUI automatically adjusts the image by scaling it up or down to fit perfectly that's why we the showing the image on a new window. okay with that out of the way let me clarify more on the slider
+                                                    i know it's a bit confusing.<br>the slider mainly has 4 checks the users can select from (0,1) in the right side of the slider and (3,4) in the left side the right side will represent scaling down and
+                                                    the left for up. if the user chooses 1 it means he wants to scale it down by the biggest amount possible so we do scale it down and reset the slider to the middle in case he want to rescale it down again
+                                                    and the same concept goes for scaling up<br><br>The methods that we used:<br></p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">	<span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">scaleSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
         <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
         <span style="color: #60a0b0; font-style: italic">// Scale code here.</span>
@@ -603,7 +604,7 @@
 	
 </pre></div>
 
-                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -637,7 +638,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -671,9 +672,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
-                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
+                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -750,27 +751,27 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-13" href="#collapse-13" role="button" style="width: 100%;">Part 14 (Collage)<br></a>
-                            <div class="collapse" id="collapse-13" style="padding-left: 0px;padding-right: 0px;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Creating collage</p>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-13" href="#collapse-13" role="button" style="width: 100%;">Part 14 (Collage)<br></a>
+                                <div class="collapse" id="collapse-13" style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">Creating collage</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/380_collage.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
-                                    </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>This method is about taking 4 extra images and making a collage with the original image and then align them to the corners of the original image. the only issue i faced was when dealing with images of with different
-                                                dimensions ie: height and width. it will not be shown perfectly aligned.<br><br>The methods that we used:<br></p>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/380_collage.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
                                         </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">createCollage</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>This method is about taking 4 extra images and making a collage with the original image and then align them to the corners of the original image. the only issue i faced was when dealing with images of with
+                                                    different dimensions ie: height and width. it will not be shown perfectly aligned.<br><br>The methods that we used:<br></p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">createCollage</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// ask for 4 picture</span>
         Picture second <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
         Picture third <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
@@ -857,7 +858,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -891,7 +892,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -925,9 +926,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
-                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
+                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -1004,28 +1005,28 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-12" href="#collapse-12" role="button" style="width: 100%;">Part 15&amp;16 (Compute and plotting histograms)<br></a>
-                            <div class="collapse"
-                                id="collapse-12" style="padding-left: 0px;padding-right: 0px;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Computing and plotting histogrtams</p>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-12" href="#collapse-12" role="button" style="width: 100%;">Part 15&amp;16 (Compute and plotting histograms)<br></a>
+                                <div class="collapse"
+                                    id="collapse-12" style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">Computing and plotting histogrtams</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/ppp1.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
-                                    </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>Okay so the first method i used was to get the values of the intensity from the picture and store in the array of linked list it's a 2d array [3] for Red, Green and blue and 256 for all levels of the color after
-                                                it fills the array it will call another method that will actually plot the histograms it.</p>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/ppp1.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
                                         </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> Pixel_LL<span style="color: #666666">[][]</span> <span style="color: #06287e">ComputeHistograms</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>Okay so the first method i used was to get the values of the intensity from the picture and store in the array of linked list it's a 2d array [3] for Red, Green and blue and 256 for all levels of the color
+                                                    after it fills the array it will call another method that will actually plot the histograms it.</p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> Pixel_LL<span style="color: #666666">[][]</span> <span style="color: #06287e">ComputeHistograms</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
 
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Pixel_LL<span style="color: #666666">[</span><span style="color: #40a070">3</span><span style="color: #666666">][</span><span style="color: #40a070">256</span><span style="color: #666666">];</span> <span style="color: #60a0b0; font-style: italic">// [0] red, [1] green [2] blue</span>
 
@@ -1078,7 +1079,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+                                        <p>The following method is resonsible for plotting the acutal histogram it will simply make a picture and draw it pixel by pixel</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">PlotHistogram</span><span style="color: #666666">(</span>String color<span style="color: #666666">,</span> Pixel_LL Histogram<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// first must find the max height of the histogram.</span>
         <span style="color: #902000">int</span> maxHeight <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
         <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> Histogram<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
@@ -1112,7 +1113,7 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method for exporting the histograms to a txt file for storage, most of actual printing for each pixel is done inside the linked list manager class in this method i only sent a refrence of the printwriter</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">exportHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
 
         <span style="color: #60a0b0; font-style: italic">// exporting the histogram to files</span>
         Pixel_LL<span style="color: #666666">[][]</span> Histograms <span style="color: #666666">=</span> ComputeHistograms<span style="color: #666666">();</span>
@@ -1146,9 +1147,9 @@
     <span style="color: #666666">}</span>
 </pre></div>
 
-                                    <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
-                                        the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now because
-                                        i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+                                        <p>The following method is where the magic happens, it's for importing the histograms from a txt file and plotting the picture again and the histograms also, it's like the import method but instead of writing it reads
+                                            the data firsts and then it starts to redraw the image.<br>i think it can be improved by starting to draw the pixel is soon as you read it from the file not after reading all the file. they are seperate now
+                                            because i did the second part first then got the idea of exporting the pixels to a file.</p><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">importHistogramActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
@@ -1225,6 +1226,518 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-14" href="#collapse-14" role="button" style="width: 100%;">Part 17 (Computing brightness)<br></a>
+                                <div class="collapse" id="collapse-14"
+                                    style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">Computing brightness</p>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/380_17.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>Computing Brightness that part is about counting the Brightness by using a formal that will give you the numbr of the Brightness so there is no confusion<br><br><br>The methods that we used:&nbsp;<br></p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">computeBrightnessActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                  
+
+        Pixel<span style="color: #666666">[]</span> pixelArray <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixels</span><span style="color: #666666">();</span>
+
+        <span style="color: #902000">double</span> PixelsInstenses <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">double</span> brightness <span style="color: #666666">=</span> <span style="color: #40a070">0.0</span><span style="color: #666666">;</span>
+
+        <span style="color: #60a0b0; font-style: italic">// loop through all the pixels</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span>Pixel currntPixel <span style="color: #666666">:</span> pixelArray<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            PixelsInstenses <span style="color: #666666">+=</span> currntPixel<span style="color: #666666">.</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">();</span>
+
+        <span style="color: #666666">}</span>
+        brightness <span style="color: #666666">=</span> <span style="color: #666666">(</span>PixelsInstenses <span style="color: #666666">/</span> pixelArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">)</span> <span style="color: #666666">/</span> <span style="color: #40a070">255</span><span style="color: #666666">;</span>
+
+        JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Number of brightness = &quot;</span> <span style="color: #666666">+</span> brightness<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>  
+</pre></div>
+</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-15" href="#collapse-15" role="button" style="width: 100%;">Part 18 (Computing contrast) &lt;need doc&gt;<br></a>
+                                <div class="collapse"
+                                    id="collapse-15" style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="text-center" style="font-size: 34px;">Computing contrast</p>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col"><img src="assets/img/380_18.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                        </div>
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>null<br><br><br>The methods that we used:&nbsp;<br></p>
+                                            </div>
+                                        </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">computeContrastActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image &quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            Pixel<span style="color: #666666">[]</span> pixels <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixels</span><span style="color: #666666">();</span>
+
+            <span style="color: #902000">int</span> Contrast<span style="color: #666666">;</span>
+            <span style="color: #902000">double</span> max_val <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            <span style="color: #902000">double</span> min_val <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">MAX_VALUE</span><span style="color: #666666">;</span>
+
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> pixels<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #60a0b0; font-style: italic">// Here we Devide by 3 because get the avg .</span>
+                Contrast <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">((</span>pixels<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">getRed</span><span style="color: #666666">()</span> <span style="color: #666666">+</span> pixels<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">()</span> <span style="color: #666666">+</span> pixels<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">())</span> <span style="color: #666666">/</span> <span style="color: #40a070">3</span><span style="color: #666666">);</span>
+                <span style="color: #60a0b0; font-style: italic">//---if Contrast Greater than max we will save the value in max-----</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>Contrast <span style="color: #666666">&gt;</span> max_val<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    max_val <span style="color: #666666">=</span> Contrast<span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #60a0b0; font-style: italic">//---if Contrast less than min we will save the value in min-----</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>Contrast <span style="color: #666666">&lt;</span> min_val<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    min_val <span style="color: #666666">=</span> Contrast<span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #902000">double</span> contrast <span style="color: #666666">=</span> <span style="color: #666666">((</span>max_val <span style="color: #666666">-</span> min_val<span style="color: #666666">)</span> <span style="color: #666666">/</span> <span style="color: #666666">(</span>max_val <span style="color: #666666">+</span> min_val<span style="color: #666666">));</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;The level of Contrast is = &quot;</span> <span style="color: #666666">+</span> contrast<span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                            <div><a class="btn btn-outline-danger" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-21" href="#collapse-21" role="button" style="width: 100%;">Part 19 (Automatic adjustment of contrast) &lt;NOT IMPLEMENTED&gt;<br></a>
+                                <div
+                                    class="collapse" id="collapse-21" style="padding-left: 0px;padding-right: 0px;">
+                                    <div class="col">
+                                        <div class="row" style="margin-top: 15px;">
+                                            <div class="col d-table-row">
+                                                <p>&nbsp;This method was kind of complicated and several students in the group tried to solve it, but the solution was difficult to find.<br></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-16" href="#collapse-16" role="button" style="width: 100%;">Part 20 (Box filter)<br></a>
+                            <div class="collapse" id="collapse-16" style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Box filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_20_.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>In box filter we ask the user to put an odd number that will be the box size, in box size filter we sum the values of each color from the pixels in the box range and get the average and reassign the value to
+                                                the pixels.<br><br>The methods that we used:&nbsp;<br></p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">boxFilterActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image &quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            String size <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please Enter the size of the filter please (one odd number only): &quot;</span><span style="color: #666666">);</span>
+            <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> FilterSize <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>size<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Fitler size should be odd&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+                    <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+                <span style="color: #666666">}</span>
+                pic<span style="color: #666666">.</span><span style="color: #4070a0">BoxFilter</span><span style="color: #666666">(</span>FilterSize<span style="color: #666666">);</span>
+                updateIMG<span style="color: #666666">();</span>
+            <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please put integer only&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>  
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">BoxFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #902000">int</span> sumR<span style="color: #666666">,</span> sumG<span style="color: #666666">,</span> sumB<span style="color: #666666">;</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                sumR <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumG <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumB <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> k <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> k<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> l <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> l<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                        sumR <span style="color: #666666">+=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        sumG <span style="color: #666666">+=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        sumB <span style="color: #666666">+=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                sumR <span style="color: #666666">/=</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">round</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">);</span>
+                sumG <span style="color: #666666">/=</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">round</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">);</span>
+                sumB <span style="color: #666666">/=</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">round</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setRed</span><span style="color: #666666">(</span>sumR<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setGreen</span><span style="color: #666666">(</span>sumG<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setBlue</span><span style="color: #666666">(</span>sumB<span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-17" href="#collapse-17" role="button" style="width: 100%;">Part 21 (Gaussian filter)<br></a>
+                            <div class="collapse" id="collapse-17"
+                                style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Gaussian filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_21.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>In gassuan filter we ask the user to indicate the importance of the middle pixel in the 3 by 3 filter then just like box filter we go through all the pixels in the filter range but instead of summing and then
+                                                taking the average here we multiplied the color value by the portion from the filter array, the issues i faced here is trying to make it generalized so it can take the filter size And the middle pixel priority
+                                                from the user but i couldn't achieve that.&nbsp;<br><br>The methods that we used:&nbsp;<br></p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">GaussianFilterActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                               
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image &quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+
+            <span style="color: #60a0b0; font-style: italic">// give user 3 option high middle low.</span>
+            Object<span style="color: #666666">[]</span> options <span style="color: #666666">=</span> <span style="color: #666666">{</span><span style="color: #4070a0">&quot;LOW&quot;</span><span style="color: #666666">,</span>
+                <span style="color: #4070a0">&quot;MIDDLE&quot;</span><span style="color: #666666">,</span>
+                <span style="color: #4070a0">&quot;HIGH&quot;</span><span style="color: #666666">};</span>
+            <span style="color: #902000">int</span> choice <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showOptionDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please choose the important of the middle pixel&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Gaussuan filter option&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">YES_NO_CANCEL_OPTION</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">QUESTION_MESSAGE</span><span style="color: #666666">,</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> options<span style="color: #666666">,</span> options<span style="color: #666666">[</span><span style="color: #40a070">2</span><span style="color: #666666">]);</span>
+            pic<span style="color: #666666">.</span><span style="color: #4070a0">gaussianFilter3x3</span><span style="color: #666666">(</span>choice<span style="color: #666666">);</span>
+            System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>choice<span style="color: #666666">);</span>
+            updateIMG<span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>    
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">gaussianFilter3x3</span><span style="color: #666666">(</span><span style="color: #902000">int</span> choice<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #902000">double</span><span style="color: #666666">[][]</span> filter <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>choice <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            filter <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[][]{</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #40a070">0.075</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #40a070">0.200</span><span style="color: #666666">,</span> <span style="color: #40a070">0.125</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #40a070">0.075</span><span style="color: #666666">}</span>
+            <span style="color: #666666">};</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>choice <span style="color: #666666">==</span> <span style="color: #40a070">1</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            filter <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[][]{</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.05</span><span style="color: #666666">,</span> <span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #40a070">0.05</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #40a070">0.500</span><span style="color: #666666">,</span> <span style="color: #40a070">0.075</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.05</span><span style="color: #666666">,</span> <span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #40a070">0.05</span><span style="color: #666666">}</span>
+            <span style="color: #666666">};</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>choice <span style="color: #666666">==</span> <span style="color: #40a070">2</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            filter <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[][]{</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.02</span><span style="color: #666666">,</span> <span style="color: #40a070">0.03</span><span style="color: #666666">,</span> <span style="color: #40a070">0.02</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.03</span><span style="color: #666666">,</span> <span style="color: #40a070">0.800</span><span style="color: #666666">,</span> <span style="color: #40a070">0.03</span><span style="color: #666666">},</span>
+                <span style="color: #666666">{</span><span style="color: #40a070">0.02</span><span style="color: #666666">,</span> <span style="color: #40a070">0.03</span><span style="color: #666666">,</span> <span style="color: #40a070">0.02</span><span style="color: #666666">}</span>
+            <span style="color: #666666">};</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #902000">int</span> sumR<span style="color: #666666">,</span> sumG<span style="color: #666666">,</span> sumB<span style="color: #666666">;</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                sumR <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumG <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumB <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">-</span><span style="color: #40a070">1</span><span style="color: #666666">;</span> k <span style="color: #666666">&lt;=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> k<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">-</span><span style="color: #40a070">1</span><span style="color: #666666">;</span> l <span style="color: #666666">&lt;=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> l<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                        sumR <span style="color: #666666">+=</span> filter<span style="color: #666666">[</span>k <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">][</span>l <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">]</span> <span style="color: #666666">*</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        sumG <span style="color: #666666">+=</span> filter<span style="color: #666666">[</span>k <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">][</span>l <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">]</span> <span style="color: #666666">*</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        sumB <span style="color: #666666">+=</span> filter<span style="color: #666666">[</span>k <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">][</span>l <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">]</span> <span style="color: #666666">*</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> l<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setRed</span><span style="color: #666666">(</span>sumR<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setGreen</span><span style="color: #666666">(</span>sumG<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setBlue</span><span style="color: #666666">(</span>sumB<span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-18" href="#collapse-18" role="button" style="width: 100%;">Part 22 (Laplacian filter)<br></a>
+                            <div class="collapse" id="collapse-18"
+                                style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Laplacian filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_22.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>Laplacian Filter in that filter was a important filter with shows you the edge in the image , the issue that i face in this filter is how to generalize it and the matrex it should the some of all of it be zero.<br><br>The
+                                                methods that we used:&nbsp;<br></p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">LaplacianFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #902000">int</span> sumR<span style="color: #666666">,</span> sumG<span style="color: #666666">,</span> sumB<span style="color: #666666">;</span>
+
+        <span style="color: #902000">double</span> filter<span style="color: #666666">[][]</span> <span style="color: #666666">=</span> <span style="color: #666666">{{-</span><span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #666666">-</span><span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #666666">-</span><span style="color: #40a070">0.075</span><span style="color: #666666">},</span>
+        <span style="color: #666666">{-</span><span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #40a070">2.0</span><span style="color: #666666">,</span> <span style="color: #666666">-</span><span style="color: #40a070">0.125</span><span style="color: #666666">},</span>
+        <span style="color: #666666">{-</span><span style="color: #40a070">0.075</span><span style="color: #666666">,</span> <span style="color: #666666">-</span><span style="color: #40a070">0.125</span><span style="color: #666666">,</span> <span style="color: #666666">-</span><span style="color: #40a070">0.075</span><span style="color: #666666">}};</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                sumR <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumG <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                sumB <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> k <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> k<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> l <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> l<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                        <span style="color: #902000">double</span> c <span style="color: #666666">=</span> filter<span style="color: #666666">[</span>k <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">][</span>l <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">];</span>
+                        <span style="color: #902000">int</span> red <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        sumR <span style="color: #666666">+=</span> red <span style="color: #666666">*</span> c<span style="color: #666666">;</span>
+                        <span style="color: #902000">int</span> green <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        sumG <span style="color: #666666">+=</span> green <span style="color: #666666">*</span> c<span style="color: #666666">;</span>
+                        <span style="color: #902000">int</span> blue <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i <span style="color: #666666">+</span> k<span style="color: #666666">,</span> j <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                        sumB <span style="color: #666666">+=</span> blue <span style="color: #666666">*</span> c<span style="color: #666666">;</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                <span style="color: #902000">int</span> Red <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">min</span><span style="color: #666666">(</span>FilterSize<span style="color: #666666">,</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">max</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,</span> sumR<span style="color: #666666">));</span>
+                <span style="color: #902000">int</span> Green <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">min</span><span style="color: #666666">(</span>FilterSize<span style="color: #666666">,</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">max</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,</span> sumG<span style="color: #666666">));</span>
+                <span style="color: #902000">int</span> Blue <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">min</span><span style="color: #666666">(</span>FilterSize<span style="color: #666666">,</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">max</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,</span> sumB<span style="color: #666666">));</span>
+
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setBlue</span><span style="color: #666666">(</span>sumB<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setGreen</span><span style="color: #666666">(</span>sumG<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setRed</span><span style="color: #666666">(</span>sumR<span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-19" href="#collapse-19" role="button" style="width: 100%;">Part 23 (Min and Max filter)<br></a>
+                            <div class="collapse" id="collapse-19"
+                                style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Min and Max filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_23.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>the first method is about getting the minimum filter of the colors of a picture. While the maximum filter method will filter the colors to the maximum. Both methods take the filter size from the user (it has
+                                                to be an odd value)<br><br>The methods that we used:&nbsp;<br></p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">MinFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #902000">int</span> Red<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Green<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Blue<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span>
+        <span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span>
+        Picture copy <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+        copy<span style="color: #666666">.</span><span style="color: #4070a0">copy</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> x<span style="color: #666666">,</span> y<span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">);</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> v <span style="color: #666666">=</span> start<span style="color: #666666">;</span> v <span style="color: #666666">&lt;=</span> y <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> v<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> u <span style="color: #666666">=</span> start<span style="color: #666666">;</span> u <span style="color: #666666">&lt;=</span> x <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> u<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+
+                        Red<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        Green<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        Blue<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                        k<span style="color: #666666">++;</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Red<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Green<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Blue<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u<span style="color: #666666">,</span> v<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> Color<span style="color: #666666">(</span>Red<span style="color: #666666">[</span><span style="color: #40a070">0</span><span style="color: #666666">],</span> Green<span style="color: #666666">[</span><span style="color: #40a070">0</span><span style="color: #666666">],</span> Blue<span style="color: #666666">[</span><span style="color: #40a070">0</span><span style="color: #666666">]));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">MaxFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #902000">int</span> Red<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Green<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Blue<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+
+        <span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span>
+        <span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span>
+
+        Picture copy <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+        copy<span style="color: #666666">.</span><span style="color: #4070a0">copy</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> x<span style="color: #666666">,</span> y<span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">);</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+        <span style="color: #60a0b0; font-style: italic">// the beggining of </span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> v <span style="color: #666666">=</span> start<span style="color: #666666">;</span> v <span style="color: #666666">&lt;=</span> y <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> v<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> u <span style="color: #666666">=</span> start<span style="color: #666666">;</span> u <span style="color: #666666">&lt;=</span> x <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> u<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+
+                        Red<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        Green<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        Blue<span style="color: #666666">[</span>k<span style="color: #666666">]</span> <span style="color: #666666">=</span> copy<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u <span style="color: #666666">+</span> i<span style="color: #666666">,</span> v <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                        k<span style="color: #666666">++;</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Red<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Green<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Blue<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>u<span style="color: #666666">,</span> v<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> Color<span style="color: #666666">(</span>Red<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">],</span> Green<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">],</span> Blue<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">]));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-20" href="#collapse-20" role="button" style="width: 100%;">Part 24 (Median filter)<br></a>
+                            <div class="collapse" id="collapse-20" style="padding-left: 0px;padding-right: 0px;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Median and weighted median filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/380_24.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>Median filter is a filter about removing noise form an image which that is so helpful and the difficulty was also about how to generalize the code.<br>The weighted median is from its name it adds weight to each
+                                                pixel depending on a weight array. the difficult part here was generalizing filter size and also weighted array the way that the weight array is done is completely random and the user can't control it he
+                                                can only specify the filter size.<br><br>The methods that we used:&nbsp;<br></p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">MedianFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #902000">int</span> Red<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Green<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+        <span style="color: #902000">int</span> Blue<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize<span style="color: #666666">];</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> k <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> k<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> l <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> l<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                        Red<span style="color: #666666">[</span>x<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">();</span>
+                        Green<span style="color: #666666">[</span>x<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">();</span>
+                        Blue<span style="color: #666666">[</span>x<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">();</span>
+                        x<span style="color: #666666">++;</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Red<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Green<span style="color: #666666">);</span>
+                Arrays<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>Blue<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> Color<span style="color: #666666">(</span>Red<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">],</span> Green<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">],</span> Blue<span style="color: #666666">[</span>FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">]));</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">MedianWeightedFilter</span><span style="color: #666666">(</span><span style="color: #902000">int</span> FilterSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>FilterSize <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// if number is even</span>
+            <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// generating random weighted matrix</span>
+        <span style="color: #902000">int</span><span style="color: #666666">[][]</span> WeightedMatrix <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span>FilterSize<span style="color: #666666">][</span>FilterSize<span style="color: #666666">];</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> FilterSize<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> FilterSize<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                WeightedMatrix<span style="color: #666666">[</span>i<span style="color: #666666">][</span>j<span style="color: #666666">]</span> <span style="color: #666666">=</span> <span style="color: #40a070">1</span> <span style="color: #666666">+</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>Math<span style="color: #666666">.</span><span style="color: #4070a0">random</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> <span style="color: #40a070">5</span><span style="color: #666666">);</span> <span style="color: #60a0b0; font-style: italic">// 1 to 5</span>
+                System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">print</span><span style="color: #666666">(</span>WeightedMatrix<span style="color: #666666">[</span>i<span style="color: #666666">][</span>j<span style="color: #666666">]</span> <span style="color: #666666">+</span> <span style="color: #4070a0">&quot;, &quot;</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                ArrayList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> red <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;();</span>
+                ArrayList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> green <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;();</span>
+                ArrayList<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> blue <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;();</span>
+                <span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                <span style="color: #902000">int</span> x2 <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> k <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> k <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> k<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> l <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> l <span style="color: #666666">&lt;=</span> start<span style="color: #666666">;</span> l<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+
+                        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> m <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> m <span style="color: #666666">&lt;</span> WeightedMatrix<span style="color: #666666">[</span>x<span style="color: #666666">][</span>x2<span style="color: #666666">];</span> m<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                            red<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getRed</span><span style="color: #666666">());</span>
+                            green<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getGreen</span><span style="color: #666666">());</span>
+                            blue<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>k <span style="color: #666666">+</span> i<span style="color: #666666">,</span> l <span style="color: #666666">+</span> j<span style="color: #666666">).</span><span style="color: #4070a0">getBlue</span><span style="color: #666666">());</span>
+                        <span style="color: #666666">}</span>
+                    <span style="color: #666666">}</span>
+                    x<span style="color: #666666">++;</span>
+                    x2<span style="color: #666666">++;</span>
+                <span style="color: #666666">}</span>
+                Collections<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>red<span style="color: #666666">);</span>
+                Collections<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>green<span style="color: #666666">);</span>
+                Collections<span style="color: #666666">.</span><span style="color: #4070a0">sort</span><span style="color: #666666">(</span>blue<span style="color: #666666">);</span>
+                <span style="color: #902000">int</span> middle <span style="color: #666666">=</span> FilterSize <span style="color: #666666">*</span> FilterSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span>
+
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>red<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">()</span> <span style="color: #666666">%</span> <span style="color: #40a070">2</span> <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// array size is even - get avg of two middle pixels</span>
+                    <span style="color: #902000">int</span> avgR <span style="color: #666666">=</span> <span style="color: #666666">(</span>red<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">)</span> <span style="color: #666666">+</span> red<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">))</span> <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span>
+                    <span style="color: #902000">int</span> avgG <span style="color: #666666">=</span> <span style="color: #666666">(</span>green<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">)</span> <span style="color: #666666">+</span> green<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">))</span> <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span>
+                    <span style="color: #902000">int</span> avgB <span style="color: #666666">=</span> <span style="color: #666666">(</span>blue<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">)</span> <span style="color: #666666">+</span> blue<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">))</span> <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">;</span>
+                    <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> Color<span style="color: #666666">(</span>avgR<span style="color: #666666">,</span> avgG<span style="color: #666666">,</span> avgB<span style="color: #666666">));</span>
+                <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                    <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">).</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> Color<span style="color: #666666">(</span>red<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">),</span> green<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">),</span> blue<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>middle<span style="color: #666666">)));</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
                             </div>
                         </div>
                     </div>
@@ -1249,10 +1762,10 @@
                     <h1 class="text-center" style="font-size: 22px;">Abdulmajeed Fauzi Alahmadi</h1>
                 </div>
                 <div class="col-md-3" data-bs-hover-animate="bounce">
-                    <h1 class="text-center" style="font-size: 22px;">Ali Abo Mansour</h1>
+                    <h1 class="text-center" style="font-size: 22px;">Ali Abumansour</h1>
                 </div>
                 <div class="col-md-3" data-bs-hover-animate="bounce">
-                    <h1 class="text-center" style="font-size: 22px;">Abdullah Bin Saeed&nbsp;</h1>
+                    <h1 class="text-center" style="font-size: 22px;">Abdullah Binsaid&nbsp;</h1>
                 </div>
                 <div class="col-md-3" data-bs-hover-animate="bounce">
                     <h1 class="text-center" style="font-size: 22px;">Mohanned Alotaibi</h1>
