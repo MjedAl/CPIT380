@@ -993,7 +993,9 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>Computing the contrast from 0 to 1 based on formula.<br><br>The methods that we used:&nbsp;<br></p>
+                                                <p>In this method will compute contrast first we will get all pixels for picture and store it in array then will make loop to go to through pixels after that we get the average color for all pixels and make
+                                                    2 if statements 1- if the average &gt; max value we will store the value in a max 2- if average &lt; min value we will start value in min then we will use contrast formula ((max_val - min_val) / (max_val
+                                                    + min_val)).<br><br>The methods that we used:&nbsp;<br></p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">computeContrastActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
