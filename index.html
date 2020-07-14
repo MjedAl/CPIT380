@@ -979,9 +979,9 @@
                             </div>
                         </div>
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-15" href="#collapse-15" role="button" style="width: 100%;">Part 18 (Computing contrast) &lt;need doc&gt;<br></a>
-                                <div class="collapse"
-                                    id="collapse-15" style="padding-left: 0px;padding-right: 0px;">
+                            <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-15" href="#collapse-15" role="button" style="width: 100%;">Part 18 (Computing contrast)<br></a>
+                                <div class="collapse" id="collapse-15"
+                                    style="padding-left: 0px;padding-right: 0px;">
                                     <div class="col">
                                         <div class="row">
                                             <div class="col">
@@ -993,7 +993,7 @@
                                         </div>
                                         <div class="row" style="margin-top: 15px;">
                                             <div class="col d-table-row">
-                                                <p>null<br><br><br>The methods that we used:&nbsp;<br></p>
+                                                <p>Computing the contrast from 0 to 1 based on formula.<br><br>The methods that we used:&nbsp;<br></p>
                                             </div>
                                         </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">computeContrastActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                
         <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -1452,31 +1452,340 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div style="width: 100%;"><a class="btn btn-outline-secondary" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio<br>↓<br></a>
-            <div class="collapse" id="audio">
-                <div class="col" style="padding-left: 0px;padding-right: 0px;">
                     <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-1" href="#collapse-audio-1" role="button" style="width: 100%;">Part 29 (Change volume)</a>
-                            <div class="collapse" id="collapse-audio-1"
-                                style="height: 100vh;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-22" href="#collapse-22" role="button" style="width: 100%;">Part 25 (Red eye reduction)<br></a>
+                            <div class="collapse" id="collapse-22"
+                                style="padding-left: 0px;padding-right: 0px;">
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Change volume</p>
+                                            <p class="text-center" style="font-size: 34px;">Red eye reduction</p>
                                         </div>
                                     </div>
                                     <div class="row text-center">
-                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                        <div class="col"><img src="assets/img/380_25.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="col d-table-row">
-                                            <p>this method is simple, we use a slider to control the volume, the value of the slider will be divided with 50 then it will be passed through the changeVolume method which is there in the sound class[5].<br><br>The
-                                                method that we used:</p>
+                                            <p>In this method it's about changing the red in the eye so first we need to know the range of the eye so&nbsp;User will specify top left and bottom right corners of rectangular region, and then we also need the
+                                                threshold value and also the new color that the user want the eye to be. the issue was trying to make all of that automatic.<br><br>The methods that we used:&nbsp;<br></p>
                                         </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">volumeSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_volumeSliderMouseReleased</span>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">redeyeActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                       
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image please!&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            JFrame parent <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> JFrame<span style="color: #666666">();</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span>parent<span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please click on two points in the image&quot;</span><span style="color: #666666">);</span>
+
+            imgLabel<span style="color: #666666">.</span><span style="color: #4070a0">addMouseListener</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">new</span> MouseAdapter<span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">mouseClicked</span><span style="color: #666666">(</span>MouseEvent e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Clicked!&quot;</span><span style="color: #666666">);</span>
+                    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>e<span style="color: #666666">.</span><span style="color: #4070a0">getX</span><span style="color: #666666">());</span>
+                    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>e<span style="color: #666666">.</span><span style="color: #4070a0">getY</span><span style="color: #666666">());</span>
+                    numOfClicks<span style="color: #666666">++;</span>
+                    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>numOfClicks <span style="color: #666666">==</span> <span style="color: #40a070">1</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                        x1 <span style="color: #666666">=</span> e<span style="color: #666666">.</span><span style="color: #4070a0">getX</span><span style="color: #666666">();</span>
+                        y1 <span style="color: #666666">=</span> e<span style="color: #666666">.</span><span style="color: #4070a0">getY</span><span style="color: #666666">();</span>
+                    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>numOfClicks <span style="color: #666666">==</span> <span style="color: #40a070">2</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                        x2 <span style="color: #666666">=</span> e<span style="color: #666666">.</span><span style="color: #4070a0">getX</span><span style="color: #666666">();</span>
+                        y2 <span style="color: #666666">=</span> e<span style="color: #666666">.</span><span style="color: #4070a0">getY</span><span style="color: #666666">();</span>
+
+                        <span style="color: #902000">double</span> W <span style="color: #666666">=</span> <span style="color: #666666">(</span>pic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> <span style="color: #40a070">1.00</span> <span style="color: #666666">/</span> imgLabel<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">());</span>
+                        <span style="color: #902000">double</span> H <span style="color: #666666">=</span> <span style="color: #666666">(</span>pic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> <span style="color: #40a070">1.00</span> <span style="color: #666666">/</span> imgLabel<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">());</span>
+
+                        x1 <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>W <span style="color: #666666">*</span> x1<span style="color: #666666">);</span>
+                        x2 <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>W <span style="color: #666666">*</span> x2<span style="color: #666666">);</span>
+                        y1 <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>H <span style="color: #666666">*</span> y1<span style="color: #666666">);</span>
+                        y2 <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>H <span style="color: #666666">*</span> y2<span style="color: #666666">);</span>
+
+                        Color newColor <span style="color: #666666">=</span> JColorChooser<span style="color: #666666">.</span><span style="color: #4070a0">showDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose New Color&quot;</span><span style="color: #666666">,</span> Color<span style="color: #666666">.</span><span style="color: #4070a0">BLACK</span><span style="color: #666666">);</span>
+                        <span style="color: #902000">int</span> trashhold <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;TrashHold?&quot;</span><span style="color: #666666">));</span>
+                        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> y1<span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> y2<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> x1<span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> x2<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                                Pixel p <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>j<span style="color: #666666">,</span> i<span style="color: #666666">);</span>
+                                <span style="color: #60a0b0; font-style: italic">//here we compare because get the different between Red color amd pxl .</span>
+                                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>p<span style="color: #666666">.</span><span style="color: #4070a0">colorDistance</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">RED</span><span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> trashhold<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                                    p<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>newColor<span style="color: #666666">);</span>
+                                <span style="color: #666666">}</span>
+                            <span style="color: #666666">}</span>
+                        <span style="color: #666666">}</span>
+                        updateIMG<span style="color: #666666">();</span>
+                        numOfClicks <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+                        imgLabel<span style="color: #666666">.</span><span style="color: #4070a0">removeMouseListener</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">);</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">});</span>
+        <span style="color: #666666">}</span>
+
+    <span style="color: #666666">}</span>   
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-outline-danger" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-26" href="#collapse-26" role="button" style="width: 100%;">Part 26 (Automatic Red eye reduction)&nbsp;&lt;NOT IMPLEMENTED&gt;<br></a>
+                            <div
+                                class="collapse" id="collapse-26" style="padding-left: 0px;padding-right: 0px;"></div>
+                    </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-23" href="#collapse-23" role="button" style="width: 100%;">Part 27 (Background subtraction)<br></a>
+                        <div class="collapse" id="collapse-23"
+                            style="padding-left: 0px;padding-right: 0px;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Background subtraction</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_27.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>This method is about removing and old background and replacing it with a new one.<br><br>The methods that we used:&nbsp;<br></p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">BackgroundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                           
+
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>Trashhold1<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> <span style="color: #40a070">0</span> <span style="color: #666666">&amp;&amp;</span> Trashhold2<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                JFileChooser FileChooser <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> JFileChooser<span style="color: #666666">(</span><span style="color: #4070a0">&quot;C:\\Users\\alish\\Downloads\\SoMultimedia&quot;</span><span style="color: #666666">);</span>
+                <span style="color: #902000">int</span> conf <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showConfirmDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose old background image&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose Old Background&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">OK_CANCEL_OPTION</span><span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>conf <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    <span style="color: #902000">int</span> val <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">showOpenDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">);</span>
+                    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>val <span style="color: #666666">==</span> JFileChooser<span style="color: #666666">.</span><span style="color: #4070a0">APPROVE_OPTION</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                        Picture oldBackground <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">getSelectedFile</span><span style="color: #666666">().</span><span style="color: #4070a0">getAbsolutePath</span><span style="color: #666666">());</span>
+                        conf <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showConfirmDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose new background image&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose New Background&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">OK_CANCEL_OPTION</span><span style="color: #666666">);</span>
+                        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>conf <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                            val <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">showOpenDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">);</span>
+                            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>val <span style="color: #666666">==</span> JFileChooser<span style="color: #666666">.</span><span style="color: #4070a0">APPROVE_OPTION</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+                                Picture newBackground <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">getSelectedFile</span><span style="color: #666666">().</span><span style="color: #4070a0">getAbsolutePath</span><span style="color: #666666">());</span>
+                                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">&lt;=</span> newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">&amp;&amp;</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">&lt;=</span> newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+                                    <span style="color: #902000">int</span><span style="color: #666666">[]</span> values <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">int</span><span style="color: #666666">[</span><span style="color: #40a070">2</span><span style="color: #666666">];</span>
+                                    values<span style="color: #666666">[</span><span style="color: #40a070">0</span><span style="color: #666666">]</span> <span style="color: #666666">=</span> Trashhold1<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">();</span>
+                                    values<span style="color: #666666">[</span><span style="color: #40a070">1</span><span style="color: #666666">]</span> <span style="color: #666666">=</span> Trashhold2<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">();</span>
+                                    Background_Subtraction<span style="color: #666666">(</span>values<span style="color: #666666">,</span> oldBackground<span style="color: #666666">,</span> newBackground<span style="color: #666666">);</span>
+                                <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                                    JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;New Background Size must be &gt;= Picture Size&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+
+                                <span style="color: #666666">}</span>
+
+                            <span style="color: #666666">}</span>
+                        <span style="color: #666666">}</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please adjust the trashhold &gt; 0&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>   
+
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">Background_Subtraction</span><span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">[]</span> values<span style="color: #666666">,</span> Picture oldBackground<span style="color: #666666">,</span> Picture newBackground<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        Pixel picPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel oldPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel newPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        multimedia<span style="color: #666666">.</span><span style="color: #4070a0">Grid</span> grid <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> multimedia<span style="color: #666666">.</span><span style="color: #4070a0">Grid</span><span style="color: #666666">();</span>
+        grid<span style="color: #666666">.</span><span style="color: #4070a0">setTargts</span><span style="color: #666666">(</span>pic<span style="color: #666666">);</span> <span style="color: #60a0b0; font-style: italic">// as the original pic as first target.</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> values<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            Picture copyPic <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>pic<span style="color: #666666">);</span><span style="color: #60a0b0; font-style: italic">//take a copy of the original pic</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> x <span style="color: #666666">&lt;</span> copyPic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span> x<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> y <span style="color: #666666">&lt;</span> copyPic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> y<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                    picPixel <span style="color: #666666">=</span> copyPic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+                    oldPixel <span style="color: #666666">=</span> oldBackground<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+                    newPixel <span style="color: #666666">=</span> newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+                    <span style="color: #60a0b0; font-style: italic">//compare the orignal image with the old background</span>
+                    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>picPixel<span style="color: #666666">.</span><span style="color: #4070a0">colorDistance</span><span style="color: #666666">(</span>oldPixel<span style="color: #666666">.</span><span style="color: #4070a0">getColor</span><span style="color: #666666">())</span> <span style="color: #666666">&lt;</span> values<span style="color: #666666">[</span>i<span style="color: #666666">])</span> <span style="color: #666666">{</span>
+                        picPixel<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>newPixel<span style="color: #666666">.</span><span style="color: #4070a0">getColor</span><span style="color: #666666">());</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+            grid<span style="color: #666666">.</span><span style="color: #4070a0">setTargts</span><span style="color: #666666">(</span>copyPic<span style="color: #666666">);</span><span style="color: #60a0b0; font-style: italic">//add the image to the grid</span>
+        <span style="color: #666666">}</span>
+        grid<span style="color: #666666">.</span><span style="color: #4070a0">setVisible</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">);</span>
+        grid<span style="color: #666666">.</span><span style="color: #4070a0">DisplayEdges</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-24" href="#collapse-24" role="button" style="width: 100%;">Part 28 (Chromacky subtraction)<br></a>
+                        <div class="collapse" id="collapse-24"
+                            style="padding-left: 0px;padding-right: 0px;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Chromacky subtracion</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_28.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>in this method we ask the user to put a new background it has be with the same width and height of the original picture and then add the pixels from the new background in the places where there is a chroma, here
+                                            it's green it can be changed to any color.<br><br>The methods that we used:&nbsp;<br></p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">     <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">ChromackyActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JFileChooser FileChooser <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> JFileChooser<span style="color: #666666">(</span><span style="color: #4070a0">&quot;C:\\Users\\alish\\Downloads\\SoMultimedia&quot;</span><span style="color: #666666">);</span>
+            <span style="color: #902000">int</span> conf <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showConfirmDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose new background image&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Choose New Background&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">OK_CANCEL_OPTION</span><span style="color: #666666">);</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>conf <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #902000">int</span> val <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">showOpenDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>val <span style="color: #666666">==</span> JFileChooser<span style="color: #666666">.</span><span style="color: #4070a0">APPROVE_OPTION</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    Picture newBackground <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">getSelectedFile</span><span style="color: #666666">().</span><span style="color: #4070a0">getAbsolutePath</span><span style="color: #666666">());</span>
+                    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">&amp;&amp;</span> newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+                        Chromacky<span style="color: #666666">(</span>newBackground<span style="color: #666666">);</span>
+                    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                        JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;New Background Size must be &gt;= Picture Size&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+                    <span style="color: #666666">}</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image please!&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>  
+   <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">Chromacky</span><span style="color: #666666">(</span>Picture newBackground<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        Pixel picPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel newPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">();</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">();</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                picPixel <span style="color: #666666">=</span> pic<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">);</span>
+                newPixel <span style="color: #666666">=</span> newBackground<span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> j<span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>picPixel<span style="color: #666666">.</span><span style="color: #4070a0">colorDistance</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">GREEN</span><span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> <span style="color: #40a070">160</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                    picPixel<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>newPixel<span style="color: #666666">.</span><span style="color: #4070a0">getColor</span><span style="color: #666666">());</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+        updateIMG<span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-25" href="#collapse-25" role="button" style="width: 100%;">(Edge detection)<br></a>
+                        <div class="collapse" id="collapse-25" style="padding-left: 0px;padding-right: 0px;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Edge detection</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_edge.gif" style="width: 100%;height: 100%;background-size: contain;background-repeat: no-repeat;"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>in edge detection method there is two part the first is doing it with normal aproach without the help of any libraries, the second the one is using OpenCV[4] library.<br><br>The methods that we used:&nbsp;<br></p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #60a0b0; font-style: italic">// new edgeDetection method that takes left and right pixels with top and bottom.</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">edgeDetection_LR</span><span style="color: #666666">(</span><span style="color: #902000">int</span> amount<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        Pixel topPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel bottomPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel leftPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        Pixel rightPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #902000">double</span> topAverage <span style="color: #666666">=</span> <span style="color: #40a070">0.0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">double</span> bottomAverage <span style="color: #666666">=</span> <span style="color: #40a070">0.0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">double</span> rightAverage <span style="color: #666666">=</span> <span style="color: #40a070">0.0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">double</span> leftAverage <span style="color: #666666">=</span> <span style="color: #40a070">0.0</span><span style="color: #666666">;</span>
+
+        <span style="color: #902000">int</span> endY <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getHeight</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span>
+
+        <span style="color: #60a0b0; font-style: italic">/* loop through y values from 0 to height - 1</span>
+<span style="color: #60a0b0; font-style: italic">         * (since compare to below pixel) */</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> y <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> y <span style="color: #666666">&lt;</span> endY<span style="color: #666666">;</span> y<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+
+            <span style="color: #60a0b0; font-style: italic">// loop through the x values from 0 to width</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> x <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> x <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getWidth</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> x<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+
+                <span style="color: #60a0b0; font-style: italic">// get the top and bottom pixels</span>
+                topPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+                bottomPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x<span style="color: #666666">,</span> y <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span>
+                leftPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+                rightPixel <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getPixel</span><span style="color: #666666">(</span>x <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">,</span> y<span style="color: #666666">);</span>
+
+                <span style="color: #60a0b0; font-style: italic">// get the color averages for the two pixels</span>
+                topAverage <span style="color: #666666">=</span> topPixel<span style="color: #666666">.</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">();</span>
+                bottomAverage <span style="color: #666666">=</span> bottomPixel<span style="color: #666666">.</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">();</span>
+                leftAverage <span style="color: #666666">=</span> leftPixel<span style="color: #666666">.</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">();</span>
+                rightAverage <span style="color: #666666">=</span> rightPixel<span style="color: #666666">.</span><span style="color: #4070a0">getAverage</span><span style="color: #666666">();</span>
+
+                <span style="color: #60a0b0; font-style: italic">/* check if the absolute value of the difference</span>
+<span style="color: #60a0b0; font-style: italic">                 * is less than the amount */</span>
+                <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">((</span>Math<span style="color: #666666">.</span><span style="color: #4070a0">abs</span><span style="color: #666666">(</span>topAverage <span style="color: #666666">-</span> bottomAverage<span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> amount<span style="color: #666666">)</span> <span style="color: #666666">||</span> <span style="color: #666666">(</span>Math<span style="color: #666666">.</span><span style="color: #4070a0">abs</span><span style="color: #666666">(</span>rightAverage <span style="color: #666666">-</span> leftAverage<span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> amount<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+                    topPixel<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">WHITE</span><span style="color: #666666">);</span>
+                    <span style="color: #60a0b0; font-style: italic">// else set the color to black</span>
+                <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// edge is detected.</span>
+                    topPixel<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">BLACK</span><span style="color: #666666">);</span>
+                <span style="color: #666666">}</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">edgeDetecLapActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                             
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pic <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Select an image please!&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            <span style="color: #60a0b0; font-style: italic">// edge detection using laplactian filter from openCV library</span>
+            <span style="color: #60a0b0; font-style: italic">// Declare the variables we are going to use</span>
+            Mat src<span style="color: #666666">,</span> src_gray <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Mat<span style="color: #666666">(),</span> dst <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Mat<span style="color: #666666">();</span>
+            <span style="color: #902000">int</span> kernel_size <span style="color: #666666">=</span> <span style="color: #40a070">3</span><span style="color: #666666">;</span>
+            <span style="color: #902000">int</span> scale <span style="color: #666666">=</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span>
+            <span style="color: #902000">int</span> delta <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            <span style="color: #902000">int</span> ddepth <span style="color: #666666">=</span> CvType<span style="color: #666666">.</span><span style="color: #4070a0">CV_16S</span><span style="color: #666666">;</span>
+            src <span style="color: #666666">=</span> Imgcodecs<span style="color: #666666">.</span><span style="color: #4070a0">imread</span><span style="color: #666666">(</span>imgName<span style="color: #666666">,</span> Imgcodecs<span style="color: #666666">.</span><span style="color: #4070a0">IMREAD_COLOR</span><span style="color: #666666">);</span> <span style="color: #60a0b0; font-style: italic">// Load an image</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>src<span style="color: #666666">.</span><span style="color: #4070a0">empty</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+                System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Error opening image&quot;</span><span style="color: #666666">);</span>
+                <span style="color: #007020; font-weight: bold">return</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #60a0b0; font-style: italic">// Reduce noise by blurring with a Gaussian filter ( kernel size = 3 )</span>
+            Imgproc<span style="color: #666666">.</span><span style="color: #4070a0">GaussianBlur</span><span style="color: #666666">(</span>src<span style="color: #666666">,</span> src<span style="color: #666666">,</span> <span style="color: #007020; font-weight: bold">new</span> Size<span style="color: #666666">(</span><span style="color: #40a070">3</span><span style="color: #666666">,</span> <span style="color: #40a070">3</span><span style="color: #666666">),</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> Core<span style="color: #666666">.</span><span style="color: #4070a0">BORDER_DEFAULT</span><span style="color: #666666">);</span>
+            <span style="color: #60a0b0; font-style: italic">// Convert the image to grayscale</span>
+            Imgproc<span style="color: #666666">.</span><span style="color: #4070a0">cvtColor</span><span style="color: #666666">(</span>src<span style="color: #666666">,</span> src_gray<span style="color: #666666">,</span> Imgproc<span style="color: #666666">.</span><span style="color: #4070a0">COLOR_RGB2GRAY</span><span style="color: #666666">);</span>
+            Mat abs_dst <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Mat<span style="color: #666666">();</span> <span style="color: #60a0b0; font-style: italic">// the image</span>
+            Imgproc<span style="color: #666666">.</span><span style="color: #4070a0">Laplacian</span><span style="color: #666666">(</span>src_gray<span style="color: #666666">,</span> dst<span style="color: #666666">,</span> ddepth<span style="color: #666666">,</span> kernel_size<span style="color: #666666">,</span> scale<span style="color: #666666">,</span> delta<span style="color: #666666">,</span> Core<span style="color: #666666">.</span><span style="color: #4070a0">BORDER_DEFAULT</span><span style="color: #666666">);</span>
+            <span style="color: #60a0b0; font-style: italic">// converting back to CV_8U</span>
+            Core<span style="color: #666666">.</span><span style="color: #4070a0">convertScaleAbs</span><span style="color: #666666">(</span>dst<span style="color: #666666">,</span> abs_dst<span style="color: #666666">);</span>
+            HighGui<span style="color: #666666">.</span><span style="color: #4070a0">imshow</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Edge using laplacian filter&quot;</span><span style="color: #666666">,</span> abs_dst<span style="color: #666666">);</span>
+            HighGui<span style="color: #666666">.</span><span style="color: #4070a0">waitKey</span><span style="color: #666666">(</span><span style="color: #40a070">1000</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>  
+</pre></div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%;"><a class="btn btn-outline-secondary" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio<br>↓<br></a>
+        <div class="collapse" id="audio">
+            <div class="col" style="padding-left: 0px;padding-right: 0px;">
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-1" href="#collapse-audio-1" role="button" style="width: 100%;">Part 29 (Change volume)</a>
+                        <div class="collapse" id="collapse-audio-1"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Change volume</p>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>this method is simple, we use a slider to control the volume, the value of the slider will be divided with 50 then it will be passed through the changeVolume method which is there in the sound class[5].<br><br>The
+                                            method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">volumeSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_volumeSliderMouseReleased</span>
         <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
 
         currentSound<span style="color: #666666">.</span><span style="color: #4070a0">changeVolume</span><span style="color: #666666">(</span>volumeSlider<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">/</span> <span style="color: #40a070">50</span><span style="color: #666666">);</span>
@@ -1504,28 +1813,28 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-2" href="#collapse-audio-2" role="button" style="width: 100%;">Part 30 (Clipping)</a>
-                            <div class="collapse" id="collapse-audio-2"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Clipping sounds</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-2" href="#collapse-audio-2" role="button" style="width: 100%;">Part 30 (Clipping)</a>
+                        <div class="collapse" id="collapse-audio-2"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Clipping sounds</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/clip.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/clip.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>this method will take two inputs from the user and it will clip the sound according to the first value, which will be the beginning index, and the last index is set by the second value, these value it will be passed
+                                            through the Clipping method.<br><br>The method that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>this method will take two inputs from the user and it will clip the sound according to the first value, which will be the beginning index, and the last index is set by the second value, these value it will be
-                                                passed through the Clipping method.<br><br>The method that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">clipSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_clipSoundActionPerformed</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">clipSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_clipSoundActionPerformed</span>
 
         String first <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Enter the start Index: &quot;</span><span style="color: #666666">);</span>
         String last <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Enter the end Index: &quot;</span><span style="color: #666666">);</span>
@@ -1562,28 +1871,28 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-3" href="#collapse-audio-3" role="button" style="width: 100%;">Part 31 (Splicing)</a>
-                            <div class="collapse" id="collapse-audio-3"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Splicing</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-3" href="#collapse-audio-3" role="button" style="width: 100%;">Part 31 (Splicing)</a>
+                        <div class="collapse" id="collapse-audio-3"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Splicing</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/splice.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/splice.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>In this method we take multiple audio files as many as the user wants, and adding them togther and leaving a silent zone in between each two. the issue that i faced was after splicing the sound become slow and heavy
+                                            i have no idea why is that.<br><br>The method that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>In this method we take multiple audio files as many as the user wants, and adding them togther and leaving a silent zone in between each two. the issue that i faced was after splicing the sound become slow and
-                                                heavy i have no idea why is that.<br><br>The method that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">splicingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_splicingSoundActionPerformed</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">splicingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_splicingSoundActionPerformed</span>
         <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
         currentSound <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">splice</span><span style="color: #666666">(</span><span style="color: #40a070">1</span><span style="color: #666666">);</span>
         <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -1623,28 +1932,28 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-4" href="#collapse-audio-4" role="button" style="width: 100%;">Part 32 (Spread then squeeze)</a>
-                            <div class="collapse" id="collapse-audio-4"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Spread then squeeze</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-4" href="#collapse-audio-4" role="button" style="width: 100%;">Part 32 (Spread then squeeze)</a>
+                        <div class="collapse" id="collapse-audio-4"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Spread then squeeze</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>this method is kind-of weird and i maybe didn't understant what is really requerid, however what i did was first spreading the audio file by the double and then squeeze that spreaded file to /4.<br><br>The method
+                                            that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>this method is kind-of weird and i maybe didn't understant what is really requerid, however what i did was first spreading the audio file by the double and then squeeze that spreaded file to /4.<br><br>The method
-                                                that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> Sound <span style="color: #06287e">spreadThenSqueeze</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> Sound <span style="color: #06287e">spreadThenSqueeze</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
         SoundSample<span style="color: #666666">[]</span> sample <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
 
         <span style="color: #60a0b0; font-style: italic">// Spread * 2</span>
@@ -1664,27 +1973,27 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-5" href="#collapse-audio-5" role="button" style="width: 100%;">Part 33 (Reversing)</a>
-                            <div class="collapse" id="collapse-audio-5"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Reversing</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-5" href="#collapse-audio-5" role="button" style="width: 100%;">Part 33 (Reversing)</a>
+                        <div class="collapse" id="collapse-audio-5"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Reversing</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>Reversing the sound method is an easy part there is nothing difficult about it&nbsp;<br><br>The method that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>Reversing the sound method is an easy part there is nothing difficult about it&nbsp;<br><br>The method that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">reversingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">reversingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>
 
         SoundSample<span style="color: #666666">[]</span> sound <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
         <span style="color: #902000">int</span> index <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
@@ -1703,27 +2012,27 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-6" href="#collapse-audio-6" role="button" style="width: 100%;">Part 34 (Blending)</a>
-                            <div class="collapse" id="collapse-audio-6"
-                                style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Blending</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-6" href="#collapse-audio-6" role="button" style="width: 100%;">Part 34 (Blending)</a>
+                        <div class="collapse" id="collapse-audio-6"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Blending</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>blending sounds is a method about playing two sound at the same time, the issue about is i understan it in a wrong why i thought that i should two separated sounds<br><br>The method that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>blending sounds is a method about playing two sound at the same time, the issue about is i understan it in a wrong why i thought that i should two separated sounds<br><br>The method that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">blendingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                              
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">blendingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                              
 
     
         String numberOfSound <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please Enter the number of sounds : &quot;</span><span style="color: #666666">);</span>
@@ -1757,28 +2066,28 @@
     <span style="color: #666666">}</span>       
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-7" href="#collapse-audio-7" role="button" style="width: 100%;">Part 35 (Simple and weighted average filter)</a>
-                            <div class="collapse"
-                                id="collapse-audio-7" style="height: 100vh;">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-center" style="font-size: 34px;">Simple and weighted average filter</p>
-                                        </div>
+                </div>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-7" href="#collapse-audio-7" role="button" style="width: 100%;">Part 35 (Simple and weighted average filter)</a>
+                        <div class="collapse"
+                            id="collapse-audio-7" style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Simple and weighted average filter</p>
                                     </div>
-                                    <div class="row text-center">
-                                        <div class="col"><img src="assets/img/avg.JPG"></div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/avg.JPG"></div>
+                                </div>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>this method is about applying a simple average filter to the sound, we ask the user to give us the filters size the go through all the sample sizes and take the average of filter size for each sample index and assign
+                                            the output to the new sound. the issue is I'm not hearing any difference in the sound i have tried with large and small filter sizes.<br><br>The method that we used:</p>
                                     </div>
-                                    <div class="row" style="margin-top: 15px;">
-                                        <div class="col d-table-row">
-                                            <p>this method is about applying a simple average filter to the sound, we ask the user to give us the filters size the go through all the sample sizes and take the average of filter size for each sample index and
-                                                assign the output to the new sound. the issue is I'm not hearing any difference in the sound i have tried with large and small filter sizes.<br><br>The method that we used:</p>
-                                        </div>
-                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">simpleAVGActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_simpleAVGActionPerformed</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">simpleAVGActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_simpleAVGActionPerformed</span>
         <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
         <span style="color: #60a0b0; font-style: italic">// take num</span>
         String size <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please Enter the size of window please: &quot;</span><span style="color: #666666">);</span>
@@ -1861,13 +2170,13 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div><a class="btn btn-outline-dark" href="https://drive.google.com/file/d/1Tvn11JxT0xoVFDYhj3TiiilrSwhcUXk5/view?usp=sharing" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Download the full project</a></div>
+    </div>
+    <div><a class="btn btn-outline-dark" href="https://drive.google.com/file/d/1Tvn11JxT0xoVFDYhj3TiiilrSwhcUXk5/view?usp=sharing" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Download the full project</a></div>
     </div>
     </div>
     <div class="container" style="padding-top: 5%;">

@@ -1089,29 +1089,52 @@ public class PictureEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_ContsSliderFocusLost
 
     private void redeyeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redeyeActionPerformed
-        if (pic != null) {
-            Color newColor = JColorChooser.showDialog(null, "Choose New Color", Color.BLACK);
-            int trashhold = Integer.parseInt(JOptionPane.showInputDialog("TrashHold?"));
+        if (pic == null) {
+            JOptionPane.showMessageDialog(null, "Select an image please!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JFrame parent = new JFrame();
+            JOptionPane.showMessageDialog(parent, "Please click on two points in the image");
 
-            x1 = Integer.parseInt(JOptionPane.showInputDialog("Enter x1 value: "));
-            y1 = Integer.parseInt(JOptionPane.showInputDialog("Enter y1 value: "));
-            x2 = Integer.parseInt(JOptionPane.showInputDialog("Enter x2 value: "));
-            y2 = Integer.parseInt(JOptionPane.showInputDialog("Enter y2 value: "));
+            imgLabel.addMouseListener(new MouseAdapter() {
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("Clicked!");
+                    System.out.println(e.getX());
+                    System.out.println(e.getY());
+                    numOfClicks++;
+                    if (numOfClicks == 1) {
+                        x1 = e.getX();
+                        y1 = e.getY();
+                    } else if (numOfClicks == 2) {
+                        x2 = e.getX();
+                        y2 = e.getY();
 
-            for (int i = y1; i < y2; i++) {
-                for (int j = x1; j < x2; j++) {
-                    Pixel p = pic.getPixel(j, i);
-                    //here we compare because get the different between Red color amd pxl .
-                    if (p.colorDistance(Color.RED) < trashhold) {
-                        p.setColor(newColor);
+                        double W = (pic.getWidth() * 1.00 / imgLabel.getWidth());
+                        double H = (pic.getHeight() * 1.00 / imgLabel.getHeight());
+
+                        x1 = (int) (W * x1);
+                        x2 = (int) (W * x2);
+                        y1 = (int) (H * y1);
+                        y2 = (int) (H * y2);
+
+                        Color newColor = JColorChooser.showDialog(null, "Choose New Color", Color.BLACK);
+                        int trashhold = Integer.parseInt(JOptionPane.showInputDialog("TrashHold?"));
+                        for (int i = y1; i < y2; i++) {
+                            for (int j = x1; j < x2; j++) {
+                                Pixel p = pic.getPixel(j, i);
+                                //here we compare because get the different between Red color amd pxl .
+                                if (p.colorDistance(Color.RED) < trashhold) {
+                                    p.setColor(newColor);
+                                }
+                            }
+                        }
+                        updateIMG();
+                        numOfClicks = 0;
+                        imgLabel.removeMouseListener(this);
                     }
                 }
-            }
-            updateIMG();
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Select an image please!", "Error", JOptionPane.ERROR_MESSAGE);
+            });
         }
+
     }//GEN-LAST:event_redeyeActionPerformed
 
     private void blueSliderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueSliderMouseReleased
@@ -1797,7 +1820,7 @@ public class PictureEditor extends javax.swing.JFrame {
             for (int j = 0; j < pic.getHeight(); j++) {
                 picPixel = pic.getPixel(i, j);
                 newPixel = newBackground.getPixel(i, j);
-                if (picPixel.colorDistance(Color.blue) < 160) {
+                if (picPixel.colorDistance(Color.GREEN) < 160) {
                     picPixel.setColor(newPixel.getColor());
                 }
             }
