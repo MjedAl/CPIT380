@@ -310,7 +310,41 @@ public class SoundEditor extends javax.swing.JFrame {
 
         currentSound.play();
 
-    }
+    } 
+    
+    private void blendingSoundActionPerformed(java.awt.event.ActionEvent evt) {                                              
+
+    
+        String numberOfSound = JOptionPane.showInputDialog(null, "Please Enter the number of sounds : ");
+        int num = Integer.parseInt(numberOfSound);
+
+        if (num==2) {
+            
+       String filePath1 = FileChooser.pickAFile();
+       Sound sound1 = new Sound(filePath1);
+       
+        for (int i = 0; i < currentSound.getLength() - 1 ; i++) {
+            
+            currentSound.setSampleValueAt(i , currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i));
+                 
+        }
+        }else if (num==3) {
+            String filePath1 = FileChooser.pickAFile();
+        Sound sound1 = new Sound(filePath1);
+        String filePath2 = FileChooser.pickAFile();
+        Sound sound2 = new Sound(filePath2);
+        
+        for (int i = 0; i < currentSound.getLength() - 1 ; i++) {
+            
+            currentSound.setSampleValueAt(i , currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i)+sound2.getSampleValueAt(i));
+                 
+        }
+        }
+        
+        
+         currentSound.play();
+    }                                             
+    
 
     private void changeContentStatus(boolean status) {
         clipSound.setEnabled(status);
