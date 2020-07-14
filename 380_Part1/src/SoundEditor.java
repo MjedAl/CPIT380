@@ -1,6 +1,7 @@
 
 import cpit380practice.FileChooser;
 import cpit380practice.Sound;
+import cpit380practice.SoundSample;
 import java.awt.Color;
 import java.io.File;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -99,11 +100,21 @@ public class SoundEditor extends javax.swing.JFrame {
         reversingSound.setToolTipText("");
         reversingSound.setEnabled(false);
         reversingSound.setPreferredSize(new java.awt.Dimension(85, 32));
+        reversingSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reversingSoundActionPerformed(evt);
+            }
+        });
 
         blendingSound.setText("Blending");
         blendingSound.setToolTipText("");
         blendingSound.setEnabled(false);
         blendingSound.setPreferredSize(new java.awt.Dimension(85, 32));
+        blendingSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blendingSoundActionPerformed(evt);
+            }
+        });
 
         simpleAVG.setText("Simple AVG");
         simpleAVG.setToolTipText("");
@@ -294,9 +305,40 @@ public class SoundEditor extends javax.swing.JFrame {
         currentSound.play();
     }//GEN-LAST:event_weightedAVGActionPerformed
 
-    private void reversingSoundActionPerformed(java.awt.event.ActionEvent evt) {
+    private void blendingSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blendingSoundActionPerformed
+        // TODO add your handling code here:
+             String numberOfSound = JOptionPane.showInputDialog(null, "Please Enter the number of sounds : ");
+        int num = Integer.parseInt(numberOfSound);
 
-        SoundSample[] sound = currentSound.getSamples();
+        if (num == 2) {
+
+            String filePath1 = FileChooser.pickAFile();
+            Sound sound1 = new Sound(filePath1);
+
+            for (int i = 0; i < currentSound.getLength() - 1; i++) {
+
+                currentSound.setSampleValueAt(i, currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i));
+
+            }
+        } else if (num == 3) {
+            String filePath1 = FileChooser.pickAFile();
+            Sound sound1 = new Sound(filePath1);
+            String filePath2 = FileChooser.pickAFile();
+            Sound sound2 = new Sound(filePath2);
+
+            for (int i = 0; i < currentSound.getLength() - 1; i++) {
+
+                currentSound.setSampleValueAt(i, currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i) + sound2.getSampleValueAt(i));
+
+            }
+        }
+
+        currentSound.play();
+    }//GEN-LAST:event_blendingSoundActionPerformed
+
+    private void reversingSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reversingSoundActionPerformed
+        // TODO add your handling code here:
+               SoundSample[] sound = currentSound.getSamples();
         int index = 0;
 
         for (int i = currentSound.getLength() - 1; i >= 0; i--) {
@@ -309,42 +351,9 @@ public class SoundEditor extends javax.swing.JFrame {
         }
 
         currentSound.play();
+    }//GEN-LAST:event_reversingSoundActionPerformed
 
-    } 
-    
-    private void blendingSoundActionPerformed(java.awt.event.ActionEvent evt) {                                              
 
-    
-        String numberOfSound = JOptionPane.showInputDialog(null, "Please Enter the number of sounds : ");
-        int num = Integer.parseInt(numberOfSound);
-
-        if (num==2) {
-            
-       String filePath1 = FileChooser.pickAFile();
-       Sound sound1 = new Sound(filePath1);
-       
-        for (int i = 0; i < currentSound.getLength() - 1 ; i++) {
-            
-            currentSound.setSampleValueAt(i , currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i));
-                 
-        }
-        }else if (num==3) {
-            String filePath1 = FileChooser.pickAFile();
-        Sound sound1 = new Sound(filePath1);
-        String filePath2 = FileChooser.pickAFile();
-        Sound sound2 = new Sound(filePath2);
-        
-        for (int i = 0; i < currentSound.getLength() - 1 ; i++) {
-            
-            currentSound.setSampleValueAt(i , currentSound.getSampleValueAt(i) + sound1.getSampleValueAt(i)+sound2.getSampleValueAt(i));
-                 
-        }
-        }
-        
-        
-         currentSound.play();
-    }                                             
-    
 
     private void changeContentStatus(boolean status) {
         clipSound.setEnabled(status);
