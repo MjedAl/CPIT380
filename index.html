@@ -15,11 +15,11 @@
 <body style="background-color: rgb(174,174,174);margin-top: 2%;">
     <p class="text-center" style="font-size: 50px;font-family: 'Cookie', cursive;"><strong>CPIT-380 Group Project</strong></p>
     <p class="text-center">Supervised with care by Doctor Saim Ahmed Rasheed</p>
-    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
-        <div class="collapse show"
+    <div style="padding-right: 2%;padding-left: 2%;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-9" href="#collapse-9" role="button" style="width: 100%;height: 100px;margin-bottom: 40px;margin-top: 40px;">Show our work&nbsp;<br>↓<br></a>
+        <div class="collapse"
             id="collapse-9">
-            <div style="width: 100%;"><a class="btn btn-outline-success" data-toggle="collapse" aria-expanded="true" aria-controls="pic" href="#pic" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;">Pictures&nbsp;<br>↓<br></a>
-                <div class="collapse show" id="pic">
+            <div style="width: 100%;"><a class="btn btn-outline-success" data-toggle="collapse" aria-expanded="false" aria-controls="pic" href="#pic" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;">Pictures&nbsp;<br>↓<br></a>
+                <div class="collapse" id="pic">
                     <div class="col" style="padding-left: 0px;padding-right: 0px;">
                         <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
                             <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button" style="width: 100%;">Part 1 (Change colors)</a>
@@ -1744,12 +1744,419 @@
                 </div>
             </div>
         </div>
-        <div style="width: 100%;"><a class="btn btn-outline-secondary disabled" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio (SOON)<br></a>
-            <div class="collapse"
-                id="audio">
-                <div class="col" style="padding-left: 0px;padding-right: 0px;"></div>
+        <div style="width: 100%;"><a class="btn btn-outline-secondary" data-toggle="collapse" aria-expanded="false" aria-controls="audio" href="#audio" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Audio<br>↓<br></a>
+            <div class="collapse" id="audio">
+                <div class="col" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-1" href="#collapse-audio-1" role="button" style="width: 100%;">Part 29 (Change volume)</a>
+                            <div class="collapse" id="collapse-audio-1"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Change volume</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>this method is simple, we use a slider to control the volume, the value of the slider will be divided with 50 then it will be passed through the changeVolume method which is there in the sound class[5].<br><br>The
+                                                method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">volumeSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_volumeSliderMouseReleased</span>
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+
+        currentSound<span style="color: #666666">.</span><span style="color: #4070a0">changeVolume</span><span style="color: #666666">(</span>volumeSlider<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">/</span> <span style="color: #40a070">50</span><span style="color: #666666">);</span>
+        currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+
+    <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_volumeSliderMouseReleased</span>
+
+    <span style="color: #60a0b0; font-style: italic">/**</span>
+<span style="color: #60a0b0; font-style: italic">     * Method to modify the volume by the passed factor in the passed range</span>
+<span style="color: #60a0b0; font-style: italic">     *</span>
+<span style="color: #60a0b0; font-style: italic">     * @param factor the amount to multiply the value by</span>
+<span style="color: #60a0b0; font-style: italic">     * @param start the index to use as the start (inclusive)</span>
+<span style="color: #60a0b0; font-style: italic">     * @param end the index to end at (exclusive)</span>
+<span style="color: #60a0b0; font-style: italic">     */</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">changeVolume</span><span style="color: #666666">(</span><span style="color: #902000">double</span> factor<span style="color: #666666">,</span>
+            <span style="color: #902000">int</span> start<span style="color: #666666">,</span>
+            <span style="color: #902000">int</span> end<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #902000">int</span> value <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span>
+                i <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">&amp;&amp;</span> i <span style="color: #666666">&lt;</span> end<span style="color: #666666">;</span>
+                i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            value <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+            <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>value <span style="color: #666666">*</span> factor<span style="color: #666666">));</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-2" href="#collapse-audio-2" role="button" style="width: 100%;">Part 30 (Clipping)</a>
+                            <div class="collapse" id="collapse-audio-2"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Clipping sounds</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/clip.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>this method will take two inputs from the user and it will clip the sound according to the first value, which will be the beginning index, and the last index is set by the second value, these value it will be
+                                                passed through the Clipping method.<br><br>The method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">clipSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_clipSoundActionPerformed</span>
+
+        String first <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Enter the start Index: &quot;</span><span style="color: #666666">);</span>
+        String last <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Enter the end Index: &quot;</span><span style="color: #666666">);</span>
+        <span style="color: #902000">int</span> firstIndx <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>first<span style="color: #666666">);</span>
+        <span style="color: #902000">int</span> lastIndx <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>last<span style="color: #666666">);</span>
+
+        Sound s <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">clip</span><span style="color: #666666">(</span>firstIndx<span style="color: #666666">,</span> lastIndx<span style="color: #666666">);</span>
+        s<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+
+    <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_clipSoundActionPerformed</span>
+
+
+    <span style="color: #60a0b0; font-style: italic">/**</span>
+<span style="color: #60a0b0; font-style: italic">     * Method to create a new sound by copying just part of the current sound to a new sound</span>
+<span style="color: #60a0b0; font-style: italic">     *</span>
+<span style="color: #60a0b0; font-style: italic">     * @param start the index to start the copy at (inclusive)</span>
+<span style="color: #60a0b0; font-style: italic">     * @param end the index to stop the copy at (inclusive)</span>
+<span style="color: #60a0b0; font-style: italic">     * @return a new sound with just the samples from start to end in it</span>
+<span style="color: #60a0b0; font-style: italic">     */</span>
+    <span style="color: #007020; font-weight: bold">public</span> Sound <span style="color: #06287e">clip</span><span style="color: #666666">(</span><span style="color: #902000">int</span> start<span style="color: #666666">,</span> <span style="color: #902000">int</span> end<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #60a0b0; font-style: italic">// calculate the number of samples in the clip</span>
+        <span style="color: #902000">int</span> lengthInSamples <span style="color: #666666">=</span> end <span style="color: #666666">-</span> start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span>
+        Sound target <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span>lengthInSamples<span style="color: #666666">);</span> <span style="color: #60a0b0; font-style: italic">// hold clip</span>
+        <span style="color: #902000">int</span> value <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>        <span style="color: #60a0b0; font-style: italic">// holds the current sample value</span>
+        <span style="color: #902000">int</span> targetIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>  <span style="color: #60a0b0; font-style: italic">// index in target sound</span>
+
+        <span style="color: #60a0b0; font-style: italic">// copy from start to end from source into target</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> end<span style="color: #666666">;</span> i<span style="color: #666666">++,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            value <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+            target<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>targetIndex<span style="color: #666666">,</span> value<span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #007020; font-weight: bold">return</span> target<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-3" href="#collapse-audio-3" role="button" style="width: 100%;">Part 31 (Splicing)</a>
+                            <div class="collapse" id="collapse-audio-3"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Splicing</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/splice.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>In this method we take multiple audio files as many as the user wants, and adding them togther and leaving a silent zone in between each two. the issue that i faced was after splicing the sound become slow and
+                                                heavy i have no idea why is that.<br><br>The method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">splicingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_splicingSoundActionPerformed</span>
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+        currentSound <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">splice</span><span style="color: #666666">(</span><span style="color: #40a070">1</span><span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #902000">int</span> reply <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showConfirmDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Do you want to splice another sound ?&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Splice?&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">YES_NO_OPTION</span><span style="color: #666666">);</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>reply <span style="color: #666666">==</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">YES_OPTION</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                currentSound <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">splice</span><span style="color: #666666">(</span><span style="color: #40a070">1</span><span style="color: #666666">);</span>
+            <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+                <span style="color: #007020; font-weight: bold">break</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_splicingSoundActionPerformed</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> Sound <span style="color: #06287e">splice</span><span style="color: #666666">(</span><span style="color: #902000">double</span> zone<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        Sound sound1 <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">);</span>
+        Sound sound2 <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span>FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">pickAFile</span><span style="color: #666666">());</span>
+
+        <span style="color: #902000">int</span> targetIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> <span style="color: #60a0b0; font-style: italic">// the starting place on the target</span>
+
+        Sound s <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">((</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">+</span> sound2<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">())</span> <span style="color: #666666">+</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamplingRate</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> <span style="color: #666666">(</span>Math<span style="color: #666666">.</span><span style="color: #4070a0">ceil</span><span style="color: #666666">(</span>zone<span style="color: #666666">))));</span>
+
+        <span style="color: #60a0b0; font-style: italic">// copy all of sound 1 into the current sound (target)</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> sound1<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">();</span> i<span style="color: #666666">++,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            s<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>targetIndex<span style="color: #666666">,</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// create silence between words by setting values to 0</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamplingRate</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> zone<span style="color: #666666">);</span> i<span style="color: #666666">++,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            s<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>targetIndex<span style="color: #666666">,</span> <span style="color: #40a070">0</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// copy all of sound 2 into the current sound (target)</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> sound2<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">();</span> i<span style="color: #666666">++,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            s<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>targetIndex<span style="color: #666666">,</span> sound2<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #007020; font-weight: bold">return</span> s<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-4" href="#collapse-audio-4" role="button" style="width: 100%;">Part 32 (Spread then squeeze)</a>
+                            <div class="collapse" id="collapse-audio-4"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Spread then squeeze</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>this method is kind-of weird and i maybe didn't understant what is really requerid, however what i did was first spreading the audio file by the double and then squeeze that spreaded file to /4.<br><br>The method
+                                                that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> Sound <span style="color: #06287e">spreadThenSqueeze</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        SoundSample<span style="color: #666666">[]</span> sample <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
+
+        <span style="color: #60a0b0; font-style: italic">// Spread * 2</span>
+        Sound spreaded <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> sample<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">*</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">double</span> sourceIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> targetIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> targetIndex <span style="color: #666666">&lt;</span> spreaded<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">();</span> sourceIndex <span style="color: #666666">+=</span> <span style="color: #40a070">0.5</span><span style="color: #666666">,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            spreaded<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> targetIndex<span style="color: #666666">,</span> sample<span style="color: #666666">[((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> sourceIndex<span style="color: #666666">)].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// Squeeze / 4</span>
+        SoundSample<span style="color: #666666">[]</span> sampleSpreaded <span style="color: #666666">=</span> spreaded<span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
+        Sound squeezed <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> sampleSpreaded<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">/</span> <span style="color: #40a070">4</span><span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">double</span> sourceIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">,</span> targetIndex <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> targetIndex <span style="color: #666666">&lt;</span> squeezed<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">();</span> sourceIndex <span style="color: #666666">+=</span> <span style="color: #40a070">2</span><span style="color: #666666">,</span> targetIndex<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            squeezed<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> targetIndex<span style="color: #666666">,</span> sampleSpreaded<span style="color: #666666">[((</span><span style="color: #902000">int</span><span style="color: #666666">)</span> sourceIndex<span style="color: #666666">)].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #007020; font-weight: bold">return</span> squeezed<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-5" href="#collapse-audio-5" role="button" style="width: 100%;">Part 33 (Reversing)</a>
+                            <div class="collapse" id="collapse-audio-5"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Reversing</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>Reversing the sound method is an easy part there is nothing difficult about it&nbsp;<br><br>The method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">reversingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+        SoundSample<span style="color: #666666">[]</span> sound <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
+        <span style="color: #902000">int</span> index <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span> i <span style="color: #666666">&gt;=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i<span style="color: #666666">--)</span> <span style="color: #666666">{</span>
+
+            SoundSample temp <span style="color: #666666">=</span> sound<span style="color: #666666">[</span>i<span style="color: #666666">];</span>
+            sound<span style="color: #666666">[</span>index<span style="color: #666666">]</span> <span style="color: #666666">=</span> temp<span style="color: #666666">;</span>
+
+            currentSound<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>index<span style="color: #666666">,</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+            index<span style="color: #666666">++;</span>
+        <span style="color: #666666">}</span>
+
+        currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-6" href="#collapse-audio-6" role="button" style="width: 100%;">Part 34 (Blending)</a>
+                            <div class="collapse" id="collapse-audio-6"
+                                style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Blending</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>blending sounds is a method about playing two sound at the same time, the issue about is i understan it in a wrong why i thought that i should two separated sounds<br><br>The method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">blendingSoundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                              
+
+    
+        String numberOfSound <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please Enter the number of sounds : &quot;</span><span style="color: #666666">);</span>
+        <span style="color: #902000">int</span> num <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>numberOfSound<span style="color: #666666">);</span>
+
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>num<span style="color: #666666">==</span><span style="color: #40a070">2</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            
+       String filePath1 <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">pickAFile</span><span style="color: #666666">();</span>
+       Sound sound1 <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span>filePath1<span style="color: #666666">);</span>
+       
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">1</span> <span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            
+            currentSound<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i <span style="color: #666666">,</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">)</span> <span style="color: #666666">+</span> sound1<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+                 
+        <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span><span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>num<span style="color: #666666">==</span><span style="color: #40a070">3</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            String filePath1 <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">pickAFile</span><span style="color: #666666">();</span>
+        Sound sound1 <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span>filePath1<span style="color: #666666">);</span>
+        String filePath2 <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">pickAFile</span><span style="color: #666666">();</span>
+        Sound sound2 <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span>filePath2<span style="color: #666666">);</span>
+        
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">-</span> <span style="color: #40a070">1</span> <span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            
+            currentSound<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i <span style="color: #666666">,</span> currentSound<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">)</span> <span style="color: #666666">+</span> sound1<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">)+</span>sound2<span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+                 
+        <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+        
+        
+         currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>       
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-audio-7" href="#collapse-audio-7" role="button" style="width: 100%;">Part 35 (Simple and weighted average filter)</a>
+                            <div class="collapse"
+                                id="collapse-audio-7" style="height: 100vh;">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-center" style="font-size: 34px;">Simple and weighted average filter</p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"><img src="assets/img/avg.JPG"></div>
+                                    </div>
+                                    <div class="row" style="margin-top: 15px;">
+                                        <div class="col d-table-row">
+                                            <p>this method is about applying a simple average filter to the sound, we ask the user to give us the filters size the go through all the sample sizes and take the average of filter size for each sample index and
+                                                assign the output to the new sound. the issue is I'm not hearing any difference in the sound i have tried with large and small filter sizes.<br><br>The method that we used:</p>
+                                        </div>
+                                    </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">simpleAVGActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_simpleAVGActionPerformed</span>
+        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
+        <span style="color: #60a0b0; font-style: italic">// take num</span>
+        String size <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please Enter the size of window please: &quot;</span><span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
+            <span style="color: #902000">int</span> Size <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>size<span style="color: #666666">);</span>
+            currentSound<span style="color: #666666">.</span><span style="color: #4070a0">simpleAverage</span><span style="color: #666666">(</span>Size<span style="color: #666666">);</span>
+            currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">catch</span> <span style="color: #666666">(</span>NumberFormatException e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showMessageDialog</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Please put integer only&quot;</span><span style="color: #666666">,</span> <span style="color: #4070a0">&quot;Error&quot;</span><span style="color: #666666">,</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">ERROR_MESSAGE</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_simpleAVGActionPerformed</span>
+
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">simpleAverage</span><span style="color: #666666">(</span><span style="color: #902000">int</span> windowsSize<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+        SoundSample<span style="color: #666666">[]</span> sampleArray <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>sampleArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">);</span>
+
+        Sound newSound <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Sound<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">().</span><span style="color: #4070a0">length</span><span style="color: #666666">);</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span>windowsSize <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+        <span style="color: #902000">int</span> avg <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+        <span style="color: #60a0b0; font-style: italic">// the start index where we can&#39;t apply the avg in them, put them as they are.</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> start<span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #60a0b0; font-style: italic">//System.out.println(&quot;A&quot;);</span>
+            newSound<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> sampleArray<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// the middle indexes</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> sampleArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #60a0b0; font-style: italic">//System.out.println(&quot;B&quot;);</span>
+            avg <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> start<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                avg <span style="color: #666666">+=</span> sampleArray<span style="color: #666666">[</span>i <span style="color: #666666">+</span> j<span style="color: #666666">].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">();</span>
+            <span style="color: #666666">}</span>
+            avg <span style="color: #666666">/=</span> windowsSize<span style="color: #666666">;</span>
+            sampleArray<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">setValue</span><span style="color: #666666">(</span>avg<span style="color: #666666">);</span>
+
+        <span style="color: #666666">}</span>
+
+        <span style="color: #60a0b0; font-style: italic">// the end index where we can&#39;t apply the avg in them, put them as they are.</span>
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> sampleArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i <span style="color: #666666">&lt;</span> sampleArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            <span style="color: #60a0b0; font-style: italic">//System.out.println(&quot;C&quot;);</span>
+            newSound<span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> sampleArray<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">());</span>
+        <span style="color: #666666">}</span>
+
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">weightedAverage</span><span style="color: #666666">(</span><span style="color: #902000">short</span> type<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+        <span style="color: #902000">double</span><span style="color: #666666">[]</span> weighted <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>type <span style="color: #666666">==</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// left distrbution</span>
+            weighted <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[]{</span><span style="color: #40a070">0.15</span><span style="color: #666666">,</span> <span style="color: #40a070">0.3</span><span style="color: #666666">,</span> <span style="color: #40a070">0.25</span><span style="color: #666666">,</span> <span style="color: #40a070">0.2</span><span style="color: #666666">,</span> <span style="color: #40a070">0.1</span><span style="color: #666666">};</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>type <span style="color: #666666">==</span> <span style="color: #40a070">1</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// middle normal skewed</span>
+            weighted <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[]{</span><span style="color: #40a070">0.1</span><span style="color: #666666">,</span> <span style="color: #40a070">0.2</span><span style="color: #666666">,</span> <span style="color: #40a070">0.4</span><span style="color: #666666">,</span> <span style="color: #40a070">0.2</span><span style="color: #666666">,</span> <span style="color: #40a070">0.1</span><span style="color: #666666">};</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>type <span style="color: #666666">==</span> <span style="color: #40a070">2</span><span style="color: #666666">)</span> <span style="color: #666666">{</span> <span style="color: #60a0b0; font-style: italic">// right skewed</span>
+            weighted <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #902000">double</span><span style="color: #666666">[]{</span><span style="color: #40a070">0.1</span><span style="color: #666666">,</span> <span style="color: #40a070">0.2</span><span style="color: #666666">,</span> <span style="color: #40a070">0.25</span><span style="color: #666666">,</span> <span style="color: #40a070">0.3</span><span style="color: #666666">,</span> <span style="color: #40a070">0.15</span><span style="color: #666666">};</span>
+        <span style="color: #666666">}</span>
+
+        SoundSample<span style="color: #666666">[]</span> sampleArray <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSamples</span><span style="color: #666666">();</span>
+
+        <span style="color: #902000">int</span> start <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> Math<span style="color: #666666">.</span><span style="color: #4070a0">floor</span><span style="color: #666666">(</span><span style="color: #40a070">5</span> <span style="color: #666666">/</span> <span style="color: #40a070">2</span><span style="color: #666666">);</span>
+        <span style="color: #902000">int</span> avg <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+        <span style="color: #902000">int</span> ii <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> sampleArray<span style="color: #666666">.</span><span style="color: #4070a0">length</span> <span style="color: #666666">-</span> <span style="color: #666666">(</span>start <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">);</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+            avg <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            ii <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+            <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> j <span style="color: #666666">=</span> <span style="color: #666666">-</span>start<span style="color: #666666">;</span> j <span style="color: #666666">&lt;</span> start<span style="color: #666666">;</span> j<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+                avg <span style="color: #666666">+=</span> <span style="color: #666666">(</span>sampleArray<span style="color: #666666">[</span>j<span style="color: #666666">].</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">*</span> weighted<span style="color: #666666">[</span>ii<span style="color: #666666">]);</span>
+                ii<span style="color: #666666">++;</span>
+            <span style="color: #666666">}</span>
+            avg <span style="color: #666666">/=</span> <span style="color: #40a070">5</span><span style="color: #666666">;</span>
+            sampleArray<span style="color: #666666">[</span>i<span style="color: #666666">].</span><span style="color: #4070a0">setValue</span><span style="color: #666666">(</span>avg<span style="color: #666666">);</span>
+
+        <span style="color: #666666">}</span>
+
+    <span style="color: #666666">}</span>
+</pre></div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div><a class="btn btn-outline-dark" href="https://drive.google.com/file/d/1Tvn11JxT0xoVFDYhj3TiiilrSwhcUXk5/view?usp=sharing" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Download the full project</a></div>
     </div>
     </div>
     <div class="container" style="padding-top: 5%;">
@@ -1782,6 +2189,7 @@
                     <li>[2] - SimplePicture class author&nbsp;Barb Ericson ericson@cc.gatech.edu&nbsp;<a href="https://www2.cs.uic.edu/~i101/doc/SimplePicture.html" style="color: rgb(29,164,255);">https://www2.cs.uic.edu/~i101/doc/SimplePicture.html</a>&nbsp;</li>
                     <li>[3] - Real time implementation of RGB to HSV by G.Saravanan, G.Yamuna and S. Nandhini</li>
                     <li>[4] - Laplasian filter with openCV library&nbsp;<a href="https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html" style="color: rgb(29,164,255);">https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html</a>&nbsp;</li>
+                    <li>[5] - Sound&nbsp;class&nbsp;author Barbara Ericson ericson@cc.gatech.edu&nbsp;<a href="https://www2.cs.duke.edu/courses/spring07/cps001/doc/mediaClasses/Sound.html" style="color: rgb(29,164,255);">https://www2.cs.duke.edu/courses/spring07/cps001/doc/mediaClasses/Sound.html</a>&nbsp;</li>
                 </ul>
             </div>
         </footer>
