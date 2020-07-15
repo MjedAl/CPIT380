@@ -1,5 +1,6 @@
 
 import cpit380practice.FrameSequencer;
+import cpit380practice.MovieMaker;
 import cpit380practice.Picture;
 import java.awt.Color;
 import java.awt.Font;
@@ -38,6 +39,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
         TickerTape = new javax.swing.JButton();
         Droppedball = new javax.swing.JButton();
+        sunset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,25 +57,37 @@ public class MovieEditor extends javax.swing.JFrame {
             }
         });
 
+        sunset.setText("Sunset Movie");
+        sunset.setToolTipText("");
+        sunset.setActionCommand("");
+        sunset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sunsetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Droppedball)
-                    .addComponent(TickerTape))
-                .addContainerGap(275, Short.MAX_VALUE))
+                    .addComponent(TickerTape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TickerTape)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Droppedball)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sunset)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,7 +95,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
     private void TickerTapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TickerTapeActionPerformed
         try {
-            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
+            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
             String message = JOptionPane.showInputDialog("please enter your message");
             int framesPerSec = 30;
             Picture p = null;
@@ -123,7 +137,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
     private void DroppedballActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DroppedballActionPerformed
         try {
-            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
+            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
             int framesPerSec = 30;
             Picture p = null;
             Graphics g = null;
@@ -153,6 +167,17 @@ public class MovieEditor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_DroppedballActionPerformed
+
+    private void sunsetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sunsetActionPerformed
+        // TODO add your handling code here:
+   
+        int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+           
+        MovieMaker movie = new MovieMaker();
+        movie.makeSunsetMovie("C:\\users\\mjed\\desktop\\sunset", time, time);
+
+        
+    }//GEN-LAST:event_sunsetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,5 +217,6 @@ public class MovieEditor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Droppedball;
     private javax.swing.JButton TickerTape;
+    private javax.swing.JButton sunset;
     // End of variables declaration//GEN-END:variables
 }
