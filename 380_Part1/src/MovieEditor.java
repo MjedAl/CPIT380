@@ -189,7 +189,7 @@ public class MovieEditor extends javax.swing.JFrame {
             int framesPerSec = 30;
             Picture p = null;
             Graphics g = null;
-            FrameSequencer frameSequencer = new FrameSequencer("Movie");
+            FrameSequencer frameSequencer = new FrameSequencer("Movie_Edit");
             Font font = new Font("Arial", Font.BOLD, 24);
             boolean right = true;
             // loop for 2 seconds of animation
@@ -308,7 +308,7 @@ public class MovieEditor extends javax.swing.JFrame {
             try {
             int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
             // load the pictures
-            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Desktop\\SoMultimedia");
             fc.showOpenDialog(null);
             String foreground = fc.getSelectedFile().getAbsolutePath();
             Picture foregroundPic = null;
@@ -322,7 +322,7 @@ public class MovieEditor extends javax.swing.JFrame {
             Picture newBGPic = new Picture(newBG);
 
             // declare other variables
-            FrameSequencer frameSequencer = new FrameSequencer("Movie");
+            FrameSequencer frameSequencer = new FrameSequencer("Movie_Edit");
             int framesPerSec = 30;
             frameSequencer.setShown(true);
             // loop creating the frames
@@ -343,14 +343,14 @@ public class MovieEditor extends javax.swing.JFrame {
           
         try {
             int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
-            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Desktop\\SoMultimedia");
             fc.showOpenDialog(null);
             String fName = fc.getSelectedFile().getAbsolutePath();
             Picture pic = new Picture(fName);
 
             Picture copyPict = null;
        
-            FrameSequencer frameSequencer = new FrameSequencer("movie");
+            FrameSequencer frameSequencer = new FrameSequencer("movie_Edit");
             int framesPerSec = 30;
             
             for (int i = 0; i < framesPerSec * time; i++) {

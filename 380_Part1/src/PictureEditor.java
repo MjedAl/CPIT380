@@ -971,7 +971,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
     private void ChromackyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChromackyActionPerformed
         if (pic != null) {
-            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Desktop\\SoMultimedia");
             int conf = JOptionPane.showConfirmDialog(null, "Choose new background image", "Choose New Background", JOptionPane.OK_CANCEL_OPTION);
             if (conf == 0) {
                 int val = FileChooser.showOpenDialog(null);
@@ -1039,7 +1039,7 @@ public class PictureEditor extends javax.swing.JFrame {
 
         if (pic != null) {
             if (Trashhold1.getValue() > 0 && Trashhold2.getValue() > 0) {
-                JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+                JFileChooser FileChooser = new JFileChooser("C:\\Users\\alish\\Desktop\\SoMultimedia");
                 int conf = JOptionPane.showConfirmDialog(null, "Choose old background image", "Choose Old Background", JOptionPane.OK_CANCEL_OPTION);
                 if (conf == 0) {
                     int val = FileChooser.showOpenDialog(null);
@@ -1174,7 +1174,7 @@ public class PictureEditor extends javax.swing.JFrame {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.setDialogTitle("Select an image");
         jfc.setAcceptAllFileFilterUsed(false);
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or JPG", "png", "jpg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or JPG", "png", "jpg","jpeg");
         jfc.addChoosableFileFilter(filter);
 
         int returnValue = jfc.showOpenDialog(null);
