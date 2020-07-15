@@ -2,9 +2,11 @@
 import cpit380practice.FrameSequencer;
 import cpit380practice.MovieMaker;
 import cpit380practice.Picture;
+import cpit380practice.Pixel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /*
@@ -41,6 +43,8 @@ public class MovieEditor extends javax.swing.JFrame {
         Droppedball = new javax.swing.JButton();
         sunset = new javax.swing.JButton();
         SinAndCos = new javax.swing.JButton();
+        Background = new javax.swing.JButton();
+        EdgeDetection = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +80,20 @@ public class MovieEditor extends javax.swing.JFrame {
             }
         });
 
+        Background.setText("Back Ground ");
+        Background.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackgroundActionPerformed(evt);
+            }
+        });
+
+        EdgeDetection.setText("Edge Detection");
+        EdgeDetection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EdgeDetectionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,6 +101,8 @@ public class MovieEditor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EdgeDetection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TickerTape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
@@ -100,7 +120,11 @@ public class MovieEditor extends javax.swing.JFrame {
                 .addComponent(sunset)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SinAndCos)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Background)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EdgeDetection)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,6 +252,86 @@ public class MovieEditor extends javax.swing.JFrame {
        
     }//GEN-LAST:event_SinAndCosActionPerformed
 
+    private void BackgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackgroundActionPerformed
+            try {
+            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
+            // load the pictures
+            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            fc.showOpenDialog(null);
+            String foreground = fc.getSelectedFile().getAbsolutePath();
+            Picture foregroundPic = null;
+
+            fc.showOpenDialog(null);
+            String oldBG = fc.getSelectedFile().getAbsolutePath();
+            Picture oldBGPic = new Picture(oldBG);
+
+            fc.showOpenDialog(null);
+            String newBG = fc.getSelectedFile().getAbsolutePath();
+            Picture newBGPic = new Picture(newBG);
+
+            // declare other variables
+            FrameSequencer frameSequencer = new FrameSequencer("Movie");
+            int framesPerSec = 30;
+            frameSequencer.setShown(true);
+            // loop creating the frames
+            for (int i = 0; i < framesPerSec * time; i++) {
+                foregroundPic = new Picture(foreground);
+                foregroundPic.swapBackground(oldBGPic, newBGPic, i);
+                frameSequencer.addFrame(foregroundPic);
+            }
+
+            // play the movie
+            frameSequencer.play(framesPerSec);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_BackgroundActionPerformed
+
+    private void EdgeDetectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdgeDetectionActionPerformed
+          
+        try {
+            int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration"));
+            JFileChooser fc = new JFileChooser("C:\\Users\\alish\\Downloads\\SoMultimedia");
+            fc.showOpenDialog(null);
+            String fName = fc.getSelectedFile().getAbsolutePath();
+            Picture pic = new Picture(fName);
+
+            Picture copyPict = null;
+       
+            FrameSequencer frameSequencer = new FrameSequencer("movie");
+            int framesPerSec = 30;
+            
+            for (int i = 0; i < framesPerSec * time; i++) {
+                copyPict = new Picture(pic);
+                double topAverage = 0.0;
+                double bottomAverage = 0.0;
+
+                for (int x = 0; x < pic.getHeight() - 1; x++) {
+                    for (int y = 0; y < copyPict.getWidth(); y++) {
+                        Pixel topPixel = copyPict.getPixel(y, x);
+                        Pixel bottomPixel = copyPict.getPixel(y, x + 1);
+
+                        topAverage = (topPixel.getRed() + topPixel.getGreen() + topPixel.getBlue()) / 3.0;
+                        bottomAverage = (bottomPixel.getRed() + bottomPixel.getGreen() + bottomPixel.getBlue()) / 3.0;
+
+                        if (Math.abs(topAverage - bottomAverage) < (time * framesPerSec + 1) - i) {
+                            topPixel.setColor(Color.WHITE);
+                        } else {
+                            topPixel.setColor(Color.BLACK);
+                        }
+                    }
+                }
+               
+                frameSequencer.addFrame(copyPict);
+            }
+
+            
+            frameSequencer.play(framesPerSec);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_EdgeDetectionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,7 +368,9 @@ public class MovieEditor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Background;
     private javax.swing.JButton Droppedball;
+    private javax.swing.JButton EdgeDetection;
     private javax.swing.JButton SinAndCos;
     private javax.swing.JButton TickerTape;
     private javax.swing.JButton sunset;
