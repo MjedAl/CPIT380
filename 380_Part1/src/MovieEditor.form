@@ -23,13 +23,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Droppedball" min="-2" max="-2" attributes="0"/>
-                  <Component id="TickerTape" min="-2" max="-2" attributes="0"/>
+                  <Component id="TickerTape" max="32767" attributes="0"/>
+                  <Component id="Droppedball" alignment="0" max="32767" attributes="0"/>
+                  <Component id="sunset" alignment="0" pref="384" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="275" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,9 +39,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="TickerTape" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="Droppedball" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="224" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="sunset" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="192" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,6 +63,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DroppedballActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="sunset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sunset Movie"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="actionCommand" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunsetActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

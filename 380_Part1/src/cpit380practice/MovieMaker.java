@@ -363,8 +363,7 @@ public class MovieMaker {
 
         // declare other variables
         Picture target = null;
-        FrameSequencer frameSequencer
-                = new FrameSequencer(directory);
+        FrameSequencer frameSequencer= new FrameSequencer(directory);
         int framesPerSec = 30;
 
         frameSequencer.setShown(true);
