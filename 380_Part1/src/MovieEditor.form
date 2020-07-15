@@ -29,6 +29,7 @@
                   <Component id="TickerTape" max="32767" attributes="0"/>
                   <Component id="Droppedball" alignment="0" max="32767" attributes="0"/>
                   <Component id="sunset" alignment="0" pref="384" max="32767" attributes="0"/>
+                  <Component id="SinAndCos" alignment="0" pref="384" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -43,7 +44,9 @@
               <Component id="Droppedball" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="sunset" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="SinAndCos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="162" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,6 +76,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sunsetActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SinAndCos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sin/Cos"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="actionCommand" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SinAndCosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

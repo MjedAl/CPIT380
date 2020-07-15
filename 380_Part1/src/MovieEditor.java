@@ -40,6 +40,7 @@ public class MovieEditor extends javax.swing.JFrame {
         TickerTape = new javax.swing.JButton();
         Droppedball = new javax.swing.JButton();
         sunset = new javax.swing.JButton();
+        SinAndCos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,15 @@ public class MovieEditor extends javax.swing.JFrame {
             }
         });
 
+        SinAndCos.setText("Sin/Cos");
+        SinAndCos.setToolTipText("");
+        SinAndCos.setActionCommand("");
+        SinAndCos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SinAndCosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +85,8 @@ public class MovieEditor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TickerTape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
+                    .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -87,7 +98,9 @@ public class MovieEditor extends javax.swing.JFrame {
                 .addComponent(Droppedball)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sunset)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SinAndCos)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,6 +192,42 @@ public class MovieEditor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_sunsetActionPerformed
 
+    private void SinAndCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SinAndCosActionPerformed
+       try{
+           int duration = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+         
+              int framesPerSec = 30;
+        Picture p = null;
+        Graphics g = null;
+        FrameSequencer frameSequencer
+                = new FrameSequencer("Movie");
+        frameSequencer.setShown(true);
+
+        // loop through the first second
+        for (int i = 0; i < framesPerSec * duration; i++) {
+            // draw a filled rectangle
+            p = new Picture(640, 480);
+            g = p.getGraphics();
+            g.setColor(Color.ORANGE);
+            g.fillRect(50 + (int) (10 * Math.sin(i)),
+                    4 * i + (int) (10 * Math.cos(i)),
+                    50, 50);
+
+            // add frame to sequencer
+            frameSequencer.addFrame(p);
+        }
+
+        // play the movie
+        frameSequencer.play(framesPerSec);
+            
+            
+            } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+       
+       
+    }//GEN-LAST:event_SinAndCosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -216,6 +265,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Droppedball;
+    private javax.swing.JButton SinAndCos;
     private javax.swing.JButton TickerTape;
     private javax.swing.JButton sunset;
     // End of variables declaration//GEN-END:variables
