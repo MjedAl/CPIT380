@@ -56,7 +56,7 @@ public class PictureEditor extends javax.swing.JFrame {
         CopmutingPanel.setVisible(false);
         FiltersPanel.setVisible(false);
         ConvertionPanel.setVisible(false);
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // uncomment if u have OpenCV installed
+      //  System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // uncomment if u have OpenCV installed
     }
 
     /**
