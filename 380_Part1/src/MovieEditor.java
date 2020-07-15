@@ -45,6 +45,7 @@ public class MovieEditor extends javax.swing.JFrame {
         SinAndCos = new javax.swing.JButton();
         Background = new javax.swing.JButton();
         EdgeDetection = new javax.swing.JButton();
+        Cropping = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +95,13 @@ public class MovieEditor extends javax.swing.JFrame {
             }
         });
 
+        Cropping.setText("Cropping");
+        Cropping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CroppingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +114,8 @@ public class MovieEditor extends javax.swing.JFrame {
                     .addComponent(TickerTape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                    .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
+                    .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                    .addComponent(Cropping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -124,7 +133,9 @@ public class MovieEditor extends javax.swing.JFrame {
                 .addComponent(Background)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EdgeDetection)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Cropping)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -332,6 +343,35 @@ public class MovieEditor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EdgeDetectionActionPerformed
 
+    private void CroppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CroppingActionPerformed
+         try{  
+         int duration = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+         // load the picture 
+         String fName = "C:\\Users\\3boody\\Desktop\\midi.jpg";
+         //String fName = FileChooser.pickAFile();
+        Picture pic = new Picture(fName);
+
+        // declare other variables
+        Picture target = null;   // targeted piece of pic
+        FrameSequencer frameSequencer
+                = new FrameSequencer("Movie");
+        int framesPerSec = 30;
+
+        // loop creating the frames
+        for (int i = 0; i < framesPerSec * duration; i++) {
+            target = new Picture(640, 480);
+            target.copy(pic, 250, 170, 390, 300, i * 10, i * 5);
+            frameSequencer.addFrame(target);
+        }
+
+        // play the movie
+        frameSequencer.play(framesPerSec);
+            
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_CroppingActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +409,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Background;
+    private javax.swing.JButton Cropping;
     private javax.swing.JButton Droppedball;
     private javax.swing.JButton EdgeDetection;
     private javax.swing.JButton SinAndCos;
