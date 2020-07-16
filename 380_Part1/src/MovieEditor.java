@@ -50,6 +50,8 @@ public class MovieEditor extends javax.swing.JFrame {
         Cropping = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        TopLeftToBottomRight = new javax.swing.JButton();
+        TopRightToBottomLeft = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +118,20 @@ public class MovieEditor extends javax.swing.JFrame {
                 CroppingActionPerformed(evt);
             }
         });
+        
+          TopLeftToBottomRight.setText("top left corner to bottom right");
+        TopLeftToBottomRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TopLeftToBottomRightActionPerformed(evt);
+            }
+        });
+
+        TopRightToBottomLeft.setText("top right corner to bottom left");
+        TopRightToBottomLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TopRightToBottomLeftActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +148,7 @@ public class MovieEditor extends javax.swing.JFrame {
                         .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                         .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                        .addComponent(TopRightToBottomLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(Cropping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap()))
         );
@@ -154,6 +171,10 @@ public class MovieEditor extends javax.swing.JFrame {
                     .addComponent(EdgeDetection)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(Cropping)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(TopLeftToBottomRight)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(TopRightToBottomLeft)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -396,6 +417,58 @@ public class MovieEditor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_EdgeDetectionActionPerformed
+    
+    private void TopLeftToBottomRightActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        //take the time form the user 
+        int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+        
+        int FPS = 30;
+        Picture p ;
+        Graphics g ;
+        
+    FrameSequencer frameSequencer =  new FrameSequencer("Movie");
+    
+    //for each 1 SEC 30 FPS
+    for (int i = 0; i < FPS*time; i++){
+        
+      p = new Picture(640,480);
+      g = p.getGraphics();
+      g.setColor(Color.BLACK);
+      g.fillRect(i * 10, i * 7, 70,70);
+      
+      
+      frameSequencer.addFrame(p);
+    }
+    
+    frameSequencer.play(FPS);
+  
+
+    }                                                    
+    
+    private void TopRightToBottomLeftActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        //take the time form the user 
+        int time = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+
+        int FPS = 30;
+        Picture p ;
+        Graphics g ;
+        
+    FrameSequencer frameSequencer =  new FrameSequencer("Movie");
+    
+    //for each 1 SEC 30 FPS
+    for (int i = 0; i < FPS*time; i++){
+      p = new Picture(640,480);
+      g = p.getGraphics();
+      g.setColor(Color.BLACK);
+      g.fillRect(Math.abs((i * 10) - 570), i * 7, 70,70);
+        
+      
+      frameSequencer.addFrame(p);
+    }
+    
+    frameSequencer.play(FPS);
+  
+    }                 
 
     private void CroppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CroppingActionPerformed
         // TODO add your handling code here:
@@ -473,5 +546,7 @@ public class MovieEditor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton sunset;
+    private javax.swing.JButton TopLeftToBottomRight;
+    private javax.swing.JButton TopRightToBottomLeft;
     // End of variables declaration//GEN-END:variables
 }
