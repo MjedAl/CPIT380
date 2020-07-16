@@ -1,4 +1,5 @@
 
+import cpit380practice.FileChooser;
 import cpit380practice.FrameSequencer;
 import cpit380practice.MovieMaker;
 import cpit380practice.Picture;
@@ -46,6 +47,7 @@ public class MovieEditor extends javax.swing.JFrame {
         sunset = new javax.swing.JButton();
         Droppedball = new javax.swing.JButton();
         TickerTape = new javax.swing.JButton();
+        Cropping = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -62,7 +64,8 @@ public class MovieEditor extends javax.swing.JFrame {
         });
 
         Background.setBackground(new java.awt.Color(102, 102, 102));
-        Background.setText("Back Ground ");
+        Background.setText("Background subtraction");
+        Background.setToolTipText("");
         Background.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackgroundActionPerformed(evt);
@@ -70,7 +73,7 @@ public class MovieEditor extends javax.swing.JFrame {
         });
 
         SinAndCos.setBackground(new java.awt.Color(102, 102, 102));
-        SinAndCos.setText("Sin/Cos");
+        SinAndCos.setText("trajectory of motion sin/cos");
         SinAndCos.setToolTipText("");
         SinAndCos.setActionCommand("");
         SinAndCos.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +108,15 @@ public class MovieEditor extends javax.swing.JFrame {
             }
         });
 
+        Cropping.setBackground(new java.awt.Color(102, 102, 102));
+        Cropping.setText("Cropping");
+        Cropping.setToolTipText("");
+        Cropping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CroppingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,12 +131,13 @@ public class MovieEditor extends javax.swing.JFrame {
                         .addComponent(TickerTape, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Droppedball, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sunset, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
-                        .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE))
+                        .addComponent(SinAndCos, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                        .addComponent(Cropping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap()))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 211, Short.MAX_VALUE)
+            .addGap(0, 272, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -139,6 +152,8 @@ public class MovieEditor extends javax.swing.JFrame {
                     .addComponent(Background)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(EdgeDetection)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Cropping)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -152,16 +167,16 @@ public class MovieEditor extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(118, 118, 118)
                 .addComponent(jLabel1)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,7 +316,6 @@ public class MovieEditor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
         }
        
-       
     }//GEN-LAST:event_SinAndCosActionPerformed
 
     private void BackgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackgroundActionPerformed
@@ -376,13 +390,42 @@ public class MovieEditor extends javax.swing.JFrame {
                
                 frameSequencer.addFrame(copyPict);
             }
-
             
             frameSequencer.play(framesPerSec);
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_EdgeDetectionActionPerformed
+
+    private void CroppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CroppingActionPerformed
+        // TODO add your handling code here:
+                 try{  
+         int duration = Integer.parseInt(JOptionPane.showInputDialog("please enter movie duration in seconds"));
+         // load the picture 
+         //String fName = "C:\\Users\\Mjed\\Desktop\\kid.jpg";
+         String fName = FileChooser.pickAFile();
+        Picture pic = new Picture(fName);
+
+        // declare other variables
+        Picture target = null;   // targeted piece of pic
+        FrameSequencer frameSequencer
+                = new FrameSequencer("Movie");
+        int framesPerSec = 30;
+
+        // loop creating the frames
+        for (int i = 0; i < framesPerSec * duration; i++) {
+            target = new Picture(640, 480);
+            target.copy(pic, 250, 170, 390, 300, i * 10, i * 5);
+            frameSequencer.addFrame(target);
+        }
+
+        // play the movie
+        frameSequencer.play(framesPerSec);
+            
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Time must be an integer", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_CroppingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,6 +464,7 @@ public class MovieEditor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Background;
+    private javax.swing.JButton Cropping;
     private javax.swing.JButton Droppedball;
     private javax.swing.JButton EdgeDetection;
     private javax.swing.JButton SinAndCos;
