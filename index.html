@@ -2184,73 +2184,97 @@
         <div class="collapse" id="video">
             <div class="col" style="padding-left: 0px;padding-right: 0px;">
                 <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                    <div><a class="btn btn-outline-danger disabled" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-0" href="#collapse-video-0" role="button" style="width: 100%;">Part 36&amp;37 (Rectangle Movie moving) &lt;missing&gt;</a>
-                        <div
-                            class="collapse" id="collapse-video-0" style="height: 100vh;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-0" href="#collapse-video-0" role="button" style="width: 100%;">Part 36&amp;37 (Rectangle Movie moving)</a>
+                        <div class="collapse" id="collapse-video-0"
+                            style="height: 100vh;">
                             <div class="col">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="text-center" style="font-size: 34px;">Change volume</p>
+                                        <p class="text-center" style="font-size: 34px;">Moving recrangle</p>
                                     </div>
                                 </div>
                                 <div class="row text-center">
-                                    <div class="col"><img src="assets/img/soundGUI.JPG"></div>
+                                    <div class="col"><img src="assets/img/380_36_37.gif"></div>
                                 </div>
                                 <div class="row" style="margin-top: 15px;">
                                     <div class="col d-table-row">
-                                        <p>this method is simple, we use a slider to control the volume, the value of the slider will be divided with 50 then it will be passed through the changeVolume method which is there in the sound class[5].<br><br>The
-                                            method that we used:</p>
+                                        <p>null<br>The method that we used:</p>
                                     </div>
-                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">volumeSliderMouseReleased</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">MouseEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_volumeSliderMouseReleased</span>
-        <span style="color: #60a0b0; font-style: italic">// TODO add your handling code here:</span>
-
-        currentSound<span style="color: #666666">.</span><span style="color: #4070a0">changeVolume</span><span style="color: #666666">(</span>volumeSlider<span style="color: #666666">.</span><span style="color: #4070a0">getValue</span><span style="color: #666666">()</span> <span style="color: #666666">/</span> <span style="color: #40a070">50</span><span style="color: #666666">);</span>
-        currentSound<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">();</span>
-
-    <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_volumeSliderMouseReleased</span>
-
-    <span style="color: #60a0b0; font-style: italic">/**</span>
-<span style="color: #60a0b0; font-style: italic">     * Method to modify the volume by the passed factor in the passed range</span>
-<span style="color: #60a0b0; font-style: italic">     *</span>
-<span style="color: #60a0b0; font-style: italic">     * @param factor the amount to multiply the value by</span>
-<span style="color: #60a0b0; font-style: italic">     * @param start the index to use as the start (inclusive)</span>
-<span style="color: #60a0b0; font-style: italic">     * @param end the index to end at (exclusive)</span>
-<span style="color: #60a0b0; font-style: italic">     */</span>
-    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">changeVolume</span><span style="color: #666666">(</span><span style="color: #902000">double</span> factor<span style="color: #666666">,</span>
-            <span style="color: #902000">int</span> start<span style="color: #666666">,</span>
-            <span style="color: #902000">int</span> end<span style="color: #666666">)</span> <span style="color: #666666">{</span>
-        <span style="color: #902000">int</span> value <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
-        <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> start<span style="color: #666666">;</span>
-                i <span style="color: #666666">&lt;</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getLength</span><span style="color: #666666">()</span> <span style="color: #666666">&amp;&amp;</span> i <span style="color: #666666">&lt;</span> end<span style="color: #666666">;</span>
-                i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
-            value <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">getSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
-            <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">setSampleValueAt</span><span style="color: #666666">(</span>i<span style="color: #666666">,</span> <span style="color: #666666">(</span><span style="color: #902000">int</span><span style="color: #666666">)</span> <span style="color: #666666">(</span>value <span style="color: #666666">*</span> factor<span style="color: #666666">));</span>
-        <span style="color: #666666">}</span>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">TopLeftToBottomRightActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                     
+        <span style="color: #60a0b0; font-style: italic">//take the time form the user </span>
+        <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration in seconds&quot;</span><span style="color: #666666">));</span>
+        
+        <span style="color: #902000">int</span> FPS <span style="color: #666666">=</span> <span style="color: #40a070">30</span><span style="color: #666666">;</span>
+        Picture p <span style="color: #666666">;</span>
+        Graphics g <span style="color: #666666">;</span>
+        
+    FrameSequencer frameSequencer <span style="color: #666666">=</span>  <span style="color: #007020; font-weight: bold">new</span> FrameSequencer<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Movie&quot;</span><span style="color: #666666">);</span>
+    
+    <span style="color: #60a0b0; font-style: italic">//for each 1 SEC 30 FPS</span>
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> FPS<span style="color: #666666">*</span>time<span style="color: #666666">;</span> i<span style="color: #666666">++){</span>
+        
+      p <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span><span style="color: #40a070">640</span><span style="color: #666666">,</span><span style="color: #40a070">480</span><span style="color: #666666">);</span>
+      g <span style="color: #666666">=</span> p<span style="color: #666666">.</span><span style="color: #4070a0">getGraphics</span><span style="color: #666666">();</span>
+      g<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">BLACK</span><span style="color: #666666">);</span>
+      g<span style="color: #666666">.</span><span style="color: #4070a0">fillRect</span><span style="color: #666666">(</span>i <span style="color: #666666">*</span> <span style="color: #40a070">10</span><span style="color: #666666">,</span> i <span style="color: #666666">*</span> <span style="color: #40a070">7</span><span style="color: #666666">,</span> <span style="color: #40a070">70</span><span style="color: #666666">,</span><span style="color: #40a070">70</span><span style="color: #666666">);</span>
+      
+      
+      frameSequencer<span style="color: #666666">.</span><span style="color: #4070a0">addFrame</span><span style="color: #666666">(</span>p<span style="color: #666666">);</span>
     <span style="color: #666666">}</span>
+    
+    frameSequencer<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">(</span>FPS<span style="color: #666666">);</span>
+  
+
+    <span style="color: #666666">}</span>                                                    
+    
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">TopRightToBottomLeftActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                                     
+        <span style="color: #60a0b0; font-style: italic">//take the time form the user </span>
+        <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration in seconds&quot;</span><span style="color: #666666">));</span>
+
+        <span style="color: #902000">int</span> FPS <span style="color: #666666">=</span> <span style="color: #40a070">30</span><span style="color: #666666">;</span>
+        Picture p <span style="color: #666666">;</span>
+        Graphics g <span style="color: #666666">;</span>
+        
+    FrameSequencer frameSequencer <span style="color: #666666">=</span>  <span style="color: #007020; font-weight: bold">new</span> FrameSequencer<span style="color: #666666">(</span><span style="color: #4070a0">&quot;Movie&quot;</span><span style="color: #666666">);</span>
+    
+    <span style="color: #60a0b0; font-style: italic">//for each 1 SEC 30 FPS</span>
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> FPS<span style="color: #666666">*</span>time<span style="color: #666666">;</span> i<span style="color: #666666">++){</span>
+      p <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span><span style="color: #40a070">640</span><span style="color: #666666">,</span><span style="color: #40a070">480</span><span style="color: #666666">);</span>
+      g <span style="color: #666666">=</span> p<span style="color: #666666">.</span><span style="color: #4070a0">getGraphics</span><span style="color: #666666">();</span>
+      g<span style="color: #666666">.</span><span style="color: #4070a0">setColor</span><span style="color: #666666">(</span>Color<span style="color: #666666">.</span><span style="color: #4070a0">BLACK</span><span style="color: #666666">);</span>
+      g<span style="color: #666666">.</span><span style="color: #4070a0">fillRect</span><span style="color: #666666">(</span>Math<span style="color: #666666">.</span><span style="color: #4070a0">abs</span><span style="color: #666666">((</span>i <span style="color: #666666">*</span> <span style="color: #40a070">10</span><span style="color: #666666">)</span> <span style="color: #666666">-</span> <span style="color: #40a070">570</span><span style="color: #666666">),</span> i <span style="color: #666666">*</span> <span style="color: #40a070">7</span><span style="color: #666666">,</span> <span style="color: #40a070">70</span><span style="color: #666666">,</span><span style="color: #40a070">70</span><span style="color: #666666">);</span>
+        
+      
+      frameSequencer<span style="color: #666666">.</span><span style="color: #4070a0">addFrame</span><span style="color: #666666">(</span>p<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+    
+    frameSequencer<span style="color: #666666">.</span><span style="color: #4070a0">play</span><span style="color: #666666">(</span>FPS<span style="color: #666666">);</span>
+  
+    <span style="color: #666666">}</span>    
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-1" href="#collapse-video-1" role="button" style="width: 100%;">Part 38 (Rectangle Movie trajectory)</a>
-                    <div class="collapse" id="collapse-video-1"
-                        style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">show trajectory</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-1" href="#collapse-video-1" role="button" style="width: 100%;">Part 38 (Rectangle Movie trajectory)</a>
+                        <div class="collapse" id="collapse-video-1"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">show trajectory</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_38.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>at the beginning of this method, the user must enter the duration value, according to this value a movie of frames will be made that shows an orange rectangle moving down with a circler way using some mathematical modules
-                                        such as Sin/Cos.<br><br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_38.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">SinAndCosActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>at the beginning of this method, the user must enter the duration value, according to this value a movie of frames will be made that shows an orange rectangle moving down with a circler way using some mathematical
+                                            modules such as Sin/Cos.<br><br>The method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">SinAndCosActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                          
        <span style="color: #007020; font-weight: bold">try</span><span style="color: #666666">{</span>
            <span style="color: #902000">int</span> duration <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration in seconds&quot;</span><span style="color: #666666">));</span>
          
@@ -2286,28 +2310,28 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-2" href="#collapse-video-2" role="button" style="width: 100%;">Part 39 (Rectangle Movie trajectory)</a>
-                    <div class="collapse" id="collapse-video-2"
-                        style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Showing trajectory of dropped ball</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-2" href="#collapse-video-2" role="button" style="width: 100%;">Part 39 (Rectangle Movie trajectory)</a>
+                        <div class="collapse" id="collapse-video-2"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Showing trajectory of dropped ball</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_39.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>This method shows a drawn ball using a movie of frames and the ball is dropping then bouncing WITHOUT reaching the same high until it starts rolling on the floor, this method also need the user to enter the duration
-                                        of the movie.<br><br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_39.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">DroppedballActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                            
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>This method shows a drawn ball using a movie of frames and the ball is dropping then bouncing WITHOUT reaching the same high until it starts rolling on the floor, this method also need the user to enter the duration
+                                            of the movie.<br><br>The method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">DroppedballActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                            
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration in seconds&quot;</span><span style="color: #666666">));</span>
             <span style="color: #902000">int</span> framesPerSec <span style="color: #666666">=</span> <span style="color: #40a070">30</span><span style="color: #666666">;</span>
@@ -2341,27 +2365,28 @@
     <span style="color: #666666">}</span>  
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-3" href="#collapse-video-3" role="button" style="width: 100%;">Part 40 (Ticker Tape Movie)</a>
-                    <div class="collapse" id="collapse-video-3"
-                        style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Ticker tape movie</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-3" href="#collapse-video-3" role="button" style="width: 100%;">Part 40 (Ticker Tape Movie)</a>
+                        <div class="collapse" id="collapse-video-3"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Ticker tape movie</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_40.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>This method requires the user to enter the duration and a message, the message will be shown as a movie of frames that move to right and left the screen, and it depends on the duration.<br><br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_40.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">TickerTapeActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_TickerTapeActionPerformed</span>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>This method requires the user to enter the duration and a message, the message will be shown as a movie of frames that move to right and left the screen, and it depends on the duration.<br><br>The method that we
+                                            used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">TickerTapeActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_TickerTapeActionPerformed</span>
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration&quot;</span><span style="color: #666666">));</span>
             String message <span style="color: #666666">=</span> JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter your message&quot;</span><span style="color: #666666">);</span>
@@ -2404,26 +2429,27 @@
     <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_TickerTapeActionPerformed</span>
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-7" href="#collapse-video-7" role="button" style="width: 100%;">Part 41 (Cropping)</a>
-                    <div class="collapse" id="collapse-video-7" style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Cropping movie</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-7" href="#collapse-video-7" role="button" style="width: 100%;">Part 41 (Cropping)</a>
+                        <div class="collapse" id="collapse-video-7"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Cropping movie</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_41.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>This method will play a movie that shows a cropping piece of a selected picture moving around, and the user must enter the duration.<br><br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_41.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">CroppingActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_CroppingActionPerformed</span>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>This method will play a movie that shows a cropping piece of a selected picture moving around, and the user must enter the duration.<br><br>The method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">CroppingActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span><span style="color: #60a0b0; font-style: italic">//GEN-FIRST:event_CroppingActionPerformed</span>
          <span style="color: #007020; font-weight: bold">try</span><span style="color: #666666">{</span>  
          <span style="color: #902000">int</span> duration <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration in seconds&quot;</span><span style="color: #666666">));</span>
          <span style="color: #60a0b0; font-style: italic">// load the picture </span>
@@ -2453,26 +2479,26 @@
     <span style="color: #666666">}</span><span style="color: #60a0b0; font-style: italic">//GEN-LAST:event_CroppingActionPerformed</span>
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-4" href="#collapse-video-4" role="button" style="width: 100%;">Part 42 (Sunset)</a>
-                    <div class="collapse" id="collapse-video-4" style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Create a sunset movie</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-4" href="#collapse-video-4" role="button" style="width: 100%;">Part 42 (Sunset)</a>
+                        <div class="collapse" id="collapse-video-4" style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Create a sunset movie</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_42.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>this method is about making a beach picture looks like a sunset movie we used the method that was there in the MovieMaker class[6]<br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_42.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">makeSunsetMovie</span><span style="color: #666666">(</span>String directory<span style="color: #666666">,</span> <span style="color: #902000">double</span> value<span style="color: #666666">,</span> <span style="color: #902000">int</span> time<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>this method is about making a beach picture looks like a sunset movie we used the method that was there in the MovieMaker class[6]<br>The method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">makeSunsetMovie</span><span style="color: #666666">(</span>String directory<span style="color: #666666">,</span> <span style="color: #902000">double</span> value<span style="color: #666666">,</span> <span style="color: #902000">int</span> time<span style="color: #666666">)</span> <span style="color: #666666">{</span>
         <span style="color: #60a0b0; font-style: italic">// load the picture of the beach</span>
         String fName <span style="color: #666666">=</span> FileChooser<span style="color: #666666">.</span><span style="color: #4070a0">pickAFile</span><span style="color: #666666">();</span>
         Picture beachP <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Picture<span style="color: #666666">(</span>fName<span style="color: #666666">);</span>
@@ -2495,28 +2521,28 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-5" href="#collapse-video-5" role="button" style="width: 100%;">Part 43 (Background subtraction)</a>
-                    <div class="collapse" id="collapse-video-5"
-                        style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Background subtraction from movie</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-5" href="#collapse-video-5" role="button" style="width: 100%;">Part 43 (Background subtraction)</a>
+                        <div class="collapse" id="collapse-video-5"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Background subtraction from movie</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_43.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>First should choose 3 picture 1- foregrounds pic 2- old back ground 3- new back ground, then will make object for frame per second after that make loop to swap between old with new back ground.<br><br>The method that
-                                        we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_43.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">BackgroundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                           
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>First should choose 3 picture 1- foregrounds pic 2- old back ground 3- new back ground, then will make object for frame per second after that make loop to swap between old with new back ground.<br><br>The method
+                                            that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">BackgroundActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                           
             <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration&quot;</span><span style="color: #666666">));</span>
             <span style="color: #60a0b0; font-style: italic">// load the pictures</span>
@@ -2552,28 +2578,28 @@
     <span style="color: #666666">}</span> 
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
-                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-6" href="#collapse-video-6" role="button" style="width: 100%;">Part 44 (Edge detection)</a>
-                    <div class="collapse" id="collapse-video-6"
-                        style="height: 100vh;">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="text-center" style="font-size: 34px;">Edge detection</p>
+                <div class="container" style="margin-top: 1%;margin-bottom: 1%;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-video-6" href="#collapse-video-6" role="button" style="width: 100%;">Part 44 (Edge detection)</a>
+                        <div class="collapse" id="collapse-video-6"
+                            style="height: 100vh;">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="text-center" style="font-size: 34px;">Edge detection</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col"><img src="assets/img/380_44.gif"></div>
-                            </div>
-                            <div class="row" style="margin-top: 15px;">
-                                <div class="col d-table-row">
-                                    <p>First you should choose the picture then initialize object for frame per second then make loop and copy picture and store it in object then we make to loops to go through pixels and store top and bottom pixels after
-                                        that will get color average for it , then make if statements to use formula for this method.<br><br>The method that we used:</p>
+                                <div class="row text-center">
+                                    <div class="col"><img src="assets/img/380_44.gif"></div>
                                 </div>
-                            </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">EdgeDetectionActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                              
+                                <div class="row" style="margin-top: 15px;">
+                                    <div class="col d-table-row">
+                                        <p>First you should choose the picture then initialize object for frame per second then make loop and copy picture and store it in object then we make to loops to go through pixels and store top and bottom pixels after
+                                            that will get color average for it , then make if statements to use formula for this method.<br><br>The method that we used:</p>
+                                    </div>
+                                </div><!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">void</span> <span style="color: #06287e">EdgeDetectionActionPerformed</span><span style="color: #666666">(</span>java<span style="color: #666666">.</span><span style="color: #4070a0">awt</span><span style="color: #666666">.</span><span style="color: #4070a0">event</span><span style="color: #666666">.</span><span style="color: #4070a0">ActionEvent</span> evt<span style="color: #666666">)</span> <span style="color: #666666">{</span>                                              
           
         <span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
             <span style="color: #902000">int</span> time <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #4070a0">parseInt</span><span style="color: #666666">(</span>JOptionPane<span style="color: #666666">.</span><span style="color: #4070a0">showInputDialog</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;please enter movie duration&quot;</span><span style="color: #666666">));</span>
@@ -2618,11 +2644,11 @@
     <span style="color: #666666">}</span>
 </pre></div>
 </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <div><a class="btn btn-outline-dark" href="https://drive.google.com/file/d/1Tvn11JxT0xoVFDYhj3TiiilrSwhcUXk5/view?usp=sharing" role="button" style="width: 90%;margin-left: 5%;margin-right: 5%;margin-top: 2%;">Download the full project</a></div>
     </div>
