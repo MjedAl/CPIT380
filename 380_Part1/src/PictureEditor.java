@@ -1173,12 +1173,12 @@ public class PictureEditor extends javax.swing.JFrame {
 
                     if (pic.getBasicPixel(i, j) == pic2.getBasicPixel(i, j)) {
 
-                        JOptionPane.showMessageDialog(null, "The is compare");
+                        JOptionPane.showMessageDialog(null, "There is compare");
                         return;
                     }
                 }
             }
-            JOptionPane.showMessageDialog(null, "The is no compare");
+            JOptionPane.showMessageDialog(null, "There is no compare");
         } // if there not equal in Width and Height
         else {
             JOptionPane.showMessageDialog(null, "The pictures are not the same in the height and width");
